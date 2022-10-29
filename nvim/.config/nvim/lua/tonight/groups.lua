@@ -3,48 +3,121 @@ local util = require('tonight.util')
 
 local groups = {
     -- Treesitter slowly attempting to replace all the things
-    TSBoolean = { fg = c.orange },
-    TSCharacter = { fg = c.green },
-    TSComment = { fg = c.gray },
-    TSConstant = { fg = c.orange },
-    TSConstructor = { fg = c.gray },
-    TSConditional = { fg = c.magenta },
-    TSField = { fg = c.red },
-    TSFunction = { fg = c.blue },
-    TSFuncBuiltin = { link = "TSFunction" },
-    TSFunctionCall = { link = "TSFunction" },
-    TSInclude = { fg = c.magenta },
-    TSKeyword = { fg = c.magenta },
-    TSKeywordFunction = { link = "TSKeyword" },
-    TSMethod = { fg = c.blue },
-    TSNumber = { fg = c.orange },
-    TSOperator = { fg = c.magenta },
-    TSParameter = { fg = c.white },
-    TSProperty = { fg = c.white },
-    TSPunctBracket = { fg = c.white },
-    TSPunctSpecial = { fg = c.red },
-    TSPunctDelimiter = { link = "TSPunctSpecial" },
-    TSRepeat = { fg = c.magenta },
-    TSString = { fg = c.green },
-    TSStringEscape = { link = "TSPunctSpecial" },
-    TSStringRegex = { link = "TSPunctSpecial" },
-    TSText = { fg = c.white },
-    TSTitle = { fg = c.white, bold = true },
-    TSType = { fg = c.yellow },
+    ['@variable'] = {
+        fg = c.white
+    },
+    ['@parameter'] = {
+        fg = c.white
+    },
+    ['@variable.builtin'] = {
+        fg = c.white
+    },
+    ['@field'] = {
+        fg = c.red
+    },
+    ['@text.bracket'] = {
+        fg = c.white
+    },
+    ['@punctuation.bracket'] = {
+        fg = c.gray
+    },
+    ['@constructor'] = {
+        fg = c.gray
+    },
+    ['@operator'] = {
+        fg = c.white
+    },
+    ['@keyword'] = {
+        fg = c.magenta
+    },
+    ['@repeat'] = {
+        fg = c.magenta
+    },
+    ['@conditional'] = {
+        fg = c.magenta
+    },
+    ['@include'] = {
+        fg = c.magenta
+    },
+    ['@preproc'] = {
+        fg = c.gray
+    },
+    ['@string'] = {
+        fg = c.green
+    },
+    ['@function'] = {
+        fg = c.blue
+    },
+    ['@method.call'] = {
+        fg = c.blue
+    },
+    ['@function.builtin'] = {
+        fg = c.blue
+    },
+    ['@boolean'] = {
+        fg = c.orange
+    },
+    ['@comment'] = {
+        fg = c.gray
+    },
+    ['@text.title'] = {
+        fg = c.white,
+        bold = true,
+    },
+    ['@type'] = {
+        fg = c.yellow
+    },
+    ['@structure'] = {
+        link = "@type"
+    },
+    ['@storageclass'] = {
+        link = "@type"
+    },
+    ['@constant'] = {
+        fg = c.orange
+    },
+    ['@number'] = {
+        fg = c.orange
+    },
+
+    -- TSCharacter = { fg = c.green },
+    -- TSConstant = { fg = c.orange },
+    -- TSConditional = { fg = c.magenta },
+    -- TSFunction = { fg = c.blue },
+    -- TSFuncBuiltin = { link = "TSFunction" },
+    -- TSFunctionCall = { link = "TSFunction" },
+    -- TSInclude = { fg = c.magenta },
+    -- TSKeyword = { fg = c.magenta },
+    -- TSKeywordFunction = { link = "TSKeyword" },
+    -- TSMethod = { fg = c.blue },
+    -- TSNumber = { fg = c.orange },
+    -- TSParameter = { fg = c.white },
+    -- TSProperty = { fg = c.white },
+    -- TSPunctSpecial = { fg = c.red },
+    -- TSPunctDelimiter = { link = "TSPunctSpecial" },
+    -- TSRepeat = { fg = c.magenta },
+    -- TSString = { fg = c.green },
+    -- TSStringEscape = { link = "TSPunctSpecial" },
+    -- TSStringRegex = { link = "TSPunctSpecial" },
+    -- TSText = { fg = c.white },
+    -- TSTitle = { fg = c.white, bold = true },
+    -- TSType = { fg = c.yellow },
     -- TSURI = {
     --     fg = c.blue,
     --     underline = true,
     -- },
-    TSVariable = { fg = c.white },
-    TSVariableBuiltin = { link = "TSVariable" },
-    TSNamespace = { fg = c.blue },
-    TSTodo = {
-        fg = c.background,
-        bg = c.magenta,
+    -- TSVariableBuiltin = { link = "@variable" },
+    -- TSNamespace = { fg = c.blue },
+    -- TSTodo = {
+    --     fg = c.background,
+    --     bg = c.magenta,
+    -- },
+
+    StatusLine = {
+        bg = c.background_n1
     },
 
     -- ColorColumn = { bg = c.gray },
-    Comment = { link = "TSComment" },
     Constant = { link = "TSConstant" },
     Cursor = { bg = c.white },
     CursorLine = { bg = c.background_02 },
@@ -54,7 +127,6 @@ local groups = {
         fg = "#000000",
         bg = c.red,
         bold = true,
-        underline = true,
     },
     ErrorMsg = { link = "Error" },
     FoldColumn = { fg = c.background_02 },
@@ -66,25 +138,17 @@ local groups = {
     VisualNOS = { link = "Visual" },
     WarningMsg = { link = "ErrorMsg" },
     Whitespace = { link = "TSComment" },
-    -- NormalFloat = { bg = c.background_02 },
     Pmenu = { bg = c.background_03 },
     -- nvim-cmp selection highlight group
     PmenuSel = {
         bg = c.background_04,
         fg = c.white,
     },
-    -- Identifier = { fg = c.magenta },
-    -- Delimiter = { fg = c.gray },
     Directory = { fg = c.blue },
-    -- IncSearch = { bg = c.yellow, fg = c.background },
-    -- Macro = { fg = c.magenta },
     MatchParen = {
         fg = c.yellow,
         underline = true,
     },
-    -- ModeMsg = { fg = c.white },
-    -- MoreMsg = { fg = c.blue },
-    -- NonText = { fg = c.white },
     Normal = {
         fg = c.white,
         bg = c.background
@@ -94,23 +158,12 @@ local groups = {
         bg = c.background_02,
     },
     NormalNC = { fg = c.white },
-    -- PreProc = { fg = c.blue },
-    -- Question = { fg = c.blue },
-    -- QuickFixLine = { bg = c.highlight },
-    -- Repeat = { fg = c.magenta },
-    -- Search = { bg = c.yellow, fg = c.background },
     Special = { link = "TSPunctSpecial" },
     SpecialChar = { link = "TSPunctSpecial" },
-    -- Statement = { fg = c.magenta },
-    -- Structure = { fg = c.magenta },
-    -- Substitute = { bg = c.red, fg = c.background },
     Text = { link = "TSText" },
     Title = { link = "TSTitle" },
     Todo = { link = "TSTodo" },
     Type = { link = "TSType" },
-    -- WinBarNC = {
-    --     fg = c.gray
-    -- },
 
     -- LSP
     DiagnosticError = { fg = c.lsp_error },
@@ -170,25 +223,26 @@ local groups = {
     CmpItemAbbrMatch = { fg = c.blue },
     CmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" },
 
-    CmpItemKindVariable = { link = "TSVariable" },
+    CmpItemKindVariable = { link = "@variable" },
     CmpItemKindInterface = { link = "CmpItemKindVariable" }, -- idk what an interface is
     CmpItemKindText = { link = "CmpItemKindVariable" },
 
     CmpItemKindFunction = { link = "TSFunction" },
     CmpItemKindMethod = { link = "CmpItemKindFunction" },
 
-    CmpItemKindKeyword = { link = "TSKeyword" },
-    CmpItemKindProperty = { link = "CmpItemKindKeyword" },
-    CmpItemKindUnit = { link = "CmpItemKindKeyword" },
-
     CmpItemKindField = { link = "TSField" },
     CmpItemKindConstructor = { link = "TSConstructor" },
     CmpItemKindConstant = { link = "TSConstant" },
-    CmpItemKindOperator = { link = "TSOperator" },
+
+    -- Statement
+    CmpItemKindOperator = { link = "@operator" },
+    CmpItemKindKeyword = { link = "@keyword" },
+    CmpItemKindProperty = { link = "CmpItemKindKeyword" },
+    CmpItemKindUnit = { link = "CmpItemKindKeyword" },
 
     -- Missing kinds:
     CmpItemKindClass = { fg = c.yellow },
-    CmpItemKindValue = { link = "TSVariable" },
+    CmpItemKindValue = { link = "@variable" },
     CmpItemKindModule = { link = "CmpItemKindClass" },
     CmpItemKindEnum = { link = "CmpItemKindClass" },
     CmpItemKindEnumMember = { link = "CmpItemKindEnum" },
@@ -232,7 +286,7 @@ local groups = {
     markdownCode = { fg = c.white },
 
     bashTSParameter = { fg = c.white },
-    bashTSVariable = { link = "TSVariable" },
+    bashTSVariable = { link = "@variable" },
 
     -- Help
     -- helpHyperTextEntry = { link = "TSURI" },
