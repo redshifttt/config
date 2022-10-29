@@ -2,6 +2,8 @@
 
 Managed by [GNU Stow](https://www.gnu.org/software/stow/).
 
+Make sure this directory is cloned into `$HOME` before using stow.
+
 ## Install config
 
 ```
