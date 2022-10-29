@@ -1,5 +1,6 @@
 PS1="%B%F{blue}%c%f%b %# "
 
+# man zshoptions
 setopt autocd
 setopt always_to_end
 setopt auto_list
