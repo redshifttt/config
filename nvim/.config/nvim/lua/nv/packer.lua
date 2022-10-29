@@ -1,100 +1,108 @@
 local packer = require("packer")
+local util = require("packer.util")
 
-return packer.startup(function(use)
-    use {
-        'wbthomason/packer.nvim',
-    }
+local use = packer.use
+local init = packer.init
 
-    use 'lewis6991/impatient.nvim'
+init {
+    package_root = util.join_paths(vim.fn.stdpath('config'), 'pack')
+}
 
-    use {
-        'neovim/nvim-lspconfig',
-        config = function()
-            require("nv.plugins.lsp.config")
-        end,
-    }
+packer.reset()
 
-    use {
-        'hrsh7th/nvim-cmp',
-        requires = {
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-nvim-lua',
-            'hrsh7th/cmp-path',
-            'lukas-reineke/cmp-rg',
-            {
-                'L3MON4D3/LuaSnip',
-                config = function()
-                    require("luasnip.loaders.from_vscode").lazy_load()
-                end
-            },
-            'saadparwaiz1/cmp_luasnip',
+use {
+    'wbthomason/packer.nvim',
+}
+
+use 'lewis6991/impatient.nvim'
+
+use {
+    'neovim/nvim-lspconfig',
+    config = function()
+        require("nv.plugins.lsp.config")
+    end,
+}
+
+use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-nvim-lua',
+        'hrsh7th/cmp-path',
+        'lukas-reineke/cmp-rg',
+        {
+            'L3MON4D3/LuaSnip',
+            config = function()
+                require("luasnip.loaders.from_vscode").lazy_load()
+            end
         },
-    }
+        'saadparwaiz1/cmp_luasnip',
+    },
+}
 
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = { 'nvim-lua/plenary.nvim' },
-        config = function()
-            require("nv.plugins.telescope")
-        end,
-    }
+use {
+    'nvim-telescope/telescope.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+        require("nv.plugins.telescope")
+    end,
+}
 
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate',
-        requires = { 'nvim-treesitter/playground' },
-        config = function()
-            require("nv.plugins.treesitter")
-        end,
-    }
+use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    requires = { 'nvim-treesitter/playground' },
+    config = function()
+        require("nv.plugins.treesitter")
+    end,
+}
 
-    use {
-        "ellisonleao/glow.nvim",
-        branch = 'main', -- cucked
-        ft = "markdown",
-    }
+use {
+    "ellisonleao/glow.nvim",
+    branch = 'main', -- cucked
+    ft = "markdown",
+}
 
-    use {
-        'numToStr/Comment.nvim',
-        config = function()
-            require("nv.plugins.comment")
-        end,
-    }
+use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require("nv.plugins.comment")
+    end,
+}
 
-    use 'dstein64/vim-startuptime'
+use 'dstein64/vim-startuptime'
 
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = {
-            {
-                'kyazdani42/nvim-web-devicons',
-                opt = true
-            },
-            'arkav/lualine-lsp-progress'
+use {
+    'nvim-lualine/lualine.nvim',
+    requires = {
+        {
+            'kyazdani42/nvim-web-devicons',
+            opt = true
         },
-        config = function()
-            require("nv.plugins.lualine")
-        end,
-    }
+        'arkav/lualine-lsp-progress'
+    },
+    config = function()
+        require("nv.plugins.lualine")
+    end,
+}
 
-    use {
-        'lukas-reineke/indent-blankline.nvim',
-        config = function()
-            require("nv.plugins.indent-blankline")
-        end,
-    }
+use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+        require("nv.plugins.indent-blankline")
+    end,
+}
 
-    use {
-        'AndrewRadev/splitjoin.vim',
-    }
+use {
+    'AndrewRadev/splitjoin.vim',
+}
 
-    use {
-        "windwp/nvim-autopairs",
-        config = function()
-            require("nv.plugins.autopairs")
-        end,
-    }
+use {
+    "windwp/nvim-autopairs",
+    config = function()
+        require("nv.plugins.autopairs")
+    end,
+}
 
-    use {'rcarriga/nvim-notify'}
-end)
+use {'rcarriga/nvim-notify'}
