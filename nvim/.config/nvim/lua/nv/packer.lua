@@ -5,6 +5,10 @@ return packer.startup(function(use)
         'wbthomason/packer.nvim',
     }
 
+    if bootstrapped then
+        require('packer').sync()
+    end
+
     use 'lewis6991/impatient.nvim'
 
     use {
@@ -97,6 +101,4 @@ return packer.startup(function(use)
     }
 
     use {'rcarriga/nvim-notify'}
-
-    use {'folke/twilight.nvim'}
 end)
