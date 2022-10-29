@@ -80,6 +80,8 @@ local groups = {
         fg = c.orange
     },
 
+    Comment = { link = "@comment" },
+
     -- TSCharacter = { fg = c.green },
     -- TSConstant = { fg = c.orange },
     -- TSConditional = { fg = c.magenta },
