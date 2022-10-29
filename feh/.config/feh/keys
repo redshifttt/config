@@ -1,0 +1,6 @@
+# image viewing
+next_img n
+prev_img p
+
+# File deletion
+delete   d

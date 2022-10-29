@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# vim: ft=sh
+
+# ====================
+# num's aliases
+# ====================
+
+# misc
+alias grep="grep --color=auto"
+alias lsblk="lsblk -o "NAME,FSTYPE,FSAVAIL,FSUSE%,SIZE,TYPE,MOUNTPOINT" -p"
+alias ls="lsd -lhF --group-dirs first --date relative --icon never"
+alias cat="bat --pager=never"
+alias mkdir="mkdir -pv"
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -Iv"
+alias soda="ssh -p 52222 num@soda.privatevoid.net"
+alias br="${BROWSER}"
+alias dragon="dragon-drag-and-drop"
+
+# sys util
+alias {pacman,p}="sudo pacman"
+alias {reboot,restart}="sudo loginctl reboot"
+alias suspend="sudo loginctl suspend"
+alias reb="time source ~/.bashrc && time source ~/.bash_profile"
+alias ncdu="ncdu --color off"
+
+# yt-dlp commands
+alias ytdl="yt-dlp"
+alias ytba="yt-dlp -f bestaudio"
+alias ytmp3="yt-dlp -x --extract-audio --audio-format mp3"
+
+fcd(){
+    local selection
+    selection=$(fd . $HOME -H -j12 -E "/home/sean/.cache" -I | fzf +m --prompt="cd: ")
+    [[ ! -d "$selection" ]] && cd "$(dirname $selection 2>/dev/null)" || cd "$selection"
+}
+
+fkill(){ kill $(ps -eo pid,user,command | fzf | awk '{print $1}') ;}
+unix(){ date -d @"$1" +'%a, %e %B %Y, %T %Z %z'; }

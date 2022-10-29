@@ -1,0 +1,10 @@
+#!/bin/sh
+
+list_of_available_parts=$(lsblk -lpn -o NAME,FSTYPE,SIZE,TYPE,MOUNTPOINT | sed "/disk/d" | grep "\s$" | awk '{print $1, "[" $2 "]", "(" $3 ")"}')
+
+mountpoints=$(fd . /mnt -t d)
+
+target_part=$(echo "$list_of_available_parts" | fzf | awk '{ print $1 }')
+target_mountpoint=$(echo "$mountpoints" | fzf | awk '{ print $1 }')
+
+sudo mount "$target_part" "$target_mountpoint"

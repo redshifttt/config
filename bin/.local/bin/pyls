@@ -1,0 +1,49 @@
+#!/usr/bin/python
+
+import os
+import datetime as dt
+import json
+
+cwd = os.getcwd()
+
+date_format = "%a, %d %b %Y %T"
+
+direntries = []
+directory_info = {"files": []}
+
+with os.scandir(cwd) as dir:
+    for entry in dir:
+        direntries.append(entry)
+
+for entry in direntries:
+    name = entry.name
+    if entry.is_symlink():
+        continue
+    stat = os.stat(name)
+
+    uid = stat.st_uid
+    gid = stat.st_gid
+
+    directory_info["files"].append({
+        "file_name": entry.name,
+        "file_stats": {
+           "owner_user": uid,
+           "owner_group": gid,
+           "directory": entry.is_dir(),
+        }
+    })
+print(json.dumps(directory_info))
+
+# for entry in direntries:
+#     name = entry.name
+#
+#     if not entry.is_symlink():
+#         statinfo = os.stat(entry.path)
+#         modified_time = dt.datetime.fromtimestamp(statinfo.st_mtime).strftime(date_format)
+#         owner_user = statinfo.st_uid
+#         owner_group = statinfo.st_gid
+#
+#     if entry.is_dir():
+#         name += "/"
+#
+# print(f"{owner_user}:{owner_group} │ {modified_time} │ {name}")

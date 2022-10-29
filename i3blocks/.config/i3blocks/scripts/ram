@@ -1,0 +1,9 @@
+#!/bin/sh
+
+free --mega | awk '/Mem/ {printf $3 "MB / " $2 "MB ("; printf "%d%%)\n", $3/$2*100}'
+
+breakdown=$(free --mega | awk '/Mem:/ {printf "used:%sMB\ntotal:%sMB\nfree:%sMB\nshared:%sMB\nbuf cache:%sMB\navailable:%sMB\n", $3, $2, $4, $5, $6, $7 }' | column -s':' -t)
+
+case "$BLOCK_BUTTON" in
+    1) notify-send "Detailed Breakdown" "$breakdown"
+esac

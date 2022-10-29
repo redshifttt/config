@@ -1,0 +1,37 @@
+# vim set ft=conf
+max-items 100
+browser librewolf
+text-width 80
+scrolloff 10
+reload-threads 10
+refresh-on-startup yes
+# notify-always yes
+# notify-program notify-send
+feed-sort-order unreadarticlecount
+external-url-viewer "urlview"
+
+feedlist-title-format "%N: %u feeds with unread articles"
+articlelist-title-format "%N: %u unread articles"
+searchresult-title-format "%N: Search results for '%s'"
+itemview-title-format "%N: Article '%T'"
+
+datetime-format "%d %b %y"
+articlelist-format "[%n] %D | %t"
+feedlist-format "[%n] (%U) %t %> %l"
+
+# looks like gentoo eselect news
+highlight article "^(Feed|Title|Author|Link|Date):.*" white default bold
+highlight article "^(Feed|Title|Author|Link|Date):" green default bold
+
+# color <element> <foreground color> <background color> [<attribute> ...]
+color info default black bold
+color hint-key blue default bold
+color end-of-text-marker black default
+color listfocus default color235 bold
+color listfocus_unread default color235 bold
+
+bind-key l open
+bind-key m mark-feed-read
+bind-key A mark-all-feeds-read
+bind-key m toggle-article-read
+unbind-key C

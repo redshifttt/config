@@ -1,0 +1,38 @@
+#!/usr/bin/python
+
+import os
+
+cwd = os.getcwd()
+columns = os.get_terminal_size().columns
+
+filetypes = []
+seen = {}
+
+for f in os.listdir(cwd):
+    if not "." in f:
+        continue
+    elif f.startswith("."):
+        continue
+    else:
+        filetypes.append(f.split(".")[-1:][0])
+
+for t in filetypes:
+    if t in seen:
+        seen[t] += 1
+    else:
+        seen[t] = 0
+        seen[t] += 1
+
+sum_of_values = sum(seen.values())
+
+for k in seen:
+    v = seen[k]
+    seen[k] = str(v)
+    seen[k] += f" ({v / sum_of_values * 100:.0f}%)"
+
+seen = sorted(seen.items(), key=lambda x: x[1], reverse=True)
+
+for v in seen:
+    print(f"{v[0]}\t| {v[1]}")
+
+print(f"total files with filetypes: {sum_of_values}")

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+distro=$(source /etc/os-release; echo "${PRETTY_NAME}")
+up=$(uptime -p); up=${up/up /}
+wm=$(awk '/^exec/ {print $NF}' < ~/.xinitrc)
+
+printf "you are running ${distro} on a PC\nthe machine has been up for ${up}\nyour editor is ${EDITOR}\nyour browser is ${BROWSER}\nyour window manager is ${wm}\n"

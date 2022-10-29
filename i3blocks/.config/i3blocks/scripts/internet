@@ -1,0 +1,2 @@
+#!/bin/sh
+nmcli -c no | grep "^wlp" | sed "s|.*:\s||"
