@@ -14,6 +14,10 @@ use {
     'wbthomason/packer.nvim',
 }
 
+if packer_bootstrap then
+	packer.sync()
+end
+
 use 'lewis6991/impatient.nvim'
 
 use {
