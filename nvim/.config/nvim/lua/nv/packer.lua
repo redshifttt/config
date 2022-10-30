@@ -14,10 +14,6 @@ use {
     'wbthomason/packer.nvim',
 }
 
-if packer_bootstrap then
-	packer.sync()
-end
-
 use 'lewis6991/impatient.nvim'
 
 use {
@@ -98,9 +94,7 @@ use {
     end,
 }
 
-use {
-    'AndrewRadev/splitjoin.vim',
-}
+use 'AndrewRadev/splitjoin.vim'
 
 use {
     "windwp/nvim-autopairs",
