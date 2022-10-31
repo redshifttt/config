@@ -1,3 +1,0 @@
-#!/bin/sh
-
-uptime | sed "s|.*: ||;s|,||g" | awk '{print $1 "/1m,", $2 "/5m,", $3 "/15m"}'

@@ -1,5 +1,10 @@
 local autocmd = vim.api.nvim_create_autocmd
 
+autocmd("TermOpen", {
+    pattern = "*",
+    command = "set norelativenumber signcolumn=no"
+})
+
 autocmd("BufWritePost", {
     pattern = "*picom.conf",
     command = "!pkill picom && picom -b",

@@ -1,8 +1,0 @@
-#!/bin/sh
-
-url="https://www.metoffice.gov.uk/weather/forecast/gcvj6ugph#?date=2022-08-08"
-
-temp_this_hour=$(curl -s -A 'zzzz' $url | pup '.first-day .step-temp td div text{}' | head -n1)
-type_of_weather=$(curl -s -A 'zzzz' $url | pup '.first-day .step-symbol img attr{alt}' | head -n1)
-
-echo "${temp_this_hour} and ${type_of_weather}"
