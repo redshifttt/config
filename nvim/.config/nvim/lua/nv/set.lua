@@ -22,7 +22,8 @@ set.mouse = ""
 set.encoding = "utf-8"
 
 set.number = true
-set.relativenumber = true
+-- set.relativenumber = true
+vim.cmd("set relativenumber nonu")
 
 set.hidden = false
 
