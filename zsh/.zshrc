@@ -1,12 +1,32 @@
 PS1="%B%F{blue}%c%f%b %# "
 
 # man zshoptions
+# setopt always_to_end
+# setopt auto_remove_slash
+# setopt complete_aliases
+
+# Init
+unsetopt global_rcs
+
+# Completion
 setopt autocd
-setopt always_to_end
-setopt auto_list
+setopt auto_menu
+setopt list_types
 setopt auto_param_slash
-setopt auto_remove_slash
-setopt complete_aliases
-setopt menu_complete
-setopt append_history
-setopt HIST_IGNORE_DUPS
+
+# History
+setopt inc_append_history
+setopt hist_find_no_dups
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_NO_FUNCTIONS
+
+# I/O
+setopt correct
+
+setopt pipe_fail
+
+setopt posix_builtins
+
+setopt zle
+bindkey -v
