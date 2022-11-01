@@ -1,7 +1,3 @@
--- ======
--- = nv =
--- ======
-
 -- If this is executed and an error is thrown packer is not installed.
 local packer_is_installed = function() require('impatient') end
 
