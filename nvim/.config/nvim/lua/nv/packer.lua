@@ -11,48 +11,48 @@ init {
 packer.reset()
 
 use {
-    'wbthomason/packer.nvim',
+    "wbthomason/packer.nvim",
 }
 
-use 'lewis6991/impatient.nvim'
+use "lewis6991/impatient.nvim"
 
 use {
-    'neovim/nvim-lspconfig',
+    "neovim/nvim-lspconfig",
     config = function()
         require("nv.plugins.lsp.config")
     end,
 }
 
 use {
-    'hrsh7th/nvim-cmp',
+    "hrsh7th/nvim-cmp",
     requires = {
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-nvim-lua',
-        'hrsh7th/cmp-path',
-        'lukas-reineke/cmp-rg',
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lua",
+        "hrsh7th/cmp-path",
+        "lukas-reineke/cmp-rg",
         {
-            'L3MON4D3/LuaSnip',
+            "L3MON4D3/LuaSnip",
             config = function()
                 require("luasnip.loaders.from_vscode").lazy_load()
             end
         },
-        'saadparwaiz1/cmp_luasnip',
+        "saadparwaiz1/cmp_luasnip",
     },
 }
 
 use {
-    'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
+    "nvim-telescope/telescope.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
     config = function()
         require("nv.plugins.telescope")
     end,
 }
 
 use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    requires = { 'nvim-treesitter/playground' },
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+    requires = { "nvim-treesitter/playground" },
     config = function()
         require("nv.plugins.treesitter")
     end,
@@ -60,27 +60,29 @@ use {
 
 use {
     "ellisonleao/glow.nvim",
-    branch = 'main', -- cucked
+    branch = "main", -- cucked
     ft = "markdown",
 }
 
 use {
-    'numToStr/Comment.nvim',
+    "numToStr/Comment.nvim",
     config = function()
         require("nv.plugins.comment")
     end,
 }
 
-use 'dstein64/vim-startuptime'
+use {
+    "dstein64/vim-startuptime",
+}
 
 use {
-    'nvim-lualine/lualine.nvim',
+    "nvim-lualine/lualine.nvim",
     requires = {
         {
-            'kyazdani42/nvim-web-devicons',
+            "kyazdani42/nvim-web-devicons",
             opt = true
         },
-        'arkav/lualine-lsp-progress'
+        "arkav/lualine-lsp-progress"
     },
     config = function()
         require("nv.plugins.lualine")
@@ -88,13 +90,15 @@ use {
 }
 
 use {
-    'lukas-reineke/indent-blankline.nvim',
+    "lukas-reineke/indent-blankline.nvim",
     config = function()
         require("nv.plugins.indent-blankline")
     end,
 }
 
-use 'AndrewRadev/splitjoin.vim'
+use {
+    "AndrewRadev/splitjoin.vim",
+}
 
 use {
     "windwp/nvim-autopairs",
@@ -103,4 +107,13 @@ use {
     end,
 }
 
-use {'rcarriga/nvim-notify'}
+use {
+    "rcarriga/nvim-notify"
+}
+
+use {
+    "kylechui/nvim-surround",
+    config = function()
+        require("nvim-surround").setup {}
+    end
+}
