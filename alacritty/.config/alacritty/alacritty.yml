@@ -15,13 +15,9 @@ window:
     y: 10
 
   dynamic_padding: false
-
   decorations: full
-
   startup_mode: Maximized
-
   title: Alacritty
-
   dynamic_title: true
 
   class:
@@ -32,7 +28,6 @@ window:
 
 scrolling:
   history: 10000
-
   multiplier: 3
 
 font:
@@ -85,28 +80,19 @@ window.opacity: 1.0
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
-
   save_to_clipboard: true
 
 cursor:
   style:
     shape: Block
-
     blinking: Off
 
   vi_mode_style: None
-
-  blink_interval: 750
-
+  # blink_interval: 750
   unfocused_hollow: true
-
   thickness: 0.15
 
 live_config_reload: true
-
-shell:
-
-working_directory: None
 
 alt_send_esc: true
 
@@ -117,17 +103,12 @@ mouse:
   hide_when_typing: false
 
 key_bindings:
-  - { key: V,              mods: Control|Shift, mode: ~Vi,        action: Paste            }
-  - { key: C,              mods: Control|Shift,                   action: Copy             }
-  - { key: Key0,           mods: Control,                         action: ResetFontSize    }
-  - { key: Equals,         mods: Control,                         action: IncreaseFontSize }
-  - { key: Minus,          mods: Control,                         action: DecreaseFontSize }
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
 
 debug:
   render_timer: false
-
   persistent_logging: false
-
   log_level: Error
-
   print_events: false
