@@ -14,7 +14,7 @@ set $workspace5 "5 misc"
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id picom
-exec --no-startup-id xwallpaper --zoom /home/sean/Downloads/1656514703504.jpg
+exec --no-startup-id xwallpaper --zoom /home/sean/dotfiles/i3/.config/i3/1662180469839236.jpg
 
 # Keys
 bindsym $mod+r restart
