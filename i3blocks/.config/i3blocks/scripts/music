@@ -1,3 +1,15 @@
 #!/bin/sh
 
-mpc -f "%title% by %artist% from %album% (%date%)" current
+status=$(mpc status "%state%")
+[[ $status == "playing" ]] && status+="!"
+
+mpc -f "(${status}) %title% (%date%) by %artist%" current
+
+# 1: left click
+# 4: up scroll
+# 5: down scroll
+case "$BLOCK_BUTTON" in
+    1) mpc -q toggle ;;
+    4) mpc -q prev ;;
+    5) mpc -q next ;;
+esac

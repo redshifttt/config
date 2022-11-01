@@ -190,7 +190,7 @@ song_library_format = {%n. }{%t}|{%f}$R%l
 #playlist_show_mpd_host = no
 playlist_show_remaining_time = yes
 #playlist_shorten_total_times = no
-playlist_separate_albums = yes
+playlist_separate_albums = no
 ##
 ## Note: Possible display modes: classic, columns.
 ##
