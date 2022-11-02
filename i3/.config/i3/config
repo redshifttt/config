@@ -22,10 +22,9 @@ bindsym $mod+Return exec $terminal
 
 bindsym $mod+w kill
 
-bindsym $mod+d exec --no-startup-id "rofi -show drun"
+bindsym $mod+d exec --no-startup-id "dmenu_run -l 20 -c -h 2 -p 'run ' -i"
 bindsym $mod+s exec --no-startup-id "scrot -s"
-bindsym $mod+Shift+s exec --no-startup-id "scrot -w"
-bindsym $mod+Print exec --no-startup-id "scrot -f"
+bindsym Print exec --no-startup-id "scrot -f"
 
 # Movement
 bindsym $mod+h focus left
