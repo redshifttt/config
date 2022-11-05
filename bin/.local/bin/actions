@@ -1,0 +1,9 @@
+#!/bin/sh
+
+choice=$(printf "suspend\nshutdown\nreboot\n" | dmenu -c -l 3 -p "power actions ")
+
+case "${choice}" in
+    suspend) sudo systemctl suspend ;;
+    shutdown) sudo shutdown now ;;
+    reboot) sudo reboot ;;
+esac
