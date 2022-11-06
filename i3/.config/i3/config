@@ -25,6 +25,7 @@ bindsym $mod+w kill
 bindsym $mod+d exec --no-startup-id "dmenu_run -l 20 -c -h 2 -p 'run ' -i"
 bindsym $mod+s exec --no-startup-id "scrot -s"
 bindsym Print exec --no-startup-id "scrot -f"
+bindsym $mod+Delete exec --no-startup-id "actions"
 
 # Movement
 bindsym $mod+h focus left

@@ -7,7 +7,7 @@ reload-threads 10
 refresh-on-startup yes
 # notify-always yes
 # notify-program notify-send
-feed-sort-order unreadarticlecount
+feed-sort-order unreadarticlecount-asc
 external-url-viewer "urlview"
 
 feedlist-title-format "%N: %u feeds with unread articles"

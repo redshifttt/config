@@ -52,7 +52,10 @@ use {
 use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    requires = { "nvim-treesitter/playground" },
+    requires = {
+        "nvim-treesitter/playground",
+        "nvim-treesitter/nvim-treesitter-context" -- life saver
+    },
     config = function()
         require("nv.plugins.treesitter")
     end,
@@ -116,4 +119,12 @@ use {
     config = function()
         require("nvim-surround").setup {}
     end
+}
+
+use {
+    "CRAG666/code_runner.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+        require("nv.plugins.code_runner")
+    end,
 }
