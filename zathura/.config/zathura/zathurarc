@@ -6,6 +6,10 @@ set statusbar-v-padding 0
 set page-padding 5
 set selection-clipboard clipboard
 
+set font "dejavu sans mono"
+set recolor-lightcolor "#0b0d12"
+set recolor-darkcolor "#BEBAC6"
+
 map u scroll half-up
 map d scroll half-down
 map D toggle_page_mode

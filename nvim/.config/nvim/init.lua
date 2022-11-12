@@ -1,3 +1,8 @@
+local is_nightly = vim.version().prerelease
+
+if not is_nightly then
+end
+
 -- If this is executed and an error is thrown packer is not installed.
 local packer_is_installed = function() require('impatient') end
 

@@ -38,7 +38,7 @@ separator_block_width=15
 # interval=1
 # markup=pango
 
-[ram]
+[music]
 label=<b>music </b>
 command=scripts/music
 interval=1
