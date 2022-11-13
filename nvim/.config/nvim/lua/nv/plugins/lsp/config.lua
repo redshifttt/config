@@ -1,8 +1,6 @@
 local lsp = require('lspconfig')
 local cmp = require('cmp')
 
-local lsp_leader = "<leader>l"
-
 -- I got this from theprimeagen and it's fucking magic
 function config(_config)
     return vim.tbl_deep_extend("force", {
@@ -15,25 +13,25 @@ function config(_config)
                 buffer = 0,
             }
 
-            vim.keymap.set('n', lsp_leader .. 'e', function() vim.diagnostic.open_float() end, bufopts)
-            vim.keymap.set('n', lsp_leader .. '[d', function() vim.diagnostic.goto_prev() end, bufopts)
-            vim.keymap.set('n', lsp_leader .. ']d', function() vim.diagnostic.goto_next() end, bufopts)
-            vim.keymap.set('n', lsp_leader .. 'q', function() vim.diagnostic.setloclist() end, bufopts)
+            vim.keymap.set('n', '<leader>e', function() vim.diagnostic.open_float() end, bufopts)
+            vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, bufopts)
+            vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, bufopts)
+            vim.keymap.set('n', '<leader>q', function() vim.diagnostic.setloclist() end, bufopts)
 
-            vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, bufopts)
             vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, bufopts)
-            vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, bufopts)
+            vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, bufopts)
+            vim.keymap.set('n', 'gK', function() vim.lsp.buf.hover() end, bufopts)
             vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, bufopts)
-            vim.keymap.set('n', '<C-k>', function() vim.lsp.buf.signature_help() end, bufopts)
-            vim.keymap.set('n', 'wa', function() vim.lsp.buf.add_workspace_folder() end, bufopts)
-            vim.keymap.set('n', 'wr', function() vim.lsp.buf.remove_workspace_folder() end, bufopts)
-            vim.keymap.set('n', 'wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
-                bufopts)
-            vim.keymap.set('n', 'D', function() vim.lsp.buf.type_definition() end, bufopts)
-            vim.keymap.set('n', 'rn', function() vim.lsp.buf.rename() end, bufopts)
+            vim.keymap.set('n', 'g<C-k>', function() vim.lsp.buf.signature_help() end, bufopts)
+            vim.keymap.set('n', 'gwa', function() vim.lsp.buf.add_workspace_folder() end, bufopts)
+            vim.keymap.set('n', 'gwr', function() vim.lsp.buf.remove_workspace_folder() end, bufopts)
+            vim.keymap.set('n', 'gwl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
+            vim.keymap.set('n', 'gD', function() vim.lsp.buf.type_definition() end, bufopts)
+            vim.keymap.set('n', 'gr', function() vim.lsp.buf.rename() end, bufopts)
             vim.keymap.set('n', 'ca', function() vim.lsp.buf.code_action() end, bufopts)
-            vim.keymap.set('n', 'gr', function() vim.lsp.buf.references() end, bufopts)
-            vim.keymap.set('n', 'f', function() vim.lsp.buf.formatting() end, bufopts)
+            vim.keymap.set('n', 'gR', function() vim.lsp.buf.references() end, bufopts)
+            -- Not every server supports formatting IIRC
+            -- vim.keymap.set('n', 'gf', function() vim.lsp.buf.formatting() end, bufopts)
         end,
     }, _config or {})
 end

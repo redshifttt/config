@@ -1,6 +1,32 @@
 #!/bin/sh
 
 free --mega | awk '/Mem/ {
-    printf $3 "MB / " $2 "MB (";
-    printf "%d%%)\n", $3 / $2 * 100
+    used = $3;
+    total = $2
+
+    percentage = used / total * 100;
+
+    if (percentage >= 10)
+        indicator = "▁"
+    if (percentage >= 20)
+        indicator = "▂"
+    if (percentage >= 30)
+        indicator = "▃"
+    if (percentage >= 40)
+        indicator = "▄"
+    if (percentage >= 50)
+        indicator = "▅"
+    if (percentage >= 60)
+        indicator = "▆"
+    if (percentage >= 70)
+        indicator = "▇"
+    if (percentage >= 80)
+        indicator = "█"
+    if (percentage >= 90)
+        indicator = "▉"
+    if (percentage < 10)
+        indicator = "_"
+
+    printf used "MB / " total "MB (";
+    printf "%d%%) %s\n", percentage, indicator
 }'
