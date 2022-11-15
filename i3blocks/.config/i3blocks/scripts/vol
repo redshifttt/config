@@ -27,7 +27,7 @@ volume_down(){
 }
 
 sink="@DEFAULT_SINK@"
-change_interval="5"
+change_interval="10"
 
 case "$BLOCK_BUTTON" in
     1) toggle_mute_volume; get_volume ;;

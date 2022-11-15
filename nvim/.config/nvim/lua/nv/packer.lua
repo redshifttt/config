@@ -18,9 +18,7 @@ use "lewis6991/impatient.nvim"
 
 use {
     "neovim/nvim-lspconfig",
-    config = function()
-        require("nv.plugins.lsp.config")
-    end,
+    config = function() require("nv.plugins.lsp.config") end,
 }
 
 use {
@@ -33,9 +31,7 @@ use {
         "lukas-reineke/cmp-rg",
         {
             "L3MON4D3/LuaSnip",
-            config = function()
-                require("luasnip.loaders.from_vscode").lazy_load()
-            end
+            config = function() require("luasnip.loaders.from_vscode").lazy_load() end
         },
         "saadparwaiz1/cmp_luasnip",
     },
@@ -44,9 +40,7 @@ use {
 use {
     "nvim-telescope/telescope.nvim",
     requires = { "nvim-lua/plenary.nvim" },
-    config = function()
-        require("nv.plugins.telescope")
-    end,
+    config = function() require("nv.plugins.telescope") end,
 }
 
 use {
@@ -56,9 +50,7 @@ use {
         "nvim-treesitter/playground",
         "nvim-treesitter/nvim-treesitter-context" -- life saver
     },
-    config = function()
-        require("nv.plugins.treesitter")
-    end,
+    config = function() require("nv.plugins.treesitter") end,
 }
 
 use {
@@ -69,9 +61,7 @@ use {
 
 use {
     "numToStr/Comment.nvim",
-    config = function()
-        require("nv.plugins.comment")
-    end,
+    config = function() require("nv.plugins.comment") end,
 }
 
 use {
@@ -87,16 +77,12 @@ use {
         },
         "arkav/lualine-lsp-progress"
     },
-    config = function()
-        require("nv.plugins.lualine")
-    end,
+    config = function() require("nv.plugins.lualine") end,
 }
 
 use {
     "lukas-reineke/indent-blankline.nvim",
-    config = function()
-        require("nv.plugins.indent-blankline")
-    end,
+    config = function() require("nv.plugins.indent-blankline") end,
 }
 
 use {
@@ -105,9 +91,7 @@ use {
 
 use {
     "windwp/nvim-autopairs",
-    config = function()
-        require("nv.plugins.autopairs")
-    end,
+    config = function() require("nv.plugins.autopairs") end,
 }
 
 use {
@@ -116,15 +100,10 @@ use {
 
 use {
     "kylechui/nvim-surround",
-    config = function()
-        require("nvim-surround").setup {}
-    end
+    config = function() require("nvim-surround").setup {} end
 }
 
 use {
-    "CRAG666/code_runner.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    config = function()
-        require("nv.plugins.code_runner")
-    end,
+    'kevinhwang91/nvim-hlslens',
+    config = function() require("nv.plugins.hlslens") end
 }

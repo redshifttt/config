@@ -31,7 +31,7 @@ set.splitbelow = true
 set.splitright = true
 
 set.magic = true
-set.hlsearch = false
+set.hlsearch = true
 set.incsearch = true
 set.ignorecase = true
 set.smartcase = true

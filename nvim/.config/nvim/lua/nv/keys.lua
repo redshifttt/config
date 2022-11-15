@@ -25,7 +25,7 @@ map("n", "n", "nzz", opts)
 map("n", "N", "Nzz", opts)
 
 -- I don't like accidentally hitting these
-map("n", "H", "<Nop>", opts)
+map("n", "H", ":nohlsearch<cr>", opts)
 map("n", "L", "<Nop>", opts)
 
 map('n', 'gx', '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
