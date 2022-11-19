@@ -75,5 +75,5 @@ interval=5
 markup=pango
 
 [time]
-command=date +'%a %e %b %Y %H:%M'
+command=scripts/dateandtime
 interval=30

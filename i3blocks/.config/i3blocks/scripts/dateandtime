@@ -1,0 +1,23 @@
+#!/bin/sh
+
+date +'%a %e %b %Y %H:%M' | awk '{
+    day = $1;
+    dayofmonth = $2;
+    month = $3;
+    year = $4;
+    time = $5;
+
+    length_of_dayofmonth = length(dayofmonth);
+    end_of_dayofmonth = substr(dayofmonth, length_of_dayofmonth);
+
+    if (end_of_dayofmonth == "1")
+        suffix = "st";
+    else if (end_of_dayofmonth == "2")
+        suffix = "nd";
+    else if (end_of_dayofmonth == "3")
+        suffix = "rd";
+    else
+        suffix = "th";
+
+    print day, dayofmonth suffix, month, year, time
+}'
