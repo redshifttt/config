@@ -115,9 +115,7 @@ local groups = {
     --     bg = c.magenta,
     -- },
 
-    StatusLine = {
-        bg = c.background_n1
-    },
+    StatusLine = { bg = c.background_n1 },
 
     -- ColorColumn = { bg = c.gray },
     Constant = { link = "TSConstant" },
@@ -148,24 +146,19 @@ local groups = {
     },
     Directory = { fg = c.blue },
     MatchParen = {
-        fg = c.yellow,
-        underline = true,
+        fg = c.magenta,
+        bold = true,
     },
-    Normal = {
-        fg = c.white,
-        bg = c.background
-    },
-    NormalFloat = {
-        fg = c.white,
-        bg = c.background_02,
-    },
-    NormalNC = { fg = c.white },
+    Normal = { fg = c.white },
+    NormalFloat = { link = "Normal" },
+    NormalNC = { link = "Normal" },
     Special = { link = "TSPunctSpecial" },
     SpecialChar = { link = "TSPunctSpecial" },
     Text = { link = "TSText" },
     Title = { link = "TSTitle" },
     Todo = { link = "TSTodo" },
     Type = { link = "TSType" },
+    WinSeparator = { fg = c.gray },
 
     -- LSP
     DiagnosticError = { fg = c.lsp_error },
@@ -173,44 +166,32 @@ local groups = {
     DiagnosticInfo = { fg = c.lsp_info },
     DiagnosticWarn = { fg = c.lsp_warn },
 
-    DiagnosticsUnderlineWarning = {
-        undercurl = true,
-        fg = c.lsp_warn,
-    },
-    DiagnosticsUnderlineError = {
-        undercurl = true,
-        fg = c.lsp_error,
-    },
-    DiagnosticsUnderlineHint = {
-        undercurl = true,
-        fg = c.lsp_hint,
-    },
-    DiagnosticsUnderlineInformation = {
-        undercurl = true,
-        fg = c.lsp_info,
-    },
+    DiagnosticsUnderlineError = { link = "DiagnosticError" },
+    DiagnosticsUnderlineHint = { link = "DiagnosticHint" },
+    DiagnosticsUnderlineInformation = { link = "DiagnosticInfo" },
+    DiagnosticsUnderlineWarning = { link = "DiagnosticWarn" },
 
-    DiagnosticFloatingError = { fg = c.lsp_error },
-    DiagnosticFloatingHint = { fg = c.lsp_hint },
-    DiagnosticFloatingInfo = { fg = c.lsp_info },
-    DiagnosticFloatingWarn = { fg = c.lsp_warn },
+    DiagnosticFloatingError = { link = "DiagnosticError" },
+    DiagnosticFloatingHint = { link = "DiagnosticHint" },
+    DiagnosticFloatingInfo = { link = "DiagnosticInfo" },
+    DiagnosticFloatingWarning = { link = "DiagnosticWarn" },
 
     -- LSP inline floating messages
     DiagnosticVirtualTextError = {
         fg = c.lsp_error,
-        bg = c.background_02,
+        bg = c.background_n1,
     },
     DiagnosticVirtualTextHint = {
         fg = c.lsp_hint,
-        bg = c.background_02,
+        bg = c.background_n1,
     },
     DiagnosticVirtualTextInfo = {
         fg = c.lsp_info,
-        bg = c.background_02,
+        bg = c.background_n1,
     },
     DiagnosticVirtualTextWarn = {
         fg = c.lsp_warn,
-        bg = c.background_02,
+        bg = c.background_n1,
     },
 
     DiagnosticSignError = { fg = c.lsp_error },
@@ -291,8 +272,6 @@ local groups = {
     bashTSVariable = { link = "@variable" },
 
     -- Help
-    -- helpHyperTextEntry = { link = "TSURI" },
-    -- helpURL = { link = "TSURI" },
     helpCommand = { fg = c.red },
     helpExample = { fg = c.white }
 }

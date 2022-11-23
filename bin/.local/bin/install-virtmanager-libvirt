@@ -7,7 +7,7 @@ usermod -a -G libvirt,kvm $USER
 systemctl enable --now libvirtd.service
 systemctl start virtlogd.service
 
-sed -r "s|(hosts:.*)|\1 libvirt libvirt_guest|" /etc/nsswitch.conf
+sed -ri "s|(hosts:.*)|\1 libvirt libvirt_guest|" /etc/nsswitch.conf
 
 if virsh net-list --all | grep default >/dev/null; then
     virsh net-autostart default

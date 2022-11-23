@@ -38,32 +38,26 @@ separator_block_width=15
 # interval=1
 # markup=pango
 
-[music]
-label=<b>music </b>
-command=scripts/music
-interval=1
-markup=pango
-
 [ram]
-label=<b>RAM </b>
+label=<b>ram </b>
 command=scripts/ram
 interval=2
 markup=pango
 
 [vram]
-label=<b>VRAM </b>
+label=<b>vram </b>
 command=scripts/vram
 interval=2
 markup=pango
 
 [storage]
-label=<b>SSD </b>
+label=<b>storage </b>
 command=scripts/storage
 interval=30
 markup=pango
 
 [volume]
-label=<b>VOL </b>
+label=<b>volume </b>
 command=scripts/vol
 interval=once
 markup=pango
