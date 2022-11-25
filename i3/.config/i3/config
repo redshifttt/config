@@ -54,9 +54,9 @@ bindsym $mod+Shift+3 move container to workspace number $workspace3; workspace $
 bindsym $mod+Shift+4 move container to workspace number $workspace4; workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace number $workspace5; workspace $workspace5
 
-# default_border none
+default_border none
 # https://old.reddit.com/r/i3wm/comments/xkrh7s/electron_apps_have_a_title_bar_after_new_update/
-for_window [all] border pixel 0
+# for_window [all] border pixel 0
 
 focus_follows_mouse no
 focus_on_window_activation focus
@@ -69,7 +69,7 @@ bar {
     font pango:dejavu sans mono 9
     colors {
         background #0b0d12
-        # separator #374056
+        # separator #333333
 
         # <colorclass> <border> <background> <text>
         focused_workspace #232937 #232937 #ffffff
