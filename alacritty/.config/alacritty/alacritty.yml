@@ -32,22 +32,22 @@ scrolling:
 
 font:
   normal:
-    family: Fantasque Sans Mono
+    family: Terminus
     style: Regular
 
   bold:
-    family: Fantasque Sans Mono
+    family: Terminus
     style: Bold
 
   italic:
-    family: Fantasque Sans Mono
+    family: Terminus
     style: Italic
 
   bold_italic:
-    family: Fantasque Sans Mono
+    family: Terminus
     style: Bold Italic
 
-  size: 11.0
+  size: 12.0
 
 draw_bold_text_with_bright_colors: false
 

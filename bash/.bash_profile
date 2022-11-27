@@ -27,4 +27,4 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 eval $(dircolors -b $HOME/.dircolors)
 
 # Autorun startx
-[[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 ]] && exec startx 1>/dev/null 2>&1
+[[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 ]] && exec sway 1>/dev/null 2>&1
