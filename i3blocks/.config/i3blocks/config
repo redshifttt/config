@@ -39,13 +39,13 @@ separator_block_width=15
 # markup=pango
 
 [ram]
-label=<b>ram </b>
+label=<b>RAM </b>
 command=scripts/ram
 interval=2
 markup=pango
 
 [vram]
-label=<b>vram </b>
+label=<b>VRAM </b>
 command=scripts/vram
 interval=2
 markup=pango
@@ -57,7 +57,7 @@ interval=30
 markup=pango
 
 [volume]
-label=<b>volume </b>
+label=<b>vol </b>
 command=scripts/vol
 interval=once
 markup=pango
