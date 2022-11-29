@@ -1,3 +1,4 @@
+# vim: ft=swayconfig
 # sean's i3 config
 
 # Variables
@@ -14,15 +15,15 @@ set $workspace5 "5 misc"
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id picom
-exec --no-startup-id xwallpaper --zoom /home/sean/dotfiles/i3/.config/i3/1662180469839236.jpg
+output "*" bg /home/sean/dotfiles/i3/.config/i3/1662180469839236.jpg fill
 
 # Keys
-bindsym $mod+r restart
+bindsym $mod+r exec --no-startup-id "swaymsg reload"
 bindsym $mod+Return exec $terminal
 
 bindsym $mod+w kill
 
-bindsym $mod+d exec --no-startup-id "dmenu_run -l 20 -c -h 2 -p 'run ' -i"
+bindsym $mod+d exec --no-startup-id "BEMENU_BACKEND=wayland bemenu-run -c -W 0.2 -l20 -s -CT -p 'run'"
 bindsym $mod+s exec --no-startup-id "scrot -s"
 bindsym Print exec --no-startup-id "scrot -f"
 bindsym $mod+Delete exec --no-startup-id "actions"
@@ -55,8 +56,6 @@ bindsym $mod+Shift+4 move container to workspace number $workspace4; workspace $
 bindsym $mod+Shift+5 move container to workspace number $workspace5; workspace $workspace5
 
 default_border none
-# https://old.reddit.com/r/i3wm/comments/xkrh7s/electron_apps_have_a_title_bar_after_new_update/
-# for_window [all] border pixel 0
 
 focus_follows_mouse no
 focus_on_window_activation focus
@@ -76,4 +75,11 @@ bar {
         inactive_workspace #232937 #191d27 #666666
         urgent_workspace #ffffff #ec5959 #ffffff
     }
+}
+
+input * {
+    xkb_layout "gb"
+
+    repeat_delay 300
+    repeat_rate 50
 }
