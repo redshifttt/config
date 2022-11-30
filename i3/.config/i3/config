@@ -15,7 +15,7 @@ set $workspace5 "5 misc"
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id picom
-output "*" bg /home/sean/dotfiles/i3/.config/i3/1662180469839236.jpg fill
+output "*" bg /home/sean/dotfiles/i3/.config/i3/now_winter.jpg fill
 
 # Keys
 bindsym $mod+r exec --no-startup-id "swaymsg reload"
@@ -59,6 +59,8 @@ default_border none
 
 focus_follows_mouse no
 focus_on_window_activation focus
+
+xwayland disable
 
 floating_modifier $mod
 
