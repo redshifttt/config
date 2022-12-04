@@ -58,7 +58,7 @@ local groups = {
         fg = c.orange
     },
     ['@comment'] = {
-        fg = c.gray
+        fg = c.background_05
     },
     ['@text.title'] = {
         fg = c.white,
@@ -131,7 +131,7 @@ local groups = {
     ErrorMsg = { link = "Error" },
     FoldColumn = { fg = c.background_02 },
     Folded = { fg = c.background_02 },
-    LineNr = { fg = c.gray },
+    LineNr = { fg = c.background_04 },
     SignColumn = { bg = c.background },
     VertSplit = { link = "TSComment" },
     Visual = { bg = c.background_03 },
@@ -179,19 +179,20 @@ local groups = {
     -- LSP inline floating messages
     DiagnosticVirtualTextError = {
         fg = c.lsp_error,
-        bg = c.background_n1,
+        bg = "#1F1418",
+        bold = true
     },
     DiagnosticVirtualTextHint = {
         fg = c.lsp_hint,
-        bg = c.background_n1,
+        bg = "#1B1D22",
     },
     DiagnosticVirtualTextInfo = {
         fg = c.lsp_info,
-        bg = c.background_n1,
+        bg = "#131924",
     },
     DiagnosticVirtualTextWarn = {
         fg = c.lsp_warn,
-        bg = c.background_n1,
+        bg = "#181825",
     },
 
     DiagnosticSignError = { fg = c.lsp_error },
@@ -241,6 +242,7 @@ local groups = {
     CmpItemMenu = { bg = c.background_02 },
 
     -- Telescope
+    TelescopePromptCounter = { fg = c.blue },
 
     --- Filetypes:
     -- for when you use nvim as your manpager :^)

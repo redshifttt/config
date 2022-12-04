@@ -1,15 +1,10 @@
 #!/bin/bash
 # the simple screengrabber (now wayland native)
 
-full(){
-    grim -t png -l 0 - | wl-copy # takes screenshot
-    wl-paste > "$pics_dir/$file_format-full.png" # takes it from clipboard and saves it
-}
-
 sel(){
     selection=$(slurp)
     grim -g "${selection}" - | wl-copy
-    wl-paste > "$pics_dir/$file_format-full.png"
+    wl-paste > "$pics_dir/$file_format.png"
 }
 
 folder_format=$(date +'%Y/%m %B/%d' | tr "[:upper:]" "[:lower:]")
@@ -20,7 +15,6 @@ pics_dir="$HOME/images/screenshots/$folder_format"
 [[ ! -d "$pics_dir" ]] && mkdir -p "$pics_dir"
 
 case "$1" in
-    -f) full ;; # full screen
     -s) sel ;; # region
-    *) full ;; # default action
+    *) sel ;; # default action
 esac

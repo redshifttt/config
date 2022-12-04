@@ -12,7 +12,6 @@ set $workspace4 "4 vidya"
 set $workspace5 "5 misc"
 
 # Autostart
-exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id picom
 output "*" bg /home/sean/dotfiles/i3/.config/i3/now_winter.jpg fill
@@ -67,7 +66,7 @@ floating_modifier $mod
 bar {
     status_command i3blocks
     position top
-    font pango:liberation mono 10
+    font pango:dejavu sans mono 10
     colors {
         background #111111
         # separator #333333

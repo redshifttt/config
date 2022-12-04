@@ -24,6 +24,10 @@ map("n", "<F5>", ":source $MYVIMRC<cr>", opts)
 map("n", "n", "nzz", opts)
 map("n", "N", "Nzz", opts)
 
+-- Similar as the above but for motion keys
+map("n", "<ctrl-d>", "<ctrl-d>zz", opts)
+map("n", "<ctrl-u>", "<ctrl-u>zz", opts)
+
 -- I don't like accidentally hitting these
 map("n", "H", ":nohlsearch<cr>", opts)
 map("n", "L", "<Nop>", opts)

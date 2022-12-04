@@ -7,5 +7,6 @@ paste -d" " ${gpu}/mem_info_vram_used ${gpu}/mem_info_vram_total \
         used = $1 / 1024 / 1024;
         total = $2 / 1024 / 1024;
         percentage = $1 / $2 * 100;
-        printf "%.0fMB / %.0fMB (%.0f%)\n", used, total, percentage
+
+        printf "%.0fMB (%.0f%)\n", used, percentage
     }'

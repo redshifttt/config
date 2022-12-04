@@ -6,6 +6,6 @@ free --mega | awk '/Mem/ {
 
     percentage = used / total * 100;
 
-    printf used "MB / " total "MB (";
+    printf used "MB (";
     printf "%d%%)\n", percentage;
 }'
