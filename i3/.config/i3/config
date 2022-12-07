@@ -14,15 +14,15 @@ set $workspace5 "5 misc"
 # Autostart
 exec --no-startup-id dunst
 exec --no-startup-id picom
-output "*" bg /home/sean/dotfiles/i3/.config/i3/now_winter.jpg fill
+exec --no-startup-id xwallpaper --zoom /home/sean/dotfiles/i3/.config/i3/now_winter.jpg
 
 # Keys
-bindsym $mod+r exec --no-startup-id "swaymsg reload"
+bindsym $mod+r exec --no-startup-id "i3-msg restart"
 bindsym $mod+Return exec $terminal
 
 bindsym $mod+w kill
 
-bindsym $mod+d exec --no-startup-id "BEMENU_BACKEND=wayland bemenu-run -c -W 0.2 -l20 -s -CT -p 'run'"
+bindsym $mod+d exec --no-startup-id "BEMENU_BACKEND=x11 bemenu-run -c -W 0.2 -l20 -s -CT -p 'run'"
 bindsym $mod+s exec --no-startup-id "scrot -s"
 bindsym Print exec --no-startup-id "scrot -f"
 bindsym $mod+Delete exec --no-startup-id "actions"
@@ -59,14 +59,12 @@ default_border none
 focus_follows_mouse no
 focus_on_window_activation focus
 
-xwayland disable
-
 floating_modifier $mod
 
 bar {
     status_command i3blocks
     position top
-    font pango:dejavu sans mono 10
+    font pango:liberation mono 10
     colors {
         background #111111
         # separator #333333
@@ -76,11 +74,4 @@ bar {
         inactive_workspace #232937 #191d27 #666666
         urgent_workspace #ffffff #ec5959 #ffffff
     }
-}
-
-input * {
-    xkb_layout "gb"
-
-    repeat_delay 300
-    repeat_rate 50
 }
