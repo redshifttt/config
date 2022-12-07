@@ -55,7 +55,8 @@ autocmd("TextYankPost", {
 autocmd("BufReadPost", {
     pattern = "*",
     callback = function()
-        vim.api.nvim_exec('silent! normal! g`"zv', false)
+        -- g`" jumps to the last known position in a file. :h g`
+        vim.cmd("normal g`\"")
     end,
 })
 

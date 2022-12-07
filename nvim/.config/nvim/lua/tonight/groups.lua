@@ -18,11 +18,14 @@ local groups = {
     ['@text.bracket'] = {
         fg = c.white
     },
+    -- ['@punctuation.bracket.lua'] = {
+    --     fg = c.gray,
+    -- },
     ['@punctuation.bracket'] = {
-        fg = c.gray
+        fg = c.background_05,
     },
     ['@constructor'] = {
-        fg = c.gray
+        fg = c.background_05
     },
     ['@operator'] = {
         fg = c.white
@@ -64,6 +67,9 @@ local groups = {
         fg = c.white,
         bold = true,
     },
+    ['@text.literal'] = {
+        fg = c.white,
+    },
     ['@type'] = {
         fg = c.yellow
     },
@@ -82,6 +88,7 @@ local groups = {
 
     Comment = { link = "@comment" },
 
+    -- All TS* are deprecated now.
     -- TSCharacter = { fg = c.green },
     -- TSConstant = { fg = c.orange },
     -- TSConditional = { fg = c.magenta },
@@ -118,7 +125,7 @@ local groups = {
     StatusLine = { bg = c.background_n1 },
 
     -- ColorColumn = { bg = c.gray },
-    Constant = { link = "TSConstant" },
+    Constant = { link = "@constant" },
     Cursor = { bg = c.white },
     CursorLine = { bg = c.background_02 },
     CursorLineNr = { link = "CursorLine" },
@@ -133,11 +140,10 @@ local groups = {
     Folded = { fg = c.background_02 },
     LineNr = { fg = c.background_04 },
     SignColumn = { bg = c.background },
-    VertSplit = { link = "TSComment" },
     Visual = { bg = c.background_03 },
     VisualNOS = { link = "Visual" },
     WarningMsg = { link = "ErrorMsg" },
-    Whitespace = { link = "TSComment" },
+    Whitespace = { link = "@comment" },
     Pmenu = { bg = c.background_03 },
     -- nvim-cmp selection highlight group
     PmenuSel = {

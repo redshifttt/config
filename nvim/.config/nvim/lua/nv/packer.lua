@@ -86,16 +86,12 @@ use {
 }
 
 use {
-    "AndrewRadev/splitjoin.vim",
-}
-
-use {
     "windwp/nvim-autopairs",
     config = function() require("nv.plugins.autopairs") end,
 }
 
 use {
-    "rcarriga/nvim-notify"
+    "rcarriga/nvim-notify",
 }
 
 use {
@@ -106,4 +102,13 @@ use {
 use {
     'kevinhwang91/nvim-hlslens',
     config = function() require("nv.plugins.hlslens") end
+}
+
+-- use {
+--     "AndrewRadev/splitjoin.vim",
+-- }
+
+use {
+    "Wansmer/treesj",
+    config = function() require('treesj').setup() end
 }
