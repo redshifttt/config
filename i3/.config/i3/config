@@ -22,7 +22,7 @@ bindsym $mod+Return exec $terminal
 
 bindsym $mod+w kill
 
-bindsym $mod+d exec --no-startup-id "BEMENU_BACKEND=x11 bemenu-run -c -W 0.2 -l20 -s -CT -p 'run'"
+bindsym $mod+d exec --no-startup-id "bemenu-run -c -W 0.2 -l20 -s -CT -p 'run'"
 bindsym $mod+s exec --no-startup-id "scrot -s"
 bindsym Print exec --no-startup-id "scrot -f"
 bindsym $mod+Delete exec --no-startup-id "actions"
