@@ -1,5 +1,5 @@
 local g = vim.g
-local set = vim.opt
+local option = vim.opt
 
 -- Turn off a bunch of shit, still gets sourced on startup unfortunately
 g.loaded_python_provider = 0
@@ -14,75 +14,77 @@ g.mapleader = " "
 
 -- Settings --
 
-set.title = true
+option.title = true
 
 -- Disable mouse
-set.mouse = ""
+option.mouse = ""
 
-set.encoding = "utf-8"
+option.encoding = "utf-8"
 
-set.number = true
+option.number = true
 -- set.relativenumber = true
 vim.cmd("set relativenumber nonu")
 
-set.hidden = false
+option.hidden = false
 
-set.splitbelow = true
-set.splitright = true
+option.splitbelow = true
+option.splitright = true
 
-set.magic = true
-set.hlsearch = true
-set.incsearch = true
-set.ignorecase = true
-set.smartcase = true
-set.showmatch = true
+option.magic = true
+option.hlsearch = true
+option.incsearch = true
+option.ignorecase = true
+option.smartcase = true
+option.showmatch = true
 
-set.errorbells = true
-set.visualbell = true
+option.errorbells = true
+option.visualbell = true
 
-set.backup = false
-set.writebackup = false
-set.swapfile = false
+option.backup = false
+option.writebackup = false
+option.swapfile = false
 
 -- This is what you need to be able to turn tabs into spaces (expandtab)
-set.expandtab = true
-set.tabstop = 4
-set.shiftwidth = 4
-set.softtabstop = 4
+option.expandtab = true
+option.tabstop = 4
+option.shiftwidth = 4
+option.softtabstop = 4
 
-set.showmode = false
+option.showmode = false
 -- fileformats defaults to unix,dos on linux
 -- set.fileformats = "unix,dos,mac"
 
-set.termguicolors = true
+option.termguicolors = true
 
-set.scrolloff = 20
-set.sidescrolloff = 20
+option.scrolloff = 20
+option.sidescrolloff = 20
 
-set.undofile = true
+option.undofile = true
 
-set.showcmd = true
+option.showcmd = true
 
-set.conceallevel = 0
-set.shortmess:append("I")
+option.conceallevel = 0
+option.shortmess:append("I")
 
-set.wrap = false
+option.wrap = false
 
-set.list = true
-set.listchars = {
+option.list = true
+option.listchars = {
     nbsp = "¬",
     tab = "→·",
     trail = "-",
     extends = ">",
 }
 
-set.laststatus = 3
-set.winbar = "%n %f %m"
+option.laststatus = 3
+option.winbar = "%n %f %m"
 
 -- not sure how much i like this
 -- set.clipboard:append("unnamedplus")
 
 -- Always display the signcolumn for LSP reasons
-set.signcolumn = "yes"
+option.signcolumn = "yes"
 
-set.cmdheight = 0
+option.cmdheight = 0
+
+option.virtualedit = "onemore"

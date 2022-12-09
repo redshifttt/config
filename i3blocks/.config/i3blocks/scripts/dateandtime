@@ -1,6 +1,6 @@
 #!/bin/sh
 
-date +'%a %e %b %Y %H:%M' | awk '{
+date +'%A, %e %b %Y %H:%M' | awk '{
     day = $1;
     dayofmonth = $2;
     month = $3;
