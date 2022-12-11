@@ -1,0 +1,1 @@
+feh --image-bg 'black' -. -^ "%u/%l - %f (%wx%h) - feh" -d
