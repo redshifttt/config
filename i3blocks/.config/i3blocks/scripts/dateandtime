@@ -19,5 +19,12 @@ date +'%A, %e %b %Y %H:%M' | awk '{
     else
         suffix = "th";
 
+    if (dayofmonth == "11")
+        suffix = "th"
+    else if (dayofmonth == "12")
+        suffix = "th"
+    else if (dayofmonth == "13")
+        suffix = "th"
+
     print day, dayofmonth suffix, month, year, time
 }'
