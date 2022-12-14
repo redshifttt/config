@@ -1,11 +1,6 @@
 #!/bin/bash
 # the simple screengrabber
 
-full(){
-    shotgun -f png - | xclip -selection clipboard -t image/png # takes screenshot
-    xclip -selection clipboard -t image/png -o > "$pics_dir/$file_format-full.png" # takes it from clipboard and saves it
-}
-
 sel(){
     selection=$(slop -f "-i %i -g %g")
     shotgun $selection - | xclip -selection clipboard -t image/png
@@ -20,7 +15,5 @@ pics_dir="$HOME/images/screenshots/$folder_format"
 [[ ! -d "$pics_dir" ]] && mkdir -p "$pics_dir"
 
 case "$1" in
-    -f) full ;; # full screen
     -s) sel ;; # region
-    *) full ;; # default action
 esac
