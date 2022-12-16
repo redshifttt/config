@@ -20,7 +20,7 @@ use {
 
 use {
     "neovim/nvim-lspconfig",
-    config = function() require("nv.plugins.lsp.config") end,
+    config = function() require("nv.plugins.lsp") end,
 }
 
 use {
