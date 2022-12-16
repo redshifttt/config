@@ -1,38 +1,45 @@
 #!/usr/bin/python
 
 import os
+import sys
+import mimetypes
 
-cwd = os.getcwd()
-columns = os.get_terminal_size().columns
+def count_visible_filetypes(working_directory):
+    filetypes = []
+    seen = {}
 
-filetypes = []
-seen = {}
+    for f in os.listdir(working_directory):
+        if not "." in f:
+            continue
 
-for f in os.listdir(cwd):
-    if not "." in f:
-        continue
-    elif f.startswith("."):
-        continue
-    else:
+        if f.startswith("."):
+            continue
+
         filetypes.append(f.split(".")[-1:][0])
 
-for t in filetypes:
-    if t in seen:
+    for t in filetypes:
+        if not t in seen:
+            seen[t] = 0 # init in dict
+            seen[t] += 1 # you have been seen
+            continue
+
         seen[t] += 1
-    else:
-        seen[t] = 0
-        seen[t] += 1
 
-sum_of_values = sum(seen.values())
+    sum_of_values = sum(seen.values())
 
-for k in seen:
-    v = seen[k]
-    seen[k] = str(v)
-    seen[k] += f" ({v / sum_of_values * 100:.0f}%)"
+    for k in seen:
+        v = seen[k]
+        seen[k] = str(v)
 
-seen = sorted(seen.items(), key=lambda x: x[1], reverse=True)
+    seen = sorted(seen.items(), key=lambda x: x[1], reverse=True)
 
-for v in seen:
-    print(f"{v[0]}\t| {v[1]}")
+    for v in seen:
+        bar = "#" * int(v[1])
+        print(f"{v[0]}\t| {v[1]} {bar}")
 
-print(f"total files with filetypes: {sum_of_values}")
+cwd = os.getcwd()
+
+if len(sys.argv) == 2:
+    cwd = sys.argv[1]
+
+count_visible_filetypes(cwd)
