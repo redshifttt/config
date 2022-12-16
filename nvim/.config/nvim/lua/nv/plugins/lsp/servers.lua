@@ -1,4 +1,40 @@
 local lsp = require('lspconfig')
+local telescope = require("telescope.builtin")
+
+-- I got this from theprimeagen and it's fucking magic
+function config(_config)
+    return vim.tbl_deep_extend("force", {
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+        flags = { debounce_text_changes = 150 },
+        on_attach = function()
+            local bufopts = {
+                noremap = true,
+                silent = true,
+                buffer = 0,
+            }
+
+            vim.keymap.set('n', 'gd', function() telescope.lsp_definitions() end, bufopts)
+            vim.keymap.set('n', 'gR', function() telescope.lsp_references() end, bufopts)
+            vim.keymap.set('n', 'gD', function() telescope.lsp_type_definitions() end, bufopts)
+
+            vim.keymap.set('n', '<leader>e', function() vim.diagnostic.open_float() end, bufopts)
+            vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, bufopts)
+            vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, bufopts)
+            vim.keymap.set('n', '<leader>q', function() vim.diagnostic.setloclist() end, bufopts)
+            vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, bufopts)
+            vim.keymap.set('n', 'gK', function() vim.lsp.buf.hover() end, bufopts)
+            vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, bufopts)
+            vim.keymap.set('n', 'g<C-k>', function() vim.lsp.buf.signature_help() end, bufopts)
+            vim.keymap.set('n', 'gwa', function() vim.lsp.buf.add_workspace_folder() end, bufopts)
+            vim.keymap.set('n', 'gwr', function() vim.lsp.buf.remove_workspace_folder() end, bufopts)
+            vim.keymap.set('n', 'gwl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
+            vim.keymap.set('n', 'gr', function() vim.lsp.buf.rename() end, bufopts)
+            vim.keymap.set('n', 'ca', function() vim.lsp.buf.code_action() end, bufopts)
+            -- Not every server supports formatting IIRC
+            -- vim.keymap.set('n', 'gf', function() vim.lsp.buf.formatting() end, bufopts)
+        end,
+    }, _config or {})
+end
 
 -- Lua
 local sumneko_binary_path = vim.fn.exepath('lua-language-server')
