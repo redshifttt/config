@@ -38,3 +38,5 @@ fcd(){
 
 fkill(){ kill $(ps -eo pid,user,command | fzf | awk '{print $1}') ;}
 unix(){ date -d @"$1" +'%a, %e %B %Y, %T %Z %z'; }
+
+alias newsboat="echo \"You said you wouldn't use this anymore because of the dumb keybinds system.\""
