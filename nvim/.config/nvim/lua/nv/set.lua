@@ -86,5 +86,3 @@ option.winbar = "%n %f %m"
 option.signcolumn = "yes"
 
 option.cmdheight = 0
-
-option.virtualedit = "onemore"
