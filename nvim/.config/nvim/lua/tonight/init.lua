@@ -1,8 +1,12 @@
 -- tonight.nvim: lua colour scheme inspired by tomorrow and spacegray
-local config = require('tonight.config')
 local g = require("tonight.groups")
-local util = require("tonight.util")
+
+local function highlight(group, styles)
+    vim.api.nvim_set_hl(0, group, styles)
+end
 
 for group, styles in pairs(g) do
-    util.highlight(group, styles)
+    highlight(group, styles)
 end
+
+require('tonight.config')

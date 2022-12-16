@@ -1,5 +1,4 @@
 local c = require('tonight.colours')
-local util = require('tonight.util')
 
 local groups = {
     -- Treesitter slowly attempting to replace all the things
