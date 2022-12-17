@@ -5,7 +5,12 @@ local use = packer.use
 local init = packer.init
 
 init {
-    package_root = util.join_paths(vim.fn.stdpath('config'), 'pack')
+    package_root = util.join_paths(vim.fn.stdpath('config'), 'pack'),
+    display = {
+        open_fn = function()
+            return require('packer.util').float({ border = 'single' })
+        end
+    }
 }
 
 packer.reset()
@@ -56,6 +61,11 @@ use {
 }
 
 use {
+    "j-hui/fidget.nvim",
+    config = function() require("nv.plugins.fidget") end,
+}
+
+use {
     "ellisonleao/glow.nvim",
     branch = "main", -- cucked
     ft = "markdown",
@@ -101,16 +111,16 @@ use {
     config = function() require("nvim-surround").setup {} end
 }
 
-use {
-    'kevinhwang91/nvim-hlslens',
-    config = function() require("nv.plugins.hlslens") end
-}
-
 -- use {
---     "AndrewRadev/splitjoin.vim",
+--     'kevinhwang91/nvim-hlslens',
+--     config = function() require("nv.plugins.hlslens") end
 -- }
 
 use {
     "Wansmer/treesj",
-    config = function() require('treesj').setup() end
+    config = function() require('nv.plugins.treesj') end
+}
+
+use {
+    "mbbill/undotree"
 }
