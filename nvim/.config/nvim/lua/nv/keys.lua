@@ -1,5 +1,4 @@
 -- General Keybinds (no plugins)
-local treesj = require("treesj") -- TODO: move eventually
 local map = vim.keymap.set
 
 local opts = {
@@ -36,5 +35,3 @@ map("n", "L", "<Nop>", opts)
 
 map('n', 'gx', '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
 
-map("n", "gj", function() treesj.join() end, opts) -- TODO: move eventually
-map("n", "gs", function() treesj.split() end, opts) -- TODO: move eventually
