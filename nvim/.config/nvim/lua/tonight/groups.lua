@@ -17,14 +17,14 @@ local groups = {
     ['@text.bracket'] = {
         fg = c.white
     },
-    -- ['@punctuation.bracket.lua'] = {
-    --     fg = c.gray,
-    -- },
     ['@punctuation.bracket'] = {
         fg = c.background_05,
     },
     ['@constructor'] = {
         fg = c.background_05
+    },
+    ['@constructor.python'] = {
+        fg = c.yellow
     },
     ['@operator'] = {
         fg = c.white
@@ -86,6 +86,7 @@ local groups = {
     },
 
     Comment = { link = "@comment" },
+    Identifier = { fg = c.blue },
 
     -- All TS* are deprecated now.
     -- TSCharacter = { fg = c.green },
@@ -154,7 +155,11 @@ local groups = {
         fg = c.magenta,
         bold = true,
     },
-    Normal = { fg = c.white },
+    -- Normal has to have a background for vim.notify notifications
+    Normal = {
+        fg = c.white,
+        bg = c.background,
+    },
     NormalFloat = { link = "Normal" },
     NormalNC = { link = "Normal" },
     Special = { link = "TSPunctSpecial" },
@@ -249,8 +254,13 @@ local groups = {
     -- Telescope
     TelescopePromptCounter = { fg = c.blue },
 
-    --- Filetypes:
-    -- for when you use nvim as your manpager :^)
+    FidgetTitle = {
+        fg = c.magenta,
+        bold = true
+    },
+    FidgetTask = { link = "@comment" },
+
+    --- Filetypes (aka has the format filetypeThing):
     manOptionDesc = { fg = c.red },
     manSectionHeading = { fg = c.magenta },
     manSubheading = { fg = c.magenta },

@@ -1,3 +1,5 @@
+-- Neovim Config
+
 -- local is_nightly = vim.version().prerelease
 --
 -- if not is_nightly then
