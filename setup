@@ -1,0 +1,24 @@
+#!/bin/sh
+
+PACKAGE_LIST=(
+    alacritty
+    bash
+    python
+    dunst
+    feh
+    i3-wm
+    i3blocks
+    irssi
+    mpd
+    mpv
+    ncmpcpp
+    neofetch
+    newsboat
+    neovim
+    picom
+    xorg xorg-xinit
+    zathura
+    zsh
+)
+
+echo sudo pacman -Sy --needed "${PACKAGE_LIST[@]}"
