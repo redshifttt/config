@@ -6,15 +6,21 @@ telescope.setup {
     defaults = {
         prompt_prefix = "> ",
         layout_config = {
-            horizontal = {
-                width = 0.9
-            }
-        }
+            vertical = { width = 0.5 },
+        },
+        layout_strategy = "vertical"
     }
 }
 
-map("n", "<leader>th", function() builtin.help_tags() end)
-map("n", "<leader>tH", function() builtin.highlights() end)
-map("n", "<leader>tm", function() builtin.man_pages() end)
-map("n", "<leader>tf", function() builtin.find_files() end)
--- map("n", "<leader>tc", function() builtin.command_history() end)
+-- [f]ind
+map("n", "<leader>fh", function() builtin.help_tags() end)
+map("n", "<leader>fH", function() builtin.highlights() end)
+map("n", "<leader>fm", function() builtin.man_pages() end)
+map("n", "<leader>ff", function() builtin.find_files() end)
+map("n", "<leader>fc", function() builtin.commands() end)
+map("n", "<leader>fC", function() builtin.command_history() end)
+map("n", "<leader>fb", function() builtin.buffers() end)
+map("n", "<leader>fs", function() builtin.live_grep() end)
+
+-- [g]it
+map("n", "<leader>gf", function() builtin.git_files() end)
