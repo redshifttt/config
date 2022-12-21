@@ -51,19 +51,19 @@ interval=2
 markup=pango
 
 [storage]
-label=<b>storage </b>
+label=<b>STORAGE </b>
 command=scripts/storage
 interval=30
 markup=pango
 
 [volume]
-label=<b>vol </b>
+label=<b>VOLUME </b>
 command=scripts/vol
 interval=once
 markup=pango
 
 [internet]
-label=<b>wifi </b>
+label=<b>INTERNET </b>
 command=scripts/internet
 interval=5
 markup=pango
