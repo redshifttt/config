@@ -31,6 +31,9 @@ keymap.set("n", "<ctrl-u>", "<ctrl-u>zz", opts)
 
 -- I don't like accidentally hitting these
 keymap.set("n", "H", "<cmd>nohlsearch<cr>", opts)
-keymap.set("n", "L", "<Nop>", opts)
+keymap.set("n", "L", "<nop>", opts)
 
-keymap.set('n', 'gx', '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
+keymap.set('n', 'gx', '<cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<cr>')
+
+-- Open a terminal
+keymap.set('n', '<leader>t', '<cmd>vs term://bash<CR>')
