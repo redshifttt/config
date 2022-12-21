@@ -18,8 +18,8 @@ keymap.set({"n", "i", "v"}, "<Left>", "<Nop>", opts)
 keymap.set({"n", "i", "v"}, "<Right>", "<Nop>", opts)
 
 -- Quickly open my init.vim then let me reload the config
-keymap.set("n", "<leader>v", ":vs $MYVIMRC<cr>", opts)
-keymap.set("n", "<F5>", ":source $MYVIMRC<cr>", opts)
+keymap.set("n", "<leader>v", "<cmd>vs $MYVIMRC<cr>", opts)
+keymap.set("n", "<F5>", "<cmd>source $MYVIMRC<cr>", opts)
 
 -- Center the found search term
 keymap.set("n", "n", "nzz", opts)
@@ -30,7 +30,7 @@ keymap.set("n", "<ctrl-d>", "<ctrl-d>zz", opts)
 keymap.set("n", "<ctrl-u>", "<ctrl-u>zz", opts)
 
 -- I don't like accidentally hitting these
-keymap.set("n", "H", ":nohlsearch<cr>", opts)
+keymap.set("n", "H", "<cmd>nohlsearch<cr>", opts)
 keymap.set("n", "L", "<Nop>", opts)
 
 keymap.set('n', 'gx', '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
