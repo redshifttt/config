@@ -32,7 +32,7 @@ alias ytmp3="yt-dlp -x --extract-audio --audio-format mp3"
 
 fcd(){
     local selection
-    selection=$(fd . $HOME /mnt/raid0 -H -j12 -E "*.cache*" -E "^/mnt/raid0/backups" -I | fzf +m --prompt="cd: " --tiebreak=end)
+    selection=$(fd . $HOME -H -j12 -E "*.cache*" -I | fzf +m --prompt="cd: " --tiebreak=end)
     [[ ! -d "$selection" ]] && cd "$(dirname $selection 2>/dev/null)" || cd "$selection"
 }
 
