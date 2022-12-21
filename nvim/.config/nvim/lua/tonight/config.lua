@@ -1,12 +1,5 @@
 local c = require("tonight.colours")
 
-vim.highlight.priorities = {
-    diagnostics = 150,
-    syntax = 101,
-    treesitter = 100,
-    user = 200
-}
-
 vim.g.terminal_color_0 = c.background_10
 vim.g.terminal_color_8 = c.gray
 
