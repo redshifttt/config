@@ -8,8 +8,14 @@ local groups = {
     ['@parameter'] = {
         fg = c.white
     },
-    ['@variable.builtin'] = {
+    ['@variable'] = {
         fg = c.white
+    },
+    ['@variable.builtin'] = {
+        link = "@variable"
+    },
+    ['@variable.type'] = {
+        link = "@variable"
     },
     ['@field'] = {
         fg = c.red
@@ -22,9 +28,6 @@ local groups = {
     },
     ['@constructor'] = {
         fg = c.background_05
-    },
-    ['@constructor.python'] = {
-        fg = c.yellow
     },
     ['@operator'] = {
         fg = c.white
@@ -50,11 +53,14 @@ local groups = {
     ['@function'] = {
         fg = c.blue
     },
+    ['@method'] = {
+        link = "@function"
+    },
     ['@method.call'] = {
-        fg = c.blue
+        link = "@function"
     },
     ['@function.builtin'] = {
-        fg = c.blue
+        link = "@function"
     },
     ['@boolean'] = {
         fg = c.orange
@@ -84,9 +90,11 @@ local groups = {
     ['@number'] = {
         fg = c.orange
     },
+    ['@property'] = { -- Stick your semantic bullshit
+        link = "@field"
+    },
 
     Comment = { link = "@comment" },
-    Identifier = { fg = c.blue },
 
     -- All TS* are deprecated now.
     -- TSCharacter = { fg = c.green },
@@ -260,7 +268,19 @@ local groups = {
     },
     FidgetTask = { link = "@comment" },
 
-    --- Filetypes (aka has the format filetypeThing):
+    -- packer.nvim
+    packerStatusSuccess = {
+        fg = c.green,
+        bold = true,
+    },
+    packerString = {
+        fg = c.magenta
+    },
+
+    -----------------
+    --- Filetypes ---
+    -----------------
+
     manOptionDesc = { fg = c.red },
     manSectionHeading = { fg = c.magenta },
     manSubheading = { fg = c.magenta },
@@ -290,7 +310,12 @@ local groups = {
 
     -- Help
     helpCommand = { fg = c.red },
-    helpExample = { fg = c.white }
+    helpExample = { fg = c.white },
+
+    -- Python
+    ['@constructor.python'] = {
+        fg = c.yellow
+    },
 }
 
 return groups
