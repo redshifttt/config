@@ -1,28 +1,15 @@
 -- Neovim Config
 
--- local is_nightly = vim.version().prerelease
---
--- if not is_nightly then
---     vim.notify("The version of nvim you are using is not **nightly**. Please use nightly.", vim.log.levels.ERROR)
--- end
-
--- If this is executed and an error is thrown packer is not installed.
-local packer_is_installed = function() require('impatient') end
-
-if not pcall(packer_is_installed) then
-    local fn = vim.fn
-    local install_path = fn.stdpath('config')..'/pack/packer/start/packer.nvim'
-
-    if fn.empty(fn.glob(install_path)) > 0 then
-        vim.cmd("!git clone --depth 1 https://github.com/wbthomason/packer.nvim " .. install_path)
-        vim.cmd.packadd("packer.nvim")
-    end
+local lazypath = vim.fn.stdpath("config") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({ "git", "clone", "--filter=blob:none", "--single-branch", "https://github.com/folke/lazy.nvim.git", lazypath })
 end
+vim.opt.runtimepath:prepend(lazypath)
 
+require("nv.plugin_manager")
 require("nv.set")
 require("nv.autocmd")
 require("nv.keys")
-require("nv.packer")
 
 vim.notify = require("notify")
 
