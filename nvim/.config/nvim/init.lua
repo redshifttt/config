@@ -1,10 +1,19 @@
 -- Neovim Config
 
-local lazypath = vim.fn.stdpath("config") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({ "git", "clone", "--filter=blob:none", "--single-branch", "https://github.com/folke/lazy.nvim.git", lazypath })
+local ensure_packer = function()
+    local fn = vim.fn
+    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+        vim.cmd [[packadd packer.nvim]]
+        return true
+    end
+    return false
 end
-vim.opt.runtimepath:prepend(lazypath)
+
+local packer_bootstrap = ensure_packer()
+
+require("impatient")
 
 require("nv.plugin_manager")
 require("nv.set")
