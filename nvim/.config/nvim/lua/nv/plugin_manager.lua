@@ -29,6 +29,7 @@ lazy.setup({
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function() require("nv.plugins.telescope") end,
+        lazy = true,
     },
 
     {
@@ -57,16 +58,10 @@ lazy.setup({
         config = function() require("nv.plugins.comment") end,
     },
 
-    { "dstein64/vim-startuptime" },
-
     {
         "nvim-lualine/lualine.nvim",
         dependencies = {
-            {
-                "kyazdani42/nvim-web-devicons",
-                lazy = true
-            },
-            "arkav/lualine-lsp-progress"
+            { "kyazdani42/nvim-web-devicons", lazy = true }
         },
         config = function() require("nv.plugins.lualine") end,
     },
