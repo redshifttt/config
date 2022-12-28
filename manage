@@ -14,11 +14,17 @@ PACKAGE_LIST=(
     ncmpcpp
     neofetch
     newsboat
-    neovim
+    neovim-nightly-bin
     picom
     xorg xorg-xinit
     zathura
     zsh
 )
 
-echo sudo pacman -Sy --needed "${PACKAGE_LIST[@]}"
+printf "Setting up chaotic-aur"
+
+if ! grep "chaotic" /etc/pacman.conf >/dev/null;
+    # shit
+fi
+
+yay -Sy --needed "${PACKAGE_LIST[@]}"
