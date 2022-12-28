@@ -1,16 +1,4 @@
-local g = vim.g
 local option = vim.opt
-
--- Turn off a bunch of shit, still gets sourced on startup unfortunately
-g.loaded_python_provider = 0
-g.loaded_python3_provider = 0
-g.loaded_node_provider = 0
-g.loaded_perl_provider = 0
-g.loaded_ruby_provider = 0
-
--- Globals --
-
-g.mapleader = " "
 
 -- Settings --
 

@@ -2,7 +2,7 @@ local lsp = require('lspconfig')
 local telescope = require("telescope.builtin")
 
 -- I got this from theprimeagen and it's fucking magic
-function config(_config)
+local function config(server_setup)
     return vim.tbl_deep_extend("force", {
         capabilities = require("cmp_nvim_lsp").default_capabilities(),
         flags = { debounce_text_changes = 150 },
@@ -25,33 +25,23 @@ function config(_config)
             vim.keymap.set('n', 'gK', function() vim.lsp.buf.hover() end, bufopts)
             vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, bufopts)
             vim.keymap.set('n', 'g<C-k>', function() vim.lsp.buf.signature_help() end, bufopts)
-            vim.keymap.set('n', 'gwa', function() vim.lsp.buf.add_workspace_folder() end, bufopts)
-            vim.keymap.set('n', 'gwr', function() vim.lsp.buf.remove_workspace_folder() end, bufopts)
+            -- vim.keymap.set('n', 'gwa', function() vim.lsp.buf.add_workspace_folder() end, bufopts)
+            -- vim.keymap.set('n', 'gwr', function() vim.lsp.buf.remove_workspace_folder() end, bufopts)
             vim.keymap.set('n', 'gwl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
             vim.keymap.set('n', 'gr', function() vim.lsp.buf.rename() end, bufopts)
             vim.keymap.set('n', 'ca', function() vim.lsp.buf.code_action() end, bufopts)
             -- Not every server supports formatting IIRC
             -- vim.keymap.set('n', 'gf', function() vim.lsp.buf.formatting() end, bufopts)
         end,
-    }, _config or {})
+    }, server_setup or {})
 end
 
 -- Lua
-local sumneko_binary_path = vim.fn.exepath('lua-language-server')
-local sumneko_root_path = vim.fn.fnamemodify(sumneko_binary_path, ':h:h:h')
-
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 lsp.sumneko_lua.setup(config({
-    filetypes = { "lua" },
-    cmd = {
-        sumneko_binary_path,
-        "-E",
-        sumneko_root_path .. "/main.lua",
-    };
-    -- root_dir = vim.lsp.util.root_pattern('init.lua', 'README.md'),
     settings = {
         Lua = {
             runtime = {
@@ -66,12 +56,11 @@ lsp.sumneko_lua.setup(config({
             workspace = {
                 library = vim.api.nvim_get_runtime_file("", true),
                 useGitIgnore = true,
+                checkThirdParty = false,
             },
             -- Do not send telemetry data containing a randomized but unique identifier
             telemetry = { enable = false },
-            hint = {
-                enable = true
-            }
+            hint = { enable = true }
         },
     },
 }))
@@ -79,11 +68,7 @@ lsp.sumneko_lua.setup(config({
 -- C
 lsp.clangd.setup(config({
     cmd = { "clangd" },
-    filetypes = {
-        "c",
-        "cpp",
-        "h",
-    },
+    filetypes = { "c", "cpp", "h" },
 }))
 
 -- Python

@@ -1,19 +1,23 @@
 -- Neovim Config
 
-local ensure_packer = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-        vim.cmd [[packadd packer.nvim]]
-        return true
-    end
-    return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "--single-branch",
+        "https://github.com/folke/lazy.nvim.git",
+        lazypath,
+    })
 end
+vim.opt.runtimepath:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
+vim.cmd.colorscheme("tonight")
 
-require("impatient")
+-- This needs to get set before lazy for it to use the leader key you have set
+-- instead of default \ key
+vim.g.mapleader = " "
 
 require("nv.plugin_manager")
 require("nv.set")
@@ -21,5 +25,3 @@ require("nv.autocmd")
 require("nv.keys")
 
 vim.notify = require("notify")
-
-vim.cmd.colorscheme("tonight")

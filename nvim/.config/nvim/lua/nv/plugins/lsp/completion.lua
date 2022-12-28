@@ -40,7 +40,7 @@ cmp.setup({
                 fallback()
             end
         end,
-        ["<C-b>"] = function(fallback)
+        ["<C-p>"] = function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
             else
