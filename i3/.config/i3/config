@@ -15,7 +15,7 @@ set $workspace5 "5 misc"
 exec --no-startup-id dunst
 exec --no-startup-id picom
 exec --no-startup-id nm-applet
-exec --no-startup-id xwallpaper --zoom /home/sean/dotfiles/i3/.config/i3/now_winter.jpg
+exec --no-startup-id xwallpaper --zoom /home/sean/dotfiles/i3/.config/i3/1670989086289789.jpg
 
 # Keys
 bindsym $mod+r exec --no-startup-id "i3-msg restart"
