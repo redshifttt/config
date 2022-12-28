@@ -3,3 +3,4 @@ nvim/.config/nvim/plugin/
 nvim/.config/nvim/.luarc.json
 nvim/.config/nvim/lazy-lock.json
 nvim/.config/nvim/lazy/
+*mpd.db
