@@ -25,10 +25,7 @@ autocmd("FileType", {
     command = "set colorcolumn=80"
 })
 
-local yank_group = vim.api.nvim_create_augroup('HighlightYank', {})
-
 autocmd("TextYankPost", {
-    group = yank_group,
     pattern = '*',
     callback = function()
         vim.highlight.on_yank({
@@ -38,25 +35,15 @@ autocmd("TextYankPost", {
     end,
 })
 
--- Needs more work
-
--- autocmd("BufReadPost", {
---     pattern = '*',
---     callback = function()
---         local cursor_pos = vim.api.nvim_win_get_cursor(0)
---         local line = cursor_pos[1]
---         local column = cursor_pos[2]
---
---         vim.api.nvim_buf_set_mark(1, ".", line, column, {})
---     end,
--- })
-
--- It's not quite pure lua but it works
 autocmd("BufReadPost", {
-    pattern = "*",
     callback = function()
-        -- g`" jumps to the last known position in a file. :h g`
-        vim.cmd("normal g`\"")
+        local mark = vim.api.nvim_buf_get_mark(0, '"')
+        local lcount = vim.api.nvim_buf_line_count(0)
+
+        if mark[1] > 0 and mark[1] <= lcount then
+            pcall(vim.api.nvim_win_set_cursor, 0, mark)
+            vim.cmd("norm zz")
+        end
     end,
 })
 
@@ -72,6 +59,9 @@ autocmd("RecordingEnter", {
 autocmd("RecordingLeave", {
     pattern = "*",
     callback = function()
-        vim.notify("Finished recording.", vim.log.levels.INFO, { title = "Macro" })
+        local recorded_register = vim.fn.reg_recorded()
+        if recorded_register then
+            vim.notify("Finished recording.", vim.log.levels.INFO, { title = "Macro" })
+        end
     end,
 })
