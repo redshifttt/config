@@ -1,4 +1,3 @@
-# vim: ft=swayconfig
 # sean's i3 config
 
 # Variables
@@ -66,8 +65,10 @@ bar {
     status_command i3blocks
     position top
     font pango:liberation mono 10
+    padding 1px
+    tray_padding 4px
     colors {
-        background #111111
+        background #080A0E
         # separator #333333
 
         # <colorclass> <border> <background> <text>
