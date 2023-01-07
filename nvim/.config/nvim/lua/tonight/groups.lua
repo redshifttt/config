@@ -8,9 +8,6 @@ local groups = {
     ['@parameter'] = {
         fg = c.white
     },
-    ['@variable'] = {
-        fg = c.white
-    },
     ['@variable.builtin'] = {
         link = "@variable"
     },
@@ -90,68 +87,36 @@ local groups = {
     ['@number'] = {
         fg = c.orange
     },
-    ['@property'] = { -- Stick your semantic bullshit
+    ['@property'] = {
         link = "@field"
     },
 
+    -- Editor-specific
     Comment = { link = "@comment" },
-
-    -- All TS* are deprecated now.
-    -- TSCharacter = { fg = c.green },
-    -- TSConstant = { fg = c.orange },
-    -- TSConditional = { fg = c.magenta },
-    -- TSFunction = { fg = c.blue },
-    -- TSFuncBuiltin = { link = "TSFunction" },
-    -- TSFunctionCall = { link = "TSFunction" },
-    -- TSInclude = { fg = c.magenta },
-    -- TSKeyword = { fg = c.magenta },
-    -- TSKeywordFunction = { link = "TSKeyword" },
-    -- TSMethod = { fg = c.blue },
-    -- TSNumber = { fg = c.orange },
-    -- TSParameter = { fg = c.white },
-    -- TSProperty = { fg = c.white },
-    -- TSPunctSpecial = { fg = c.red },
-    -- TSPunctDelimiter = { link = "TSPunctSpecial" },
-    -- TSRepeat = { fg = c.magenta },
-    -- TSString = { fg = c.green },
-    -- TSStringEscape = { link = "TSPunctSpecial" },
-    -- TSStringRegex = { link = "TSPunctSpecial" },
-    -- TSText = { fg = c.white },
-    -- TSTitle = { fg = c.white, bold = true },
-    -- TSType = { fg = c.yellow },
-    -- TSURI = {
-    --     fg = c.blue,
-    --     underline = true,
-    -- },
-    -- TSVariableBuiltin = { link = "@variable" },
-    -- TSNamespace = { fg = c.blue },
-    -- TSTodo = {
-    --     fg = c.background,
-    --     bg = c.magenta,
-    -- },
-
-    StatusLine = { bg = c.background_n1 },
-
-    -- ColorColumn = { bg = c.gray },
+    ColorColumn = { bg = c.red },
     Constant = { link = "@constant" },
     Cursor = { bg = c.white },
     CursorLine = { bg = c.background_02 },
     CursorLineNr = { link = "CursorLine" },
+    DiffAdd = { fg = c.green },
+    DiffChange = { fg = c.yellow },
+    DiffDelete = { fg = c.red },
     EndOfBuffer = { fg = c.background },
-    Error = {
-        fg = "#000000",
-        bg = c.red,
-        bold = true,
+    Error = { -- Same as LSP virtual text
+        fg = c.lsp_error,
+        bg = "#1F1418",
+        bold = true
     },
     ErrorMsg = { link = "Error" },
     FoldColumn = { fg = c.background_02 },
     Folded = { fg = c.background_02 },
     LineNr = { fg = c.background_04 },
     SignColumn = { bg = c.background },
+    StatusLine = { bg = c.background_n1 },
     Visual = { bg = c.background_03 },
     VisualNOS = { link = "Visual" },
     WarningMsg = { link = "ErrorMsg" },
-    Whitespace = { link = "@comment" },
+    Whitespace = { fg = c.background_03 },
     Pmenu = { bg = c.background_03 },
     -- nvim-cmp selection highlight group
     PmenuSel = {
@@ -170,8 +135,7 @@ local groups = {
     },
     NormalFloat = { link = "Normal" },
     NormalNC = { link = "Normal" },
-    Special = { link = "TSPunctSpecial" },
-    SpecialChar = { link = "TSPunctSpecial" },
+    Special = { fg = c.red },
     Text = { link = "TSText" },
     Title = { link = "TSTitle" },
     Todo = { link = "TSTodo" },
@@ -218,15 +182,17 @@ local groups = {
     DiagnosticSignInfo = { fg = c.lsp_info },
     DiagnosticSignWarn = { fg = c.lsp_warn },
 
-    --- Plugins:
-    IndentBlanklineChar = { fg = c.background_03 },
+    ---------------
+    --- PLUGINS ---
+    ---------------
 
+    -- LSP completion
     CmpItemAbbrDeprecated = { link = "Error" },
     CmpItemAbbrMatch = { fg = c.blue },
     CmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" },
 
     CmpItemKindVariable = { link = "@variable" },
-    CmpItemKindInterface = { link = "CmpItemKindVariable" }, -- idk what an interface is
+    CmpItemKindInterface = { link = "CmpItemKindVariable" },
     CmpItemKindText = { link = "CmpItemKindVariable" },
 
     CmpItemKindFunction = { link = "TSFunction" },
@@ -259,9 +225,10 @@ local groups = {
 
     CmpItemMenu = { bg = c.background_02 },
 
-    -- Telescope
+    -- telescope.nvim
     TelescopePromptCounter = { fg = c.blue },
 
+    -- fidget.nvim
     FidgetTitle = {
         fg = c.magenta,
         bold = true
@@ -269,35 +236,37 @@ local groups = {
     FidgetTask = { link = "@comment" },
 
     -- packer.nvim
-    packerStatusSuccess = {
-        fg = c.green,
-        bold = true,
-    },
-    packerString = {
-        fg = c.magenta
-    },
+    -- packerStatusSuccess = {
+    --     fg = c.green,
+    --     bold = true,
+    -- },
+    -- packerString = {
+    --     fg = c.magenta
+    -- },
 
     -----------------
-    --- Filetypes ---
+    --- FILETYPES ---
     -----------------
 
+    -- manpages
     manOptionDesc = { fg = c.red },
     manSectionHeading = { fg = c.magenta },
     manSubheading = { fg = c.magenta },
     manHeader = { fg = c.white },
 
+    -- Markdown
     markdownH1Delimiter = { fg = c.background_01 },
     markdownH2Delimiter = { fg = c.background_01 },
     markdownH3Delimiter = { fg = c.background_01 },
     markdownH4Delimiter = { fg = c.background_01 },
     markdownH5Delimiter = { fg = c.background_01 },
     markdownH6Delimiter = { fg = c.background_01 },
-    markdownH1 = { link = "TSTitle" },
-    markdownH2 = { link = "TSTitle" },
-    markdownH3 = { link = "TSTitle" },
-    markdownH4 = { link = "TSTitle" },
-    markdownH5 = { link = "TSTitle" },
-    markdownH6 = { link = "TSTitle" },
+    markdownH1 = { link = "@text.title" },
+    markdownH2 = { link = "@text.title" },
+    markdownH3 = { link = "@text.title" },
+    markdownH4 = { link = "@text.title" },
+    markdownH5 = { link = "@text.title" },
+    markdownH6 = { link = "@text.title" },
     markdownListMarker = { fg = c.magenta },
     markdownUrl = {
         fg = c.blue,
@@ -305,6 +274,7 @@ local groups = {
     },
     markdownCode = { fg = c.white },
 
+    -- bash
     bashTSParameter = { fg = c.white },
     bashTSVariable = { link = "@variable" },
 
@@ -312,8 +282,23 @@ local groups = {
     helpCommand = { fg = c.red },
     helpExample = { fg = c.white },
 
+    -----------------
+    --- LANGUAGES ---
+    -----------------
+
     -- Python
     ['@constructor.python'] = {
+        fg = c.yellow
+    },
+
+    -- HTML
+    ['@tag.html'] = {
+        fg = c.red
+    },
+    ['@tag.delimiter.html'] = {
+        fg = c.gray
+    },
+    ['@tag.attribute.html'] = {
         fg = c.yellow
     },
 }
