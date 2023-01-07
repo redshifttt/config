@@ -88,6 +88,16 @@ lazy.setup({
         config = function() require('nv.plugins.treesj') end,
         lazy = true
     },
+
+    {
+        "folke/which-key.nvim",
+        config = function() require("which-key").setup {} end,
+    },
+
+    {
+        "echasnovski/mini.nvim",
+        config = function() require('mini.indentscope').setup() end,
+    },
 },
 { -- opts
     rtp = {
