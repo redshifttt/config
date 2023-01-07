@@ -1,7 +1,20 @@
 #!/bin/sh
 
-distro=$(source /etc/os-release; echo "${PRETTY_NAME}")
-up=$(uptime -p); up=${up/up /}
-wm=$(awk '/^exec/ {print $NF}' < ~/.xinitrc)
+# POSIX-compliant fetch script
 
-printf "you are running ${distro} on a PC\nthe machine has been up for ${up}\nyour editor is ${EDITOR}\nyour browser is ${BROWSER}\nyour window manager is ${wm}\n"
+distro=$(. /etc/os-release; echo "${PRETTY_NAME}")
+uptime=$(uptime -p | sed "s|up ||")
+kernel=$(uname -r)
+wm=$(awk '/^exec/ {print $NF}' < ~/.xinitrc)
+shell=${SHELL}
+editor=${EDITOR}
+terminal=${TERMINAL}
+
+printf "os:${distro}
+uptime:${uptime}
+kernel:${kernel}
+wm:${wm}
+shell:${shell}
+editor:${editor}
+terminal:${terminal}
+" | column -s: -t -o " | "
