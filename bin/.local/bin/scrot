@@ -12,7 +12,7 @@ file_format=$(date +'%F_%H-%M-%S')
 
 pics_dir="$HOME/images/screenshots/$folder_format"
 
-[[ ! -d "$pics_dir" ]] && mkdir -p "$pics_dir"
+[ ! -d "$pics_dir" ] && mkdir -p "$pics_dir"
 
 case "$1" in
     -s) sel ;; # region
