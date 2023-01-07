@@ -9,10 +9,9 @@ local config = {
         section_separators = {},
         disabled_filetypes = {},
         always_divide_middle = true,
-        refresh = { statusline = 1 },
     },
     sections = {
-        lualine_a = {
+        lualine_a = { -- Mode
             {
                 function()
                     return '▊'
@@ -26,66 +25,33 @@ local config = {
                 },
             },
             { 'mode' },
-            { 'branch' },
         },
-        lualine_b = {},
-        lualine_c = {{
-            'filename',
-            path = 1,
-            symbols = {
-                modified = ' [+]',
-                readonly = ' [-]',
-                unnamed = ' [No Name]',
-                newfile = ' [New File]',
+        lualine_b = { -- Git
+            { 'branch' },
+            { 'diff',
+                diff_color = {
+                    -- Same color values as the general color option can be used here.
+                    added    = { fg = c.green },    -- Changes the diff's added color
+                    modified = { fg = c.yellow }, -- Changes the diff's modified color
+                    removed  = { fg = c.red }, -- Changes the diff's removed color you
+                },
             },
-            color = {
-                fg = c.white,
-            },
-        }},
-        lualine_x = {
-        -- {
-        --     'lsp_progress',
-        --     colors = {
-        --         lsp_client_name = c.magenta,
-        --         spinner = c.green,
-        --         percentage = c.foreground,
-        --         title = c.foreground,
-        --         message = c.foreground,
-        --         use = true
-        --     },
-        --     timer = { spinner = 200 },
-        --     spinner_symbols = { "|", "/", "-", "\\" },
-        -- },
-        {
-            'diagnostics',
-            sources = { 'nvim_diagnostic' },
-
-            -- Displays diagnostics for the defined severity types
-            sections = {
-                'error',
-                'warn',
-                'info',
-                'hint',
-            },
-
-            diagnostics_color = {
-                color_error = { fg = c.lsp_error },
-                color_warn = { fg = c.lsp_warn },
-                color_info = { fg = c.lsp_info },
-                color_hint = { fg = c.lsp_hint }
-            },
-
-            symbols = {
-                error = 'Error: ',
-                warn = 'Warn: ',
-                info = 'Info: ',
-                hint = 'Hint: ',
-            },
-            colored = true,           -- Displays diagnostics status in color if set to true.
-            update_in_insert = false, -- Update diagnostics in insert mode.
-        }},
-        lualine_y = {'filetype'},
-        lualine_z = {
+        },
+        lualine_c = {
+            {
+                'filename',
+                path = 0,
+                symbols = {
+                    modified = '[+]',
+                    readonly = '[-]',
+                    unnamed = '[No Name]',
+                    newfile = '[New File]',
+                },
+            }
+        },
+        lualine_x = {},
+        lualine_y = {'filetype'}, -- File info
+        lualine_z = { -- Positional
             'progress',
             'location',
             {
