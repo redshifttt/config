@@ -26,6 +26,8 @@ window:
 
   gtk_theme_variant: None
 
+  opacity: 1.0
+
 scrolling:
   history: 10000
   multiplier: 3
@@ -75,8 +77,6 @@ colors:
     magenta: '0x9D82E8'
     cyan: '0x50b2c1'
     white: '0xBEBAC6'
-
-window.opacity: 1.0
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
