@@ -1,42 +1,16 @@
 # vim: ft=toml
-# i3blocks config file
 #
-# Please see man i3blocks for a complete reference!
-# The man page is also hosted at http://vivien.github.io/i3blocks
-#
-# List of valid properties:
-#
-# align
-# color
-# command
-# full_text
-# instance
-# interval
-# label
-# min_width
-# name
-# separator
-# separator_block_width
-# short_text
-# signal
-# urgent
 
 # Global properties
 
 separator=false
 separator_block_width=15
 
-# [weather]
-# label=<b>weather </b>
-# command=scripts/weather
-# interval=3600 # 1 hours
-# markup=pango
-
-# [cpu]
-# label=<b>CPU </b>
-# command=scripts/cpu
-# interval=1
-# markup=pango
+[cpu]
+label=<b>CPU </b>
+command=scripts/cpu
+interval=2
+markup=pango
 
 [ram]
 label=<b>RAM </b>
@@ -70,4 +44,4 @@ markup=pango
 
 [time]
 command=scripts/dateandtime
-interval=30
+interval=10
