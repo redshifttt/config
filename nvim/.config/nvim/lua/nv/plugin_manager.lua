@@ -37,7 +37,8 @@ lazy.setup({
         build = ":TSUpdate",
         dependencies = {
             "nvim-treesitter/playground",
-            "nvim-treesitter/nvim-treesitter-context" -- life saver
+            "nvim-treesitter/nvim-treesitter-context", -- life saver
+            "nvim-treesitter/nvim-treesitter-textobjects"
         },
         config = function() require("nv.plugins.treesitter") end,
     },
@@ -111,5 +112,8 @@ lazy.setup({
             "tutor",
             "zipPlugin",
         },
+    },
+    install = {
+        colourscheme = { "tonight" }
     },
 })
