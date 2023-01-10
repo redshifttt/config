@@ -1,11 +1,6 @@
-local map = vim.keymap.set
-local treesj = require("treesj") -- TODO: move eventually
+local treesj = require("treesj")
 
 treesj.setup()
 
-local opts = {
-    noremap = true
-}
-
-map("n", "gj", function() treesj.join() end, opts) -- TODO: move eventually
-map("n", "gs", function() treesj.split() end, opts) -- TODO: move eventually
+vim.keymap.map("n", "gj", function() treesj.join() end, { desc = "Join splitted text" })
+vim.keymap.map("n", "gs", function() treesj.split() end, { desc = "Split joined text" })

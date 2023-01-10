@@ -1,5 +1,4 @@
 local lsp = require('lspconfig')
-local telescope = require("telescope.builtin")
 
 -- I got this from theprimeagen and it's fucking magic
 local function config(server_setup)
@@ -7,31 +6,25 @@ local function config(server_setup)
         capabilities = require("cmp_nvim_lsp").default_capabilities(),
         flags = { debounce_text_changes = 150 },
         on_attach = function()
-            local bufopts = {
-                noremap = true,
-                silent = true,
-                buffer = 0,
-            }
+            vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, { desc = "LSP definitions" })
+            vim.keymap.set('n', 'gR', function() vim.lsp.buf.references() end, { desc = "LSP references" })
+            vim.keymap.set('n', 'gD', function() vim.lsp.buf.type_definition() end, { desc = "LSP type definitions" })
 
-            vim.keymap.set('n', 'gd', function() telescope.lsp_definitions() end, bufopts)
-            vim.keymap.set('n', 'gR', function() telescope.lsp_references() end, bufopts)
-            vim.keymap.set('n', 'gD', function() telescope.lsp_type_definitions() end, bufopts)
-
-            vim.keymap.set('n', '<leader>e', function() vim.diagnostic.open_float() end, bufopts)
-            vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, bufopts)
-            vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, bufopts)
-            vim.keymap.set('n', '<leader>q', function() vim.diagnostic.setloclist() end, bufopts)
-            vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, bufopts)
-            vim.keymap.set('n', 'gK', function() vim.lsp.buf.hover() end, bufopts)
-            vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, bufopts)
-            vim.keymap.set('n', 'g<C-k>', function() vim.lsp.buf.signature_help() end, bufopts)
-            -- vim.keymap.set('n', 'gwa', function() vim.lsp.buf.add_workspace_folder() end, bufopts)
-            -- vim.keymap.set('n', 'gwr', function() vim.lsp.buf.remove_workspace_folder() end, bufopts)
-            vim.keymap.set('n', 'gwl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
-            vim.keymap.set('n', 'gr', function() vim.lsp.buf.rename() end, bufopts)
-            vim.keymap.set('n', 'ca', function() vim.lsp.buf.code_action() end, bufopts)
+            vim.keymap.set('n', '<leader>e', function() vim.diagnostic.open_float() end, { desc = "" })
+            vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, { desc = "LSP previous diagnostic" })
+            vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, { desc = "LSP next diagnostic" })
+            vim.keymap.set('n', '<leader>q', function() vim.diagnostic.setloclist() end, { desc = "" })
+            vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, { desc = "LSP declarations" })
+            vim.keymap.set('n', 'gK', function() vim.lsp.buf.hover() end, { desc = "LSP hover text" })
+            vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, { desc = "LSP jump to implementation" })
+            vim.keymap.set('n', 'g<C-k>', function() vim.lsp.buf.signature_help() end, { desc = "" })
+            -- vim.keymap.set('n', 'gwa', function() vim.lsp.buf.add_workspace_folder() end, { desc = "" })
+            -- vim.keymap.set('n', 'gwr', function() vim.lsp.buf.remove_workspace_folder() end, { desc = "" })
+            vim.keymap.set('n', 'gwl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, { desc = "" })
+            vim.keymap.set('n', 'gr', function() vim.lsp.buf.rename() end, { desc = "LSP rename" })
+            vim.keymap.set('n', 'ca', function() vim.lsp.buf.code_action() end, { desc = "LSP code action" })
             -- Not every server supports formatting IIRC
-            -- vim.keymap.set('n', 'gf', function() vim.lsp.buf.formatting() end, bufopts)
+            -- vim.keymap.set('n', 'gf', function() vim.lsp.buf.formatting() end, { desc = "" })
         end,
     }, server_setup or {})
 end

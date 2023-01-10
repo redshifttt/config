@@ -2,10 +2,10 @@
 local keymap = vim.keymap
 
 -- Splits
-keymap.set("n", "<C-J>", "<C-W><C-J>")
-keymap.set("n", "<C-K>", "<C-W><C-K>")
-keymap.set("n", "<C-L>", "<C-W><C-L>")
-keymap.set("n", "<C-H>", "<C-W><C-H>")
+keymap.set("n", "<C-J>", "<C-W><C-J>", { desc = "Move to split below" })
+keymap.set("n", "<C-K>", "<C-W><C-K>", { desc = "Move to split above" })
+keymap.set("n", "<C-L>", "<C-W><C-L>", { desc = "Move to split right" })
+keymap.set("n", "<C-H>", "<C-W><C-H>", { desc = "Move to split left" })
 
 -- Arrow keys
 keymap.set({"n", "i", "v"}, "<Up>", "<Nop>")
@@ -14,24 +14,16 @@ keymap.set({"n", "i", "v"}, "<Left>", "<Nop>")
 keymap.set({"n", "i", "v"}, "<Right>", "<Nop>")
 
 -- Quickly open my init.vim then let me reload the config
-keymap.set("n", "<leader>v", "<cmd>vs $MYVIMRC<cr>")
-keymap.set("n", "<F5>", "<cmd>source $MYVIMRC<cr>")
+keymap.set("n", "<F5>", "<cmd>source $MYVIMRC<cr>", { desc = "Reload whole config" })
 
 -- Center the found search term
-keymap.set("n", "n", "nzz")
-keymap.set("n", "N", "Nzz")
+keymap.set("n", "n", "nzz", { desc = "Next found search" })
+keymap.set("n", "N", "Nzz", { desc = "Last found search" })
 
 -- Similar as the above but for motion keys
-keymap.set("n", "<ctrl-d>", "<ctrl-d>zz")
-keymap.set("n", "<ctrl-u>", "<ctrl-u>zz")
+keymap.set("n", "<ctrl-d>", "<ctrl-d>zz", { desc = "Jump down" })
+keymap.set("n", "<ctrl-u>", "<ctrl-u>zz", { desc = "Jump up" })
 
 -- I don't like accidentally hitting these
-keymap.set("n", "H", "<cmd>nohlsearch<cr>")
+keymap.set("n", "H", "<cmd>nohlsearch<cr>", { desc = "Turn off search highlighting" })
 keymap.set("n", "L", "<nop>")
-
--- Never really use this rn
--- keymap.set('n', 'gx', '<cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<cr>')
-
--- Open a terminal
--- Found a cool plugin that does this and more
--- keymap.set('n', '<leader>t', '<cmd>vs term://bash<CR>')
