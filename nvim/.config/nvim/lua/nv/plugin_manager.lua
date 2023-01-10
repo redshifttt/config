@@ -29,7 +29,6 @@ lazy.setup({
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function() require("nv.plugins.telescope") end,
-        lazy = true,
     },
 
     {
@@ -99,6 +98,20 @@ lazy.setup({
         "echasnovski/mini.nvim",
         config = function() require('mini.indentscope').setup() end,
     },
+    {
+        "glepnir/lspsaga.nvim",
+        config = function()
+            local saga = require("lspsaga")
+
+            saga.init_lsp_saga({
+                -- your configuration
+            })
+        end,
+    },
+    {
+        "akinsho/toggleterm.nvim",
+        config = function() require("toggleterm").setup {} end
+    },
 },
 { -- opts
     rtp = {
@@ -114,6 +127,6 @@ lazy.setup({
         },
     },
     install = {
-        colourscheme = { "tonight" }
+        colorscheme = { "tonight" }
     },
 })
