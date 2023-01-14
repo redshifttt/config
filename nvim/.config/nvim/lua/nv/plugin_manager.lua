@@ -99,11 +99,6 @@ lazy.setup({
         config = function() require('mini.indentscope').setup() end,
     },
     {
-        "glepnir/lspsaga.nvim",
-        event = 'BufRead',
-        config = function() require("nv.plugins.lspsaga") end,
-    },
-    {
         "akinsho/toggleterm.nvim",
         config = function() require("toggleterm").setup {} end
     },
