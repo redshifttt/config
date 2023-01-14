@@ -22,9 +22,7 @@ local function config(server_setup)
             -- vim.keymap.set('n', 'gwr', function() vim.lsp.buf.remove_workspace_folder() end, { desc = "" })
             vim.keymap.set('n', 'gwl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, { desc = "" })
             vim.keymap.set('n', 'gr', function() vim.lsp.buf.rename() end, { desc = "LSP rename" })
-            vim.keymap.set('n', 'ca', function() vim.lsp.buf.code_action() end, { desc = "LSP code action" })
-            -- Not every server supports formatting IIRC
-            -- vim.keymap.set('n', 'gf', function() vim.lsp.buf.formatting() end, { desc = "" })
+            -- vim.keymap.set('n', 'ca', function() vim.lsp.buf.code_action() end, { desc = "LSP code action" })
         end,
     }, server_setup or {})
 end
