@@ -20,7 +20,7 @@ alias dragon="dragon-drag-and-drop"
 
 # sys util
 alias {pacman,p}="sudo pacman"
-alias {reboot,restart}="sudo loginctl reboot"
+alias {reboot,restart}="sudo reboot"
 alias suspend="sudo loginctl suspend"
 alias reb="time source ~/.bashrc && time source ~/.bash_profile"
 alias ncdu="ncdu --color off"
