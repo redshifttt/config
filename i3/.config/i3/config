@@ -64,7 +64,7 @@ floating_modifier $mod
 bar {
     status_command i3blocks
     position top
-    font pango:liberation mono 10
+    font pango:dejavu sans 9
     padding 1px
     tray_padding 4px
     colors {
