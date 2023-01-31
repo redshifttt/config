@@ -1,11 +1,10 @@
 #!/bin/sh
 
-date +'%A, %e %b %Y %H:%M' | awk '{
+date +'%a %e %b %Y' | awk '{
     day = $1;
     dayofmonth = $2;
     month = $3;
     year = $4;
-    time = $5;
 
     length_of_dayofmonth = length(dayofmonth);
     end_of_dayofmonth = substr(dayofmonth, length_of_dayofmonth);
@@ -26,5 +25,5 @@ date +'%A, %e %b %Y %H:%M' | awk '{
     else if (dayofmonth == "13")
         suffix = "th"
 
-    print day, dayofmonth suffix, month, year, time
+    print day, dayofmonth suffix, month, year
 }'
