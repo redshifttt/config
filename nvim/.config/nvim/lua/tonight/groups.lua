@@ -133,7 +133,7 @@ local groups = {
         fg = c.white,
         bg = c.background,
     },
-    NormalFloat = { link = "Normal" },
+    NormalFloat = { bg = c.background_n1 },
     NormalNC = { link = "Normal" },
     Special = { fg = c.red },
     Text = { link = "TSText" },
@@ -227,6 +227,8 @@ local groups = {
 
     -- telescope.nvim
     TelescopePromptCounter = { fg = c.blue },
+    TelescopeBorder = { fg = c.gray },
+    TelescopeTitle = { fg = c.white },
 
     -- fidget.nvim
     FidgetTitle = {
@@ -234,15 +236,6 @@ local groups = {
         bold = true
     },
     FidgetTask = { link = "@comment" },
-
-    -- packer.nvim
-    -- packerStatusSuccess = {
-    --     fg = c.green,
-    --     bold = true,
-    -- },
-    -- packerString = {
-    --     fg = c.magenta
-    -- },
 
     -----------------
     --- FILETYPES ---
@@ -301,6 +294,9 @@ local groups = {
     ['@tag.attribute.html'] = {
         fg = c.yellow
     },
+
+    -- you don't need to show errors in a colour scheme like wtf
+    i3ConfigError = {}
 }
 
 return groups
