@@ -13,18 +13,12 @@ local config = {
     sections = {
         lualine_a = { -- Mode
             {
-                function()
-                    return '▊'
-                end,
-                color = {
-                    fg = c.background_05
-                },
+                'mode',
                 padding = {
-                    left = 0,
-                    right = 1,
+                    left = 2,
+                    right = 0,
                 },
             },
-            { 'mode' },
         },
         lualine_b = { -- Git
             { 'branch' },
@@ -37,7 +31,7 @@ local config = {
                 },
             },
         },
-        lualine_c = {
+        lualine_c = { -- File
             {
                 'filename',
                 path = 0,
@@ -49,21 +43,22 @@ local config = {
                 },
             }
         },
-        lualine_x = {},
+        lualine_x = { -- LSP
+            {
+                function()
+                    local current_attached_lsp_client = vim.lsp.get_active_clients({ bufnr = 0 })[1].name
+                    return "LSP: " .. current_attached_lsp_client
+                end
+            }
+        },
         lualine_y = {'filetype'}, -- File info
         lualine_z = { -- Positional
             'progress',
-            'location',
             {
-                function()
-                    return '▊'
-                end,
-                color = {
-                    fg = c.background_05
-                },
+                'location',
                 padding = {
-                    left = 1,
-                    right = 0,
+                    left = 0,
+                    right = 2,
                 },
             },
         },
