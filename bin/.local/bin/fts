@@ -1,20 +1,25 @@
 #!/usr/bin/python
 
-from os import listdir, getcwd
+# TODO: go through filetypes and figure out sizes of files
+
+from os import scandir, getcwd
 from sys import argv
 
 def count_visible_filetypes(working_directory):
     filetypes = []
     seen = {}
 
-    for f in listdir(working_directory):
-        if not "." in f:
+    for f in scandir(working_directory):
+        if f.is_dir():
+            filetypes.append("directory/")
+
+        if not "." in f.name:
             continue
 
-        if f.startswith("."):
+        if f.name.startswith("."):
             continue
 
-        filetypes.append(f.split(".")[-1:][0])
+        filetypes.append(f.name.split(".")[-1:][0])
 
     for t in filetypes:
         if not t in seen:
@@ -32,11 +37,18 @@ def count_visible_filetypes(working_directory):
 
     seen = sorted(seen.items(), key=lambda x: x[1], reverse=True)
 
-    space_width = len(seen[0][1])
+    type_width = 0
+    for k,v in seen:
+        if len(k) > type_width:
+            type_width = len(k) + 1
+    if seen:
+        amount_width = len(seen[0][1]) + 1
+    else:
+        return
 
     for v in seen:
         bar = "#" * int(v[1])
-        print(f"{v[0]}\t| {v[1]:>{space_width}} {bar}".expandtabs(4))
+        print(f"{v[0]:<{type_width}}{v[1]:>{amount_width}} {bar}")
 
 cwd = getcwd()
 
