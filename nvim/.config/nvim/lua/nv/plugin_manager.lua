@@ -1,12 +1,11 @@
 local lazy = require("lazy")
 
 lazy.setup({
-    -- Plugins
+    -- plugins
     {
         "neovim/nvim-lspconfig",
         config = function() require("nv.plugins.lsp.servers") end,
     },
-
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
@@ -24,13 +23,11 @@ lazy.setup({
         config = function() require("nv.plugins.lsp.completion") end,
         lazy = true,
     },
-
     {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function() require("nv.plugins.telescope") end,
     },
-
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
@@ -41,23 +38,19 @@ lazy.setup({
         },
         config = function() require("nv.plugins.treesitter") end,
     },
-
     {
         "j-hui/fidget.nvim",
         config = function() require("nv.plugins.fidget") end,
     },
-
     {
         "ellisonleao/glow.nvim",
         branch = "main", -- cucked
         ft = "markdown",
     },
-
     {
         "numToStr/Comment.nvim",
         config = function() require("nv.plugins.comment") end,
     },
-
     {
         "nvim-lualine/lualine.nvim",
         dependencies = {
@@ -65,30 +58,24 @@ lazy.setup({
         },
         config = function() require("nv.plugins.lualine") end,
     },
-
     {
         "lukas-reineke/indent-blankline.nvim",
         config = function() require("nv.plugins.indent-blankline") end,
     },
-
     {
         "windwp/nvim-autopairs",
         config = function() require("nv.plugins.autopairs") end,
     },
-
     { "rcarriga/nvim-notify" },
-
     {
         "kylechui/nvim-surround",
         config = function() require("nvim-surround").setup {} end
     },
-
     {
         "Wansmer/treesj",
         config = function() require('nv.plugins.treesj') end,
         lazy = true
     },
-
     {
         "folke/which-key.nvim",
         config = function() require("which-key").setup {} end,
@@ -106,6 +93,7 @@ lazy.setup({
         "lewis6991/gitsigns.nvim",
         config = function() require('nv.plugins.gitsigns') end,
     },
+    { "NvChad/nvim-colorizer.lua" },
 },
 { -- opts
     rtp = {
