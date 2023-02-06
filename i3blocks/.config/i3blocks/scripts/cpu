@@ -5,6 +5,6 @@ import psutil
 percent_cpu_used = psutil.cpu_percent(interval=0.5)
 cpu_temp = psutil.sensors_temperatures()['k10temp'][0].current
 
-print(f"{percent_cpu_used:>4}% {cpu_temp:.0f}°C")
+print(f"{percent_cpu_used:>4}% used @ {cpu_temp:.0f}°C")
 # percent_cpu_used right aligned by 4 because 100 does not have any decimal
 # places but a double digit number with a decimal place takes up max 4 spaces
