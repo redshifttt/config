@@ -2,94 +2,38 @@ local c = require('tonight.colours')
 
 local groups = {
     -- Treesitter slowly attempting to replace all the things
-    ['@variable'] = {
-        fg = c.white
-    },
-    ['@parameter'] = {
-        fg = c.white
-    },
-    ['@variable.builtin'] = {
-        link = "@variable"
-    },
-    ['@variable.type'] = {
-        link = "@variable"
-    },
-    ['@field'] = {
-        fg = c.red
-    },
-    ['@text.bracket'] = {
-        fg = c.white
-    },
-    ['@punctuation.bracket'] = {
-        fg = c.background_05,
-    },
-    ['@constructor'] = {
-        fg = c.background_05
-    },
-    ['@operator'] = {
-        fg = c.white
-    },
-    ['@keyword'] = {
-        fg = c.magenta
-    },
-    ['@repeat'] = {
-        fg = c.magenta
-    },
-    ['@conditional'] = {
-        fg = c.magenta
-    },
-    ['@include'] = {
-        fg = c.magenta
-    },
-    ['@preproc'] = {
-        fg = c.gray
-    },
-    ['@string'] = {
-        fg = c.green
-    },
-    ['@function'] = {
-        fg = c.blue
-    },
-    ['@method'] = {
-        link = "@function"
-    },
-    ['@method.call'] = {
-        link = "@function"
-    },
-    ['@function.builtin'] = {
-        link = "@function"
-    },
-    ['@boolean'] = {
-        fg = c.orange
-    },
-    ['@comment'] = {
-        fg = c.background_05
-    },
+    ['@variable'] = { fg = c.white },
+    ['@parameter'] = { fg = c.white },
+    ['@variable.builtin'] = { link = "@variable" },
+    ['@variable.type'] = { link = "@variable" },
+    ['@field'] = { fg = c.red },
+    ['@text.bracket'] = { fg = c.white },
+    ['@punctuation.bracket'] = { fg = c.background_05, },
+    ['@constructor'] = { fg = c.background_05 },
+    ['@operator'] = { fg = c.white },
+    ['@keyword'] = { fg = c.magenta },
+    ['@repeat'] = { fg = c.magenta },
+    ['@conditional'] = { fg = c.magenta },
+    ['@include'] = { fg = c.magenta },
+    ['@preproc'] = { fg = c.gray },
+    ['@string'] = { fg = c.green },
+    ['@function'] = { fg = c.blue },
+    ['@method'] = { link = "@function" },
+    ['@method.call'] = { link = "@function" },
+    ['@function.builtin'] = { link = "@function" },
+    ['@boolean'] = { fg = c.orange },
+    ['@comment'] = { fg = c.background_05 },
     ['@text.title'] = {
         fg = c.white,
         bold = true,
     },
-    ['@text.literal'] = {
-        fg = c.white,
-    },
-    ['@type'] = {
-        fg = c.yellow
-    },
-    ['@structure'] = {
-        link = "@type"
-    },
-    ['@storageclass'] = {
-        link = "@type"
-    },
-    ['@constant'] = {
-        fg = c.orange
-    },
-    ['@number'] = {
-        fg = c.orange
-    },
-    ['@property'] = {
-        link = "@field"
-    },
+    ['@text.literal'] = { fg = c.white, },
+    ['@type'] = { fg = c.yellow },
+    ['@structure'] = { link = "@type" },
+    ['@storageclass'] = { link = "@type" },
+    ['@constant'] = { fg = c.orange },
+    ['@number'] = { fg = c.orange },
+    ['@property'] = { link = "@field" },
 
     -- Editor-specific
     Comment = { link = "@comment" },
@@ -257,19 +201,15 @@ local groups = {
     markdownH1 = { link = "@text.title" },
     markdownH2 = { link = "@text.title" },
     markdownH3 = { link = "@text.title" },
-    markdownH4 = { link = "@text.title" },
-    markdownH5 = { link = "@text.title" },
-    markdownH6 = { link = "@text.title" },
+    markdownH4 = { fg = c.white },
+    markdownH5 = { fg = c.white },
+    markdownH6 = { fg = c.white },
     markdownListMarker = { fg = c.magenta },
     markdownUrl = {
         fg = c.blue,
         underline = true,
     },
     markdownCode = { fg = c.white },
-
-    -- bash
-    bashTSParameter = { fg = c.white },
-    bashTSVariable = { link = "@variable" },
 
     -- Help
     helpCommand = { fg = c.red },
@@ -294,9 +234,6 @@ local groups = {
     ['@tag.attribute.html'] = {
         fg = c.yellow
     },
-
-    -- you don't need to show errors in a colour scheme like wtf
-    i3ConfigError = {}
 }
 
 return groups
