@@ -1,5 +1,7 @@
 #!/bin/sh
 
+DAY=$(date +'%e')
+
 date +'%a %e %b %Y' | awk '{
     day = $1;
     dayofmonth = $2;
@@ -27,3 +29,7 @@ date +'%a %e %b %Y' | awk '{
 
     print day, dayofmonth suffix, month, year
 }'
+
+case "$BLOCK_BUTTON" in
+    1) notify-send "Calendar" "<tt>$(cal --color=never 2>&1 | sed -r 's|'"$DAY"'|<span background="#ffffff" foreground="#000000">'"$DAY"'</span>|g')</tt>" ;;
+esac
