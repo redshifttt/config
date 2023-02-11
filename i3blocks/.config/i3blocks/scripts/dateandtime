@@ -31,5 +31,5 @@ date +'%a %e %b %Y' | awk '{
 }'
 
 case "$BLOCK_BUTTON" in
-    1) notify-send "Calendar" "<tt>$(cal --color=never 2>&1 | sed -r 's|'"$DAY"'|<span background="#ffffff" foreground="#000000">'"$DAY"'</span>|g')</tt>" ;;
+    1) notify-send "Calendar" "<tt>$(cal --color=never 2>&1 | sed -r 's|'"$DAY"'\b|<span background="#ffffff" foreground="#000000">'"$DAY"'</span>|g')</tt>" ;;
 esac
