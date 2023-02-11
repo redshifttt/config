@@ -190,6 +190,11 @@ local groups = {
     manSectionHeading = { fg = c.magenta },
     manSubheading = { fg = c.magenta },
     manHeader = { fg = c.white },
+    manReference = {
+        fg = c.white,
+        bold = true,
+        underline = true
+    },
 
     -- Markdown
     markdownH1Delimiter = { fg = c.background_01 },
