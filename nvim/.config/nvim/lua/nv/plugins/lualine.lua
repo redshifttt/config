@@ -6,7 +6,7 @@ local config = {
         theme = "tonight",
         icons_enabled = false,
         component_separators = {},
-        section_separators = {},
+        section_separators = { left = "•", right = "•" },
         disabled_filetypes = {},
         always_divide_middle = true,
     },
@@ -41,7 +41,8 @@ local config = {
                     unnamed = '[No Name]',
                     newfile = '[New File]',
                 },
-            }
+            },
+            { "filetype" },
         },
         lualine_x = { -- LSP
             {
@@ -51,7 +52,7 @@ local config = {
                 end
             }
         },
-        lualine_y = {'filetype'}, -- File info
+        lualine_y = {}, -- File info
         lualine_z = { -- Positional
             'progress',
             {
