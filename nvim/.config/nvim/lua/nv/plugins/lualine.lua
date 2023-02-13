@@ -20,7 +20,21 @@ local config = {
                 },
             },
         },
-        lualine_b = { -- Git
+        lualine_b = { -- File
+            {
+                'filename',
+                path = 0,
+                symbols = {
+                    modified = '[+]',
+                    readonly = '[-]',
+                    unnamed = '[No Name]',
+                    newfile = '[New File]',
+                },
+            },
+            { "filetype" },
+        },
+        lualine_c = {},
+        lualine_x = { -- LSP/Git
             { 'branch' },
             { -- Gitsigns
                 "diff",
@@ -35,32 +49,17 @@ local config = {
                         return { added = added, modified = changed, removed = removed }
                     end
                 end,
-            }
-        },
-        lualine_c = { -- File
-            {
-                'filename',
-                path = 0,
-                symbols = {
-                    modified = '[+]',
-                    readonly = '[-]',
-                    unnamed = '[No Name]',
-                    newfile = '[New File]',
-                },
             },
-            { "filetype" },
-        },
-        lualine_x = { -- LSP
             {
                 function()
                     local current_attached_lsp_client = vim.lsp.get_active_clients({ bufnr = 0 })[1].name
                     return "LSP: " .. current_attached_lsp_client
                 end
-            }
+            },
         },
         lualine_y = {}, -- File info
         lualine_z = { -- Positional
-            'progress',
+            { 'progress' },
             {
                 'location',
                 padding = {
