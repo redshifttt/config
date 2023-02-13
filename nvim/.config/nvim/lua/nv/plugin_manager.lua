@@ -94,6 +94,7 @@ lazy.setup({
         config = function() require('nv.plugins.gitsigns') end,
     },
     { "NvChad/nvim-colorizer.lua" },
+    { "tpope/vim-fugitive" }
 },
 { -- opts
     rtp = {
