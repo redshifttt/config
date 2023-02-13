@@ -6,7 +6,7 @@ local config = {
         theme = "tonight",
         icons_enabled = false,
         component_separators = {},
-        section_separators = { left = "•", right = "•" },
+        section_separators = {},
         disabled_filetypes = {},
         always_divide_middle = true,
     },
@@ -15,21 +15,26 @@ local config = {
             {
                 'mode',
                 padding = {
-                    left = 2,
+                    left = 1,
                     right = 0,
                 },
             },
         },
         lualine_b = { -- Git
             { 'branch' },
-            { 'diff',
-                diff_color = {
-                    -- Same color values as the general color option can be used here.
-                    added    = { fg = c.green },    -- Changes the diff's added color
-                    modified = { fg = c.yellow }, -- Changes the diff's modified color
-                    removed  = { fg = c.red }, -- Changes the diff's removed color you
-                },
-            },
+            { -- Gitsigns
+                function()
+                    local status = vim.b.gitsigns_status_dict
+                    if not status then
+                        return "no changes"
+                    else
+                        local added = status.added
+                        local removed = status.removed
+                        local changed = status.changed
+                        return string.format("+%s -%s ~%s", added, removed, changed)
+                    end
+                end,
+            }
         },
         lualine_c = { -- File
             {
