@@ -23,15 +23,16 @@ local config = {
         lualine_b = { -- Git
             { 'branch' },
             { -- Gitsigns
-                function()
+                "diff",
+                source = function()
                     local status = vim.b.gitsigns_status_dict
                     if not status then
-                        return "no changes"
+                        return { added = 0, modified = 0, removed = 0 }
                     else
                         local added = status.added
                         local removed = status.removed
                         local changed = status.changed
-                        return string.format("+%s -%s ~%s", added, removed, changed)
+                        return { added = added, modified = changed, removed = removed }
                     end
                 end,
             }
