@@ -64,16 +64,14 @@ local config = {
                 'location',
                 padding = {
                     left = 0,
-                    right = 2,
+                    right = 1,
                 },
             },
         },
     },
-    inactive_sections = {}, -- laststatus = 3 aka don't need this probably
+    inactive_sections = {}, -- laststatus = 3 so don't need this probably
     tabline = {},
     extensions = {},
 }
-
-
 
 lualine.setup(config)
