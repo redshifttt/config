@@ -25,5 +25,5 @@ keymap.set("n", "<ctrl-d>", "<ctrl-d>zz", { desc = "Jump down" })
 keymap.set("n", "<ctrl-u>", "<ctrl-u>zz", { desc = "Jump up" })
 
 -- I don't like accidentally hitting these
-keymap.set("n", "H", "<cmd>nohlsearch<cr>", { desc = "Turn off search highlighting" })
+keymap.set("n", "H", "<nop>")
 keymap.set("n", "L", "<nop>")
