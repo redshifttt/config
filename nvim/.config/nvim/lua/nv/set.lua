@@ -65,7 +65,7 @@ option.listchars = {
 }
 
 option.laststatus = 3
-option.winbar = "%n %f %m"
+option.winbar = "%n %F %m"
 
 -- not sure how much i like this
 -- set.clipboard:append("unnamedplus")
