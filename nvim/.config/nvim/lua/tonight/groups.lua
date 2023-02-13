@@ -32,7 +32,7 @@ local groups = {
     ['@structure'] = { link = "@type" },
     ['@storageclass'] = { link = "@type" },
     ['@constant'] = { fg = c.orange },
-    ['@number'] = { fg = c.orange },
+    ['@number'] = { fg = c.white },
     ['@property'] = { link = "@field" },
 
     -- Editor-specific
