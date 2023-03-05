@@ -7,7 +7,7 @@
 
 # misc
 alias grep="grep --color=auto"
-alias lsblk="lsblk -o "NAME,FSTYPE,FSAVAIL,FSUSE%,SIZE,TYPE,MOUNTPOINT" -p"
+alias lsblk="lsblk -o \"NAME,FSTYPE,FSAVAIL,FSUSE%,SIZE,TYPE,MOUNTPOINT\" -p"
 alias ls="lsd -lhF --group-dirs first --date relative --icon never"
 alias cat="bat --pager=never"
 alias mkdir="mkdir -pv"
@@ -33,10 +33,11 @@ alias ytmp3="yt-dlp -x --extract-audio --audio-format mp3"
 fcd(){
     local selection
     selection=$(fd . $HOME -H -j12 -E "*.cache*" -I | fzf +m --prompt="cd: " --tiebreak=begin --scheme=path)
-    [[ ! -d "$selection" ]] && cd "$(dirname $selection 2>/dev/null)" || cd "$selection"
+    [[ ! -d "$selection" ]] && cd "$(dirname $selection 2>/dev/null)" || cd "$selection" || exit
 }
 
 fkill(){ kill $(ps -eo pid,user,command | fzf | awk '{print $1}') ;}
 unix(){ date -d @"$1" +'%a, %e %B %Y, %T %Z %z'; }
-
-alias newsboat="echo \"You said you wouldn't use this anymore because of the dumb keybinds system.\""
+list_fonts(){
+    fc-list -b | grep "fullname:" | sed 's|(.*||;s|.*fullname:\s||;s|"||g' | sort | uniq | nl
+}
