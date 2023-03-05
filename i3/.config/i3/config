@@ -14,7 +14,7 @@ set $workspace5 "5 misc"
 exec --no-startup-id dunst
 exec --no-startup-id picom
 exec --no-startup-id nm-applet
-exec --no-startup-id xwallpaper --zoom /home/sean/dotfiles/i3/.config/i3/1670989086289789.jpg
+exec --no-startup-id xwallpaper --zoom /home/sean/dotfiles/i3/.config/i3/1669831758328930.jpg
 
 # Keys
 bindsym $mod+r exec --no-startup-id "i3-msg restart"
@@ -64,7 +64,7 @@ floating_modifier $mod
 bar {
     status_command i3blocks
     position top
-    font pango:dejavu sans 9
+    font pango:dejavu sans condensed 10
     padding 1px
     tray_padding 4px
     colors {
