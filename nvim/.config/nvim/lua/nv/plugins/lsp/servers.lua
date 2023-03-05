@@ -32,7 +32,7 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-lsp.sumneko_lua.setup(config({
+lsp.lua_ls.setup(config({
     settings = {
         Lua = {
             runtime = {
@@ -49,8 +49,6 @@ lsp.sumneko_lua.setup(config({
                 useGitIgnore = true,
                 checkThirdParty = false,
             },
-            -- Do not send telemetry data containing a randomized but unique identifier
-            telemetry = { enable = false },
             hint = { enable = true }
         },
     },

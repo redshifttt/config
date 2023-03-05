@@ -4,7 +4,7 @@ local c = require("tonight.colours")
 local config = {
     options = {
         theme = "tonight",
-        icons_enabled = false,
+        icons_enabled = true,
         component_separators = {},
         section_separators = {},
         disabled_filetypes = {},
@@ -31,7 +31,6 @@ local config = {
                     newfile = '[New File]',
                 },
             },
-            { "filetype" },
         },
         lualine_c = {},
         lualine_x = { -- LSP/Git
@@ -57,7 +56,9 @@ local config = {
                 end
             },
         },
-        lualine_y = {}, -- File info
+        lualine_y = {
+            { "filetype" },
+        }, -- File info
         lualine_z = { -- Positional
             { 'progress' },
             {

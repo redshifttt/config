@@ -5,6 +5,7 @@ lazy.setup({
     {
         "neovim/nvim-lspconfig",
         config = function() require("nv.plugins.lsp.servers") end,
+        ft = {"c", "python", "lua"}
     },
     {
         "hrsh7th/nvim-cmp",
@@ -31,8 +32,8 @@ lazy.setup({
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        ft = {"sh", "bash", "lua", "python", "html", "css", "vim", "markdown"},
         dependencies = {
-            "nvim-treesitter/playground",
             "nvim-treesitter/nvim-treesitter-context", -- life saver
             "nvim-treesitter/nvim-treesitter-textobjects"
         },
@@ -41,6 +42,7 @@ lazy.setup({
     {
         "j-hui/fidget.nvim",
         config = function() require("nv.plugins.fidget") end,
+        ft = {"c", "python", "lua"}
     },
     {
         "ellisonleao/glow.nvim",
@@ -94,7 +96,7 @@ lazy.setup({
         config = function() require('nv.plugins.gitsigns') end,
     },
     { "NvChad/nvim-colorizer.lua" },
-    { "tpope/vim-fugitive" }
+    { "tpope/vim-fugitive" },
 },
 { -- opts
     rtp = {
