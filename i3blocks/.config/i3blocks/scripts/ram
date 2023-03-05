@@ -1,11 +1,12 @@
 #!/bin/sh
 
-free --mega | awk '/Mem/ {
+free | awk '/Mem/ {
     used = $3;
+    used_gb = used / 1024 / 1024;
     total = $2;
 
     percentage = used / total * 100;
 
-    printf used "MB (";
+    printf "%.1f GB (", used_gb, total_gb;
     printf "%d%% used)\n", percentage;
 }'
