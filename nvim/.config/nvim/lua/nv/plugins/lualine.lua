@@ -33,15 +33,13 @@ local config = {
             },
         },
         lualine_c = {},
-        lualine_x = { -- LSP/Git
+        lualine_x = { -- Git
             { 'branch' },
             { -- Gitsigns
                 "diff",
                 source = function()
                     local status = vim.b.gitsigns_status_dict
-                    if not status then
-                        return { added = 0, modified = 0, removed = 0 }
-                    else
+                    if status then
                         local added = status.added
                         local removed = status.removed
                         local changed = status.changed
@@ -49,16 +47,20 @@ local config = {
                     end
                 end,
             },
+        },
+        lualine_y = { -- File/LSP if attached
+            {
+                "filetype",
+                color = { gui = "bold" }
+            },
             {
                 function()
                     local current_attached_lsp_client = vim.lsp.get_active_clients({ bufnr = 0 })[1].name
-                    return "LSP: " .. current_attached_lsp_client
-                end
+                    return "[" .. current_attached_lsp_client .. "]"
+                end,
+                color = { fg = c.green, gui = "bold,standout" }
             },
         },
-        lualine_y = {
-            { "filetype" },
-        }, -- File info
         lualine_z = { -- Positional
             { 'progress' },
             {
