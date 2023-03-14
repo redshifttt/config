@@ -37,12 +37,10 @@ lsp.lua_ls.setup(config({
     settings = {
         Lua = {
             runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                 version = "LuaJIT",
-                -- Setup your lua path
                 path = runtime_path,
             },
-            diagnostics = { -- Get the language server to recognize the `vim` global
+            diagnostics = {
                 globals = { "vim" },
             },
             workspace = {
@@ -66,14 +64,14 @@ lsp.pylsp.setup(config({
     filetypes = { "python" },
     settings = {
         pylsp = {
-            configurationSources = { "pylint" },
+            configurationSources = { "pycodestyle", "pydocstyle", "pylint", "pyflakes" },
             plugins = {
-                pylint = {
-                    enabled = true,
-                    executable = "pylint",
-                },
-                flake8 = { enabled = false },
-                pyflakes = { enabled = false },
+                -- for code linting (disabled by default)
+                pylint = { enabled = true },
+                pycodestyle = { enabled = true }, -- linter for style checking
+                pydocstyle = { enabled = true }, -- linter for style checking
+                pyflakes = { enabled = true }, -- linter to detect various errors
+                flake8 = { enabled = false }, -- for error checking (disabled by default)
             }
         }
     }
