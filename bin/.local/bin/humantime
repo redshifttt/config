@@ -1,0 +1,29 @@
+#!/bin/sh
+
+minute=$(date +"%M" | sed "s|^0||")
+hour=$(date +"%l" | sed "s|^\s||")
+
+if [[ "$minute" == "0" ]]; then
+    line="${hour} o'clock"
+else
+    if [[ "$minute" -le 30 ]]; then
+        line="${minute} minutes past ${hour}"
+    else
+        line="${minute} minutes to ${hour}"
+    fi
+    case "$minute" in
+        5) line="5 past ${hour}" ;;
+        10) line="10 past ${hour}" ;;
+        15) line="quarter past ${hour}" ;;
+        20) line="20 past ${hour}" ;;
+        25) line="25 past ${hour}" ;;
+        30) line="half past ${hour}" ;;
+        35) line="25 to ${hour}" ;;
+        40) line="20 to ${hour}" ;;
+        45) line="quarter to ${hour}" ;;
+        50) line="10 to ${hour}" ;;
+        55) line="5 to ${hour}" ;;
+    esac
+fi
+
+printf "%s\n" "$line"
