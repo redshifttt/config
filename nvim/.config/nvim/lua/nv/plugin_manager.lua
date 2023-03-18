@@ -74,13 +74,8 @@ lazy.setup({
         config = function() require("nvim-surround").setup {} end
     },
     {
-        "Wansmer/treesj",
-        config = function() require('nv.plugins.treesj') end,
-        lazy = true
-    },
-    {
         "folke/which-key.nvim",
-        config = function() require("which-key").setup {} end,
+        config = function() require('nv.plugins.which-key') end,
     },
 
     {
