@@ -64,14 +64,12 @@ lsp.pylsp.setup(config({
     filetypes = { "python" },
     settings = {
         pylsp = {
-            configurationSources = { "pycodestyle", "pydocstyle", "pylint", "pyflakes" },
+            configurationSources = { "pylint", "flake8" },
             plugins = {
                 -- for code linting (disabled by default)
                 pylint = { enabled = true },
-                pycodestyle = { enabled = true }, -- linter for style checking
-                pydocstyle = { enabled = true }, -- linter for style checking
-                pyflakes = { enabled = true }, -- linter to detect various errors
-                flake8 = { enabled = false }, -- for error checking (disabled by default)
+                -- linter to detect various errors
+                flake8 = { enabled = true },
             }
         }
     }
