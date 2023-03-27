@@ -93,8 +93,6 @@ cursor:
 
 live_config_reload: true
 
-alt_send_esc: true
-
 mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
