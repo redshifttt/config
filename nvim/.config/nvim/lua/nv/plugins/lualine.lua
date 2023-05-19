@@ -15,7 +15,7 @@ local config = {
             {
                 'mode',
                 padding = {
-                    left = 1,
+                    left = 2,
                     right = 0,
                 },
             },
@@ -56,9 +56,9 @@ local config = {
             {
                 function()
                     local current_attached_lsp_client = vim.lsp.get_active_clients({ bufnr = 0 })[1].name
-                    return "[" .. current_attached_lsp_client .. "]"
+                    return "(" .. current_attached_lsp_client .. ")"
                 end,
-                color = { fg = c.green, gui = "bold,standout" }
+                color = { fg = c.gray, gui = "bold" }
             },
         },
         lualine_z = { -- Positional
@@ -67,7 +67,7 @@ local config = {
                 'location',
                 padding = {
                     left = 0,
-                    right = 1,
+                    right = 2,
                 },
             },
         },

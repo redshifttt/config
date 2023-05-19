@@ -9,6 +9,9 @@ refresh-on-startup yes
 # notify-program notify-send
 feed-sort-order unreadarticlecount-asc
 external-url-viewer "urlview"
+confirm-mark-feed-read yes
+confirm-mark-all-feeds-read yes
+show-keymap-hint no
 
 feedlist-title-format "%N: %u feeds with unread articles"
 articlelist-title-format "%N: %u unread articles"
@@ -16,8 +19,8 @@ searchresult-title-format "%N: Search results for '%s'"
 itemview-title-format "%N: Article '%T'"
 
 datetime-format "%d %b %y"
-articlelist-format "[%n] %D | %t"
 feedlist-format "[%n] (%U) %t %> %l"
+articlelist-format "[%n] %D | %t"
 
 # looks like gentoo eselect news
 highlight article "^(Feed|Title|Author|Link|Date):.*" white default bold
@@ -30,8 +33,15 @@ color end-of-text-marker black default
 color listfocus default color235 bold
 color listfocus_unread default color235 bold
 
-bind-key l open
-bind-key m mark-feed-read
-bind-key A mark-all-feeds-read
+unbind-key A # mark-feed-read default
+unbind-key C # mark-all-feeds-read default
+unbind-key N # toggle-article-read default
+
+bind-key M mark-feed-read articlelist # Mark all articles in the **currently selected feed** read.
+bind-key A mark-all-feeds-read feedlist # Mark articles in **all feeds** read.
 bind-key m toggle-article-read
-unbind-key C
+
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key enter open

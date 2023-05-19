@@ -8,6 +8,7 @@ treesitter.setup {
         "html",
         "css",
         "vim",
+        "haskell",
         "markdown"
     },
     sync_install = true, -- Install languages synchronously (only applied to `ensure_installed`)

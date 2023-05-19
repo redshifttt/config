@@ -5,7 +5,7 @@ lazy.setup({
     {
         "neovim/nvim-lspconfig",
         config = function() require("nv.plugins.lsp.servers") end,
-        ft = {"c", "python", "lua"}
+        ft = {"c", "python", "lua", "haskell"}
     },
     {
         "hrsh7th/nvim-cmp",
@@ -105,8 +105,5 @@ lazy.setup({
             "tutor",
             "zipPlugin",
         },
-    },
-    install = {
-        colorscheme = { "tonight" }
     },
 })

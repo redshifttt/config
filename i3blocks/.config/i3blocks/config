@@ -9,7 +9,7 @@ separator_block_width=15
 [cpu]
 label=<b>CPU </b>
 command=scripts/cpu
-interval=2
+interval=1
 markup=pango
 
 [ram]

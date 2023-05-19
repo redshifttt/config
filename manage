@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [[ ! $(id -u) == 0 ]]; then
+    echo "Must be ran as root."
+    exit 1
+fi
+
 PACKAGE_LIST=(
     alacritty
     bash
@@ -21,10 +26,15 @@ PACKAGE_LIST=(
     zsh
 )
 
-printf "Setting up chaotic-aur"
+printf "Setting up chaotic-aur\n"
 
-if ! grep "chaotic" /etc/pacman.conf >/dev/null;
-    # shit
+if ! grep "chaotic-aur" /etc/pacman.conf >/dev/null; then
+    cat <<- EOF
+        [chaotic-aur]
+        Include = /etc/pacman.d/chaotic-mirrorlist
+    EOF
 fi
+
+# Need to set up yay
 
 yay -Sy --needed "${PACKAGE_LIST[@]}"

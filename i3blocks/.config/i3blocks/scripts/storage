@@ -1,3 +1,15 @@
-#!/bin/sh
+#!/usr/bin/python
 
-df -h / | sed "/^File/d" | awk '{print $4 "B left (" $5 " used)"}'
+import psutil
+
+root_disk_usage = psutil.disk_usage("/")
+
+total_disk_usage = root_disk_usage.total
+total_disk_usage_gb = f"{total_disk_usage / 1024 / 1024 / 1024:.0f} GB"
+
+free_disk_usage = root_disk_usage.free
+free_disk_usage_gb = f"{free_disk_usage / 1024 / 1024 / 1024:.0f} GB"
+
+percent_used = root_disk_usage.percent
+
+print(f"/: {free_disk_usage_gb} left ({percent_used:.0f}% used)")
