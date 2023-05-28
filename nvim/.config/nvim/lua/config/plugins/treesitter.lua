@@ -1,16 +1,7 @@
 local treesitter = require('nvim-treesitter.configs')
 
 treesitter.setup {
-    ensure_installed = {
-        "bash",
-        "lua",
-        "python",
-        "html",
-        "css",
-        "vim",
-        "haskell",
-        "markdown"
-    },
+    ensure_installed = treesitter_languages,
     sync_install = true, -- Install languages synchronously (only applied to `ensure_installed`)
     ignore_install = {}, -- List of parsers to ignore installing
     highlight = {

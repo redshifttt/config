@@ -20,17 +20,17 @@ autocmd("FileType", {
     command = "nnoremap <leader>f :.!jq .<CR>"
 })
 
-autocmd("FileType", {
-    pattern = {"text", "markdown"},
-    command = "set colorcolumn=80"
-})
+-- autocmd("FileType", {
+--     pattern = {"text", "markdown"},
+--     command = "set colorcolumn=80"
+-- })
 
 autocmd("TextYankPost", {
     pattern = '*',
     callback = function()
         vim.highlight.on_yank({
             higroup = 'IncSearch',
-            timeout = 50,
+            timeout = 100,
         })
     end,
 })

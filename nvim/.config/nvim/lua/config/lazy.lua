@@ -4,8 +4,8 @@ lazy.setup({
     -- plugins
     {
         "neovim/nvim-lspconfig",
-        config = function() require("nv.plugins.lsp.servers") end,
-        ft = {"c", "python", "lua", "haskell"}
+        config = function() require("config.plugins.lsp.servers") end,
+        ft = lsp_languages,
     },
     {
         "hrsh7th/nvim-cmp",
@@ -21,28 +21,27 @@ lazy.setup({
             },
             "saadparwaiz1/cmp_luasnip",
         },
-        config = function() require("nv.plugins.lsp.completion") end,
-        lazy = true,
+        config = function() require("config.plugins.lsp.completion") end,
     },
     {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        config = function() require("nv.plugins.telescope") end,
+        config = function() require("config.plugins.telescope") end,
     },
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        ft = {"sh", "bash", "lua", "python", "html", "css", "vim", "markdown"},
+        ft = treesitter_languages,
         dependencies = {
             "nvim-treesitter/nvim-treesitter-context", -- life saver
             "nvim-treesitter/nvim-treesitter-textobjects"
         },
-        config = function() require("nv.plugins.treesitter") end,
+        config = function() require("config.plugins.treesitter") end,
     },
     {
         "j-hui/fidget.nvim",
-        config = function() require("nv.plugins.fidget") end,
-        ft = {"c", "python", "lua"}
+        config = function() require("config.plugins.fidget") end,
+        ft = lsp_languages,
     },
     {
         "ellisonleao/glow.nvim",
@@ -51,22 +50,19 @@ lazy.setup({
     },
     {
         "numToStr/Comment.nvim",
-        config = function() require("nv.plugins.comment") end,
+        config = function() require("config.plugins.comment") end,
     },
     {
         "nvim-lualine/lualine.nvim",
-        dependencies = {
-            { "kyazdani42/nvim-web-devicons", lazy = true }
-        },
-        config = function() require("nv.plugins.lualine") end,
+        config = function() require("config.plugins.lualine") end,
     },
     {
         "lukas-reineke/indent-blankline.nvim",
-        config = function() require("nv.plugins.indent-blankline") end,
+        config = function() require("config.plugins.indent-blankline") end,
     },
     {
         "windwp/nvim-autopairs",
-        config = function() require("nv.plugins.autopairs") end,
+        config = function() require("config.plugins.autopairs") end,
     },
     { "rcarriga/nvim-notify" },
     {
@@ -75,7 +71,7 @@ lazy.setup({
     },
     {
         "folke/which-key.nvim",
-        config = function() require('nv.plugins.which-key') end,
+        config = function() require('config.plugins.which-key') end,
     },
 
     {
@@ -84,16 +80,16 @@ lazy.setup({
     },
     {
         "akinsho/toggleterm.nvim",
-        config = function() require("nv.plugins.toggleterm") end
+        config = function() require("config.plugins.toggleterm") end
     },
     {
         "lewis6991/gitsigns.nvim",
-        config = function() require('nv.plugins.gitsigns') end,
+        config = function() require('config.plugins.gitsigns') end,
     },
     { "NvChad/nvim-colorizer.lua" },
     { "tpope/vim-fugitive" },
 },
-{ -- opts
+{
     rtp = {
         disabled_plugins = {
             "gzip",
@@ -105,5 +101,13 @@ lazy.setup({
             "tutor",
             "zipPlugin",
         },
+    },
+    ui = {
+        icons = {
+            lazy = ""
+        },
+    },
+    checker = {
+        enabled = true
     },
 })
