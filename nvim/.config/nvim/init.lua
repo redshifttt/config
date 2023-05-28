@@ -19,9 +19,12 @@ vim.cmd.colorscheme("tonight")
 -- instead of default \ key
 vim.g.mapleader = " "
 
-require("nv.plugin_manager")
-require("nv.set")
-require("nv.autocmd")
-require("nv.keys")
+lsp_languages = {"c", "python", "lua"}
+treesitter_languages = {"bash", "lua", "python", "html", "css", "vim", "markdown", "c"}
+
+require("config.lazy")
+require("config.set")
+require("config.autocmd")
+require("config.keys")
 
 vim.notify = require("notify")
