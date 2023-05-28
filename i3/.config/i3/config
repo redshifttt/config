@@ -54,7 +54,8 @@ bindsym $mod+Shift+3 move container to workspace number $workspace3; workspace $
 bindsym $mod+Shift+4 move container to workspace number $workspace4; workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace number $workspace5; workspace $workspace5
 
-default_border none
+# default_border none
+default_border pixel 2
 
 focus_follows_mouse no
 focus_on_window_activation focus
@@ -64,7 +65,7 @@ floating_modifier $mod
 bar {
     status_command i3blocks
     position top
-    font pango:Terminus 10
+    font pango:cantarell 11
     padding 2px
     tray_padding 4px
     colors {
