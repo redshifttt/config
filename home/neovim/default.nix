@@ -76,6 +76,7 @@
 
       vim.cmd.colorscheme("onedark_vivid")
       vim.g.lightline = { colorscheme = "one" }
+      vim.opt.cursorline = true
     '';
   };
 }
