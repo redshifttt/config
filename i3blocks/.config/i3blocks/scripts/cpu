@@ -1,9 +1,0 @@
-#!/usr/bin/python
-
-import psutil
-
-percent_cpu_used = psutil.cpu_percent(interval=0.1)
-percent_cpu_used = f"{percent_cpu_used:.0f}"
-cpu_temp = psutil.sensors_temperatures()['k10temp'][0].current
-
-print(f"{percent_cpu_used:>3}%, temp: {cpu_temp:.0f}°C")
