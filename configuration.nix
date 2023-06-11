@@ -56,7 +56,7 @@
 
   users.users.sean = {
     isNormalUser = true;
-    extraGroups = ["wheel"];
+    extraGroups = ["wheel" "libvirtd"];
   };
 
   environment.systemPackages = with pkgs; [];
@@ -74,6 +74,8 @@
   services.openssh.enable = false;
 
   programs.dconf.enable = true;
+
+  virtualisation.libvirtd.enable = true;
 
   system.stateVersion = "23.11";
 }

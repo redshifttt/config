@@ -25,6 +25,7 @@
       feh
       zathura
       # neovim-nightly
+      virt-manager
     ];
   };
 
