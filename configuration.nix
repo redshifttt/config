@@ -51,8 +51,16 @@
     };
   };
 
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+      enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true; # idk if i need this
+      };
+      pulse.enable = true;
+      jack.enable = true;
+  };
 
   users.users.sean = {
     isNormalUser = true;
