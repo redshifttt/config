@@ -44,7 +44,7 @@
           style = "Bold Italic";
         };
 
-        size = 12.0;
+        size = 11.0;
       };
       draw_bold_text_with_bright_colors = false;
       selection = {
