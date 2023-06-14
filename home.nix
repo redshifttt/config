@@ -46,21 +46,21 @@
     ./home/dunst
   ];
 
-  #services.picom = {
-  #      enable = true;
-  #      backend = "glx";
-  #      fade = true;
-  #      fadeSteps = [ 0.6 0.6 ];
-  #      inactiveOpacity = 1;
-  #      activeOpacity = 1;
-  #      shadow = false;
-  #      vSync = true;
-  #      wintypes = {
-  #      	tooltip = { fade = true; shadow = true; opacity = 1; focus = true; full-shadow = false; };
-  #      	dock = { shadow = false; };
-  #      	dnd = { shadow = false; };
-  #      	popup_menu = { opacity = 1; };
-  #      	dropdown_menu = { opacity = 1; };
-  #      };
-  #};
+  # services.picom = {
+  #       enable = true;
+  #       backend = "glx";
+  #       fade = true;
+  #       fadeSteps = [ 0.6 0.6 ];
+  #       inactiveOpacity = 1;
+  #       activeOpacity = 1;
+  #       shadow = false;
+  #       vSync = true;
+  #       wintypes = {
+  #           tooltip = { fade = true; shadow = true; opacity = 1; focus = true; full-shadow = false; };
+  #           dock = { shadow = false; };
+  #           dnd = { shadow = false; };
+  #           popup_menu = { opacity = 1; };
+  #           dropdown_menu = { opacity = 1; };
+  #       };
+  # };
 }
