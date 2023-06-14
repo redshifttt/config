@@ -20,6 +20,8 @@
     timeout = 5;
   };
 
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_hardened;
+
   networking = {
     hostName = "vesta";
     networkmanager.enable = true;
