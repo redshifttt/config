@@ -69,6 +69,7 @@
         "toggleterm"
         "treesitter"
         "which-key"
+        "mini"
       ]);
     in ''
       ${luaConfig}
