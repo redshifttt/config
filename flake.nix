@@ -26,12 +26,15 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-            home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.sean = import ./home.nix;
-              nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];
-            }
+          home-manager.nixosModules.home-manager {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.sean = import ./home.nix;
+            };
+
+            nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];
+          }
         ];
       };
     };
