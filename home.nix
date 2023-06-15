@@ -24,16 +24,14 @@
       ripgrep
       feh
       zathura
-      # neovim-nightly
       virt-manager
       transmission-gtk
       mullvad-vpn
+      easyeffects
     ];
   };
 
   programs.home-manager.enable = true;
-
-  # nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];
 
   imports = [
     ./home/neovim
@@ -46,5 +44,6 @@
     ./home/zathura
     ./home/mpv
     ./home/picom
+    ./home/dunst
   ];
 }
