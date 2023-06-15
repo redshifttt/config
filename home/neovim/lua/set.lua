@@ -35,7 +35,7 @@ option.swapfile = false
 -- This is what you need to be able to turn tabs into spaces (expandtab)
 option.expandtab = true
 option.tabstop = 4
-option.shiftwidth = 4
+option.shiftwidth = 4 -- this is for autoindenting
 option.softtabstop = 4
 
 option.showmode = false

@@ -20,6 +20,15 @@ autocmd("FileType", {
     command = "nnoremap <leader>f :.!jq .<CR>"
 })
 
+autocmd("FileType", {
+    pattern = "nix",
+    callback = function()
+        vim.opt.tabstop = 2
+        vim.opt.shiftwidth = 2 -- this is for autoindenting
+        vim.opt.softtabstop = 2
+    end
+})
+
 -- autocmd("FileType", {
 --     pattern = {"text", "markdown"},
 --     command = "set colorcolumn=80"
