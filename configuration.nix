@@ -12,7 +12,7 @@
   boot.loader = {
     systemd-boot = {
       enable = true;
-      consoleMode = "auto";
+      consoleMode = "max";
       editor = false;
       configurationLimit = 20;
     };
