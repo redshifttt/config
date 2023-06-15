@@ -31,10 +31,10 @@
         gap_size = 4;
         separator_color = "frame";
         sort = "yes";
-        font = "Cantarell 10";
+        font = "Cantarell 12";
         line_height = 2;
         markup = "full";
-        format = "<span rise=\"15pt\"><big><b>\\%s</b></big></span>\n\\%b";
+        format = "<b>%s</b>\n%b";
         alignment = "left";
         vertical_alignment = "center";
         show_age_threshold = 60;
@@ -61,12 +61,12 @@
       urgency_low = {
         background = "#000000";
         foreground = "#cccccc";
-        timeout = 10;
+        timeout = 5;
       };
       urgency_normal = urgency_low;
       urgency_critical = {
-        background = "#EC5959";
-        foreground = "#BEBAC6";
+        background = "#ff0000";
+        foreground = "#ffffff";
         timeout = 0;
       };
     };
