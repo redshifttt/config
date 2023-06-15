@@ -15,7 +15,7 @@
       fd
       bat
       lsd
-      firefox
+      librewolf
       git
       terminus_font
       cantarell-fonts
