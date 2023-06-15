@@ -9,18 +9,19 @@
     ./hardware-configuration.nix
   ];
 
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      consoleMode = "max";
-      editor = false;
-      configurationLimit = 20;
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        consoleMode = "max";
+        editor = false;
+        configurationLimit = 20;
+      };
+      efi.canTouchEfiVariables = true;
+      timeout = 5;
     };
-    efi.canTouchEfiVariables = true;
-    timeout = 5;
+    kernelPackages = pkgs.linuxKernel.packages.linux_hardened;
   };
-
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_hardened;
 
   networking = {
     hostName = "vesta";
@@ -55,13 +56,13 @@
 
   security.rtkit.enable = true;
   services.pipewire = {
+    enable = true;
+    alsa = {
       enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true; # idk if i need this
-      };
-      pulse.enable = true;
-      jack.enable = true;
+      support32Bit = true; # idk if i need this
+    };
+    pulse.enable = true;
+    jack.enable = true;
   };
 
   users.users.sean = {
