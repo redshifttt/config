@@ -94,6 +94,9 @@ in {
           trayPadding = 4;
           workspaceButtons = true;
           workspaceNumbers = true;
+          extraConfig = ''
+              padding 2px
+          '';
         }
       ];
 
