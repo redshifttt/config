@@ -1,6 +1,14 @@
 # Nix{,OS} Configuration
 
-This is my NixOS configuration ported over from GNU Stow.
+This is my NixOS configuration.
+
+Currently only have a single configuration for my PC (vesta) but will expand eventually.
+
+- **Window Manager**: i3wm + i3blocks status bar
+    - **Compositor**: picom
+- **Editor**: neovim + plugins (too many to be listed; check the file)
+- **Terminal**: alacritty
+- **Shell**: bash
 
 ## Acknowledgements
 
