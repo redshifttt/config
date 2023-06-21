@@ -28,7 +28,7 @@
       nvim-treesitter-context
 
       nvim-lspconfig
-      fidget-nvim
+      # fidget-nvim
 
       glow-nvim
       comment-nvim
@@ -62,7 +62,7 @@
         "lsp"
         "autopairs"
         "comment"
-        "fidget"
+        # "fidget"
         "gitsigns"
         "indent-blankline"
         "telescope"

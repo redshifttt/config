@@ -8,12 +8,14 @@
     enable = true;
 
     enableVteIntegration = true;
+
     sessionVariables = {
       PS1 = "\\[\\033[1;34m\\]\\W\\[\\033[0m\\] \\$ ";
       BROWSER = "firefox";
       TERMINAL = "alacritty";
       MANPAGER = "nvim +Man!";
     };
+
     shellAliases = {
       grep = "grep --color=auto";
       lsblk = "lsblk -o \"NAME,FSTYPE,FSAVAIL,FSUSE%,SIZE,TYPE,MOUNTPOINT\" -p";
@@ -25,16 +27,18 @@
       rm = "rm -Iv";
       soda = "ssh -p 52222 num@soda.privatevoid.net";
       dragon = "dragon-drag-and-drop";
-      #suspend = "sudo loginctl suspend";
+      # suspend = "systemctl suspend";
       ncdu = "ncdu --color off";
       ytdl = "yt-dlp";
       ytba = "yt-dlp -f bestaudio";
       ytmp3 = "yt-dlp -x --extract-audio --audio-format mp3";
     };
+
     shellOptions = [
       "checkwinsize"
       "cdspell"
     ];
+
     bashrcExtra = ''
       export PS1="${sessionVariables.PS1}"
       fcd(){
@@ -49,6 +53,7 @@
           fc-list -b | grep "fullname:" | sed 's|(.*||;s|.*fullname:\s||;s|"||g' | sort | uniq | nl
       }
     '';
+
     profileExtra = ''
       source ~/.bashrc
     '';
