@@ -20,7 +20,6 @@
       efi.canTouchEfiVariables = true;
       timeout = 5;
     };
-    kernelPackages = pkgs.linuxKernel.packages.linux_hardened;
   };
 
   networking = {
@@ -61,6 +60,8 @@
     pulse.enable = true;
     jack.enable = true;
   };
+
+  services.mullvad-vpn.enable = true;
 
   users.users.sean = {
     isNormalUser = true;
