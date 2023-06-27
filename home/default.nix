@@ -25,25 +25,37 @@
       feh
       zathura
       virt-manager
-      transmission-gtk
       mullvad-vpn
       easyeffects
+      distrho
+      swh_lv2
     ];
   };
 
   programs.home-manager.enable = true;
 
   imports = [
-    ./home/neovim
-    ./home/i3
-    ./home/bash
-    ./home/alacritty
-    ./home/xdg
-    ./home/gtk
-    ./home/feh
-    ./home/zathura
-    ./home/mpv
-    ./home/picom
-    ./home/dunst
+    ./neovim
+    ./i3
+    ./bash
+    ./alacritty
+    ./xdg
+    ./gtk
+    ./feh
+    ./zathura
+    ./mpv
+    ./picom
+    ./dunst
   ];
+
+  programs.zsh = {
+    enable = true;
+
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
+    enableVteIntegration = true;
+
+    dotDir = ".config/zsh";
+  };
 }
