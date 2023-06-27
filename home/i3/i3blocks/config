@@ -6,12 +6,6 @@
 separator=false
 separator_block_width=15
 
-[cpu]
-label=<b>CPU </b>
-command=~/dotfiles/home/i3/i3blocks/cpu
-interval=1
-markup=pango
-
 [ram]
 label=<b>RAM </b>
 command=~/dotfiles/home/i3/i3blocks/ram
