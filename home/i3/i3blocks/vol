@@ -1,32 +1,27 @@
 #!/bin/sh
 
 get_volume(){
-    volume_percentage=$(pactl get-sink-volume "$sink" | awk -F'/' '
-        /Volume/ {
-            percentage = $2;
-            gsub(" ","",percentage);
-            print percentage;
-        }')
+    volume_percentage=$(wpctl get-volume "$sink" | awk '{print $NF}' | sed "s|\.||;s|^0||")
 
-    printf "%2s\n" "$volume_percentage"
+    printf "%s%%\n" "$volume_percentage"
 }
 
 toggle_mute_volume(){
-    pactl set-sink-mute "$sink" toggle
-    if [[ $(pactl get-sink-mute "$sink" | awk '{print $NF}') == "yes" ]]; then
+    wpctl set-mute "$sink" toggle
+    if [[ $(wpctl get-volume "$sink" | awk '{print $NF}') == "[MUTED]" ]]; then
         printf "%s\n" "muted"
     fi
 }
 
 volume_up(){
-    pactl set-sink-volume "$sink" +${change_interval}%
+    wpctl set-volume "$sink" ${change_interval}%+
 }
 
 volume_down(){
-    pactl set-sink-volume "$sink" -${change_interval}%
+    wpctl set-volume "$sink" ${change_interval}%-
 }
 
-sink="@DEFAULT_SINK@"
+sink="@DEFAULT_AUDIO_SINK@"
 change_interval="10"
 
 case "$BLOCK_BUTTON" in
