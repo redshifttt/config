@@ -75,6 +75,8 @@ lsp.pylsp.setup(config({
     }
 }))
 
+lsp.nil_ls.setup{}
+
 local cmp = require('cmp')
 
 local signs = {

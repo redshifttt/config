@@ -30,6 +30,7 @@
       virt-manager
       mullvad-vpn
       easyeffects
+      nil
     ];
   };
 
