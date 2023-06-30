@@ -1,15 +1,18 @@
 {
   config,
-  pkgs,
-  lib,
-  inputs,
-  ...
+    pkgs,
+    lib,
+    inputs,
+    ...
 }: {
+  nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];
+
   home = {
     username = "sean";
     homeDirectory = "/home/sean";
     stateVersion = "23.05";
-    packages = with pkgs; [
+
+   packages = with pkgs; [
       bash
       fzf
       fd
@@ -27,8 +30,6 @@
       virt-manager
       mullvad-vpn
       easyeffects
-      distrho
-      swh_lv2
     ];
   };
 
