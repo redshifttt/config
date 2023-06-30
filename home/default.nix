@@ -1,10 +1,5 @@
+{ pkgs, inputs, ... }:
 {
-  config,
-    pkgs,
-    lib,
-    inputs,
-    ...
-}: {
   nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];
 
   home = {
@@ -12,7 +7,7 @@
     homeDirectory = "/home/sean";
     stateVersion = "23.05";
 
-   packages = with pkgs; [
+    packages = with pkgs; [
       bash
       fzf
       fd
@@ -29,7 +24,6 @@
       zathura
       virt-manager
       mullvad-vpn
-      easyeffects
       nil
     ];
   };
