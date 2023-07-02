@@ -24,20 +24,9 @@
           style = "Bold";
         };
 
-        bold = {
-          family = normal.family;
-          style = normal.style;
-        };
-
-        italic = {
-          family = normal.family;
-          style = normal.style;
-        };
-
-        bold_italic = {
-          family = normal.family;
-          style = normal.style;
-        };
+        bold = { inherit (normal) family style; };
+        italic = { inherit (normal) family style; };
+        bold_italic = { inherit (normal) family style; };
 
         size = 11.0;
       };
