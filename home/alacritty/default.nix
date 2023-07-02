@@ -1,9 +1,4 @@
 {
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
   programs.alacritty = {
     enable = true;
     settings = {
@@ -26,22 +21,22 @@
       font = rec {
         normal = {
           family = "Terminus";
-          style = "Regular";
+          style = "Bold";
         };
 
         bold = {
           family = normal.family;
-          style = "Bold";
+          style = normal.style;
         };
 
         italic = {
           family = normal.family;
-          style = "Italic";
+          style = normal.style;
         };
 
         bold_italic = {
           family = normal.family;
-          style = "Bold Italic";
+          style = normal.style;
         };
 
         size = 11.0;
