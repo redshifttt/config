@@ -68,9 +68,11 @@
     openssh.enable = false;
   };
 
+  programs.zsh.enable = true;
   users.users.sean = {
     isNormalUser = true;
     extraGroups = ["wheel" "libvirtd"];
+    shell = pkgs.zsh;
   };
 
   programs = {

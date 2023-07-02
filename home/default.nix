@@ -1,6 +1,20 @@
 { pkgs, inputs, ... }:
 {
-  nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];
+  programs.home-manager.enable = true;
+
+  imports = [
+    ./neovim
+    ./i3
+    ./zsh
+    ./alacritty
+    ./xdg
+    ./gtk
+    ./feh
+    ./zathura
+    ./mpv
+    ./picom
+    ./dunst
+  ];
 
   home = {
     username = "sean";
@@ -28,30 +42,5 @@
     ];
   };
 
-  programs.home-manager.enable = true;
-
-  imports = [
-    ./neovim
-    ./i3
-    ./bash
-    ./alacritty
-    ./xdg
-    ./gtk
-    ./feh
-    ./zathura
-    ./mpv
-    ./picom
-    ./dunst
-  ];
-
-  programs.zsh = {
-    enable = true;
-
-    enableAutosuggestions = true;
-    enableCompletion = true;
-    enableSyntaxHighlighting = true;
-    enableVteIntegration = true;
-
-    dotDir = ".config/zsh";
-  };
+  nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];
 }
