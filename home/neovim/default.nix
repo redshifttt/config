@@ -46,8 +46,7 @@
     ];
 
     extraPackages = with pkgs; [
-        lua-language-server
-        python311Packages.python-lsp-server
+        lua-language-server # need to have the lsp for the lua config
     ];
 
     extraLuaConfig = let
