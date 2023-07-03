@@ -1,9 +1,6 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
+{ pkgs, lib, ... }:
+
+let
   modifierKey = "Mod4";
   workspace1 = "1 main";
   workspace2 = "2 code";

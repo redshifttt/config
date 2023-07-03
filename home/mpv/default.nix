@@ -1,9 +1,4 @@
 {
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
   programs.mpv = {
     enable = true;
     bindings = {
