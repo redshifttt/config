@@ -52,21 +52,21 @@
         hide_when_typing = false;
       };
       key_bindings = [
-        {
-          key = "Key0";
-          mods = "Control";
-          action = "ResetFontSize";
-        }
-        {
-          key = "Equals";
-          mods = "Control";
-          action = "IncreaseFontSize";
-        }
-        {
-          key = "Minus";
-          mods = "Control";
-          action = "DecreaseFontSize";
-        }
+      {
+        key = "Key0";
+        mods = "Control";
+        action = "ResetFontSize";
+      }
+      {
+        key = "Equals";
+        mods = "Control";
+        action = "IncreaseFontSize";
+      }
+      {
+        key = "Minus";
+        mods = "Control";
+        action = "DecreaseFontSize";
+      }
       ];
       debug = {
         render_timer = false;
@@ -77,28 +77,28 @@
       # exported from onedarkpro.nvim
       colors = {
         primary = {
-          background = "0x282c34";
-          foreground = "0xabb2bf";
+          background = "0x0A0E14";
+          foreground = "0xB3B1AD";
         };
         normal = {
-          black = "0x282c34";
-          red = "0xef596f";
-          green = "0x89ca78";
-          yellow = "0xe5c07b";
-          blue = "0x61afef";
-          magenta = "0xd55fde";
-          cyan = "0x2bbac5";
-          white = "0xabb2bf";
+          black = "0x01060E";
+          red = "0xEA6C73";
+          green = "0x91B362";
+          yellow = "0xF9AF4F";
+          blue = "0x53BDFA";
+          magenta = "0xcb9ff8";
+          cyan = "0x90E1C6";
+          white = "0xC7C7C7";
         };
         bright = {
-          black = "0x3e4451";
-          red = "0xf38897";
-          green = "0xa9d89d";
-          yellow = "0xedd4a6";
-          blue = "0x8fc6f4";
-          magenta = "0xe089e7";
-          cyan = "0x4bced8";
-          white = "0xc8cdd5";
+          black = "0x686868";
+          red = "0xF07178";
+          green = "0xC2D94C";
+          yellow = "0xFFB454";
+          blue = "0x59C2FF";
+          magenta = "0xcb9ff8";
+          cyan = "0x95E6CB";
+          white = "0xFFFFFF";
         };
         shell = {
           program = "/usr/bin/env bash";

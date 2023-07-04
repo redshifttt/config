@@ -39,7 +39,7 @@
       toggleterm-nvim
       gitsigns-nvim
       nvim-colorizer-lua
-      onedarkpro-nvim
+      neovim-ayu
     ];
 
     extraPackages = with pkgs; [
@@ -71,8 +71,8 @@
       ${luaConfig}
       ${luaPluginConfig}
 
-      vim.cmd.colorscheme("onedark_vivid")
-      vim.g.lightline = { colorscheme = "one" }
+      vim.cmd.colorscheme("ayu-dark")
+      vim.g.lightline = { colorscheme = "ayu_dark" }
       vim.opt.cursorline = true
     '';
   };
