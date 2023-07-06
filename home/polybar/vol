@@ -1,0 +1,33 @@
+#!/bin/sh
+
+get_volume(){
+    volume_percentage=$(wpctl get-volume "$sink" | awk '{print $NF}' | sed "s|\.||;s|^0||")
+
+    printf "%s%%\n" "$volume_percentage"
+}
+
+toggle_mute_volume(){
+    wpctl set-mute "$sink" toggle
+    if [[ $(wpctl get-volume "$sink" | awk '{print $NF}') == "[MUTED]" ]]; then
+        printf "%s\n" "muted"
+    fi
+}
+
+volume_up(){
+    wpctl set-volume "$sink" ${change_interval}%+
+}
+
+volume_down(){
+    wpctl set-volume "$sink" ${change_interval}%-
+}
+
+sink="@DEFAULT_AUDIO_SINK@"
+change_interval="10"
+
+case "$BLOCK_BUTTON" in
+    1) toggle_mute_volume; get_volume ;;
+    4) volume_up; get_volume ;;
+    5) volume_down; get_volume ;;
+esac
+
+get_volume

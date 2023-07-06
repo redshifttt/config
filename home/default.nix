@@ -14,6 +14,7 @@
     ./mpv
     ./picom
     ./dunst
+    ./polybar
   ];
 
   home = {

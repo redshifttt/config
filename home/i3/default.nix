@@ -68,8 +68,8 @@ in {
             names = ["Cantarell"];
             size = 11.0;
           };
+          command = "none";
           position = "top";
-          statusCommand = "${pkgs.i3blocks}/bin/i3blocks -c ${./i3blocks/config}";
           colors = {
             background = "#080A0E";
             focusedWorkspace = {
@@ -88,29 +88,30 @@ in {
               text = "#ffffff";
             };
           };
-          trayPadding = 4;
           workspaceButtons = true;
           workspaceNumbers = true;
-          extraConfig = ''
-              padding 2px
-          '';
         }
       ];
 
       startup = [
         {
-          command = "nm-applet";
+          command = "${pkgs.networkmanagerapplet}/bin/nm-applet";
           always = false;
           notification = false;
         }
         {
-          command = "dunst";
+          command = "${pkgs.dunst}/bin/dunst";
           always = false;
           notification = false;
         }
         {
-          command = "picom";
+          command = "${pkgs.picom}/bin/picom";
           always = false;
+          notification = false;
+        }
+        {
+          command = "${pkgs.polybar}/bin/polybar main";
+          always = true;
           notification = false;
         }
         #{ command = "xwallpaper ..."; always = false; notification = false; }
