@@ -35,7 +35,7 @@ in {
         "${modifierKey}+r" = "exec --no-startup-id \"${pkgs.i3}/bin/i3-msg restart\"";
         "${modifierKey}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
         "${modifierKey}+w" = "kill";
-        "${modifierKey}+d" = "exec --no-startup-id \"${pkgs.bemenu}/bin/bemenu-run -c -W 0.2 -l20 -s -CT -p 'run'\"";
+        "${modifierKey}+d" = "exec --no-startup-id \"${pkgs.bemenu}/bin/bemenu-run -c -W 0.2 -l20 -s -CT -p 'run' -i -B 2 -M 20 --counter always --fn 'Fantasque Sans Mono 12'\"";
         #"${modifierKey}+s" = "exec --no-startup-id \"scrot -s\"";
         #"${modifierKey}+Delete" = "exec --no-startup-id \"actions\"";
 
