@@ -40,8 +40,22 @@
       virt-manager
       mullvad-vpn
       nil
+      fantasque-sans-mono
     ];
   };
 
   nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];
+
+  nixpkgs.config = {
+    packageOverrides = pkgs: {
+      fantasque-sans-mono = pkgs.fantasque-sans-mono.overrideAttrs (finalAttrs: previousAttrs: {
+        pname = previousAttrs.pname + "-ss01";
+        src = pkgs.fetchzip {
+          url = "https://github.com/belluzj/fantasque-sans/releases/download/v${previousAttrs.version}/FantasqueSansMono-NoLoopK.zip";
+          stripRoot = false;
+          hash = "sha256-RnnyhP2zdRGk4XUe4fSibMFBhZmMqoKziE6TzcCSiL0=";
+        };
+      });
+    };
+  };
 }

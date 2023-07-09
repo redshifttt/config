@@ -20,13 +20,13 @@
       };
       font = rec {
         normal = {
-          family = "Terminus";
-          style = "Bold";
+          family = "Fantasque Sans Mono";
+          style = "Regular";
         };
 
-        bold = { inherit (normal) family style; };
-        italic = { inherit (normal) family style; };
-        bold_italic = { inherit (normal) family style; };
+        bold = { inherit (normal) family; style = "Bold"; };
+        italic = { inherit (normal) family; style = "Italic"; };
+        bold_italic = { inherit (normal) family; style = "Italic Bold"; };
 
         size = 11.0;
       };
