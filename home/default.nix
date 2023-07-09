@@ -41,6 +41,7 @@
       mullvad-vpn
       nil
       fantasque-sans-mono
+      easyeffects
     ];
   };
 
