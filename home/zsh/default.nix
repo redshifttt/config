@@ -1,3 +1,4 @@
+{ inputs, pkgs, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -11,6 +12,7 @@
 
     initExtra = ''
       PS1="%B%F{magenta}%m%f %F{blue}%c%f%b %# "
+      source ${inputs.self.packages.${pkgs.system}.LS_COLORS}/share/lscolors.sh
       '';
 
     sessionVariables = {

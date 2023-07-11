@@ -14,20 +14,32 @@
     nil.url = "github:oxalica/nil";
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, ... } @ inputs: {
+  outputs = { self, nixpkgs, home-manager, nur, ... } @ inputs:
+  let
+    pkgs = nixpkgs.legacyPackages.${system};
+    system = "x86_64-linux";
+  in
+  {
     nixosConfigurations = {
       vesta = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         modules = [ ./hosts/vesta/configuration.nix ];
+        specialArgs = {
+          inherit inputs;
+        };
       };
     };
 
     homeConfigurations = {
       "sean@vesta" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        inherit pkgs;
         extraSpecialArgs = { inherit inputs; };
         modules = [ ./home ];
       };
+    };
+
+    packages.${system} = {
+      LS_COLORS = pkgs.callPackage ./packages/ls_colors {};
     };
   };
 }
