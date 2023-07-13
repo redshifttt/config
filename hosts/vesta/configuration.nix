@@ -1,9 +1,8 @@
+{ pkgs, ... }:
 {
-  pkgs,
-  ...
-}: {
   imports = [
     ./hardware-configuration.nix
+    ./services
   ];
 
   boot = {
@@ -22,6 +21,10 @@
   networking = {
     hostName = "vesta";
     networkmanager.enable = true;
+    stevenblack = {
+      enable = true;
+      block = [ "porn" "social" ];
+    };
   };
 
   time.timeZone = "Europe/London";
@@ -35,40 +38,6 @@
   # For pipewire usually
   security.rtkit.enable = true;
 
-  services = {
-    xserver = {
-      enable = true;
-      layout = "gb";
-      displayManager.defaultSession = "none+i3";
-      desktopManager.xterm.enable = false;
-      windowManager.i3 = {
-        enable = true;
-        extraPackages = with pkgs; [
-          bemenu
-          i3blocks
-          dunst
-          picom
-          networkmanagerapplet
-          xwallpaper
-        ];
-      };
-    };
-
-    pipewire = {
-      enable = true;
-      audio.enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
-
-    mullvad-vpn.enable = true;
-
-    openssh.enable = false;
-  };
-
-  programs.zsh.enable = true;
   users.users.sean = {
     isNormalUser = true;
     extraGroups = ["wheel" "libvirtd"];
@@ -82,7 +51,11 @@
       enableSSHSupport = true;
     };
     dconf.enable = true;
+    zsh.enable = true;
+    steam.enable = true;
   };
+
+  nixpkgs.config.allowUnfree = true;
 
   virtualisation.libvirtd.enable = true;
 
