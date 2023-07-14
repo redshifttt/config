@@ -8,7 +8,7 @@
     vimAlias = true;
 
     plugins = with pkgs.vimPlugins; [
-      plenary-nvim # dependency of a lot of plugins including telescope
+      plenary-nvim
       telescope-nvim
 
       nvim-cmp
@@ -43,30 +43,33 @@
     ];
 
     extraPackages = with pkgs; [
-        lua-language-server # need to have the lsp for the lua config
+      lua-language-server # need to have the lsp for the lua config
     ];
 
     extraLuaConfig = let
-      luaConfigRequire = config: builtins.readFile (builtins.toString ./lua + "/${config}.lua");
-      luaConfig = builtins.concatStringsSep "\n" (map luaConfigRequire [
-        "set"
-        "autocmd"
-        "keys"
-      ]);
-      luaPluginRequire = plugin: builtins.readFile (builtins.toString ./lua/plugins + "/${plugin}.lua");
-      luaPluginConfig = builtins.concatStringsSep "\n" (map luaPluginRequire [
-        "lsp"
-        "autopairs"
-        "comment"
-        # "fidget"
-        "gitsigns"
-        "indent-blankline"
-        "telescope"
-        "toggleterm"
-        "treesitter"
-        "which-key"
-        "mini"
-      ]);
+      luaConfigRequire = config:
+        builtins.readFile (builtins.toString ./lua + "/${config}.lua");
+
+      luaPluginRequire = plugin:
+        builtins.readFile (builtins.toString ./lua/plugins + "/${plugin}.lua");
+
+      luaConfig =
+        builtins.concatStringsSep "\n" (map luaConfigRequire [ "set" "autocmd" "keys" ]);
+
+      luaPluginConfig =
+        builtins.concatStringsSep "\n" (map luaPluginRequire [
+          "lsp"
+          "autopairs"
+          "comment"
+          # "fidget"
+          "gitsigns"
+          "indent-blankline"
+          "telescope"
+          "toggleterm"
+          "treesitter"
+          "which-key"
+          "mini"
+        ]);
     in ''
       ${luaConfig}
       ${luaPluginConfig}
