@@ -39,6 +39,7 @@
 
     packages.${system} = {
       LS_COLORS = pkgs.callPackage ./packages/ls_colors {};
+      local-scripts = pkgs.callPackage ./bin {};
     };
   };
 }

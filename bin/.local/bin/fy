@@ -1,5 +1,0 @@
-#!/bin/sh
-
-package=$(expac -S -s -H M "%n (%r) (Dl: %k, In: %m) %d" | fzy | awk '{print "--needed", $1}')
-
-yay -S $package
