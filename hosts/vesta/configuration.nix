@@ -23,7 +23,7 @@
     networkmanager.enable = true;
     stevenblack = {
       enable = true;
-      block = [ "porn" "social" ];
+      block = [ "social" ];
     };
   };
 
