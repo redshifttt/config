@@ -1,6 +1,8 @@
 { inputs, pkgs, ... }:
 {
-  programs.zsh = {
+  programs.zsh = let
+    customPackage = inputs.self.packages.${pkgs.system};
+  in {
     enable = true;
 
     enableAutosuggestions = true;
@@ -12,7 +14,7 @@
 
     initExtra = ''
       PS1="%B%F{magenta}%m%f %F{blue}%c%f%b %# "
-      source ${inputs.self.packages.${pkgs.system}.LS_COLORS}/share/lscolors.sh
+      source ${customPackage.LS_COLORS}/share/lscolors.sh
       '';
 
     sessionVariables = {
@@ -30,12 +32,17 @@
       cp = "cp -iv";
       mv = "mv -iv";
       rm = "rm -Iv";
+
       soda = "ssh -p 52222 num@soda.privatevoid.net";
-      dragon = "dragon-drag-and-drop";
       ncdu = "ncdu --color off";
       ytdl = "yt-dlp";
       ytba = "yt-dlp -f bestaudio";
       ytmp3 = "yt-dlp -x --extract-audio --audio-format mp3";
+
+      gs = "git status";
+      gp = "git pull";
+      gc = "git commit";
+      gl = "git log";
     };
   };
 }
