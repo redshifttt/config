@@ -23,17 +23,15 @@
       vesta = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [ ./hosts/vesta/configuration.nix ];
-        specialArgs = {
-          inherit inputs;
-        };
+        specialArgs = { inherit inputs; };
       };
     };
 
     homeConfigurations = {
       "sean@vesta" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs; };
         modules = [ ./home ];
+        extraSpecialArgs = { inherit inputs; };
       };
     };
 
