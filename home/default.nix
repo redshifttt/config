@@ -41,6 +41,7 @@
       mullvad-vpn
       nil
       easyeffects
+      ckan
 
       (fantasque-sans-mono.overrideAttrs (finalAttrs: previousAttrs: {
         pname = previousAttrs.pname + "-ss01";
