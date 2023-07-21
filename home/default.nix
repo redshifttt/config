@@ -15,6 +15,7 @@
     ./picom
     ./dunst
     ./polybar
+    ./git
   ];
 
   home = {
