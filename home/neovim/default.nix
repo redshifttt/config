@@ -8,8 +8,8 @@
     vimAlias = true;
 
     plugins = with pkgs.vimPlugins; [
-      plenary-nvim
       telescope-nvim
+      plenary-nvim
 
       nvim-cmp
       cmp-nvim-lua
@@ -20,14 +20,22 @@
       cmp_luasnip
       luasnip
 
-      (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars)) # eventually replace with individual grammars
+      (nvim-treesitter.withPlugins (p: with p; [
+        tree-sitter-lua
+        tree-sitter-c
+        tree-sitter-python
+        tree-sitter-bash
+        tree-sitter-vim
+        tree-sitter-css
+        tree-sitter-html
+        tree-sitter-nix
+      ]))
       nvim-treesitter-textobjects
       nvim-treesitter-context
 
       nvim-lspconfig
       # fidget-nvim
 
-      glow-nvim
       comment-nvim
       lightline-vim
       indent-blankline-nvim
