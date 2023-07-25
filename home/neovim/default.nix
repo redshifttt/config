@@ -79,6 +79,8 @@
           "mini"
         ]);
     in ''
+      vim.g.mapleader = " "
+
       ${luaConfig}
       ${luaPluginConfig}
 
