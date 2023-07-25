@@ -9,7 +9,9 @@ in
     enable = true;
 
     createDirectories = true;
-    extraConfig = {XDG_MISC_DIR = "${home}/misc";};
+    extraConfig = {
+      XDG_MISC_DIR = "${home}/files/misc";
+    };
     publicShare = extraConfig.XDG_MISC_DIR;
     templates = extraConfig.XDG_MISC_DIR;
     desktop = extraConfig.XDG_MISC_DIR;
