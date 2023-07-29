@@ -14,10 +14,12 @@
         dynamic_title = true;
         opacity = 1.0;
       };
+
       scrolling = {
         history = 10000;
         multiplier = 3;
       };
+
       font = rec {
         normal = {
           family = "Fantasque Sans Mono";
@@ -29,12 +31,22 @@
         bold_italic = { inherit (normal) family; style = "Italic Bold"; };
 
         size = 11.0;
+
+        offset = {
+          y = 4;
+        };
+        glyph_offset = {
+          y = (offset.y / 2);
+        };
       };
+
       draw_bold_text_with_bright_colors = false;
+
       selection = {
         semantic_escape_chars = ",│`|:\"' ()[]{}<>\t";
         save_to_clipboard = true;
       };
+
       cursor = {
         style = {
           shape = "Block";
@@ -42,39 +54,43 @@
         };
         vi_mode_style = "None";
         unfocused_hollow = true;
-        thickness = 0.15;
+        thickness = 1;
       };
+
       live_config_reload = true;
+
       mouse = {
-        double_click = {threshold = 300;};
-        triple_click = {threshold = 300;};
+        double_click = { threshold = 300; };
+        triple_click = { threshold = 300; };
 
         hide_when_typing = false;
       };
+
       key_bindings = [
-      {
-        key = "Key0";
-        mods = "Control";
-        action = "ResetFontSize";
-      }
-      {
-        key = "Equals";
-        mods = "Control";
-        action = "IncreaseFontSize";
-      }
-      {
-        key = "Minus";
-        mods = "Control";
-        action = "DecreaseFontSize";
-      }
+        {
+          key = "Key0";
+          mods = "Control";
+          action = "ResetFontSize";
+        }
+        {
+          key = "Equals";
+          mods = "Control";
+          action = "IncreaseFontSize";
+        }
+        {
+          key = "Minus";
+          mods = "Control";
+          action = "DecreaseFontSize";
+        }
       ];
+
       debug = {
         render_timer = false;
         persistent_logging = false;
         log_level = "Error";
         print_events = false;
       };
-      # exported from onedarkpro.nvim
+
       colors = {
         primary = {
           background = "0x0A0E14";
@@ -99,9 +115,6 @@
           magenta = "0xcb9ff8";
           cyan = "0x95E6CB";
           white = "0xFFFFFF";
-        };
-        shell = {
-          program = "/usr/bin/env bash";
         };
       };
     };
