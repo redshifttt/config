@@ -1,6 +1,16 @@
 { pkgs, ... }:
 
-{
+let
+  fidget-nvim-legacy = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "fidget-nvim-legacy";
+    src = pkgs.fetchFromGitHub {
+      owner = "j-hui";
+      repo = "fidget.nvim";
+      rev = "90c22e47be057562ee9566bad313ad42d622c1d3";
+      hash = "sha256-N3O/AvsD6Ckd62kDEN4z/K5A3SZNR15DnQeZhH6/Rr0=";
+    };
+  };
+in {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -35,6 +45,7 @@
 
       nvim-lspconfig
       # fidget-nvim
+      fidget-nvim-legacy
 
       comment-nvim
       lightline-vim
@@ -69,7 +80,7 @@
           "lsp"
           "autopairs"
           "comment"
-          # "fidget"
+          "fidget"
           "gitsigns"
           "indent-blankline"
           "telescope"
