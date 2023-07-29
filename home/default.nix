@@ -24,7 +24,6 @@
     stateVersion = "23.05";
 
     packages = with pkgs; [
-      bash
       fzf
       fd
       bat
@@ -43,6 +42,11 @@
       nil
       easyeffects
       ckan
+      bfs
+      audacity
+      liberation_ttf
+      fira-mono
+      fira
 
       (fantasque-sans-mono.overrideAttrs (finalAttrs: previousAttrs: {
         pname = previousAttrs.pname + "-ss01";
@@ -58,4 +62,15 @@
   nixpkgs.overlays = [
     inputs.neovim-nightly-overlay.overlay
   ];
+
+  # nix = {
+  #   optimise = {
+  #     dates = [ "daily" ];
+  #     automatic = true;
+  #   };
+  #   gc = {
+  #     dates = "weekly";
+  #     automatic = true;
+  #   };
+  # };
 }
