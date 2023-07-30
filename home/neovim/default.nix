@@ -10,6 +10,16 @@ let
       hash = "sha256-N3O/AvsD6Ckd62kDEN4z/K5A3SZNR15DnQeZhH6/Rr0=";
     };
   };
+
+  lsp-zero-nvim-v2 = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "lsp-zero-nvim-v2";
+    src = pkgs.fetchFromGitHub {
+      owner = "VonHeikemen";
+      repo = "lsp-zero.nvim";
+      rev = "v2.x";
+      hash = "sha256-6T/8pt1aDCcMZnaj7LGbU/6MoZfJPpdkKzJ7DRbFd3c=";
+    };
+  };
 in {
   programs.neovim = {
     enable = true;
@@ -46,6 +56,7 @@ in {
       nvim-lspconfig
       # fidget-nvim
       fidget-nvim-legacy
+      lsp-zero-nvim-v2
 
       comment-nvim
       lightline-vim
@@ -78,15 +89,15 @@ in {
       luaPluginConfig =
         builtins.concatStringsSep "\n" (map luaPluginRequire [
           "lsp"
+          "fidget"
+          "treesitter"
+          "telescope"
+          "gitsigns"
+          "which-key"
           "autopairs"
           "comment"
-          "fidget"
-          "gitsigns"
           "indent-blankline"
-          "telescope"
           "toggleterm"
-          "treesitter"
-          "which-key"
           "mini"
         ]);
     in ''
