@@ -27,3 +27,6 @@ keymap.set("n", "<ctrl-u>", "<ctrl-u>zz", { desc = "Jump up" })
 -- I don't like accidentally hitting these
 keymap.set("n", "H", "<nop>")
 keymap.set("n", "L", "<nop>")
+
+keymap.set("n", "<leader>gs", "<cmd>Git<cr>")
+keymap.set("n", "<leader>gp", "<cmd>Git push<cr>")
