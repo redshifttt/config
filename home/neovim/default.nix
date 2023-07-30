@@ -59,7 +59,6 @@ in {
       lsp-zero-nvim-v2
 
       comment-nvim
-      lightline-vim
       indent-blankline-nvim
       nvim-autopairs
       nvim-notify
@@ -107,7 +106,6 @@ in {
       ${luaPluginConfig}
 
       vim.cmd.colorscheme("ayu-dark")
-      vim.g.lightline = { colorscheme = "ayu_dark" }
       vim.opt.cursorline = true
     '';
   };

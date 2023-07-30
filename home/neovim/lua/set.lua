@@ -38,9 +38,7 @@ option.tabstop = 4
 option.shiftwidth = 4 -- this is for autoindenting
 option.softtabstop = 4
 
-option.showmode = false
--- fileformats defaults to unix,dos on linux
--- set.fileformats = "unix,dos,mac"
+option.showmode = true
 
 option.termguicolors = true
 
@@ -67,12 +65,8 @@ option.listchars = {
 option.laststatus = 3
 option.winbar = "%n %F %m"
 
--- not sure how much i like this
--- set.clipboard:append("unnamedplus")
-
--- Always display the signcolumn for LSP reasons
 option.signcolumn = "yes"
 
-option.cmdheight = 0
+option.cmdheight = 1
 
-option.guicursor = "" -- fat cursor mmm
+option.guicursor = ""
