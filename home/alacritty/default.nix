@@ -93,11 +93,11 @@
 
       colors = {
         primary = {
-          background = "0x0A0E14";
+          background = "0x000000";
           foreground = "0xB3B1AD";
         };
         normal = {
-          black = "0x01060E";
+          black = "0x000000";
           red = "0xEA6C73";
           green = "0x91B362";
           yellow = "0xF9AF4F";
@@ -107,7 +107,7 @@
           white = "0xC7C7C7";
         };
         bright = {
-          black = "0x686868";
+          black = "0x000000";
           red = "0xF07178";
           green = "0xC2D94C";
           yellow = "0xFFB454";
