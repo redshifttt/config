@@ -105,8 +105,24 @@ in {
       ${luaConfig}
       ${luaPluginConfig}
 
+      require('ayu').setup({
+        overrides = {
+          Normal = { bg = "None" },
+          NormalFloat = { bg = "None" },
+          ColorColumn = { bg = "None" },
+          SignColumn = { bg = "None" },
+          Folded = { bg = "None" },
+          FoldColumn = { bg = "None" },
+          CursorLine = { bg = "None" },
+          CursorLineNr = { bg = "None" },
+          CursorColumn = { bg = "None" },
+          WhichKeyFloat = { bg = "None" },
+          VertSplit = { bg = "None" },
+          StatusLine = { bg = "None" },
+        },
+      })
       vim.cmd.colorscheme("ayu-dark")
       vim.opt.cursorline = true
-    '';
+        '';
   };
 }
