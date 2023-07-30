@@ -69,6 +69,7 @@ in {
       gitsigns-nvim
       nvim-colorizer-lua
       neovim-ayu
+      vim-fugitive
     ];
 
     extraPackages = with pkgs; [
