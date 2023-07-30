@@ -5,7 +5,7 @@
       window = {
         padding = {
           x = 10;
-          y = 10;
+          y = 8;
         };
         dynamic_padding = false;
         decorations = "none";
