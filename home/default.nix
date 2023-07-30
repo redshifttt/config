@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, ... }:
 {
   programs.home-manager.enable = true;
 
@@ -16,6 +16,7 @@
     ./dunst
     ./polybar
     ./git
+    ./newsboat
   ];
 
   home = {
@@ -25,7 +26,6 @@
 
     packages = with pkgs; [
       fzf
-      fd
       bat
       lsd
       librewolf
@@ -47,6 +47,7 @@
       liberation_ttf
       fira-mono
       fira
+      newsboat
 
       (fantasque-sans-mono.overrideAttrs (finalAttrs: previousAttrs: {
         pname = previousAttrs.pname + "-ss01";
