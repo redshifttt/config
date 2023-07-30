@@ -5,7 +5,7 @@
   in {
     enable = true;
 
-    enableAutosuggestions = true;
+    enableAutosuggestions = false; # temp change
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     enableVteIntegration = true;
@@ -14,6 +14,8 @@
 
     initExtra = ''
       PS1="%B%F{magenta}%m%f %F{blue}%c%f%b %# "
+      bindkey '^I' complete-word
+
       source ${customPackage.LS_COLORS}/share/lscolors.sh
       '';
 
@@ -43,6 +45,11 @@
       gp = "git pull";
       gc = "git commit";
       gl = "git log";
+
+      fcd = "cd \"$(bfs $HOME -type d 2>/dev/null | fzf)\"";
+
+      hmswitch = "home-manager switch --flake .";
+      nixrebuild = "sudo nixos-rebuild switch --flake .";
     };
   };
 }
