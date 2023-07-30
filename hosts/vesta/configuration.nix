@@ -21,10 +21,10 @@
   networking = {
     hostName = "vesta";
     networkmanager.enable = true;
-    stevenblack = {
-      enable = true;
-      block = [ "social" ];
-    };
+    # stevenblack = {
+    #   enable = true;
+    #   block = [ "social" ];
+    # };
   };
 
   time.timeZone = "Europe/London";
