@@ -1,6 +1,6 @@
-# Nix{,OS} Configuration
+# Nix/NixOS Configuration
 
-This is my NixOS configuration.
+This is my Nix/NixOS configuration.
 
 Currently only have a single configuration for my PC (vesta) but will expand eventually.
 
