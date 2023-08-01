@@ -4,15 +4,14 @@ local action_state = require('telescope.actions.state')
 
 telescope.setup {}
 
--- [f]ind
+vim.keymap.set("n", "<leader>t", "<cmd>Telescope<cr>")
+
 vim.keymap.set("n", "<leader>fh", function() builtin.help_tags() end, { desc = "Find help tags" })
 vim.keymap.set("n", "<leader>fm", function() builtin.man_pages() end, { desc = "Find man pages" })
 vim.keymap.set("n", "<leader>ff", function() builtin.find_files() end, { desc = "Find files recursively" })
 vim.keymap.set("n", "<leader>fc", function() builtin.commands() end, { desc = "Find commands" })
 vim.keymap.set("n", "<leader>fb", function() builtin.buffers() end, { desc = "Find buffers" })
-vim.keymap.set("n", "<leader>fg", function() builtin.live_grep() end, { desc = "Find words in files recursively" })
 
--- [g]it
 vim.keymap.set("n", "<leader>gf", function() builtin.git_files() end, { desc = "Find git files" })
 
 -- Zettelkasten management
