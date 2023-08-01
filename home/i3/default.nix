@@ -36,8 +36,7 @@ in {
         "${modifierKey}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
         "${modifierKey}+w" = "kill";
         "${modifierKey}+d" = "exec --no-startup-id \"${pkgs.bemenu}/bin/bemenu-run -c -W 0.2 -l20 -s -CT -p 'run' -i -B 2 -M 20 --counter always --fn 'Fantasque Sans Mono 12'\"";
-        "${modifierKey}+s" = "exec --no-startup-id \"${inputs.self.packages.${pkgs.system}.local-scripts}/bin/scrot -s\"";
-        #"${modifierKey}+Delete" = "exec --no-startup-id \"actions\"";
+        "${modifierKey}+s" = "exec --no-startup-id \"${inputs.self.packages.x86_64-linux.local-scripts}/bin/scrot\"";
 
         "${modifierKey}+h" = "focus left";
         "${modifierKey}+j" = "focus down";
