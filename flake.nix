@@ -3,17 +3,16 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nil.url = "github:oxalica/nil";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... } @ inputs:
   let
     pkgs = nixpkgs.legacyPackages.${system};
     system = "x86_64-linux";
@@ -22,7 +21,11 @@
     nixosConfigurations = {
       vesta = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ ./hosts/vesta/configuration.nix ];
+        modules = [
+          ./hosts/vesta/configuration.nix
+          nixos-hardware.nixosModules.common-cpu-amd
+          nixos-hardware.nixosModules.common-gpu-amd
+        ];
         specialArgs = { inherit inputs; };
       };
     };
