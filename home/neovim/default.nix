@@ -106,6 +106,7 @@ in {
       ${luaConfig}
       ${luaPluginConfig}
 
+      -- :source $VIMRUNTIME/syntax/hitest.vim
       require('ayu').setup({
         overrides = {
           Normal = { bg = "None" },
