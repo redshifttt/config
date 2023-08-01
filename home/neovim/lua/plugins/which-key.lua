@@ -2,8 +2,8 @@ local which_key = require("which-key")
 
 which_key.setup {
     icons = {
-        breadcrumb = "+",
-        separator = "→",
+        breadcrumb = ">>",
+        separator = "-",
         group = "[+] "
     },
     window = {
@@ -12,5 +12,8 @@ which_key.setup {
     plugins = {
         marks = false,
         registers = false,
+        spelling = {
+          enabled = false,
+        }
     }
 }
