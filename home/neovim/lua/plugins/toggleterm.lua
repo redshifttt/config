@@ -5,4 +5,4 @@ toggleterm.setup {
     shade_terminals = false,
 }
 
-keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>")
+keymap.set("n", "<leader>T", "<cmd>ToggleTerm<cr>")
