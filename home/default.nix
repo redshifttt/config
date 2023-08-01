@@ -48,6 +48,8 @@
       fira-mono
       fira
       newsboat
+      xclip
+      xsel
 
       (fantasque-sans-mono.overrideAttrs (finalAttrs: previousAttrs: {
         pname = previousAttrs.pname + "-ss01";
