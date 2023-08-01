@@ -7,8 +7,8 @@
       statusbar-v-padding = 0;
       page-padding = 5;
       selection-clipboard = "clipboard";
-      font = "dejavu sans mono";
-      recolor-lightcolor = "#0b0d12";
+      font = "fantasque sans mono 12";
+      recolor-lightcolor = "#000000";
       recolor-darkcolor = "#BEBAC6";
     };
     mappings = {
