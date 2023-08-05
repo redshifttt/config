@@ -10,6 +10,12 @@ Currently only have a single configuration for my PC (vesta) but will expand eve
 - **Terminal**: alacritty
 - **Shell**: bash
 
+## Goals
+
+My goal for my configs is functionality then form. I want to try and build the
+best habits with the best tools for what I need. That means however everything
+has to be optimized for *my* mind and no one elses. :)
+
 ## Acknowledgements
 
 Configs I *borrowed* from:
