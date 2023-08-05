@@ -1,26 +1,30 @@
-local autocmd = vim.api.nvim_create_autocmd
-
-autocmd("TermOpen", {
+vim.api.nvim_create_autocmd("TermOpen", {
     pattern = "*",
     command = "set norelativenumber signcolumn=no"
 })
 
-autocmd("BufWritePost", {
-    pattern = "*picom.conf",
-    command = "!pkill picom && picom -b",
-})
-
-autocmd("BufWritePre", {
+vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
     command = "%s/\\s\\+$//e",
 })
 
-autocmd("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
     pattern = "json",
     command = "nnoremap <leader>f :.!jq .<CR>"
 })
 
-autocmd("FileType", {
+-- It seems that if we have a nix buffer open then jump to another file the tab
+-- settings don't default to what is set in set.lua
+-- This makes sure that even if it does do this the cases where it doesn't are covered.
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "*",
+    callback = function()
+        vim.opt.tabstop = 4
+        vim.opt.shiftwidth = 4 -- this is for autoindenting
+        vim.opt.softtabstop = 4
+    end
+})
+vim.api.nvim_create_autocmd("FileType", {
     pattern = "nix",
     callback = function()
         vim.opt.tabstop = 2
@@ -34,7 +38,7 @@ autocmd("FileType", {
 --     command = "set colorcolumn=80"
 -- })
 
-autocmd("TextYankPost", {
+vim.api.nvim_create_autocmd("TextYankPost", {
     pattern = '*',
     callback = function()
         vim.highlight.on_yank({
@@ -44,7 +48,7 @@ autocmd("TextYankPost", {
     end,
 })
 
-autocmd("BufReadPost", {
+vim.api.nvim_create_autocmd("BufReadPost", {
     callback = function()
         local mark = vim.api.nvim_buf_get_mark(0, '"')
         local lcount = vim.api.nvim_buf_line_count(0)
@@ -52,25 +56,6 @@ autocmd("BufReadPost", {
         if mark[1] > 0 and mark[1] <= lcount then
             pcall(vim.api.nvim_win_set_cursor, 0, mark)
             vim.cmd("norm zz")
-        end
-    end,
-})
-
-autocmd("RecordingEnter", {
-    pattern = "*",
-    callback = function()
-        local recording_register = vim.fn.reg_recording()
-
-        vim.notify("Recording to @" .. recording_register, vim.log.levels.INFO, { title = "Macro" })
-    end,
-})
-
-autocmd("RecordingLeave", {
-    pattern = "*",
-    callback = function()
-        local recorded_register = vim.fn.reg_recorded()
-        if recorded_register then
-            vim.notify("Finished recording.", vim.log.levels.INFO, { title = "Macro" })
         end
     end,
 })
