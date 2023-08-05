@@ -30,3 +30,5 @@ keymap.set("n", "L", "<nop>")
 
 keymap.set("n", "<leader>gs", "<cmd>Git<cr>")
 keymap.set("n", "<leader>gp", "<cmd>Git push<cr>")
+
+keymap.set("n", "<esc>", "<cmd>nohl<cr>")
