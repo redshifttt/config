@@ -1,6 +1,5 @@
 local telescope = require('telescope')
 local builtin = require('telescope.builtin')
-local action_state = require('telescope.actions.state')
 
 telescope.setup {}
 
