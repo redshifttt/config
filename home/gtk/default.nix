@@ -6,5 +6,6 @@
       size = 11;
     };
     theme.name = "Adwaita-dark";
+    cursorTheme.name = "Adwaita";
   };
 }
