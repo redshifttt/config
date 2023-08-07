@@ -70,6 +70,7 @@ in {
       nvim-colorizer-lua
       neovim-ayu
       vim-fugitive
+      vim-nix
     ];
 
     extraPackages = with pkgs; [
