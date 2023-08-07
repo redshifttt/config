@@ -115,7 +115,7 @@ in {
           SignColumn = { bg = "None" },
           Folded = { bg = "None" },
           FoldColumn = { bg = "None" },
-          CursorLine = { bg = "None" },
+          CursorLine = { bg = "#111111" },
           CursorLineNr = { bg = "None" },
           CursorColumn = { bg = "None" },
           WhichKeyFloat = { bg = "None" },
