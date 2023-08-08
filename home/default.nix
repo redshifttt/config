@@ -66,14 +66,9 @@
     inputs.neovim-nightly-overlay.overlay
   ];
 
-  # nix = {
-  #   optimise = {
-  #     dates = [ "daily" ];
-  #     automatic = true;
-  #   };
-  #   gc = {
-  #     dates = "weekly";
-  #     automatic = true;
-  #   };
-  # };
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
 }
