@@ -10,6 +10,7 @@
       { url = "https://lukesmith.xyz/index.xml"; }
       { url = "https://www.nasaspaceflight.com/feed/"; }
       { url = "https://www.nasaspaceflight.com/news/spacex/feed/"; }
+      { url = "https://gpanders.com/index.xml"; }
     ];
     extraConfig = ''
       highlight article "(^Feed:.*|^Title:.*|^Author:.*|^Date:.*|^Link:.*)" default default bold
