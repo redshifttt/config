@@ -60,8 +60,6 @@
     steam.enable = true;
   };
 
-  nixpkgs.config.allowUnfree = true;
-
   virtualisation.libvirtd.enable = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
