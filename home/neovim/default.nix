@@ -49,6 +49,7 @@ in {
         tree-sitter-css
         tree-sitter-html
         tree-sitter-nix
+        tree-sitter-markdown
       ]))
       nvim-treesitter-textobjects
       nvim-treesitter-context
