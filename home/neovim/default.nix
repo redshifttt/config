@@ -101,6 +101,7 @@ in {
           "indent-blankline"
           "toggleterm"
           "mini"
+          "surround"
         ]);
     in ''
       vim.g.mapleader = " "
