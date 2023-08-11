@@ -32,6 +32,6 @@
 
     mullvad-vpn.enable = true;
 
-    openssh.enable = false;
+    openssh.enable = true;
   };
 }
