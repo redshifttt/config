@@ -23,6 +23,7 @@
         inherit system;
         modules = [
           ./hosts/vesta/configuration.nix
+
           nixos-hardware.nixosModules.common-cpu-amd
           nixos-hardware.nixosModules.common-gpu-amd
         ];
@@ -41,6 +42,7 @@
     packages.${system} = {
       LS_COLORS = pkgs.callPackage ./packages/ls_colors {};
       local-scripts = pkgs.callPackage ./bin {};
+      firefox-addons = pkgs.callPackage ./packages/firefox-addons {};
     };
   };
 }
