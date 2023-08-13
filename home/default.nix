@@ -51,6 +51,9 @@
       newsboat
       xclip
       xsel
+      pavucontrol
+      discord
+      spotify
 
       (fantasque-sans-mono.overrideAttrs (final: prev: {
         pname = prev.pname + "-ss01";
@@ -65,6 +68,11 @@
 
   nixpkgs.overlays = [
     inputs.neovim-nightly-overlay.overlay
+  ];
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "discord"
+    "spotify"
   ];
 
   programs.direnv = {
