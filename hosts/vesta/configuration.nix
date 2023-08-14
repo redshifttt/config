@@ -16,7 +16,6 @@
       efi.canTouchEfiVariables = true;
       timeout = 5;
     };
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
   };
 
   networking = {
