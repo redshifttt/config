@@ -81,4 +81,6 @@
     enableZshIntegration = true;
     nix-direnv.enable = true;
   };
+
+  services.syncthing.enable = true;
 }
