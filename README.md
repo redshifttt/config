@@ -4,11 +4,13 @@ This is my Nix/NixOS configuration.
 
 Currently only have a single configuration for my PC (vesta) but will expand eventually.
 
-- **Window Manager**: i3wm + i3blocks status bar
-    - **Compositor**: picom
-- **Editor**: neovim + plugins (too many to be listed; check the file)
-- **Terminal**: alacritty
-- **Shell**: bash
+## Directories
+
+- [flake.nix](flake.nix) -- Entry point.
+- [bin](bin/) -- custom shell scripts.
+- [home](home/) -- home environment. individual program configs in directories below this.
+- [hosts](hosts/) -- all hosts this config runs on
+- [packages](packages/) -- custom nix packages
 
 ## Goals
 
