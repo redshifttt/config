@@ -73,22 +73,4 @@
     install -v -m644 "$src" "$dst/{446900e4-71c2-419f-a6a7-df9c091e268b}.xpi"
     '';
   };
-  stylus = stdenv.mkDerivation rec {
-    pname = "styl_us";
-    version = "1.5.33";
-    src = pkgs.fetchurl {
-      url = "https://addons.mozilla.org/firefox/downloads/file/4114817/${pname}-${version}.xpi";
-      hash = "sha256-1rjMH00Jhv+hF5mQZetbuLVZYTaqYMuf90YHNlZwSCI=";
-    };
-
-    dontUnpack = true;
-    preferLocalBuild = true;
-    allowSubstitutes = true;
-
-    buildCommand = ''
-    dst="$out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
-    mkdir -p "$dst"
-    install -v -m644 "$src" "$dst/{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}.xpi"
-    '';
-  };
 }

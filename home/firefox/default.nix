@@ -36,7 +36,6 @@
         ublock-origin
         violentmonkey
         bitwarden
-        stylus
       ];
     };
   };
