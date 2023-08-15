@@ -54,6 +54,7 @@
       pavucontrol
       discord
       spotify
+      playerctl
 
       (fantasque-sans-mono.overrideAttrs (final: prev: {
         pname = prev.pname + "-ss01";
