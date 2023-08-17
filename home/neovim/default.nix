@@ -46,6 +46,7 @@ in {
         tree-sitter-python
         tree-sitter-bash
         tree-sitter-vim
+        tree-sitter-vimdoc
         tree-sitter-css
         tree-sitter-html
         tree-sitter-nix
