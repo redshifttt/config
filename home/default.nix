@@ -52,7 +52,7 @@
       xclip
       xsel
       pavucontrol
-      discord
+      (discord.override { withOpenASAR = true; })
       spotify
       playerctl
 
