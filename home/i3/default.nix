@@ -31,7 +31,7 @@ in {
         size = 11.0;
       };
 
-      keybindings = lib.mkOptionDefault {
+      keybindings = {
         "${modifierKey}+r" = "exec --no-startup-id \"${pkgs.i3}/bin/i3-msg restart\"";
         "${modifierKey}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
         "${modifierKey}+w" = "kill";
