@@ -55,6 +55,7 @@
       (discord.override { withOpenASAR = true; })
       spotify
       playerctl
+      thunderbird
 
       (fantasque-sans-mono.overrideAttrs (final: prev: {
         pname = prev.pname + "-ss01";
