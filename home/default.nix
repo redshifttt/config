@@ -33,7 +33,6 @@
       lsd
       firefox
       git
-      terminus_font
       cantarell-fonts
       mpv
       alacritty
@@ -59,6 +58,7 @@
       playerctl
       thunderbird
       customPackage.fantasque-sans-mono
+      customPackage.terminus_font_fancy
     ];
   };
 

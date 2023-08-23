@@ -22,13 +22,13 @@
 
       font = rec {
         normal = {
-          family = "Fantasque Sans Mono";
-          style = "Regular";
+          family = "Terminus";
+          style = "Bold";
         };
 
+        italic = { inherit (normal) family; style = "Bold"; };
         bold = { inherit (normal) family; style = "Bold"; };
-        italic = { inherit (normal) family; style = "Italic"; };
-        bold_italic = { inherit (normal) family; style = "Italic Bold"; };
+        bold_italic = { inherit (normal) family; style = "Bold"; };
 
         size = 11.0;
 
