@@ -41,7 +41,7 @@
 
     packages.${system} = {
       LS_COLORS = pkgs.callPackage ./packages/ls_colors {};
-      local-scripts = pkgs.callPackage ./bin {};
+      local-scripts = pkgs.callPackage ./packages/bin {};
       firefox-addons = pkgs.callPackage ./packages/firefox-addons {};
     } // import ./packages/patched_drvs.nix { inherit pkgs; };
   };
