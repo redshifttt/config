@@ -20,6 +20,16 @@ let
       hash = "sha256-aDE6t3c05JPbCrenvWToaoVE6VdY95R3lU01sMlFZ6Y=";
     };
   };
+
+  hardtime-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "hardtime-nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "m4xshen";
+      repo = "hardtime.nvim";
+      rev = "main"; # cringe
+      hash = "sha256-/Y1Y9YqDb62EVF866e27SA/sijINjJSW5NKVIW9HIgM=";
+    };
+  };
 in {
   programs.neovim = {
     enable = true;
@@ -73,6 +83,7 @@ in {
       neovim-ayu
       vim-fugitive
       vim-nix
+      hardtime-nvim
     ];
 
     extraPackages = with pkgs; [
@@ -129,6 +140,8 @@ in {
       })
       vim.cmd.colorscheme("ayu-dark")
       vim.opt.cursorline = true
+
+      require("hardtime").setup()
         '';
   };
 }
