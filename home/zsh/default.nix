@@ -5,7 +5,7 @@
   in {
     enable = true;
 
-    enableAutosuggestions = false; # temp change
+    enableAutosuggestions = true; # temp change
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     enableVteIntegration = true;
@@ -17,6 +17,9 @@
       bindkey '^I' complete-word
       bindkey '^A' beginning-of-line
       bindkey '^E' end-of-line
+      bindkey '^Y' autosuggest-accept
+
+      ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#111111,bold,underline,bg=#000000"
 
       source ${customPackage.LS_COLORS}/share/lscolors.sh
       '';
@@ -44,7 +47,7 @@
       ytmp3 = "yt-dlp -x --extract-audio --audio-format mp3";
 
       gs = "git status";
-      gp = "git pull";
+      gp = "git push";
       gc = "git commit";
       gl = "git log";
 
