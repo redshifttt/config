@@ -16,6 +16,7 @@
           picom
           networkmanagerapplet
           xwallpaper
+          volctl
         ];
       };
       videoDrivers = [ "amdgpu" ];
