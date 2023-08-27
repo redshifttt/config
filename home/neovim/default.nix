@@ -61,6 +61,7 @@ in {
         tree-sitter-html
         tree-sitter-nix
         tree-sitter-markdown
+        tree-sitter-cpp
       ]))
       nvim-treesitter-textobjects
       nvim-treesitter-context
@@ -79,11 +80,11 @@ in {
       mini-nvim
       toggleterm-nvim
       gitsigns-nvim
-      nvim-colorizer-lua
       neovim-ayu
       vim-fugitive
       vim-nix
       hardtime-nvim
+      oil-nvim
     ];
 
     extraPackages = with pkgs; [
@@ -142,6 +143,7 @@ in {
       vim.opt.cursorline = true
 
       require("hardtime").setup()
+      require("oil").setup()
         '';
   };
 }
