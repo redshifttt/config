@@ -113,6 +113,11 @@ in {
           always = true;
           notification = false;
         }
+        {
+          command = "${pkgs.volctl}/bin/volctl";
+          always = false;
+          notification = false;
+        }
         #{ command = "xwallpaper ..."; always = false; notification = false; }
       ];
     };

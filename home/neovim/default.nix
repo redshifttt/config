@@ -17,7 +17,17 @@ let
       owner = "VonHeikemen";
       repo = "lsp-zero.nvim";
       rev = "v2.x";
-      hash = "sha256-SvshWzbgLsY2+l32R6+zkXurlIqUeMbKNUzI5B1ygIA=";
+      hash = "sha256-hBDkb4KYkuhI7Vv5UUtdLUPechCt40UxUSRr3eZqHG8=";
+    };
+  };
+
+  hardtime-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "hardtime-nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "m4xshen";
+      repo = "hardtime.nvim";
+      rev = "main"; # cringe
+      hash = "sha256-/Y1Y9YqDb62EVF866e27SA/sijINjJSW5NKVIW9HIgM=";
     };
   };
 in {
@@ -51,6 +61,7 @@ in {
         tree-sitter-html
         tree-sitter-nix
         tree-sitter-markdown
+        tree-sitter-cpp
       ]))
       nvim-treesitter-textobjects
       nvim-treesitter-context
@@ -69,10 +80,11 @@ in {
       mini-nvim
       toggleterm-nvim
       gitsigns-nvim
-      nvim-colorizer-lua
       neovim-ayu
       vim-fugitive
       vim-nix
+      hardtime-nvim
+      oil-nvim
     ];
 
     extraPackages = with pkgs; [
@@ -129,6 +141,9 @@ in {
       })
       vim.cmd.colorscheme("ayu-dark")
       vim.opt.cursorline = true
+
+      require("hardtime").setup()
+      require("oil").setup()
         '';
   };
 }

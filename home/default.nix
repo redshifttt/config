@@ -20,7 +20,9 @@
     ./firefox
   ];
 
-  home = {
+  home = let
+    customPackage = inputs.self.packages.x86_64-linux;
+  in {
     username = "sean";
     homeDirectory = "/home/sean";
     stateVersion = "23.11";
@@ -31,7 +33,6 @@
       lsd
       firefox
       git
-      terminus_font
       cantarell-fonts
       mpv
       alacritty
@@ -56,16 +57,8 @@
       spotify
       playerctl
       thunderbird
-      acpi
-
-      (fantasque-sans-mono.overrideAttrs (final: prev: {
-        pname = prev.pname + "-ss01";
-        src = pkgs.fetchzip {
-          url = "https://github.com/belluzj/fantasque-sans/releases/download/v${prev.version}/FantasqueSansMono-NoLoopK.zip";
-          stripRoot = false;
-          hash = "sha256-RnnyhP2zdRGk4XUe4fSibMFBhZmMqoKziE6TzcCSiL0=";
-        };
-      }))
+      customPackage.fantasque-sans-mono
+      customPackage.terminus_font_fancy
     ];
   };
 
