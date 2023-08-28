@@ -29,10 +29,24 @@
         ];
         specialArgs = { inherit inputs; };
       };
+      ceres = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/ceres/configuration.nix
+
+          nixos-hardware.nixosModules.common-cpu-amd
+        ];
+        specialArgs = { inherit inputs; };
+      };
     };
 
     homeConfigurations = {
       "sean@vesta" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./home ];
+        extraSpecialArgs = { inherit inputs; };
+      };
+      "sean@ceres" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./home ];
         extraSpecialArgs = { inherit inputs; };
