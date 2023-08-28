@@ -23,7 +23,7 @@
   home = {
     username = "sean";
     homeDirectory = "/home/sean";
-    stateVersion = "23.05";
+    stateVersion = "23.11";
 
     packages = with pkgs; [
       fzf
@@ -56,6 +56,7 @@
       spotify
       playerctl
       thunderbird
+      acpi
 
       (fantasque-sans-mono.overrideAttrs (final: prev: {
         pname = prev.pname + "-ss01";
