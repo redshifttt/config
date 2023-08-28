@@ -118,6 +118,11 @@ in {
           always = false;
           notification = false;
         }
+        {
+          command = "${pkgs.cbatticon}/bin/cbatticon";
+          always = false;
+          notification = false;
+        }
         #{ command = "xwallpaper ..."; always = false; notification = false; }
       ];
     };

@@ -1,14 +1,7 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running `nixos-help`).
-
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ ./hardware-configuration.nix ];
 
   boot = {
     loader = {
@@ -27,20 +20,14 @@
     hostName = "ceres";
     networkmanager.enable = true;
     stevenblack.enable = true;
-    extraHosts = ''
-      # Extra Hosts
-      0.0.0.0 bbc.co.uk
-    '';
   };
 
-  # Set your time zone.
   time.timeZone = "Europe/London";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
   console = {
     font = "Lat2-Terminus16";
-    useXkbConfig = true; # use xkbOptions in tty.
+    useXkbConfig = true;
   };
 
   # For pipewire usually
@@ -52,8 +39,6 @@
     shell = pkgs.zsh;
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
   programs = {
     mtr.enable = true;
     gnupg.agent = {
@@ -65,8 +50,6 @@
 	};
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  documentation.man.generateCaches = true;
 
   services = {
     xserver = {
@@ -82,7 +65,7 @@
           dunst
           picom
           networkmanagerapplet
-          xwallpaper
+          cbatticon
         ];
       };
       videoDrivers = [ "amdgpu" ];
