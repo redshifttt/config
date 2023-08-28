@@ -27,7 +27,7 @@ let
       owner = "m4xshen";
       repo = "hardtime.nvim";
       rev = "main"; # cringe
-      hash = "sha256-/Y1Y9YqDb62EVF866e27SA/sijINjJSW5NKVIW9HIgM=";
+      hash = "sha256-meOoSbZJclLJr1ij6FAOjCyINHd9tTVnYmfED6NIDfc=";
     };
   };
 in {
