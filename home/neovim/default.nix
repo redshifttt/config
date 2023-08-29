@@ -104,17 +104,10 @@ in {
       luaPluginConfig =
         builtins.concatStringsSep "\n" (map luaPluginRequire [
           "lsp"
-          "fidget"
           "treesitter"
           "telescope"
-          "gitsigns"
           "which-key"
-          "autopairs"
-          "comment"
-          "indent-blankline"
-          "toggleterm"
-          "mini"
-          "surround"
+          "other"
         ]);
     in ''
       vim.g.mapleader = " "
@@ -125,13 +118,13 @@ in {
       -- :source $VIMRUNTIME/syntax/hitest.vim
       require('ayu').setup({
         overrides = {
+          CursorLine = { bg = "#111111" },
           Normal = { bg = "None" },
           NormalFloat = { bg = "None" },
           ColorColumn = { bg = "None" },
           SignColumn = { bg = "None" },
           Folded = { bg = "None" },
           FoldColumn = { bg = "None" },
-          CursorLine = { bg = "#111111" },
           CursorLineNr = { bg = "None" },
           CursorColumn = { bg = "None" },
           WhichKeyFloat = { bg = "None" },
@@ -142,8 +135,16 @@ in {
       vim.cmd.colorscheme("ayu-dark")
       vim.opt.cursorline = true
 
+      -- these all just use defaults so they
+      -- don't end up needing their own files
       require("hardtime").setup()
       require("oil").setup()
+      require("nvim-surround").setup()
+      require('mini.indentscope').setup()
+      require('mini.ai').setup()
+      require('gitsigns').setup()
+      require('fidget').setup()
+      require('Comment').setup()
         '';
   };
 }
