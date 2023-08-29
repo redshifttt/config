@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./services
+    ./services.nix
   ];
 
   boot = {
