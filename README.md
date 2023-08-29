@@ -2,15 +2,13 @@
 
 This is my Nix/NixOS configuration.
 
-Currently only have a single configuration for my PC (vesta) but will expand eventually.
+This includes my 2 hosts: vesta (PC) and ceres (Laptop).
 
-## Directories
-
-- [flake.nix](flake.nix) -- Entry point.
-- [bin](bin/) -- custom shell scripts.
-- [home](home/) -- home environment. individual program configs in directories below this.
-- [hosts](hosts/) -- all hosts this config runs on
-- [packages](packages/) -- custom nix packages
+- `hosts`
+    - `vesta` - PC config.
+    - `ceres` - Laptop config.
+- `home` - Home manager config; contains various subdirectories for individual program configs.
+- `packages` - Various custom packages used within my setup.
 
 ## Goals
 
