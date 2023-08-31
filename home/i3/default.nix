@@ -26,6 +26,10 @@ in {
         titlebar = false;
       };
 
+      colors = {
+        background = "#000000";
+      };
+
       fonts = {
         names = ["Cantarell"];
         size = 11.0;
