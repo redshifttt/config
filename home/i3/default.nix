@@ -37,15 +37,20 @@ in {
         "${modifierKey}+w" = "kill";
         "${modifierKey}+d" = "exec --no-startup-id \"${pkgs.bemenu}/bin/bemenu-run -c -W 0.2 -l20 -s -CT -p 'run' -i -B 2 -M 20 --counter always --fn 'Fantasque Sans Mono 12'\"";
         "${modifierKey}+s" = "exec --no-startup-id \"${inputs.self.packages.x86_64-linux.local-scripts}/bin/scrot\"";
+        "${modifierKey}+Delete" = "exec --no-startup-id systemctl suspend";
 
         "${modifierKey}+h" = "focus left";
-        "${modifierKey}+j" = "focus down";
-        "${modifierKey}+k" = "focus up";
-        "${modifierKey}+l" = "focus right";
         "${modifierKey}+Shift+h" = "move left";
+
+        "${modifierKey}+j" = "focus down";
         "${modifierKey}+Shift+j" = "move down";
+
+        "${modifierKey}+k" = "focus up";
         "${modifierKey}+Shift+k" = "move up";
+
+        "${modifierKey}+l" = "focus right";
         "${modifierKey}+Shift+l" = "move right";
+
         "${modifierKey}+f" = "fullscreen toggle";
         "${modifierKey}+space" = "floating toggle";
         "${modifierKey}+1" = "workspace \"${workspace1}\"";
@@ -69,24 +74,6 @@ in {
           };
           command = "none";
           position = "top";
-          colors = {
-            background = "#080A0E";
-            focusedWorkspace = {
-              background = "#232937";
-              border = "#232937";
-              text = "#ffffff";
-            };
-            inactiveWorkspace = {
-              background = "#191d27";
-              border = "#232937";
-              text = "#666666";
-            };
-            urgentWorkspace = {
-              background = "#ec5959";
-              border = "#ffffff";
-              text = "#ffffff";
-            };
-          };
           workspaceButtons = true;
           workspaceNumbers = true;
         }
@@ -123,7 +110,6 @@ in {
           always = false;
           notification = false;
         }
-        #{ command = "xwallpaper ..."; always = false; notification = false; }
       ];
     };
   };
