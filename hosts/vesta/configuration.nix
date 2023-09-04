@@ -53,7 +53,6 @@
     };
     dconf.enable = true;
     zsh.enable = true;
-    steam.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;
