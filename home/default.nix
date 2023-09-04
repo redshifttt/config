@@ -53,13 +53,14 @@
       xclip
       xsel
       pavucontrol
-      (discord.override { withOpenASAR = true; })
       spotify
       playerctl
       thunderbird
-      customPackage.fantasque-sans-mono
-      customPackage.terminus_font_fancy
-    ];
+    ] ++ (with customPackage; [
+      fantasque-sans-mono
+      terminus_font_fancy
+      (discord.override { withOpenASAR = true; })
+    ]);
   };
 
   nixpkgs.overlays = [
