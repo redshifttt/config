@@ -17,7 +17,7 @@ let
       owner = "VonHeikemen";
       repo = "lsp-zero.nvim";
       rev = "v2.x";
-      hash = "sha256-hBDkb4KYkuhI7Vv5UUtdLUPechCt40UxUSRr3eZqHG8=";
+      hash = "sha256-DhKaoHK26O+8/9gWDlcdQtdSpSVD1zjd29vOGst2bSo=";
     };
   };
 
@@ -130,6 +130,8 @@ in {
           WhichKeyFloat = { bg = "None" },
           VertSplit = { bg = "None" },
           StatusLine = { bg = "None" },
+          TabLine = { bg = "None" },
+          TabLineSel = { bg = "#050505" },
         },
       })
       vim.cmd.colorscheme("ayu-dark")
@@ -142,6 +144,7 @@ in {
       require("nvim-surround").setup()
       require('mini.indentscope').setup()
       require('mini.ai').setup()
+      require('mini.tabline').setup()
       require('gitsigns').setup()
       require('fidget').setup()
       require('Comment').setup()
