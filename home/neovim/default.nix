@@ -20,16 +20,6 @@ let
       hash = "sha256-DhKaoHK26O+8/9gWDlcdQtdSpSVD1zjd29vOGst2bSo=";
     };
   };
-
-  hardtime-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
-    name = "hardtime-nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "m4xshen";
-      repo = "hardtime.nvim";
-      rev = "main"; # cringe
-      hash = "sha256-meOoSbZJclLJr1ij6FAOjCyINHd9tTVnYmfED6NIDfc=";
-    };
-  };
 in {
   programs.neovim = {
     enable = true;
@@ -82,9 +72,9 @@ in {
       gitsigns-nvim
       neovim-ayu
       vim-fugitive
-      vim-nix
-      hardtime-nvim
+      # hardtime-nvim
       oil-nvim
+      vim-be-good
     ];
 
     extraPackages = with pkgs; [
@@ -139,7 +129,7 @@ in {
 
       -- these all just use defaults so they
       -- don't end up needing their own files
-      require("hardtime").setup()
+      -- require("hardtime").setup()
       require("oil").setup()
       require("nvim-surround").setup()
       require('mini.indentscope').setup()
