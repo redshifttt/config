@@ -5,6 +5,10 @@
     ./services.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+    git # Needed for doas to be able to use git via root when using nixos-rebuild
+  ];
+
   boot = {
     loader = {
       systemd-boot = {
