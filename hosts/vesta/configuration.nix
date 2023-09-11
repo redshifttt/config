@@ -36,8 +36,16 @@
     useXkbConfig = true;
   };
 
-  # For pipewire usually
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true; # For pipewire usually
+    sudo.enable = false;
+    doas = {
+      enable = true;
+      extraRules = [
+        { groups = [ "wheel" ]; persist = true; }
+      ];
+    };
+  };
 
   users.users.sean = {
     isNormalUser = true;
@@ -60,8 +68,6 @@
   virtualisation.libvirtd.enable = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  documentation.man.generateCaches = true;
 
   system.stateVersion = "23.11";
 }
