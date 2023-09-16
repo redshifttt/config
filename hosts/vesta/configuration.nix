@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./services.nix
+    ./services
   ];
 
   environment.systemPackages = with pkgs; [
@@ -20,6 +20,8 @@
       efi.canTouchEfiVariables = true;
       timeout = 5;
     };
+    kernelParams = [ "quiet" ];
+    consoleLogLevel = 3;
   };
 
   networking = {
