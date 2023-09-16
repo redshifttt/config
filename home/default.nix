@@ -56,6 +56,7 @@
       spotify
       playerctl
       thunderbird
+      gzdoom
     ] ++ (with customPackage; [
       fantasque-sans-mono
       terminus_font_fancy
