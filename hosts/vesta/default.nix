@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./services
+    ./nixpkgs
   ];
 
   environment.systemPackages = with pkgs; [
@@ -67,9 +68,8 @@
     };
     dconf.enable = true;
     zsh.enable = true;
+    steam.enable = true;
   };
-
-  nixpkgs.config.allowUnfree = true;
 
   virtualisation.libvirtd.enable = true;
 

@@ -22,7 +22,7 @@
       vesta = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./hosts/vesta/configuration.nix
+          ./hosts/vesta
 
           nixos-hardware.nixosModules.common-cpu-amd
           nixos-hardware.nixosModules.common-gpu-amd
