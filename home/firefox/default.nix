@@ -29,8 +29,23 @@
       in ''
       ${lib.strings.fileContents arkenfox}
 
-      // ffprofile additions -- may contain duplicates
-      ${lib.strings.fileContents ./ffprofile.js}
+      // custom arkenfox changes
+      /// disable safe browsing (sends urls to google)
+      user_pref("browser.safebrowsing.malware.enabled", false);
+      user_pref("browser.safebrowsing.phishing.enabled", false);
+      user_pref("browser.safebrowsing.downloads.enabled", false);
+      user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
+      user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
+      /// disable DoH
+      user_pref("network.trr.mode", 5);
+      user_pref("network.trr.uri", "");
+      user_pref("network.trr.custom_uri", "");
+      /// enable webgl so everything doesnt fucking break
+      user_pref("webgl.disabled", false);
+
+      // not in arkenfox
+      user_pref("extensions.pocket.enabled", false);
+      user_pref("browser.urlbar.suggest.pocket", false);
       '';
       extensions = with inputs.self.packages.x86_64-linux.firefox-addons; [
         ublock-origin
