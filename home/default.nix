@@ -57,6 +57,7 @@
       playerctl
       thunderbird
       gzdoom
+      mangohud
     ] ++ (with customPackage; [
       fantasque-sans-mono
       terminus_font_fancy
