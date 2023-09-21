@@ -57,6 +57,6 @@
       LS_COLORS = pkgs.callPackage ./packages/ls_colors {};
       local-scripts = pkgs.callPackage ./packages/local-scripts {};
       firefox-addons = pkgs.callPackage ./packages/firefox-addons {};
-    } // import ./packages/patched_drvs.nix { inherit pkgs; };
+    } // import ./packages/patched.nix { inherit pkgs; };
   };
 }
