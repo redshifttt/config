@@ -16,10 +16,13 @@
   let
     pkgs = nixpkgs.legacyPackages.${system};
     system = "x86_64-linux";
+
+    nixosSystem = nixpkgs.lib.nixosSystem;
+    hmConfig = home-manager.lib.homeManagerConfiguration;
   in
   {
     nixosConfigurations = {
-      vesta = nixpkgs.lib.nixosSystem {
+      vesta = nixosSystem {
         inherit system;
         modules = [
           ./hosts/vesta
@@ -29,24 +32,25 @@
         ];
         specialArgs = { inherit inputs; };
       };
-      ceres = nixpkgs.lib.nixosSystem {
+      ceres = nixosSystem {
         inherit system;
         modules = [
           ./hosts/ceres/configuration.nix
 
           nixos-hardware.nixosModules.common-cpu-amd
+          nixos-hardware.nixosModules.common-gpu-amd
         ];
         specialArgs = { inherit inputs; };
       };
     };
 
     homeConfigurations = {
-      "sean@vesta" = home-manager.lib.homeManagerConfiguration {
+      "sean@vesta" = hmConfig {
         inherit pkgs;
         modules = [ ./home ];
         extraSpecialArgs = { inherit inputs; };
       };
-      "sean@ceres" = home-manager.lib.homeManagerConfiguration {
+      "sean@ceres" = hmConfig {
         inherit pkgs;
         modules = [ ./home ];
         extraSpecialArgs = { inherit inputs; };
