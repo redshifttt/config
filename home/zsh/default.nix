@@ -54,8 +54,6 @@
       fcd = "cd \"$(bfs $HOME -type d 2>/dev/null | fzf)\"";
 
       sudo = if builtins.isPath pkgs.sudo then "sudo" else "doas";
-      hmswitch = "home-manager switch --flake .";
-      nixrebuild = "sudo nixos-rebuild switch --flake .";
     };
   };
 }

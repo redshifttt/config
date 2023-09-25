@@ -62,5 +62,11 @@
       local-scripts = pkgs.callPackage ./packages/local-scripts {};
       firefox-addons = pkgs.callPackage ./packages/firefox-addons {};
     } // import ./packages/patched.nix { inherit pkgs; };
+
+    devShells.${system}.default = pkgs.mkShell {
+      packages = with pkgs; [
+        gnumake
+      ];
+    };
   };
 }
