@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ./services
     ./nixpkgs
+    ./../../users/sean
   ];
 
   environment.systemPackages = with pkgs; [
@@ -52,12 +53,6 @@
         { groups = [ "wheel" ]; persist = true; }
       ];
     };
-  };
-
-  users.users.sean = {
-    isNormalUser = true;
-    extraGroups = ["wheel" "libvirtd"];
-    shell = pkgs.zsh;
   };
 
   programs = {

@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./../../users/sean
+  ];
 
   boot = {
     loader = {
@@ -32,12 +35,6 @@
 
   # For pipewire usually
   security.rtkit.enable = true;
-
-  users.users.sean = {
-    isNormalUser = true;
-    extraGroups = ["wheel"];
-    shell = pkgs.zsh;
-  };
 
   programs = {
     mtr.enable = true;
