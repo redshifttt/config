@@ -5,7 +5,6 @@ require('mini.splitjoin').setup()
 require('mini.align').setup()
 require('mini.pairs').setup()
 require('mini.comment').setup()
-require('mini.surround').setup()
 require('mini.cursorword').setup()
 
 -- TODO: set background colour to existing HL group
@@ -18,5 +17,13 @@ require('mini.hipatterns').setup({
         note  = { pattern = 'NOTE', group = 'MiniHipatternsNote' },
 
         hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
+    },
+})
+
+require('mini.surround').setup({
+    mappings = {
+        add = 'gs', -- Add surrounding in Normal and Visual modes
+        delete = 'gsd', -- Delete surrounding
+        replace = 'gsr', -- Replace surrounding
     },
 })
