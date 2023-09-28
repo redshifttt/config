@@ -51,7 +51,7 @@
       gc = "git commit";
       gl = "git log";
 
-      fcd = "cd \"$(bfs $HOME -type d 2>/dev/null | fzf)\"";
+      fcd = "cd \"$(bfs $HOME -type d 2>/dev/null | fzf --height=40% --reverse)\"";
 
       sudo = if builtins.isPath pkgs.sudo then "sudo" else "doas";
     };
