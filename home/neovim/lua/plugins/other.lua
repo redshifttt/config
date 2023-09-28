@@ -5,7 +5,7 @@ local toggleterm = require("toggleterm")
 
 toggleterm.setup({ shade_terminals = false })
 
-vim.keymap.set("n", "<leader>T", "<cmd>ToggleTerm<cr>")
+vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>")
 
 -- indent-blankline
 vim.g.indent_blankline_filetype_exclude = {
