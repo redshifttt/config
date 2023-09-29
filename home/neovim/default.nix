@@ -17,7 +17,7 @@ let
       owner = "VonHeikemen";
       repo = "lsp-zero.nvim";
       rev = "v2.x";
-      hash = "sha256-DhKaoHK26O+8/9gWDlcdQtdSpSVD1zjd29vOGst2bSo=";
+      hash = "sha256-uRWCMgSb7BbxLbeqC4D5ixaW/zzig96AphCT+rKFM84=";
     };
   };
 in {
