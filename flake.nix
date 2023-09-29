@@ -68,5 +68,10 @@
         gnumake
       ];
     };
+
+    templates.python-devshell = {
+      path = ./templates/python-devshell;
+      description = "A basic Python devshell";
+    };
   };
 }
