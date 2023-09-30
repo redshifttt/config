@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs.alacritty = {
     enable = true;
@@ -20,17 +21,17 @@
         multiplier = 3;
       };
 
-      font = rec {
-        normal = {
-          family = "Fantasque Sans Mono";
-          style = "Regular";
-        };
+      font = let
+        # HACK: do this better. i don't know *how* better but, cmom, just look at it.
+        config = import ../../hosts/ceres/configuration.nix { inherit pkgs; };
+      in rec {
+        normal = { family = "Fantasque Sans Mono"; style = "Regular"; };
+        italic = { inherit (normal) family style; };
 
-        italic = { inherit (normal) family; style = "Italic"; };
         bold = { inherit (normal) family; style = "Bold"; };
-        bold_italic = { inherit (normal) family; style = "Bold Italic"; };
+        bold_italic = { inherit (bold) family style; };
 
-        size = 11.0;
+        size = if config.networking.hostName == "ceres" then 10.0 else 11.0;
 
         offset = {
           y = 4;
