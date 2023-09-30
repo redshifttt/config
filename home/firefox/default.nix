@@ -10,7 +10,7 @@
         force = true;
         order = [ "DuckDuckGo" ];
         # TODO: refactor the below to be more dynamic.
-        engines = lib.mkForce {
+        engines = {
           "DuckDuckGo" = {
             urls = [{ template = "https://duckduckgo.com/?q={searchTerms}"; }];
           };
@@ -40,7 +40,7 @@
 
         // not in arkenfox
         user_pref("extensions.pocket.enabled", false);
-        user_pref("browser.urlbar.suggest.pocket", false);
+        user_pref("browser.urlbar.suggest.enabled", false);
         '';
       extensions = with inputs.self.packages.x86_64-linux.firefox-addons; [
         ublock-origin
