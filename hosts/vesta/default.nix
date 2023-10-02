@@ -1,8 +1,10 @@
 { pkgs, ... }:
 {
   imports = [
-    ./hardware-configuration.nix
+    ./hardware.nix
     ./services
+    ./boot
+    ./networking
     ./nixpkgs
     ./../../users/sean
   ];
@@ -10,31 +12,6 @@
   environment.systemPackages = with pkgs; [
     git # Needed for doas to be able to use git via root when using nixos-rebuild
   ];
-
-  boot = {
-    loader = {
-      systemd-boot = {
-        enable = true;
-        consoleMode = "max";
-        editor = false;
-        configurationLimit = 20;
-      };
-      efi.canTouchEfiVariables = true;
-      timeout = 5;
-    };
-    kernelParams = [ "quiet" ];
-    consoleLogLevel = 3;
-  };
-
-  networking = {
-    hostName = "vesta";
-    networkmanager.enable = true;
-    stevenblack.enable = true;
-    extraHosts = ''
-      # Extra Hosts
-      0.0.0.0 bbc.co.uk
-    '';
-  };
 
   time.timeZone = "Europe/London";
 
