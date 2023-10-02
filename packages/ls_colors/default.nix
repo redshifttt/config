@@ -10,8 +10,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "trapd00r";
     repo = "LS_COLORS";
-    rev = "eeceec887830e1b30b49b08371ae0d079578a58a";
-    hash = "sha256-Y8HrlS5thtXlRNtxefCIgWSD+vnW1bgpqf0Q88hW2s8=";
+    rev = "master";
+    hash = "sha256-csDuAEehD39FIQnNY4TbzZdVTVOuK2F5A951dbXdkh8=";
   };
 
   dontConfigure = true;

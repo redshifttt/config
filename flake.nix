@@ -57,11 +57,7 @@
       };
     };
 
-    packages.${system} = {
-      LS_COLORS = pkgs.callPackage ./packages/ls_colors {};
-      local-scripts = pkgs.callPackage ./packages/local-scripts {};
-      firefox-addons = pkgs.callPackage ./packages/firefox-addons {};
-    } // import ./packages/patched.nix { inherit pkgs; };
+    packages.${system} = import ./packages { inherit pkgs; };
 
     devShells.${system}.default = pkgs.mkShell {
       packages = with pkgs; [
