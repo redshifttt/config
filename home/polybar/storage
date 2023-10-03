@@ -1,3 +1,0 @@
-#!/bin/sh
-
-df -h / | sed "/^File/d" | awk '{print $4 "B left (" $5 " used)"}'
