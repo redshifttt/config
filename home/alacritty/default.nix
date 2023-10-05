@@ -31,7 +31,7 @@
         bold = { inherit (normal) family; style = "Bold"; };
         bold_italic = { inherit (bold) family style; };
 
-        size = if config.networking.hostName == "ceres" then 10.0 else 11.0;
+        size = 11.0;
 
         offset = {
           y = 4;
