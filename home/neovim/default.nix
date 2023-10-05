@@ -11,13 +11,13 @@ let
     };
   };
 
-  lsp-zero-nvim-v2 = pkgs.vimUtils.buildVimPluginFrom2Nix {
-    name = "lsp-zero-nvim-v2";
+  lsp-zero-nvim-v3 = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "lsp-zero-nvim-v3";
     src = pkgs.fetchFromGitHub {
       owner = "VonHeikemen";
       repo = "lsp-zero.nvim";
-      rev = "v2.x";
-      hash = "sha256-uRWCMgSb7BbxLbeqC4D5ixaW/zzig96AphCT+rKFM84=";
+      rev = "v3.x";
+      hash = "sha256-lJsDdmJkDU5G8MF0q76p6CVvvAkq/WJT5+X7Dry5tWI=";
     };
   };
 in {
@@ -55,7 +55,7 @@ in {
 
       nvim-lspconfig
       fidget-nvim-legacy
-      lsp-zero-nvim-v2
+      lsp-zero-nvim-v3
 
       mini-nvim
       indent-blankline-nvim
