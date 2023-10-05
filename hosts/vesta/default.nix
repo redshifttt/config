@@ -45,7 +45,20 @@
 
   virtualisation.libvirtd.enable = true;
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix = {
+    settings = {
+      trusted-users = [ "root" "@wheel" ];
+      auto-optimise-store = true;
+    };
+    extraOptions = ''
+      experimental-features = nix-command flakes repl-flake
+    '';
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 5d --max-freed 16G";
+    };
+  };
 
   system.stateVersion = "23.11";
 }
