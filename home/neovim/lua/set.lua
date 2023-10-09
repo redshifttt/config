@@ -7,8 +7,6 @@ option.title = true
 -- Disable mouse
 option.mouse = ""
 
-option.encoding = "utf-8"
-
 option.number = true
 -- set.relativenumber = true
 vim.cmd("set relativenumber nonu")
@@ -19,8 +17,6 @@ option.splitbelow = true
 option.splitright = true
 
 option.magic = true
-option.hlsearch = true
-option.incsearch = true
 option.ignorecase = true
 option.smartcase = true
 option.showmatch = true
@@ -42,15 +38,14 @@ option.showmode = true
 
 option.termguicolors = true
 
-option.scrolloff = 20
-option.sidescrolloff = 20
+option.scrolloff = 9999
+option.sidescrolloff = 9999
 
 option.undofile = true
 
 option.showcmd = true
 
 option.conceallevel = 0
-option.shortmess:append("I")
 
 option.wrap = false
 
