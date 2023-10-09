@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  fidget-nvim-legacy = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  fidget-nvim-legacy = pkgs.vimUtils.buildVimPlugin {
     name = "fidget-nvim-legacy";
     src = pkgs.fetchFromGitHub {
       owner = "j-hui";
@@ -11,7 +11,7 @@ let
     };
   };
 
-  lsp-zero-nvim-v3 = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  lsp-zero-nvim-v3 = pkgs.vimUtils.buildVimPlugin {
     name = "lsp-zero-nvim-v3";
     src = pkgs.fetchFromGitHub {
       owner = "VonHeikemen";
