@@ -69,12 +69,6 @@
 
     packages.${system} = import ./packages { inherit pkgs; };
 
-    devShells.${system}.default = pkgs.mkShell {
-      packages = with pkgs; [
-        gnumake
-      ];
-    };
-
     templates.python-devshell = {
       path = ./templates/python-devshell;
       description = "A basic Python devshell";
