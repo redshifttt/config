@@ -57,12 +57,12 @@
     homeConfigurations = {
       "sean@vesta" = hmConfig {
         inherit pkgs;
-        modules = [ ./home ];
+        modules = [ ./hosts/vesta/home.nix ];
         extraSpecialArgs = { inherit inputs; };
       };
       "sean@ceres" = hmConfig {
         inherit pkgs;
-        modules = [ ./home ];
+        modules = [ ./hosts/vesta/home.nix ];
         extraSpecialArgs = { inherit inputs; };
       };
     };

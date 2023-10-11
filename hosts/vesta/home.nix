@@ -3,21 +3,21 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./neovim
-    ./i3
-    ./zsh
-    ./alacritty
-    ./xdg
-    ./gtk
-    ./feh
-    ./zathura
-    ./mpv
-    ./picom
-    ./dunst
-    ./polybar
-    ./git
-    ./newsboat
-    ./firefox
+    ./../../programs/neovim
+    ./../../programs/i3
+    ./../../programs/zsh
+    ./../../programs/alacritty
+    ./../../programs/xdg
+    ./../../programs/gtk
+    ./../../programs/feh
+    ./../../programs/zathura
+    ./../../programs/mpv
+    ./../../programs/picom
+    ./../../programs/dunst
+    ./../../programs/polybar
+    ./../../programs/git
+    ./../../programs/newsboat
+    ./../../programs/firefox
   ];
 
   home = let
@@ -58,6 +58,7 @@
       thunderbird
       gzdoom
       mangohud
+      chromium
     ] ++ (with customPackage; [
       fantasque-sans-mono
       terminus_font_fancy
