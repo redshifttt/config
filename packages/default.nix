@@ -14,8 +14,4 @@
       hash = "sha256-RnnyhP2zdRGk4XUe4fSibMFBhZmMqoKziE6TzcCSiL0=";
     };
   });
-
-  terminus_font_fancy = pkgs.terminus_font.overrideAttrs (attrs: {
-    patches = (attrs.patches or [ ]) ++ [ "alt/td1.diff" ];
-  });
 }

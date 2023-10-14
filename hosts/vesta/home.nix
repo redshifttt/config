@@ -61,7 +61,6 @@
       chromium
     ] ++ (with customPackage; [
       fantasque-sans-mono
-      terminus_font_fancy
       (discord.override { withOpenASAR = true; })
     ]);
   };
