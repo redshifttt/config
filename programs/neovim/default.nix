@@ -81,7 +81,7 @@ in {
         luaPluginRequire = plugin:
           builtins.readFile (builtins.toString ./lua/plugins + "/${plugin}.lua");
 
-        luaConfig = builtins.concatStringsSep "\n" (map luaConfigRequire [ "set" "autocmd" "keys" ]);
+        luaConfig = builtins.concatStringsSep "\n" (map luaConfigRequire [ "set" "autocmd" "keys" "git" ]);
 
         luaPluginConfig = builtins.concatStringsSep "\n" (map luaPluginRequire [ "lsp" "treesitter" "fzf" "mini" "other" ]);
       in ''
