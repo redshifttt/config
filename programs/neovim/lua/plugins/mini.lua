@@ -6,6 +6,7 @@ require('mini.align').setup()
 require('mini.pairs').setup()
 require('mini.comment').setup()
 require('mini.cursorword').setup()
+require('mini.animate').setup()
 
 -- TODO: set background colour to existing HL group
 -- vim.api.nvim_set_hl(0, "MiniHipatternsFixme", { reverse = true })
@@ -22,8 +23,8 @@ require('mini.hipatterns').setup({
 
 require('mini.surround').setup({
     mappings = {
-        add = 'gs', -- Add surrounding in Normal and Visual modes
-        delete = 'gsd', -- Delete surrounding
-        replace = 'gsr', -- Replace surrounding
+        add = 'S', -- Add surrounding in Normal and Visual modes
+        delete = 'ds', -- Delete surrounding
+        replace = 'rs', -- Replace surrounding
     },
 })
