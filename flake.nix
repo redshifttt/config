@@ -62,7 +62,7 @@
       };
       "sean@ceres" = hmConfig {
         inherit pkgs;
-        modules = [ ./hosts/vesta/home.nix ];
+        modules = [ ./hosts/ceres/home.nix ];
         extraSpecialArgs = { inherit inputs; };
       };
     };
