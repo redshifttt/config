@@ -27,44 +27,36 @@
     pkgs = nixpkgs.legacyPackages.${system};
     system = "x86_64-linux";
 
-    nixosSystem = nixpkgs.lib.nixosSystem;
-    hmConfig = home-manager.lib.homeManagerConfiguration;
-  in
-  {
+    buildnixosSystem = modules:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [] ++ modules; # Maybe how you do it? Seems to work.
+        specialArgs = { inherit inputs; };
+      };
+
+    buildhmConfig = hostName:
+      home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./hosts/${hostName}/home.nix ];
+        extraSpecialArgs = { inherit inputs; };
+      };
+  in {
     nixosConfigurations = {
-      vesta = nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/vesta
-
-          nixos-hardware.nixosModules.common-cpu-amd
-          nixos-hardware.nixosModules.common-gpu-amd
-        ];
-        specialArgs = { inherit inputs; };
-      };
-      ceres = nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/ceres/configuration.nix
-
-          nixos-hardware.nixosModules.common-cpu-amd
-          nixos-hardware.nixosModules.common-gpu-amd
-        ];
-        specialArgs = { inherit inputs; };
-      };
+      vesta = buildnixosSystem [
+        ./hosts/vesta
+        nixos-hardware.nixosModules.common-cpu-amd
+        nixos-hardware.nixosModules.common-gpu-amd
+      ];
+      ceres = buildnixosSystem [
+        ./hosts/ceres
+        nixos-hardware.nixosModules.common-cpu-amd
+        nixos-hardware.nixosModules.common-gpu-amd
+      ];
     };
 
     homeConfigurations = {
-      "sean@vesta" = hmConfig {
-        inherit pkgs;
-        modules = [ ./hosts/vesta/home.nix ];
-        extraSpecialArgs = { inherit inputs; };
-      };
-      "sean@ceres" = hmConfig {
-        inherit pkgs;
-        modules = [ ./hosts/ceres/home.nix ];
-        extraSpecialArgs = { inherit inputs; };
-      };
+      "sean@vesta" = buildhmConfig "vesta";
+      "sean@ceres" = buildhmConfig "ceres";
     };
 
     packages.${system} = import ./packages { inherit pkgs; };
