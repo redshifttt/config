@@ -13,6 +13,11 @@
     git # Needed for doas to be able to use git via root when using nixos-rebuild
   ];
 
+  fonts.fontDir.enable = true;
+
+  fonts.packages = [ pkgs.dejavu_fonts ];
+  fonts.enableDefaultPackages = true;
+
   time.timeZone = "Europe/London";
 
   i18n.defaultLocale = "en_GB.UTF-8";
