@@ -38,8 +38,8 @@ option.showmode = true
 
 option.termguicolors = true
 
-option.scrolloff = 9999
-option.sidescrolloff = 9999
+option.scrolloff = 10
+option.sidescrolloff = 10
 
 option.undofile = true
 
