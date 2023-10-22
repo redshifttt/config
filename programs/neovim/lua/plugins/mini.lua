@@ -1,4 +1,10 @@
-require('mini.indentscope').setup()
+require('mini.indentscope').setup({
+    draw = { delay = 10 },
+    options = {
+        try_as_border = true
+    },
+    symbol = "│"
+})
 require('mini.ai').setup()
 require('mini.tabline').setup()
 require('mini.splitjoin').setup()
@@ -6,7 +12,6 @@ require('mini.align').setup()
 require('mini.pairs').setup()
 require('mini.comment').setup()
 require('mini.cursorword').setup()
-require('mini.animate').setup()
 
 -- TODO: set background colour to existing HL group
 -- vim.api.nvim_set_hl(0, "MiniHipatternsFixme", { reverse = true })
