@@ -59,15 +59,13 @@
       gzdoom
       mangohud
       chromium
+      htop
+      yt-dlp
     ] ++ (with customPackage; [
       fantasque-sans-mono
       (discord.override { withOpenASAR = true; })
     ]);
   };
-
-  nixpkgs.overlays = [
-    inputs.neovim-nightly-overlay.overlay
-  ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "discord"
