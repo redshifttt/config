@@ -9,7 +9,7 @@ nixrebuild(){
 }
 
 fullswitch(){
-    hmswitch
+    hmswitch && \
     nixrebuild
 }
 
