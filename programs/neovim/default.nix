@@ -17,7 +17,7 @@ let
       owner = "VonHeikemen";
       repo = "lsp-zero.nvim";
       rev = "v3.x";
-      hash = "sha256-iIGY+7P0/nHIWPyhacrbVFFAXJBXtETRLp+bsDKvsDU=";
+      hash = "sha256-4Dtqr1XfjtDQ2u/sTQX9aTPdA8zmXeYQ2lzcyZXv0aE=";
     };
   };
 in {
@@ -58,7 +58,6 @@ in {
       lsp-zero-nvim-v3
 
       mini-nvim
-      indent-blankline-nvim
       nvim-notify
       toggleterm-nvim
       gitsigns-nvim
@@ -81,7 +80,7 @@ in {
         luaPluginRequire = plugin:
           builtins.readFile (builtins.toString ./lua/plugins + "/${plugin}.lua");
 
-        luaConfig = builtins.concatStringsSep "\n" (map luaConfigRequire [ "set" "autocmd" "keys" "git" ]);
+        luaConfig = builtins.concatStringsSep "\n" (map luaConfigRequire [ "set" "autocmd" "keys" ]);
 
         luaPluginConfig = builtins.concatStringsSep "\n" (map luaPluginRequire [ "lsp" "treesitter" "fzf" "mini" "other" ]);
       in ''
@@ -109,10 +108,14 @@ in {
             WhichKeyFloat = { bg = "None" },
             StatusLine = { bg = "None" },
             TabLine = { bg = "None" },
+
+            MiniCursorword = { bg = "#151515", underline = true },
+            MiniCursorwordCurrent = { bg = "#111111", underline = true },
           },
         })
         vim.cmd.colorscheme("ayu-dark")
         vim.opt.cursorline = true
+        vim.loader.enable()
 
         -- these all just use defaults so they don't end up needing their own files
         require("oil").setup()
