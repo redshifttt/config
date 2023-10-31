@@ -16,7 +16,11 @@ local function get_git_status()
         "--oneline",
         "--pretty=format:%t %s (%ar)"
     }, { text = true }, function(obj)
-        unpushed_commits = vim.split(obj.stdout, "\n")
+        if obj.stdout == "" then
+            unpushed_commits = vim.split(obj.stdout, "\n")
+        else
+            unpushed_commits = {}
+        end
     end):wait()
 
     local current_branch = vim.system({
@@ -45,15 +49,15 @@ local function get_git_status()
                 if file[2] == "M" then
                     table.insert(old_git_status["files"]["unstaged"], file[3])
                 end
-            elseif file[1] == "M" then -- staged
+            elseif file[1] == "M" then
                 table.insert(old_git_status["files"]["staged"], file[3])
-            elseif file[1] == "D" then -- deleted
+            elseif file[1] == "D" then
                 table.insert(old_git_status["files"]["deleted"], file[3])
-            elseif file[1] == "??" then -- not tracked
+            elseif file[1] == "??" then
                 table.insert(old_git_status["files"]["untracked"], file[2])
-            elseif file[1] == "AM" then -- new file staged
+            elseif file[1] == "AM" then
                 table.insert(old_git_status["files"]["staged"], file[2])
-            elseif file[1] == "A" then -- new file
+            elseif file[1] == "A" then
                 table.insert(old_git_status["files"]["staged"], file[3])
             end
         end
@@ -149,7 +153,6 @@ local function get_current_file()
 end
 
 local function get_old_git_status(file)
-    -- vim.print(file)
 
     local old_status = get_git_status()
 
@@ -166,13 +169,6 @@ vim.keymap.set("n", "<leader>gs",
     function()
         git_buf, git_win = get_win_git_status()
     end)
-
-vim.keymap.set("n", "q",
-    function()
-        vim.cmd("q!")
-    end,
-    { buffer = git_buf }
-)
 
 -- toggle stage/unstage
 vim.keymap.set("n", "L",
