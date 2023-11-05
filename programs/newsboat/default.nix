@@ -177,10 +177,8 @@
       { title = "SuestraGamingHD / YouTube"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCEQ9BidNTZHznJN_6UySZJw"; tags = [ "youtube" ]; }
       { title = "Syndicate / YouTube"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC1ieoHqKW-yYgDhLHIcx28w"; tags = [ "youtube" ]; }
       { title = "System Of A Down / YouTube"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC7-YMmnc0ppcWmio8t1WdcA"; tags = [ "youtube" ]; }
-      { title = "Tango Tek / YouTube"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC4YUKOBld2PoOLzk0YZ80lw"; tags = [ "youtube" ]; }
       { title = "Tesla / YouTube"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC5WjFrtBdufl6CZojX3D8dQ"; tags = [ "youtube" ]; }
       { title = "The Graham Stephan Show / YouTube"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCa-ckhlKL98F8YXKQ-BALiw"; tags = [ "youtube" ]; }
-      { title = "The Modern Rogue / YouTube"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC42VsoDtra5hMiXZSsD6eGg"; tags = [ "youtube" ]; }
       { title = "The New Pill / YouTube"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCiUkcNS6W0n8QdosuZASduQ"; tags = [ "youtube" ]; }
       { title = "The Slow Mo Guys / YouTube"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCUK0HBIBWgM2c4vsPhkYY4w"; tags = [ "youtube" ]; }
       { title = "TheArea51Rider / YouTube"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCDSTAK_guz2LuhmtwaiheIA"; tags = [ "youtube" ]; }
