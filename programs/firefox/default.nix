@@ -19,7 +19,7 @@
       extraConfig = let
         arkenfox = pkgs.fetchurl {
           url = "https://raw.githubusercontent.com/arkenfox/user.js/master/user.js";
-          hash = "sha256-sysEtq4aEWmkKy3KPe+4J/HJxjCxNcTAzptZ7s5JrJg=";
+          hash = "sha256-rWFgnARpraFfuuw6dkWlcoofct1PLFto5rqcbflgQPE=";
         };
         in ''
         ${lib.strings.fileContents arkenfox}
