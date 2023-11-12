@@ -21,11 +21,8 @@
         multiplier = 3;
       };
 
-      font = let
-        # HACK: do this better. i don't know *how* better but, cmom, just look at it.
-        config = import ../../hosts/ceres/configuration.nix { inherit pkgs; };
-      in rec {
-        normal = { family = "Fantasque Sans Mono"; style = "Regular"; };
+      font = rec {
+        normal = { family = "Terminus"; style = "Regular"; };
         italic = { inherit (normal) family style; };
 
         bold = { inherit (normal) family; style = "Bold"; };
