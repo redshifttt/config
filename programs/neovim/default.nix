@@ -111,11 +111,26 @@ in {
 
             MiniCursorword = { bg = "#151515", underline = true },
             MiniCursorwordCurrent = { bg = "#111111", underline = true },
+            NotifyBackground = { bg = "#111111" },
           },
         })
         vim.cmd.colorscheme("ayu-dark")
         vim.opt.cursorline = true
         vim.loader.enable()
+
+        vim.notify = require("notify")
+
+        require("notify").setup({
+          icons = {
+            DEBUG = "[DEBUG]",
+            ERROR = "[ERROR]",
+            INFO = "[INFO]",
+            TRACE = "[TRACE]",
+            WARN = "[WARN]"
+          },
+          stages = "static",
+          render = "compact",
+        })
 
         -- these all just use defaults so they don't end up needing their own files
         require("oil").setup()
