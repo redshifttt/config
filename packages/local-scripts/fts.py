@@ -1,44 +1,46 @@
-from os import listdir, getcwd
-from sys import argv
+import os
+import sys
+import mimetypes as mime
 
-def count_visible_filetypes(working_directory):
-    filetypes = []
-    seen = {}
+def count_visible_filetypes(dir):
+    # filetypes = []
+    # seen = {}
+    cat_count = {}
 
-    for f in listdir(working_directory):
-        if not "." in f:
+    for f in os.scandir(dir):
+        if not f.is_file():
+            continue
+        if f.name.startswith("."):
             continue
 
-        if f.startswith("."):
-            continue
+        filename = f.name
+        mime_type = list(mime.guess_type(filename))
 
-        filetypes.append(f.split(".")[-1:][0])
+        if mime_type[0] == None:
+            mime_type[0] = "text/plain"
 
-    for t in filetypes:
-        if not t in seen:
-            seen[t] = 0 # init in dict
-            seen[t] += 1 # you have been seen
-            continue
+        top_category, filetype = mime_type[0].split("/")
+        top_category = top_category.upper()
 
-        seen[t] += 1
+        if not top_category in cat_count:
+            cat_count[top_category] = {}
 
-    sum_of_values = sum(seen.values())
+        if not filetype in cat_count[top_category]:
+            cat_count[top_category][filetype] = 1
+        else:
+            cat_count[top_category][filetype] += 1
 
-    for k in seen:
-        v = seen[k]
-        seen[k] = str(v)
+    cat_count = sorted(cat_count.items(), key=lambda x: x[0])
+    for c in cat_count:
+        print(c[0])
 
-    seen = sorted(seen.items(), key=lambda x: x[1], reverse=True)
+        types = sorted(c[1].items(), key=lambda x: x[1], reverse=True)
+        for k,v in types:
+            print(f"\t{v} {k}".expandtabs(2))
 
-    space_width = len(seen[0][1])
-
-    for v in seen:
-        bar = "#" * int(v[1])
-        print(f"{v[0]}\t| {v[1]:>{space_width}} {bar}".expandtabs(4))
-
-cwd = getcwd()
-
-if len(argv) == 2:
-    cwd = argv[1]
+if len(sys.argv) == 2:
+    cwd = sys.argv[1]
+else:
+    cwd = os.getcwd()
 
 count_visible_filetypes(cwd)
