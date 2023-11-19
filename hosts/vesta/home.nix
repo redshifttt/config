@@ -58,9 +58,9 @@
       thunderbird
       gzdoom
       mangohud
-      chromium
       htop
       yt-dlp
+      terminus_font
     ] ++ (with customPackage; [
       fantasque-sans-mono
       (discord.override { withOpenASAR = true; })
