@@ -11,7 +11,7 @@ stdenv.mkDerivation {
     owner = "trapd00r";
     repo = "LS_COLORS";
     rev = "master";
-    hash = "sha256-csDuAEehD39FIQnNY4TbzZdVTVOuK2F5A951dbXdkh8=";
+    hash = "sha256-SurBuuXTmjNVld2Bi+D6g37lEbai+zBeQXVk9wnvks4=";
   };
 
   dontConfigure = true;
@@ -19,6 +19,7 @@ stdenv.mkDerivation {
 
   installPhase = ''
     mkdir -p $out/share
+    make generate
     cp lscolors.sh $out/share/
   '';
 
