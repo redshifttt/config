@@ -47,8 +47,6 @@
       bfs
       audacity
       liberation_ttf
-      fira-mono
-      fira
       newsboat
       xclip
       xsel
@@ -61,6 +59,7 @@
       htop
       yt-dlp
       terminus_font
+      monaspace
     ] ++ (with customPackage; [
       fantasque-sans-mono
       (discord.override { withOpenASAR = true; })

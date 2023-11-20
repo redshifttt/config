@@ -26,8 +26,8 @@
 
         separator = "";
 
-        font-0 = "Fira Mono:size=10.0;2";
-        font-1 = "Fira Mono:weight=bold:size=10.0;2";
+        font-0 = "Monaspace Xenon:size=10.0;2";
+        font-1 = "Monaspace Xenon:weight=bold:size=10.0;2";
 
         modules-left = "xworkspaces";
         modules-center = "dateandtime";
