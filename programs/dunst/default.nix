@@ -54,7 +54,7 @@
         per_monitor_dpi = false;
       };
       urgency_low = {
-        background = "#000000";
+        background = "#0a0a0a";
         foreground = "#cccccc";
         timeout = 5;
       };
