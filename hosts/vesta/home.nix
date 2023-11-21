@@ -18,6 +18,7 @@
     ./../../programs/git
     ./../../programs/newsboat
     ./../../programs/firefox
+    ./../../programs/x11
   ];
 
   home = let
@@ -63,6 +64,7 @@
     ] ++ (with customPackage; [
       fantasque-sans-mono
       (discord.override { withOpenASAR = true; })
+      st
     ]);
   };
 
