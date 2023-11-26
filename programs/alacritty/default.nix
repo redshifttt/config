@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   programs.alacritty = {
     enable = true;
@@ -9,7 +8,7 @@
           y = 8;
         };
         dynamic_padding = false;
-        decorations = "none";
+        decorations = "full";
         startup_mode = "Maximized";
         title = "Alacritty";
         dynamic_title = true;
