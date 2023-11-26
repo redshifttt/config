@@ -14,29 +14,24 @@
         enable = true;
         consoleMode = "max";
         editor = false;
-        configurationLimit = 20;
+        configurationLimit = 5;
       };
       efi.canTouchEfiVariables = true;
       timeout = 5;
     };
-    kernelParams = [ "quiet" ];
-    consoleLogLevel = 3;
   };
 
   networking = {
     hostName = "vesta";
     networkmanager.enable = true;
+    # Ublock in the browser already uses this hosts file; may not be needed here.
     stevenblack.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    git # Needed for doas to be able to use git via root when using nixos-rebuild
-  ];
+  # Needed for doas to be able to use git via root user when using nixos-rebuild
+  environment.systemPackages = with pkgs; [ git ];
 
   fonts.fontDir.enable = true;
-
-  fonts.packages = [ pkgs.dejavu_fonts ];
-  fonts.enableDefaultPackages = true;
 
   time.timeZone = "Europe/London";
 
@@ -75,9 +70,7 @@
       trusted-users = [ "root" "@wheel" ];
       auto-optimise-store = true;
     };
-    extraOptions = ''
-      experimental-features = nix-command flakes repl-flake
-    '';
+    extraOptions = "experimental-features = nix-command flakes repl-flake";
     gc = {
       automatic = true;
       dates = "weekly";
