@@ -54,7 +54,7 @@ in {
       nvim-treesitter-context
 
       nvim-lspconfig
-      fidget-nvim-legacy
+      fidget-nvim
       lsp-zero-nvim-v3
 
       mini-nvim
