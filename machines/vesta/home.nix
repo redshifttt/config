@@ -101,4 +101,8 @@
       bind -r l select-pane -R
       '';
   };
+
+  manual.html.enable = false;
+  manual.manpages.enable = false;
+  manual.json.enable = false;
 }

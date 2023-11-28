@@ -32,18 +32,18 @@
     buildhmConfig = hostName:
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./hosts/${hostName}/home.nix ];
+        modules = [ ./machines/${hostName}/home.nix ];
         extraSpecialArgs = { inherit inputs; };
       };
   in {
     nixosConfigurations = {
       vesta = buildnixosSystem [
-        ./hosts/vesta
+        ./machines/vesta
         nixos-hardware.nixosModules.common-cpu-amd
         nixos-hardware.nixosModules.common-gpu-amd
       ];
       ceres = buildnixosSystem [
-        ./hosts/ceres
+        ./machines/ceres
         nixos-hardware.nixosModules.common-cpu-amd
         nixos-hardware.nixosModules.common-gpu-amd
       ];

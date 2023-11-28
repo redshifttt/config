@@ -76,6 +76,12 @@
       dates = "weekly";
       options = "--delete-older-than 5d --max-freed 16G";
     };
+    registry = {
+      nixpkgs.to = {
+        type = "path";
+        path = pkgs.path;
+      };
+    };
   };
 
   system.stateVersion = "23.11";
