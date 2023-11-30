@@ -84,5 +84,11 @@
     };
   };
 
+  documentation = {
+    # why does anyone even use info pages?
+    info.enable = false;
+    doc.enable = false;
+  };
+
   system.stateVersion = "23.11";
 }
