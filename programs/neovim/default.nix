@@ -136,6 +136,8 @@ in {
         require("oil").setup()
         require('gitsigns').setup()
         require('fidget').setup()
+
+        vim.g.ft_man_folding_enable = true
       '';
   };
 }
