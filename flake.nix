@@ -21,38 +21,9 @@
   let
     pkgs = nixpkgs.legacyPackages.${system};
     system = "x86_64-linux";
-
-    buildnixosSystem = modules:
-      nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [] ++ modules; # Maybe how you do it? Seems to work.
-        specialArgs = { inherit inputs; };
-      };
-
-    buildhmConfig = hostName:
-      home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./machines/${hostName}/home.nix ];
-        extraSpecialArgs = { inherit inputs; };
-      };
   in {
-    nixosConfigurations = {
-      vesta = buildnixosSystem [
-        ./machines/vesta
-        nixos-hardware.nixosModules.common-cpu-amd
-        nixos-hardware.nixosModules.common-gpu-amd
-      ];
-      ceres = buildnixosSystem [
-        ./machines/ceres
-        nixos-hardware.nixosModules.common-cpu-amd
-        nixos-hardware.nixosModules.common-gpu-amd
-      ];
-    };
-
-    homeConfigurations = {
-      "sean@vesta" = buildhmConfig "vesta";
-      "sean@ceres" = buildhmConfig "ceres";
-    };
+    nixosConfigurations = import ./machines/nixos-config.nix { inherit inputs nixpkgs system nixos-hardware; };
+    homeConfigurations = import ./machines/hm-config.nix { inherit inputs pkgs home-manager; };
 
     packages.${system} = import ./packages { inherit pkgs; };
 
