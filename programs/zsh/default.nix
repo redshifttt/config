@@ -13,7 +13,7 @@
     dotDir = ".config/zsh";
 
     initExtra = ''
-      PS1="%B%F{magenta}%m%f %F{blue}%c%f%b %# "
+      PS1="%B%F{#ffffff}%n%f%b@%F{magenta}%m%f %B%F{blue}%c%f%b %# "
       bindkey '^I' complete-word
       bindkey '^A' beginning-of-line
       bindkey '^E' end-of-line
