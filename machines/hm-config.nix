@@ -7,6 +7,6 @@ let
       extraSpecialArgs = { inherit inputs; };
     };
 in {
-  "sean@vesta" = buildhmConfig "vesta";
+  "sean@minotaur" = buildhmConfig "minotaur";
   "sean@ceres" = buildhmConfig "ceres";
 }

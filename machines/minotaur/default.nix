@@ -22,7 +22,7 @@
   };
 
   networking = {
-    hostName = "vesta";
+    hostName = "minotaur";
     networkmanager.enable = true;
     # Ublock in the browser already uses this hosts file; may not be needed here.
     stevenblack.enable = true;

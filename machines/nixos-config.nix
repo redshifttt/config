@@ -7,8 +7,8 @@ let
       specialArgs = { inherit inputs; };
     };
 in {
-  vesta = buildnixosSystem [
-    ./vesta
+  minotaur = buildnixosSystem [
+    ./minotaur
     nixos-hardware.nixosModules.common-cpu-amd
     nixos-hardware.nixosModules.common-gpu-amd
   ];
