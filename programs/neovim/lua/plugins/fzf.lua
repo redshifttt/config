@@ -2,13 +2,11 @@ local fzf = require("fzf-lua")
 
 fzf.setup({
     previewers = {
-        git_diff = {
-            pager = "delta --width=$FZF_PREVIEW_COLUMNS"
-        }
+        git_diff = { pager = "delta --width=$FZF_PREVIEW_COLUMNS" }
     }
 })
 
-vim.keymap.set("n", "<leader>ff", function() fzf.files({ cmd = "bfs" }) end)
+vim.keymap.set("n", "<leader>ff", function() fzf.files({ cmd = "bfs -type f" }) end)
 vim.keymap.set("n", "<leader>fg", function() fzf.git_files() end)
 vim.keymap.set("n", "<leader>fh", function() fzf.help_tags() end)
 vim.keymap.set("n", "<leader>fH", function() fzf.highlights() end)
