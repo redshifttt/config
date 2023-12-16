@@ -23,49 +23,41 @@
 
   home = let
     customPackage = inputs.self.packages.x86_64-linux;
-  in {
+  in rec {
     username = "sean";
-    homeDirectory = "/home/sean";
+    homeDirectory = "/home/${username}";
     stateVersion = "23.11";
 
     packages = with pkgs; [
-      fzf
       bat
       lsd
-      firefox
-      git
       cantarell-fonts
-      mpv
-      alacritty
       ripgrep
-      feh
-      zathura
       virt-manager
-      mullvad-vpn
       nil
       easyeffects
       ckan
       bfs
       audacity
       liberation_ttf
-      newsboat
       xclip
       xsel
       pavucontrol
       spotify
       playerctl
       thunderbird
-      gzdoom
       mangohud
       htop
       yt-dlp
       terminus_font
       monaspace
-      tmux
+      prismlauncher
+      pet
+      jq
+      bitwarden-cli
     ] ++ (with customPackage; [
       fantasque-sans-mono
       (discord.override { withOpenASAR = true; })
-      st
     ]);
   };
 
