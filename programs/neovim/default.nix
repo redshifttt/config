@@ -1,26 +1,6 @@
 { pkgs, ... }:
 
-let
-  fidget-nvim-legacy = pkgs.vimUtils.buildVimPlugin {
-    name = "fidget-nvim-legacy";
-    src = pkgs.fetchFromGitHub {
-      owner = "j-hui";
-      repo = "fidget.nvim";
-      rev = "90c22e47be057562ee9566bad313ad42d622c1d3";
-      hash = "sha256-N3O/AvsD6Ckd62kDEN4z/K5A3SZNR15DnQeZhH6/Rr0=";
-    };
-  };
-
-  lsp-zero-nvim-v3 = pkgs.vimUtils.buildVimPlugin {
-    name = "lsp-zero-nvim-v3";
-    src = pkgs.fetchFromGitHub {
-      owner = "VonHeikemen";
-      repo = "lsp-zero.nvim";
-      rev = "v3.x";
-      hash = "sha256-oXKKVf+QeHAiiJ1ft0D+o80ikc6VxBlBHb+VKrRK02o=";
-    };
-  };
-in {
+{
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -55,7 +35,7 @@ in {
 
       nvim-lspconfig
       fidget-nvim
-      lsp-zero-nvim-v3
+      lsp-zero-nvim
 
       mini-nvim
       nvim-notify
@@ -66,6 +46,7 @@ in {
       oil-nvim
       vim-be-good
       fzf-lua
+      hardtime-nvim
     ];
 
     extraPackages = with pkgs; [
@@ -130,6 +111,10 @@ in {
           },
           stages = "static",
           render = "compact",
+        })
+
+        require("hardtime").setup({
+          max_count = 5
         })
 
         -- these all just use defaults so they don't end up needing their own files
