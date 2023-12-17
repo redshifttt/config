@@ -39,7 +39,6 @@
 
       mini-nvim
       nvim-notify
-      toggleterm-nvim
       gitsigns-nvim
       neovim-ayu
       vim-fugitive
@@ -47,6 +46,7 @@
       vim-be-good
       fzf-lua
       hardtime-nvim
+      indent-blankline-nvim
     ];
 
     extraPackages = with pkgs; [
