@@ -11,7 +11,7 @@ stdenv.mkDerivation {
     owner = "trapd00r";
     repo = "LS_COLORS";
     rev = "master";
-    hash = "sha256-gf7mXbtKIMGB4K7/M4OzsQLWNdHUaB/TMsC1sS0eBWw=";
+    hash = "sha256-DT9WmtyJ/wngoiOTXMcnstVbGh3BaFWrr8Zxm4g4b6U=";
   };
 
   dontConfigure = true;
