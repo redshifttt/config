@@ -8,6 +8,7 @@ let
   workspace4 = "4 vidya";
   workspace5 = "5 other";
 in {
+  imports = [ ./i3blocks.nix ];
   xsession.windowManager.i3 = {
     enable = true;
 
@@ -36,6 +37,10 @@ in {
       };
 
       keybindings = {
+        # "XF86AudioMute" = "";
+        # "XF86AudioRaiseVolume" = "";
+        # "XF86AudioLowerVolume" = "";
+
         "${modifierKey}+r" = "exec --no-startup-id \"${pkgs.i3}/bin/i3-msg restart\"";
         "${modifierKey}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
         "${modifierKey}+w" = "kill";
@@ -73,10 +78,11 @@ in {
       bars = [
         {
           fonts = {
-            names = ["Cantarell"];
-            size = 11.0;
+            names = ["Liberation Mono"];
+            size = 10.0;
           };
-          command = "none";
+          statusCommand = "${pkgs.i3blocks}/bin/i3blocks";
+          command = "${pkgs.i3}/bin/i3bar";
           position = "top";
           workspaceButtons = true;
           workspaceNumbers = true;
@@ -97,11 +103,6 @@ in {
         {
           command = "${pkgs.picom}/bin/picom";
           always = false;
-          notification = false;
-        }
-        {
-          command = "${pkgs.polybar}/bin/polybar main";
-          always = true;
           notification = false;
         }
         {
