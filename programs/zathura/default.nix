@@ -7,7 +7,7 @@
       statusbar-v-padding = 0;
       page-padding = 5;
       selection-clipboard = "clipboard";
-      font = "fantasque sans mono 12";
+      font = "liberation mono 12";
       recolor-lightcolor = "#000000";
       recolor-darkcolor = "#BEBAC6";
     };
