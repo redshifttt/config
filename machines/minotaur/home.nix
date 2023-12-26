@@ -19,6 +19,7 @@
     ./../../programs/newsboat
     ./../../programs/firefox
     ./../../programs/x11
+    ./../../programs/mpd
   ];
 
   home = let
@@ -50,7 +51,6 @@
       htop
       yt-dlp
       terminus_font
-      monaspace
       prismlauncher
       pet
       jq
