@@ -2,26 +2,6 @@
 
 {
   services = {
-    xserver = {
-      enable = true;
-      layout = "gb";
-      displayManager.defaultSession = "none+i3";
-      desktopManager.xterm.enable = false;
-      windowManager.i3 = {
-        enable = true;
-        extraPackages = with pkgs; [
-          bemenu
-          i3blocks
-          dunst
-          picom
-          networkmanagerapplet
-          xwallpaper
-          volctl
-        ];
-      };
-      videoDrivers = [ "amdgpu" ];
-    };
-
     pipewire = {
       enable = true;
       audio.enable = true;

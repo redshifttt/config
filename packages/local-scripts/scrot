@@ -1,0 +1,9 @@
+# vim: ft=sh
+
+SCREENSHOTS_DIR_FORMAT="$XDG_PICTURES_DIR/screenshots/$(date +'%Y/%m %B/%d')"
+[[ ! -d "$SCREENSHOTS_DIR_FORMAT" ]] && mkdir -p "$SCREENSHOTS_DIR_FORMAT"
+
+filename="$SCREENSHOTS_DIR_FORMAT/$(date +'%F_%H-%M-%S').png"
+
+grim -g "$(slurp)" "${filename}"
+wl-copy -t image/png < "${filename}"

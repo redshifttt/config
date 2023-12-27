@@ -27,7 +27,7 @@
         bold = { inherit (normal) family; style = "Bold"; };
         bold_italic = { inherit (bold) family style; };
 
-        size = 11.0;
+        size = 12.0;
 
         offset = {
           y = 4;

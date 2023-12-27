@@ -9,8 +9,11 @@ let
   workspace5 = "5 other";
 in {
   imports = [ ./i3blocks.nix ];
-  xsession.windowManager.i3 = {
+
+  wayland.windowManager.sway = {
     enable = true;
+
+    xwayland = false;
 
     config = {
       modifier = modifierKey;
@@ -27,9 +30,7 @@ in {
         titlebar = false;
       };
 
-      colors = {
-        background = "#000000";
-      };
+      colors.background = "#000000";
 
       fonts = {
         names = ["Cantarell"];
@@ -82,7 +83,7 @@ in {
             size = 10.0;
           };
           statusCommand = "${pkgs.i3blocks}/bin/i3blocks";
-          command = "${pkgs.i3}/bin/i3bar";
+          command = "${pkgs.sway}/bin/swaybar";
           position = "top";
           workspaceButtons = true;
           workspaceNumbers = true;
@@ -90,32 +91,23 @@ in {
       ];
 
       startup = [
-        {
-          command = "${pkgs.networkmanagerapplet}/bin/nm-applet";
-          always = false;
-          notification = false;
-        }
-        {
-          command = "${pkgs.dunst}/bin/dunst";
-          always = false;
-          notification = false;
-        }
-        {
-          command = "${pkgs.picom}/bin/picom";
-          always = false;
-          notification = false;
-        }
-        {
-          command = "${pkgs.volctl}/bin/volctl";
-          always = false;
-          notification = false;
-        }
-        {
-          command = "${pkgs.cbatticon}/bin/cbatticon";
-          always = false;
-          notification = false;
-        }
+        { command = "${pkgs.networkmanagerapplet}/bin/nm-applet"; }
+        { command = "${pkgs.dunst}/bin/dunst"; }
+        { command = "${pkgs.volctl}/bin/volctl"; }
+        { command = "${pkgs.cbatticon}/bin/cbatticon"; }
       ];
+
+      input = {
+        "*" = {
+          xkb_layout = "gb";
+        };
+      };
+
+      output = {
+        HDMI-A-1 = {
+          mode = "2560x1440@144.000Hz"; # orgasmic
+        };
+      };
     };
   };
 }

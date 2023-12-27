@@ -55,6 +55,9 @@
       pet
       jq
       bitwarden-cli
+      slurp
+      grim
+      wl-clipboard
     ] ++ (with customPackage; [
       fantasque-sans-mono
       (discord.override { withOpenASAR = true; })
