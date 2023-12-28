@@ -114,7 +114,7 @@
         })
 
         require("hardtime").setup({
-          max_count = 5
+          max_count = 10
         })
 
         -- these all just use defaults so they don't end up needing their own files
