@@ -9,7 +9,6 @@
     ./../../programs/alacritty
     ./../../programs/xdg
     ./../../programs/gtk
-    ./../../programs/feh
     ./../../programs/zathura
     ./../../programs/mpv
     ./../../programs/picom
@@ -22,53 +21,50 @@
     ./../../programs/mpd
   ];
 
-  home = let
-    customPackage = inputs.self.packages.x86_64-linux;
-  in rec {
+  home = rec {
     username = "sean";
     homeDirectory = "/home/${username}";
     stateVersion = "23.11";
 
-    packages = with pkgs; [
-      bat
-      lsd
-      cantarell-fonts
-      ripgrep
-      virt-manager
-      nil
-      easyeffects
-      ckan
-      bfs
-      audacity
-      liberation_ttf
-      xclip
-      xsel
-      pavucontrol
-      spotify
-      playerctl
-      thunderbird
-      mangohud
-      htop
-      yt-dlp
-      terminus_font
-      prismlauncher
-      pet
-      jq
-      bitwarden-cli
-      slurp
-      grim
-      wl-clipboard
-      dejavu_fonts
-    ] ++ (with customPackage; [
-      fantasque-sans-mono
-      (discord.override { withOpenASAR = true; })
-    ]);
+    packages = let
+      cliPrograms = with pkgs; [
+        bat
+        lsd
+        ripgrep
+        bfs
+        nil
+        htop
+        yt-dlp
+        pet
+        jq
+        bitwarden-cli
+        slurp
+        grim
+        wl-clipboard
+        imv
+      ];
+      guiPrograms = with pkgs; [
+        virt-manager
+        easyeffects
+        ckan
+        audacity
+        pavucontrol
+        thunderbird
+        mangohud
+        prismlauncher
+        mullvad-browser
+      ];
+      fontPackages = with pkgs; [
+        cantarell-fonts
+        liberation_ttf
+        terminus_font
+        dejavu_fonts
+      ];
+      customPackages = with inputs.self.packages.x86_64-linux; [
+        fantasque-sans-mono
+      ];
+    in [] ++ cliPrograms ++ guiPrograms ++ fontPackages ++ customPackages;
   };
-
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "discord"
-    "spotify"
-  ];
 
   programs.direnv = {
     enable = true;
