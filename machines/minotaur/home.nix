@@ -4,7 +4,7 @@
 
   imports = [
     ./../../programs/neovim
-    ./../../programs/i3
+    ./../../programs/sway
     ./../../programs/zsh
     ./../../programs/alacritty
     ./../../programs/xdg
@@ -58,6 +58,7 @@
       slurp
       grim
       wl-clipboard
+      dejavu_fonts
     ] ++ (with customPackage; [
       fantasque-sans-mono
       (discord.override { withOpenASAR = true; })
