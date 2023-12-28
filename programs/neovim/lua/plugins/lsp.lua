@@ -1,24 +1,36 @@
-local lsp = require('lsp-zero')
+local lsp_zero = require('lsp-zero')
 local lspconfig = require('lspconfig')
 
-lsp.preset({
-    name = "system-lsp",
-    set_lsp_keymaps = true,
-    manage_nvim_cmp = true,
-})
+lsp_zero.set_preferences({ suggest_lsp_servers = false })
 
-lsp.set_preferences({
-    suggest_lsp_servers = false,
-})
-
-lsp.on_attach(
+lsp_zero.on_attach(
     function(client, bufnr)
-        lsp.default_keymaps({buffer = bufnr})
+        lsp_zero.default_keymaps({ buffer = bufnr })
     end
 )
 
-lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
-lspconfig.pylsp.setup{}
-lspconfig.nil_ls.setup{}
+lspconfig.lua_ls.setup(
+    lsp_zero.nvim_lua_ls()
+)
 
-lsp.setup()
+lsp_zero.setup_servers({
+    'pylsp',
+    'nil_ls'
+})
+
+lsp_zero.setup()
+
+local cmp = require('cmp')
+
+-- lsp-zero already sets up mappings and
+-- other stuff for cmp; this is just additional
+-- sources.
+cmp.setup({
+    sources = {
+        { name = 'nvim_lsp' },
+        { name = 'nvim_lua' },
+        { name = 'buffer' },
+        { name = 'path' },
+        { name = 'rg' },
+    },
+})

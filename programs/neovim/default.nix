@@ -44,13 +44,16 @@
       vim-fugitive
       oil-nvim
       vim-be-good
-      fzf-lua
       hardtime-nvim
       indent-blankline-nvim
+      nvim-surround
+      telescope-nvim
     ];
 
     extraPackages = with pkgs; [
-      lua-language-server # need to have the lsp for the lua config
+      # I cannot be arsed doing it per-project
+      lua-language-server
+      python311Packages.python-lsp-server
     ];
 
     extraLuaConfig =
@@ -63,7 +66,7 @@
 
         luaConfig = builtins.concatStringsSep "\n" (map luaConfigRequire [ "set" "autocmd" "keys" ]);
 
-        luaPluginConfig = builtins.concatStringsSep "\n" (map luaPluginRequire [ "lsp" "treesitter" "fzf" "mini" "other" ]);
+        luaPluginConfig = builtins.concatStringsSep "\n" (map luaPluginRequire [ "lsp" "treesitter" "telescope" "mini" "other" ]);
       in ''
         vim.g.mapleader = " "
 
@@ -121,6 +124,7 @@
         require("oil").setup()
         require('gitsigns').setup()
         require('fidget').setup()
+        require("nvim-surround").setup()
 
         vim.g.ft_man_folding_enable = true
       '';

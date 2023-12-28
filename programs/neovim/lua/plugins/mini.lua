@@ -25,11 +25,3 @@ require('mini.hipatterns').setup({
         hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
     },
 })
-
-require('mini.surround').setup({
-    mappings = {
-        add = 'S', -- Add surrounding in Normal and Visual modes
-        delete = 'ds', -- Delete surrounding
-        replace = 'rs', -- Replace surrounding
-    },
-})
