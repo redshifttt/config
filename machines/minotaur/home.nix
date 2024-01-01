@@ -4,7 +4,7 @@
 
   imports = [
     ./../../programs/neovim
-    ./../../programs/sway
+    ./../../programs/i3
     ./../../programs/zsh
     ./../../programs/alacritty
     ./../../programs/xdg
@@ -38,10 +38,8 @@
         pet
         jq
         bitwarden-cli
-        slurp
-        grim
-        wl-clipboard
-        imv
+        xclip
+        shotgun
       ];
       guiPrograms = with pkgs; [
         virt-manager

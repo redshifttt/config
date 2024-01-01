@@ -1,9 +1,8 @@
 # vim: ft=sh
-
-SCREENSHOTS_DIR_FORMAT="$XDG_PICTURES_DIR/screenshots/$(date +'%Y/%m %B/%d')"
+#
+SCREENSHOTS_DIR_FORMAT="/home/sean/files/images/screenshots/$(date +'%Y/%m %B/%d')"
 [[ ! -d "$SCREENSHOTS_DIR_FORMAT" ]] && mkdir -p "$SCREENSHOTS_DIR_FORMAT"
 
-filename="$SCREENSHOTS_DIR_FORMAT/$(date +'%F_%H-%M-%S').png"
-
-grim -g "$(slurp)" "${filename}"
-wl-copy -t image/png < "${filename}"
+selection=$(slop -f "-i %i -g %g")
+shotgun $selection - | xclip -selection clipboard -t image/png
+xclip -selection clipboard -t image/png -o > "$SCREENSHOTS_DIR_FORMAT/$(date +'%F_%H-%M-%S').png"

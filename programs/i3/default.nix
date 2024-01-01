@@ -10,10 +10,8 @@ let
 in {
   imports = [ ./i3blocks.nix ];
 
-  wayland.windowManager.sway = {
+  xsession.windowManager.i3 = {
     enable = true;
-
-    xwayland = false;
 
     config = {
       modifier = modifierKey;
@@ -83,7 +81,7 @@ in {
             size = 10.0;
           };
           statusCommand = "${pkgs.i3blocks}/bin/i3blocks";
-          command = "${pkgs.sway}/bin/swaybar";
+          command = "${pkgs.i3}/bin/i3bar";
           position = "top";
           workspaceButtons = true;
           workspaceNumbers = true;
@@ -96,18 +94,6 @@ in {
         { command = "${pkgs.volctl}/bin/volctl"; }
         { command = "${pkgs.cbatticon}/bin/cbatticon"; }
       ];
-
-      input = {
-        "*" = {
-          xkb_layout = "gb";
-        };
-      };
-
-      output = {
-        HDMI-A-1 = {
-          mode = "2560x1440@144.000Hz"; # orgasmic
-        };
-      };
     };
   };
 }
