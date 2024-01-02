@@ -8,8 +8,6 @@
     vimAlias = true;
 
     plugins = with pkgs.vimPlugins; [
-      plenary-nvim # probably needed by something lol
-
       nvim-cmp
       cmp-nvim-lua
       cmp-nvim-lsp
@@ -44,7 +42,6 @@
       vim-fugitive
       oil-nvim
       vim-be-good
-      hardtime-nvim
       indent-blankline-nvim
       nvim-surround
       telescope-nvim
@@ -54,6 +51,7 @@
       # I cannot be arsed doing it per-project
       lua-language-server
       python311Packages.python-lsp-server
+      gopls
     ];
 
     extraLuaConfig =
@@ -116,17 +114,11 @@
           render = "compact",
         })
 
-        require("hardtime").setup({
-          max_count = 10
-        })
-
         -- these all just use defaults so they don't end up needing their own files
         require("oil").setup()
         require('gitsigns').setup()
         require('fidget').setup()
         require("nvim-surround").setup()
-
-        vim.g.ft_man_folding_enable = true
       '';
   };
 }

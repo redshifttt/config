@@ -13,6 +13,7 @@ telescope.setup({
         layout_config = {
             mirror = true
         },
+        borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
     }
 })
 

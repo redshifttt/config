@@ -1,67 +1,52 @@
-local option = vim.opt
-
 -- Settings --
 
-option.title = true
+vim.opt.title = true
 
 -- Disable mouse
-option.mouse = ""
+vim.opt.mouse = ""
 
-option.number = true
--- set.relativenumber = true
-vim.cmd("set relativenumber nonu")
+vim.opt.number = true
 
-option.hidden = false
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
-option.splitbelow = true
-option.splitright = true
+vim.opt.magic = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.showmatch = true
 
-option.magic = true
-option.ignorecase = true
-option.smartcase = true
-option.showmatch = true
+vim.opt.errorbells = true
+vim.opt.visualbell = true
 
-option.errorbells = true
-option.visualbell = true
-
-option.backup = false
-option.writebackup = false
-option.swapfile = false
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.swapfile = false
 
 -- This is what you need to be able to turn tabs into spaces (expandtab)
-option.expandtab = true
-option.tabstop = 4
-option.shiftwidth = 4 -- this is for autoindenting
-option.softtabstop = 4
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4 -- this is for autoindenting
+vim.opt.softtabstop = 4
 
-option.showmode = true
+vim.opt.termguicolors = true
 
-option.termguicolors = true
+vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 10
 
-option.scrolloff = 10
-option.sidescrolloff = 10
+vim.opt.undofile = true
 
-option.undofile = true
+vim.opt.conceallevel = 0
 
-option.showcmd = true
+vim.opt.wrap = false
 
-option.conceallevel = 0
+vim.opt.list = true
+vim.opt.listchars = { nbsp = "¬", tab = "→·", trail = "-", extends = ">" }
 
-option.wrap = false
+vim.opt.laststatus = 3
+vim.opt.winbar = "%n %F %m"
 
-option.list = true
-option.listchars = {
-    nbsp = "¬",
-    tab = "→·",
-    trail = "-",
-    extends = ">",
-}
+vim.opt.signcolumn = "yes"
 
-option.laststatus = 3
-option.winbar = "%n %F %m"
+vim.opt.cmdheight = 1
 
-option.signcolumn = "yes"
-
-option.cmdheight = 1
-
-option.guicursor = ""
+vim.opt.guicursor = ""
