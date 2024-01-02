@@ -5,8 +5,9 @@ require('mini.indentscope').setup({
     },
     symbol = "│"
 })
-require('mini.ai').setup()
-require('mini.tabline').setup()
+
+-- require('mini.ai').setup()
+-- require('mini.tabline').setup()
 require('mini.splitjoin').setup()
 require('mini.align').setup()
 require('mini.pairs').setup()

@@ -71,6 +71,29 @@
         ${luaConfig}
         ${luaPluginConfig}
 
+        vim.opt.cursorline = true
+        vim.loader.enable()
+
+        vim.notify = require("notify")
+
+        require("notify").setup({
+          icons = {
+            DEBUG = "[DEBUG]",
+            ERROR = "[ERROR]",
+            INFO = "[INFO]",
+            TRACE = "[TRACE]",
+            WARN = "[WARN]"
+          },
+          stages = "static",
+          render = "compact",
+        })
+
+        -- these all just use defaults so they don't end up needing their own files
+        require("oil").setup()
+        require('gitsigns').setup()
+        require('fidget').setup()
+        require("nvim-surround").setup()
+
         -- :source $VIMRUNTIME/syntax/hitest.vim
         require('ayu').setup({
           overrides = {
@@ -97,28 +120,6 @@
           },
         })
         vim.cmd.colorscheme("ayu-dark")
-        vim.opt.cursorline = true
-        vim.loader.enable()
-
-        vim.notify = require("notify")
-
-        require("notify").setup({
-          icons = {
-            DEBUG = "[DEBUG]",
-            ERROR = "[ERROR]",
-            INFO = "[INFO]",
-            TRACE = "[TRACE]",
-            WARN = "[WARN]"
-          },
-          stages = "static",
-          render = "compact",
-        })
-
-        -- these all just use defaults so they don't end up needing their own files
-        require("oil").setup()
-        require('gitsigns').setup()
-        require('fidget').setup()
-        require("nvim-surround").setup()
       '';
   };
 }

@@ -6,6 +6,7 @@ vim.opt.title = true
 vim.opt.mouse = ""
 
 vim.opt.number = true
+vim.cmd("set relativenumber nonu")
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
