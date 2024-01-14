@@ -40,6 +40,8 @@
         bitwarden-cli
         xclip
         shotgun
+        slop
+        mpc-cli
       ];
       guiPrograms = with pkgs; [
         virt-manager
@@ -51,6 +53,7 @@
         mangohud
         prismlauncher
         mullvad-browser
+        spotify
       ];
       fontPackages = with pkgs; [
         cantarell-fonts
@@ -63,6 +66,11 @@
       ];
     in [] ++ cliPrograms ++ guiPrograms ++ fontPackages ++ customPackages;
   };
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "spotify"
+  ];
+
 
   programs.direnv = {
     enable = true;
