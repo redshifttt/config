@@ -27,7 +27,7 @@
         bold = { inherit (normal) family; style = "Bold"; };
         bold_italic = { inherit (bold) family style; };
 
-        size = 12.0;
+        size = 10.0;
 
         offset = {
           y = 4;
@@ -36,8 +36,6 @@
           y = (offset.y / 2);
         };
       };
-
-      draw_bold_text_with_bright_colors = false;
 
       selection = {
         semantic_escape_chars = ",│`|:\"' ()[]{}<>\t";
@@ -57,13 +55,10 @@
       live_config_reload = true;
 
       mouse = {
-        double_click = { threshold = 300; };
-        triple_click = { threshold = 300; };
-
         hide_when_typing = false;
       };
 
-      key_bindings = [
+      keyboard.bindings = [
         {
           key = "Key0";
           mods = "Control";
@@ -113,6 +108,7 @@
           cyan = "0x95E6CB";
           white = "0xFFFFFF";
         };
+        draw_bold_text_with_bright_colors = false;
       };
     };
   };
