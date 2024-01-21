@@ -13,6 +13,10 @@ in {
   xsession.windowManager.i3 = {
     enable = true;
 
+    extraConfig = ''
+      for_window [class="[Qq]alculate-gtk"] floating enable
+    '';
+
     config = {
       modifier = modifierKey;
       defaultWorkspace = "workspace \"${workspace1}\"";
@@ -43,8 +47,9 @@ in {
         "${modifierKey}+r" = "exec --no-startup-id \"${pkgs.i3}/bin/i3-msg restart\"";
         "${modifierKey}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
         "${modifierKey}+w" = "kill";
-        "${modifierKey}+d" = "exec --no-startup-id \"${pkgs.bemenu}/bin/bemenu-run -c -W 0.2 -l20 -s -CT -p 'run' -i -B 2 -M 20 --counter always --fn 'Fantasque Sans Mono 12'\"";
+        "${modifierKey}+d" = "exec --no-startup-id \"${pkgs.bemenu}/bin/bemenu-run -c -W 0.2 -l20 -s -CT -p 'run' -i -B 2 -M 20 --counter always --fn 'Liberation Mono'\"";
         "${modifierKey}+s" = "exec --no-startup-id \"${inputs.self.packages.x86_64-linux.local-scripts.scrot}/bin/scrot\"";
+        "${modifierKey}+c" = "exec --no-startup-id qalculate-gtk";
         "${modifierKey}+Delete" = "exec --no-startup-id systemctl suspend";
 
         "${modifierKey}+h" = "focus left";
