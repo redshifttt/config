@@ -42,6 +42,8 @@
         shotgun
         slop
         mpc-cli
+        file
+        unzip
       ];
       guiPrograms = with pkgs; [
         virt-manager
@@ -54,6 +56,7 @@
         prismlauncher
         mullvad-browser
         spotify
+        qalculate-gtk
       ];
       fontPackages = with pkgs; [
         cantarell-fonts
