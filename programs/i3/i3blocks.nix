@@ -10,7 +10,7 @@
       };
       sections = { # do you really need more? lol
         time = {
-          command = "date '+%Y-%m-%d (%a) %H:%M:%S'";
+          command = "date '+%Y-%-m-%-d (%a) %H:%M:%S %Z'";
           interval = 1;
         };
       };
