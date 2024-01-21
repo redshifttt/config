@@ -51,7 +51,7 @@
       gc = "git commit";
       gl = "git log";
 
-      fcd = "cd \"$(bfs $HOME -type d 2>/dev/null | fzf --height=40% --reverse)\"";
+      fcd = "cd \"$(bfs $HOME -type d -nocolor 2>/dev/null | fzf --height=40% --reverse)\"";
 
       # HACK: Call on script
       fts = "${inputs.self.packages.x86_64-linux.local-scripts.fts}/bin/fts";
