@@ -1,8 +1,7 @@
--- Settings --
+vim.g.mapleader = " "
 
 vim.opt.title = true
 
--- Disable mouse
 vim.opt.mouse = ""
 
 vim.opt.number = true
@@ -23,10 +22,9 @@ vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.swapfile = false
 
--- This is what you need to be able to turn tabs into spaces (expandtab)
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4 -- this is for autoindenting
+vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 
 vim.opt.termguicolors = true
@@ -51,3 +49,5 @@ vim.opt.signcolumn = "yes"
 vim.opt.cmdheight = 1
 
 vim.opt.guicursor = ""
+
+vim.opt.cursorline = true;

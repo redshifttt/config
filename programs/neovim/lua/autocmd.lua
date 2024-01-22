@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "*",
     callback = function()
         vim.opt.tabstop = 4
-        vim.opt.shiftwidth = 4 -- this is for autoindenting
+        vim.opt.shiftwidth = 4
         vim.opt.softtabstop = 4
     end
 })
@@ -23,15 +23,15 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "nix",
     callback = function()
         vim.opt.tabstop = 2
-        vim.opt.shiftwidth = 2 -- this is for autoindenting
+        vim.opt.shiftwidth = 2
         vim.opt.softtabstop = 2
     end
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "*",
-    command = "set colorcolumn=80"
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "*",
+--     command = "set colorcolumn=80"
+-- })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     pattern = '*',
