@@ -4,8 +4,6 @@
 
   local-scripts = pkgs.callPackage ./local-scripts {};
 
-  firefox-addons = pkgs.callPackage ./firefox-addons {};
-
   fantasque-sans-mono = pkgs.fantasque-sans-mono.overrideAttrs (final: prev: {
     pname = prev.pname + "-ss01";
     src = pkgs.fetchzip {
