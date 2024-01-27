@@ -28,6 +28,7 @@
       BROWSER = "firefox";
       TERMINAL = "alacritty";
       MANPAGER = "nvim +Man!";
+      MANWIDTH = 80;
     };
 
     shellAliases = {
