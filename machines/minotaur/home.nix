@@ -16,9 +16,9 @@
     ./../../programs/polybar
     ./../../programs/git
     ./../../programs/newsboat
-    ./../../programs/firefox
     ./../../programs/x11
     ./../../programs/mpd
+    ./../../programs/tmux
   ];
 
   home = rec {
@@ -56,7 +56,7 @@
         prismlauncher
         mullvad-browser
         spotify
-        qalculate-gtk
+        libqalculate
       ];
       fontPackages = with pkgs; [
         cantarell-fonts
@@ -83,25 +83,7 @@
 
   programs.fzf.enable = true;
 
-  programs.tmux = {
-    enable = true;
-
-    mouse = false;
-    clock24 = true;
-    baseIndex = 1;
-    historyLimit = 10000;
-
-    extraConfig = ''
-      set -g status-style 'bg=#333333 fg=#5eacd3'
-
-      # vim-like pane switching
-      bind -r ^ last-window
-      bind -r k select-pane -U
-      bind -r j select-pane -D
-      bind -r h select-pane -L
-      bind -r l select-pane -R
-      '';
-  };
+  programs.firefox.enable = true;
 
   manual.html.enable = false;
   manual.manpages.enable = false;
