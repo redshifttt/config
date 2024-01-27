@@ -2,11 +2,11 @@
 
 let
   modifierKey = "Mod4";
-  workspace1 = "1 main";
-  workspace2 = "2 code";
-  workspace3 = "3 music";
-  workspace4 = "4 vidya";
-  workspace5 = "5 other";
+  workspace1 = "1";
+  workspace2 = "2";
+  workspace3 = "3";
+  workspace4 = "4";
+  workspace5 = "5";
 in {
   imports = [ ./i3blocks.nix ];
 
