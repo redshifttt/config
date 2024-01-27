@@ -21,13 +21,13 @@
       };
 
       font = rec {
-        normal = { family = "Liberation Mono"; style = "Regular"; };
+        normal = { family = "Terminus"; style = "Regular"; };
         italic = { inherit (normal) family style; };
 
         bold = { inherit (normal) family; style = "Bold"; };
         bold_italic = { inherit (bold) family style; };
 
-        size = 9.0;
+        size = 10.0;
 
         offset = {
           y = 4;
