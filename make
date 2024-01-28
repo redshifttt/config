@@ -9,13 +9,14 @@ nixrebuild(){
 }
 
 fullswitch(){
-    hmswitch && \
+    hmswitch
     nixrebuild
 }
 
 update(){
     nix flake update --commit-lock-file
     fullswitch
+    nvd diff /run/booted-system /run/current-system
 }
 
 case "$1" in

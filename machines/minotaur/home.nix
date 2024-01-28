@@ -44,6 +44,7 @@
         mpc-cli
         file
         unzip
+        nvd
       ];
       guiPrograms = with pkgs; [
         virt-manager
