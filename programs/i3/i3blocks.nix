@@ -8,12 +8,10 @@
         separator = true;
         separator_block_width = 15;
       };
-      sections = { # do you really need more? lol
-        time = {
-          command = "date '+%Y-%-m-%-d (%a) %H:%M:%S %Z'";
-          interval = 1;
+      sections.time = { # do you really need more? lol
+        command = "date +'%F (%a) %T %Z'";
+        interval = 1;
         };
-      };
     };
   };
 }
