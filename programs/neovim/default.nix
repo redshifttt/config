@@ -29,7 +29,6 @@
         tree-sitter-markdown
         tree-sitter-go
       ]))
-      nvim-treesitter-textobjects
       nvim-treesitter-context
 
       nvim-lspconfig
