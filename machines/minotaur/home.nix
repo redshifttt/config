@@ -37,14 +37,12 @@
         yt-dlp
         pet
         jq
-        bitwarden-cli
-        xclip
-        shotgun
-        slop
         mpc-cli
         file
         unzip
         nvd
+        wget
+        nix-search-cli
       ];
       guiPrograms = with pkgs; [
         virt-manager
@@ -58,6 +56,8 @@
         mullvad-browser
         spotify
         libqalculate
+        bitwarden
+        gparted
       ];
       fontPackages = with pkgs; [
         cantarell-fonts
@@ -68,7 +68,11 @@
       customPackages = with inputs.self.packages.x86_64-linux; [
         fantasque-sans-mono
       ];
-    in [] ++ cliPrograms ++ guiPrograms ++ fontPackages ++ customPackages;
+    in []
+      ++ cliPrograms
+      ++ guiPrograms
+      ++ fontPackages
+      ++ customPackages;
   };
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -89,4 +93,12 @@
   manual.html.enable = false;
   manual.manpages.enable = false;
   manual.json.enable = false;
+
+  accounts.email.accounts."num@privatevoid.net".primary = true;
+  programs.neomutt = {
+    enable = true;
+    vimKeys = true;
+    sidebar.enable = true;
+    extraConfig = "";
+  };
 }
