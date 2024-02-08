@@ -1,14 +1,17 @@
 {
   writeScriptBin,
   writeShellScriptBin,
+  writeShellApplication,
   pkgs
 }:
 {
-  scrot = writeShellScriptBin "scrot" ''
-  #!/bin/sh
+  scrot = writeShellApplication {
+    name = "scrot";
 
-  ${builtins.readFile ./scrot}
-  '';
+    runtimeInputs = [ pkgs.slop pkgs.shotgun pkgs.xclip ];
+
+    text = builtins.readFile ./scrot;
+  };
 
   fts = writeScriptBin "fts" ''
   #!${pkgs.python311}/bin/python
