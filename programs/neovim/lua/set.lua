@@ -50,4 +50,6 @@ vim.opt.cmdheight = 1
 
 vim.opt.guicursor = ""
 
-vim.opt.cursorline = true;
+vim.opt.cursorline = true
+
+vim.opt.hlsearch = false
