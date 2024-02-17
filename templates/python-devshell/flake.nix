@@ -1,5 +1,5 @@
 {
-  description = "Hercules Discord Bot";
+  description = "Simple Python devshell";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -12,10 +12,10 @@
     in
     {
       devShells.${system}.default = pkgs.mkShell {
-          packages = with pkgs; [
-            python311
+        packages = with pkgs; [
+          python311
             python311Packages.python-lsp-server
-          ];
-        };
+        ];
+      };
     };
 }

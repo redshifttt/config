@@ -1,24 +1,22 @@
-{ pkgs, inputs, lib, ... }:
+{ pkgs, inputs, ... }:
 {
-  programs.home-manager.enable = true;
-
   imports = [
-    ./../../programs/neovim
-    ./../../programs/i3
-    ./../../programs/zsh
-    ./../../programs/alacritty
-    ./../../programs/xdg
-    ./../../programs/gtk
-    ./../../programs/zathura
-    ./../../programs/mpv
-    ./../../programs/picom
-    ./../../programs/dunst
-    ./../../programs/polybar
-    ./../../programs/git
-    ./../../programs/newsboat
-    ./../../programs/x11
-    ./../../programs/mpd
-    ./../../programs/tmux
+    ./configs/neovim
+    ./configs/i3
+    ./configs/zsh
+    ./configs/alacritty
+    ./configs/xdg
+    ./configs/gtk
+    ./configs/zathura
+    ./configs/mpv
+    ./configs/picom
+    ./configs/dunst
+    ./configs/git
+    ./configs/newsboat
+    ./configs/x11
+    ./configs/mpd
+    ./configs/tmux
+    ./configs/feh
   ];
 
   home = rec {
@@ -75,30 +73,7 @@
       ++ customPackages;
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "spotify"
-  ];
-
-
-  programs.direnv = {
-    enable = true;
-    enableZshIntegration = true;
-    nix-direnv.enable = true;
-  };
-
-  programs.fzf.enable = true;
-
-  programs.firefox.enable = true;
-
   manual.html.enable = false;
   manual.manpages.enable = false;
   manual.json.enable = false;
-
-  accounts.email.accounts."num@privatevoid.net".primary = true;
-  programs.neomutt = {
-    enable = true;
-    vimKeys = true;
-    sidebar.enable = true;
-    extraConfig = "";
-  };
 }

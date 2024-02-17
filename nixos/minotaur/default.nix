@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware.nix
-    ./services
+    ./services.nix
     ./../../users/sean
   ];
 

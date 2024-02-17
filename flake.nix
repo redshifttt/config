@@ -22,8 +22,8 @@
     pkgs = nixpkgs.legacyPackages.${system};
     system = "x86_64-linux";
   in {
-    nixosConfigurations = import ./machines/nixos-config.nix { inherit inputs nixpkgs system nixos-hardware; };
-    homeConfigurations = import ./machines/hm-config.nix { inherit inputs pkgs home-manager; };
+    nixosConfigurations = import ./nixos { inherit inputs nixpkgs system nixos-hardware; };
+    homeConfigurations = import ./home_manager { inherit inputs pkgs home-manager; };
 
     packages.${system} = import ./packages { inherit pkgs; };
 

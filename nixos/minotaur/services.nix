@@ -4,7 +4,7 @@
   services = {
     xserver = {
       enable = true;
-      layout = "gb";
+      xkb.layout = "gb";
       displayManager.defaultSession = "none+i3";
       desktopManager.xterm.enable = false;
       windowManager.i3 = {
