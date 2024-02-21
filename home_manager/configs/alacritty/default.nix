@@ -21,7 +21,7 @@
       };
 
       font = rec {
-        normal = { family = "Terminus"; style = "Regular"; };
+        normal = { family = "Terminus"; style = "Bold"; };
         italic = { inherit (normal) family style; };
 
         bold = { inherit (normal) family; style = "Bold"; };
