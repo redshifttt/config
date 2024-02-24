@@ -51,17 +51,18 @@
         thunderbird
         mangohud
         prismlauncher
-        mullvad-browser
         spotify
         libqalculate
         bitwarden
         gparted
+        librewolf
       ];
       fontPackages = with pkgs; [
         cantarell-fonts
         liberation_ttf
         terminus_font
         dejavu_fonts
+        monaspace
       ];
       customPackages = with inputs.self.packages.x86_64-linux; [
         fantasque-sans-mono
