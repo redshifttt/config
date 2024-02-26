@@ -43,7 +43,6 @@
         nix-search-cli
       ];
       guiPrograms = with pkgs; [
-        virt-manager
         easyeffects
         ckan
         audacity

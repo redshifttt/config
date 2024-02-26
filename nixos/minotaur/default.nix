@@ -61,6 +61,7 @@
     dconf.enable = true;
     zsh.enable = true;
     steam.enable = true;
+    virt-manager.enable = true;
   };
 
   virtualisation.libvirtd.enable = true;
