@@ -1,5 +1,5 @@
 {
-  description = "redshift's nixos config";
+  description = "sean's nixos config";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

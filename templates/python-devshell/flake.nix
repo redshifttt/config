@@ -14,7 +14,8 @@
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
           python311
-            python311Packages.python-lsp-server
+          python311Packages.python-lsp-server
+          python311Packages.pyflakes
         ];
       };
     };
