@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 let
   home = config.home.homeDirectory;
@@ -22,4 +22,7 @@ in
     pictures = "${home}/files/images";
     videos = "${home}/files/vids";
   };
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.config.common.default = "*";
 }
