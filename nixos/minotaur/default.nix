@@ -6,6 +6,7 @@
     ./../../users/sean
   ];
 
+  # :(
   nixpkgs.config.allowUnfree = true;
 
   boot = {
@@ -24,8 +25,6 @@
   networking = {
     hostName = "minotaur";
     networkmanager.enable = true;
-    # Ublock in the browser already uses this hosts file; may not be needed here.
-    stevenblack.enable = true;
   };
 
   # Needed for doas to be able to use git via root user when using nixos-rebuild
@@ -61,9 +60,9 @@
     dconf.enable = true;
     zsh.enable = true;
     steam.enable = true;
-    virt-manager.enable = true;
   };
 
+  programs.virt-manager.enable = true;
   virtualisation.libvirtd.enable = true;
 
   nix = {
@@ -75,13 +74,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 5d --max-freed 16G";
-    };
-    registry = {
-      nixpkgs.to = {
-        type = "path";
-        path = pkgs.path;
-      };
+      options = "--delete-older-than 5d";
     };
   };
 
