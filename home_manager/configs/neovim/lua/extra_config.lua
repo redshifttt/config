@@ -54,9 +54,11 @@ require('ayu').setup({
         TabLine = { bg = "None" },
 
         MiniCursorword = { bg = "#151515", underline = true },
-        MiniCursorwordCurrent = { bg = "#111111", underline = true },
+        MiniCursorwordCurrent = { bg = "#111111" },
         NotifyBackground = { bg = "#111111" },
     },
 })
+
+require('Comment').setup()
 
 vim.cmd.colorscheme("ayu-dark")

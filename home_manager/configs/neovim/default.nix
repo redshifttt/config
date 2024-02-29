@@ -45,6 +45,7 @@
       indent-blankline-nvim
       nvim-surround
       telescope-nvim
+      comment-nvim
     ];
 
     extraPackages = with pkgs; [
