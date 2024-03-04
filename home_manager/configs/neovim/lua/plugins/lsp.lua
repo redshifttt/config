@@ -23,7 +23,7 @@ lsp_zero.set_sign_icons({
     error = '✘',
     warn = '▲',
     hint = '⚑',
-    info = '»'
+    info = 'ⓘ'
 })
 
 lsp_zero.setup()
