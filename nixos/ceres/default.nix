@@ -70,7 +70,6 @@
           dunst
           picom
           networkmanagerapplet
-          cbatticon
         ];
       };
       videoDrivers = [ "amdgpu" ];

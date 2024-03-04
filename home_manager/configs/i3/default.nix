@@ -97,7 +97,6 @@ in {
         { command = "${pkgs.networkmanagerapplet}/bin/nm-applet"; }
         { command = "${pkgs.dunst}/bin/dunst"; }
         { command = "${pkgs.volctl}/bin/volctl"; }
-        { command = "${pkgs.cbatticon}/bin/cbatticon"; }
       ];
     };
   };
