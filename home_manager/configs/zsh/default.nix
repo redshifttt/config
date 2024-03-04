@@ -57,17 +57,12 @@
       ytba = "yt-dlp -f bestaudio";
       ytmp3 = "yt-dlp -x --extract-audio --audio-format mp3";
 
-      gs = "git status";
-      gp = "git push";
-      gc = "git commit";
-      gl = "git log";
-
       fcd = "cd \"$(bfs $HOME -type d -nocolor 2>/dev/null | fzf --height=40% --reverse)\"";
 
       # HACK: Call on script
       fts = "${inputs.self.packages.x86_64-linux.local-scripts.fts}/bin/fts";
 
-      sudo = if builtins.isPath pkgs.sudo then "sudo" else "doas";
+      sudo = "doas";
     };
   };
 }

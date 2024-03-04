@@ -24,5 +24,13 @@
         };
       };
     };
+    aliases = {
+      st = "status";
+      l = "log";
+      ll = "log --oneline";
+      ps = "push";
+      pl = "pull";
+      c = "commit";
+    };
   };
 }
