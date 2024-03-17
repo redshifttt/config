@@ -1,0 +1,29 @@
+[alias]
+	c = "commit"
+	l = "log"
+	ll = "log --oneline"
+	pl = "pull"
+	ps = "push"
+	st = "status"
+
+[core]
+	pager = "/nix/store/l953sykds0xx88fvsbfvjh4pgp59lx5k-delta-0.16.5/bin/delta"
+	whitespace = "trailing-space,space-before-tab"
+
+[delta]
+	file-decoration-style = "overline blue bold"
+	hunk-header-style = "omit"
+	line-numbers = true
+	relative-paths = true
+	right-arrow = " -> "
+	tabs = 4
+
+[interactive]
+	diffFilter = "/nix/store/l953sykds0xx88fvsbfvjh4pgp59lx5k-delta-0.16.5/bin/delta --color-only"
+
+[url "ssh://git@host"]
+	insteadOf = "otherhost"
+
+[user]
+	email = "num@privatevoid.net"
+	name = "redshifttt"

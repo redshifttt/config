@@ -1,0 +1,17 @@
+set font	"liberation mono 12"
+set page-padding	"5"
+set recolor-darkcolor	"#BEBAC6"
+set recolor-lightcolor	"#000000"
+set sandbox	"none"
+set selection-clipboard	"clipboard"
+set statusbar-h-padding	"0"
+set statusbar-v-padding	"0"
+map -   zoom out
+map =   zoom in
+map D   toggle_page_mode
+map d   scroll half-down
+map g   goto top
+map i   recolor
+map p   print
+map r   reload
+map u   scroll half-up

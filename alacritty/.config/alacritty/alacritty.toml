@@ -1,0 +1,102 @@
+live_config_reload = true
+[colors]
+draw_bold_text_with_bright_colors = false
+[colors.bright]
+black = "0x000000"
+blue = "0x59C2FF"
+cyan = "0x95E6CB"
+green = "0xC2D94C"
+magenta = "0xcb9ff8"
+red = "0xF07178"
+white = "0xFFFFFF"
+yellow = "0xFFB454"
+
+[colors.normal]
+black = "0x000000"
+blue = "0x53BDFA"
+cyan = "0x90E1C6"
+green = "0x91B362"
+magenta = "0xcb9ff8"
+red = "0xEA6C73"
+white = "0xC7C7C7"
+yellow = "0xF9AF4F"
+
+[colors.primary]
+background = "0x000000"
+foreground = "0xB3B1AD"
+
+[cursor]
+thickness = 1
+unfocused_hollow = true
+vi_mode_style = "None"
+[cursor.style]
+blinking = "Off"
+shape = "Block"
+
+[debug]
+log_level = "Error"
+persistent_logging = false
+print_events = false
+render_timer = false
+
+[font]
+size = 10.5
+[font.bold]
+family = "Terminus"
+style = "Bold"
+
+[font.bold_italic]
+family = "Terminus"
+style = "Bold"
+
+[font.glyph_offset]
+y = 2
+
+[font.italic]
+family = "Terminus"
+style = "Bold"
+
+[font.normal]
+family = "Terminus"
+style = "Bold"
+
+[font.offset]
+y = 4
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[mouse]
+hide_when_typing = false
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[window]
+decorations = "full"
+dynamic_padding = false
+dynamic_title = true
+opacity = 1.0
+startup_mode = "Maximized"
+title = "Alacritty"
+
+[window.padding]
+x = 10
+y = 8

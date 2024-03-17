@@ -1,0 +1,1 @@
+/nix/store/xwnh0pxz9ikgswxc1mq4m8gpaccx6qxc-home-manager-files/.config/zsh/.zshenv

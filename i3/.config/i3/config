@@ -1,0 +1,68 @@
+font pango:Cantarell 11.000000
+floating_modifier Mod4
+default_border pixel 2
+default_floating_border normal 2
+hide_edge_borders none
+focus_wrapping yes
+focus_follows_mouse no
+focus_on_window_activation focus
+mouse_warping output
+workspace_layout default
+workspace_auto_back_and_forth no
+client.focused #4c7899 #285577 #ffffff #2e9ef4 #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50 #5f676a
+client.unfocused #333333 #222222 #888888 #292d2e #222222
+client.urgent #2f343a #900000 #ffffff #900000 #900000
+client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
+client.background #000000
+bindsym Mod4+1 workspace "1"
+bindsym Mod4+2 workspace "2"
+bindsym Mod4+3 workspace "3"
+bindsym Mod4+4 workspace "4"
+bindsym Mod4+5 workspace "5"
+bindsym Mod4+6 workspace back_and_forth
+bindsym Mod4+Delete exec --no-startup-id systemctl suspend
+bindsym Mod4+Return exec alacritty
+bindsym Mod4+Shift+1 move container to workspace number "1"; workspace "1"
+bindsym Mod4+Shift+2 move container to workspace number "2"; workspace "2"
+bindsym Mod4+Shift+3 move container to workspace number "3"; workspace "3"
+bindsym Mod4+Shift+4 move container to workspace number "4"; workspace "4"
+bindsym Mod4+Shift+5 move container to workspace number "5"; workspace "5"
+bindsym Mod4+Shift+h move left
+bindsym Mod4+Shift+j move down
+bindsym Mod4+Shift+k move up
+bindsym Mod4+Shift+l move right
+bindsym Mod4+c exec --no-startup-id qalculate-gtk
+bindsym Mod4+d exec --no-startup-id "bemenu-run -c -W 0.2 -l20 -s -CT -p 'run' -i -B 2 -M 20 --counter always --fn 'Liberation Mono'"
+bindsym Mod4+f fullscreen toggle
+bindsym Mod4+h focus left
+bindsym Mod4+j focus down
+bindsym Mod4+k focus up
+bindsym Mod4+l focus right
+bindsym Mod4+r exec --no-startup-id "i3-msg restart"
+bindsym Mod4+s exec --no-startup-id "scrot"
+bindsym Mod4+space floating toggle
+bindsym Mod4+w kill
+
+mode "resize" {
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Escape mode default
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Return mode default
+  bindsym Right resize grow width 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+}
+
+bar {
+  font pango:Liberation Mono 10.000000
+  position top
+  status_command i3blocks
+  i3bar_command i3bar
+  workspace_buttons yes
+  strip_workspace_numbers no
+}
+
+exec nm-applet
+exec dunst
+exec volctl
+for_window [class="[Qq]alculate-gtk"] floating enable

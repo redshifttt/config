@@ -1,0 +1,39 @@
+[global]
+corner_radius=5
+ellipsize="end"
+font="Cantarell 12"
+format="<span fgcolor='#666'><b>%s</b></span>\n%b"
+frame_width=2
+gap_size=4
+height=800
+hide_duplicate_count=yes
+horizontal_padding=10
+# icon_path="/run/current-system/sw/share/icons/hicolor/32x32/actions:/run/current-system/sw/share/icons/hicolor/32x32/animations:/run/current-system/sw/share/icons/hicolor/32x32/apps:/run/current-system/sw/share/icons/hicolor/32x32/categories:/run/current-system/sw/share/icons/hicolor/32x32/devices:/run/current-system/sw/share/icons/hicolor/32x32/emblems:/run/current-system/sw/share/icons/hicolor/32x32/emotes:/run/current-system/sw/share/icons/hicolor/32x32/filesystem:/run/current-system/sw/share/icons/hicolor/32x32/intl:/run/current-system/sw/share/icons/hicolor/32x32/legacy:/run/current-system/sw/share/icons/hicolor/32x32/mimetypes:/run/current-system/sw/share/icons/hicolor/32x32/places:/run/current-system/sw/share/icons/hicolor/32x32/status:/run/current-system/sw/share/icons/hicolor/32x32/stock:/home/sean/.nix-profile/share/icons/hicolor/32x32/actions:/home/sean/.nix-profile/share/icons/hicolor/32x32/animations:/home/sean/.nix-profile/share/icons/hicolor/32x32/apps:/home/sean/.nix-profile/share/icons/hicolor/32x32/categories:/home/sean/.nix-profile/share/icons/hicolor/32x32/devices:/home/sean/.nix-profile/share/icons/hicolor/32x32/emblems:/home/sean/.nix-profile/share/icons/hicolor/32x32/emotes:/home/sean/.nix-profile/share/icons/hicolor/32x32/filesystem:/home/sean/.nix-profile/share/icons/hicolor/32x32/intl:/home/sean/.nix-profile/share/icons/hicolor/32x32/legacy:/home/sean/.nix-profile/share/icons/hicolor/32x32/mimetypes:/home/sean/.nix-profile/share/icons/hicolor/32x32/places:/home/sean/.nix-profile/share/icons/hicolor/32x32/status:/home/sean/.nix-profile/share/icons/hicolor/32x32/stock:/nix/store/0r199cdkhh5rbxmar5kschxpm1s5jn2y-hicolor-icon-theme-0.17/share/icons/hicolor/32x32/actions:/nix/store/0r199cdkhh5rbxmar5kschxpm1s5jn2y-hicolor-icon-theme-0.17/share/icons/hicolor/32x32/animations:/nix/store/0r199cdkhh5rbxmar5kschxpm1s5jn2y-hicolor-icon-theme-0.17/share/icons/hicolor/32x32/apps:/nix/store/0r199cdkhh5rbxmar5kschxpm1s5jn2y-hicolor-icon-theme-0.17/share/icons/hicolor/32x32/categories:/nix/store/0r199cdkhh5rbxmar5kschxpm1s5jn2y-hicolor-icon-theme-0.17/share/icons/hicolor/32x32/devices:/nix/store/0r199cdkhh5rbxmar5kschxpm1s5jn2y-hicolor-icon-theme-0.17/share/icons/hicolor/32x32/emblems:/nix/store/0r199cdkhh5rbxmar5kschxpm1s5jn2y-hicolor-icon-theme-0.17/share/icons/hicolor/32x32/emotes:/nix/store/0r199cdkhh5rbxmar5kschxpm1s5jn2y-hicolor-icon-theme-0.17/share/icons/hicolor/32x32/filesystem:/nix/store/0r199cdkhh5rbxmar5kschxpm1s5jn2y-hicolor-icon-theme-0.17/share/icons/hicolor/32x32/intl:/nix/store/0r199cdkhh5rbxmar5kschxpm1s5jn2y-hicolor-icon-theme-0.17/share/icons/hicolor/32x32/legacy:/nix/store/0r199cdkhh5rbxmar5kschxpm1s5jn2y-hicolor-icon-theme-0.17/share/icons/hicolor/32x32/mimetypes:/nix/store/0r199cdkhh5rbxmar5kschxpm1s5jn2y-hicolor-icon-theme-0.17/share/icons/hicolor/32x32/places:/nix/store/0r199cdkhh5rbxmar5kschxpm1s5jn2y-hicolor-icon-theme-0.17/share/icons/hicolor/32x32/status:/nix/store/0r199cdkhh5rbxmar5kschxpm1s5jn2y-hicolor-icon-theme-0.17/share/icons/hicolor/32x32/stock"
+line_height=4
+markup="full"
+min_icon_size=64
+mouse_left_click="do_action, open_url, close_current"
+mouse_middle_click="close_current"
+mouse_right_click="context"
+offset="20x40"
+padding=10
+show_indicators="no"
+width="(0, 500)"
+
+[urgency_critical]
+background="#ff0000"
+foreground="#ffffff"
+frame_color="#ffffff"
+timeout=0
+
+[urgency_low]
+background="#000000"
+foreground="#ffffff"
+frame_color="#444444"
+timeout=5
+
+[urgency_normal]
+background="#000000"
+foreground="#ffffff"
+frame_color="#444444"
+timeout=5
