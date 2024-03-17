@@ -26,7 +26,8 @@
       bindkey '^A' beginning-of-line
       bindkey '^E' end-of-line
       bindkey '^Y' autosuggest-accept
-      bindkey -s '^F' "fcd\r"
+      bindkey -r "^F"
+      bindkey -s '^F' "fcd"
 
       ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#111111,bold,underline,bg=#000000"
       FZF_DEFAULT_OPTS="--height=20 --layout=reverse"
@@ -56,8 +57,6 @@
       ytdl = "yt-dlp";
       ytba = "yt-dlp -f bestaudio";
       ytmp3 = "yt-dlp -x --extract-audio --audio-format mp3";
-
-      fcd = "cd \"$(bfs $HOME -type d -nocolor 2>/dev/null | fzf --height=40% --reverse)\"";
 
       # HACK: Call on script
       fts = "${inputs.self.packages.x86_64-linux.local-scripts.fts}/bin/fts";

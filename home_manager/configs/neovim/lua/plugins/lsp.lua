@@ -21,7 +21,7 @@ lsp_zero.setup_servers({
 
 lsp_zero.set_sign_icons({
     error = '✘',
-    warn = '▲',
+    warn = '!',
     hint = '⚑',
     info = 'ⓘ'
 })
