@@ -55,12 +55,14 @@
         bitwarden
         gparted
         librewolf
+        ckan
       ];
       fontPackages = with pkgs; [
         cantarell-fonts
         liberation_ttf
         terminus_font
         dejavu_fonts
+        open-sans
       ];
       customPackages = with inputs.self.packages.x86_64-linux; [
         fantasque-sans-mono
