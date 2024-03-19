@@ -29,4 +29,4 @@ alias ytdl="yt-dlp"
 alias ytba="yt-dlp -f bestaudio"
 alias ytmp3="yt-dlp -x --extract-audio --audio-format mp3"
 
-source ${customPackage.LS_COLORS}/share/lscolors.sh
+source /usr/share/LS_COLORS/dircolors.sh
