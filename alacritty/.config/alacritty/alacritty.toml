@@ -2,7 +2,7 @@ live_config_reload = true
 [colors]
 draw_bold_text_with_bright_colors = false
 [colors.bright]
-black = "0x000000"
+black = "0x0a0e14"
 blue = "0x59C2FF"
 cyan = "0x95E6CB"
 green = "0xC2D94C"
@@ -12,7 +12,7 @@ white = "0xFFFFFF"
 yellow = "0xFFB454"
 
 [colors.normal]
-black = "0x000000"
+black = "0x0a0e14"
 blue = "0x53BDFA"
 cyan = "0x90E1C6"
 green = "0x91B362"
@@ -22,7 +22,7 @@ white = "0xC7C7C7"
 yellow = "0xF9AF4F"
 
 [colors.primary]
-background = "0x000000"
+background = "0x0a0e14"
 foreground = "0xB3B1AD"
 
 [cursor]
