@@ -10,4 +10,6 @@ treesitter.setup {
     indent = {
         enable = true,
     },
+    ensure_installed = { "lua", "vim", "vimdoc", "python", "html", "css", "bash" },
+    sync_install = false,
 }
