@@ -61,19 +61,68 @@ local plugins = {
             require("plugins.mini")
         end
     },
-    { 'rcarriga/nvim-notify' },
-    { 'stevearc/oil.nvim' },
-    { 'lewis6991/gitsigns.nvim' },
-    { "j-hui/fidget.nvim" },
+    {
+        'rcarriga/nvim-notify',
+        config = function()
+            require("notify").setup({
+                icons = {
+                    DEBUG = "[DEBUG]",
+                    ERROR = "[ERROR]",
+                    INFO = "[INFO]",
+                    TRACE = "[TRACE]",
+                    WARN = "[WARN]"
+                },
+                stages = "static",
+                render = "compact",
+            })
+        end
+    },
+    {
+        'stevearc/oil.nvim',
+        config = function()
+            require("oil").setup()
+            vim.keymap.set("n", "<leader>o", function() require("oil").open() end)
+        end
+    },
+    {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require("gitsigns").setup()
+        end
+    },
+    {
+        "j-hui/fidget.nvim",
+        config = function()
+            require("fidget").setup()
+        end
+    },
     {
         "kylechui/nvim-surround",
         version = "*",
         event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup()
+        end
     },
-    { "lukas-reineke/indent-blankline.nvim" },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        config = function()
+            require("ibl").setup({
+                indent = {
+                    char = "▏"
+                },
+                exclude = {
+                    filetypes = { 'glowpreview' }
+                }
+            })
+        end
+    },
     {
         'numToStr/Comment.nvim',
         lazy = false,
+        config = function()
+            require('Comment').setup()
+        end
     },
     { "tpope/vim-fugitive" }
 }
