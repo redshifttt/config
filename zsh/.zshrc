@@ -7,6 +7,8 @@ export MANWIDTH=80
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#111111,bold,underline,bg=#000000"
 export FZF_DEFAULT_OPTS="--height=20 --layout=reverse"
 
+path+=('/home/sean/.local/bin')
+
 bindkey '^I' complete-word
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
@@ -28,5 +30,9 @@ alias ncdu="ncdu --color off"
 alias ytdl="yt-dlp"
 alias ytba="yt-dlp -f bestaudio"
 alias ytmp3="yt-dlp -x --extract-audio --audio-format mp3"
+
+fcd() {
+	cd "$(bfs $HOME -type d -nocolor 2>/dev/null | fzf --height=40% --reverse)"
+}
 
 source /usr/share/LS_COLORS/dircolors.sh
