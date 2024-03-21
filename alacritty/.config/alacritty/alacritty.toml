@@ -41,24 +41,22 @@ render_timer = false
 
 [font]
 size = 10.5
+
+[font.normal]
+family = "Terminus"
+style = "Bold"
+[font.italic]
+family = "Terminus"
+style = "Bold"
 [font.bold]
 family = "Terminus"
 style = "Bold"
-
 [font.bold_italic]
 family = "Terminus"
 style = "Bold"
 
 [font.glyph_offset]
 y = 2
-
-[font.italic]
-family = "Terminus"
-style = "Bold"
-
-[font.normal]
-family = "Terminus"
-style = "Bold"
 
 [font.offset]
 y = 4

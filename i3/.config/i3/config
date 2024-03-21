@@ -1,20 +1,27 @@
 font pango:Cantarell 11.000000
+
 floating_modifier Mod4
+
 default_border pixel 2
 default_floating_border normal 2
+
 hide_edge_borders none
+
 focus_wrapping yes
 focus_follows_mouse no
 focus_on_window_activation focus
+
 mouse_warping output
 workspace_layout default
 workspace_auto_back_and_forth no
+
 client.focused #4c7899 #285577 #ffffff #2e9ef4 #285577
 client.focused_inactive #333333 #5f676a #ffffff #484e50 #5f676a
 client.unfocused #333333 #222222 #888888 #292d2e #222222
 client.urgent #2f343a #900000 #ffffff #900000 #900000
 client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
 client.background #000000
+
 bindsym Mod4+1 workspace "1"
 bindsym Mod4+2 workspace "2"
 bindsym Mod4+3 workspace "3"
@@ -64,5 +71,3 @@ bar {
 
 exec nm-applet
 exec dunst
-exec volctl
-for_window [class="[Qq]alculate-gtk"] floating enable
