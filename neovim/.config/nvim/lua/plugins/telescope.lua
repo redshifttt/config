@@ -18,6 +18,16 @@ telescope.setup({
             mirror = true
         },
         borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+        vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--hidden"
+        }
     }
 })
 
@@ -35,3 +45,4 @@ vim.keymap.set("n", "<leader>fH", function() builtin.highlights() end)
 vim.keymap.set("n", "<leader>fc", function() builtin.commands() end)
 vim.keymap.set("n", "<leader>fb", function() builtin.buffers() end)
 vim.keymap.set("n", "<leader>ft", function() builtin.live_grep() end)
+vim.keymap.set("n", "<leader>/", function() builtin.current_buffer_fuzzy_find() end)
