@@ -1,7 +1,7 @@
 require("set")
 require("keys")
 require("autocmd")
-require("plugins")
+require("plugin_manager")
 
 vim.loader.enable()
 
