@@ -4,10 +4,10 @@ export TERMINAL="alacritty"
 export MANPAGER="nvim +Man!"
 export MANWIDTH=80
 
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#111111,bold,underline,bg=#000000"
 export FZF_DEFAULT_OPTS="--height=20 --layout=reverse"
 
 path+=('/home/sean/.local/bin')
+fpath=(/usr/share/zsh/site-functions $fpath)
 
 bindkey '^I' complete-word
 bindkey '^A' beginning-of-line
@@ -32,7 +32,10 @@ alias ytba="yt-dlp -f bestaudio"
 alias ytmp3="yt-dlp -x --extract-audio --audio-format mp3"
 
 fcd() {
-	cd "$(bfs $HOME -type d -nocolor 2>/dev/null | fzf --height=40% --reverse)"
+    cd "$(bfs $HOME -type d -nocolor 2>/dev/null | fzf --height=40% --reverse)"
 }
 
 source /usr/share/LS_COLORS/dircolors.sh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
