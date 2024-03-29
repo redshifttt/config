@@ -86,23 +86,17 @@ local plugins = {
     },
     {
         'lewis6991/gitsigns.nvim',
-        config = function()
-            require("gitsigns").setup()
-        end
+        config = true
     },
     {
         "j-hui/fidget.nvim",
-        config = function()
-            require("fidget").setup()
-        end
+        config = true
     },
     {
         "kylechui/nvim-surround",
         version = "*",
         event = "VeryLazy",
-        config = function()
-            require("nvim-surround").setup()
-        end
+        config = true
     },
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -120,11 +114,9 @@ local plugins = {
     {
         'numToStr/Comment.nvim',
         lazy = false,
-        config = function()
-            require('Comment').setup()
-        end
+        config = true
     },
-    { "tpope/vim-fugitive" }
+    { "tpope/vim-fugitive" },
 }
 
 require("lazy").setup(plugins, opts)
