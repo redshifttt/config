@@ -1,4 +1,4 @@
-font pango:Cantarell 11.000000
+font pango:Cantarell 11
 
 floating_modifier Mod4
 
@@ -40,7 +40,7 @@ bindsym Mod4+Shift+j move down
 bindsym Mod4+Shift+k move up
 bindsym Mod4+Shift+l move right
 bindsym Mod4+c exec --no-startup-id qalculate-gtk
-bindsym Mod4+d exec --no-startup-id "bemenu-run -c -W 0.2 -l20 -s -CT -p 'run' -i -B 2 -M 20 --counter always --fn 'Liberation Mono'"
+bindsym Mod4+d exec --no-startup-id "bemenu-run -c -W 0.2 -l20 -s -C -T -i -B 2 -M 20 --counter always -p 'open' --cw 1 --fn 'Liberation Mono 11'"
 bindsym Mod4+f fullscreen toggle
 bindsym Mod4+h focus left
 bindsym Mod4+j focus down
