@@ -1,0 +1,73 @@
+#!/usr/bin/python
+
+import os
+import sys
+import mimetypes as mime
+from prettytable import PrettyTable, PLAIN_COLUMNS, NONE, SINGLE_BORDER
+
+def humanize_units(units):
+    unit_combo = 0
+    si_units = ["B", "KB", "MB", "GB", "TB"]
+
+    while units >= 1024:
+        units /= 1024
+        unit_combo += 1
+
+    return f"{units:.1f} {si_units[unit_combo]}"
+
+cat_count = {}
+mime_count = {}
+unknown_ext = [0, 0]
+
+t = PrettyTable()
+t.align = "l"
+t.vrules = NONE
+t.field_names = ["Type", "Count", "Total culminative size"]
+
+for f in os.scandir(os.getcwd()):
+    if not f.is_file():
+        continue
+
+    if f.name.startswith("."):
+        continue
+
+    filesize = f.stat().st_size
+    _, extension = os.path.splitext(f)
+
+    if not extension:
+        unknown_ext[0] += 1
+        unknown_ext[1] += filesize
+        continue
+
+    if not extension in cat_count.keys():
+        cat_count[extension] = [1, filesize]
+    else:
+        cat_count[extension][0] += 1
+        cat_count[extension][1] += filesize
+
+if unknown_ext[0]:
+    cat_count["unknown"] = unknown_ext
+
+cat_count = dict(sorted(cat_count.items(), key=lambda x: x[1][0], reverse=True))
+
+total_count = 0
+total_filesize = 0
+for v in cat_count.values():
+    total_count += v[0]
+    total_filesize += v[1]
+
+last_item = len(cat_count.items()) - 1
+for n, v in enumerate(cat_count.items()):
+    cat = v[0]
+    amount, size = v[1]
+    size = humanize_units(size)
+    if not n == last_item:
+        t.add_row([cat, amount, size])
+        continue
+
+    t.add_row([cat, amount, size], divider=True)
+
+if not len(cat_count.items()) == 1:
+    t.add_row(["Total", total_count, humanize_units(total_filesize)])
+
+print(t)
