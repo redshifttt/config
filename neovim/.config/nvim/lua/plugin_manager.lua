@@ -102,13 +102,10 @@ local plugins = {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
             require("ibl").setup({
-                indent = {
-                    char = "▏"
-                },
-                exclude = {
-                    filetypes = { 'glowpreview' }
-                }
+                indent = { char = "▏" },
+                exclude = { filetypes = { 'glowpreview' } }
             })
+            vim.api.nvim_set_hl(0, "IblIndent", { fg = "#222222" })
         end
     },
     {
