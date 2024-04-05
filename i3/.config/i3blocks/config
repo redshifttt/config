@@ -2,7 +2,7 @@ separator=true
 separator_block_width=15
 
 [rootsize]
-command=df -h --output="avail,pcent" / | sed 1d | awk '{printf "/: %s left (%s used)\n", $1, $2}'
+command=df -h --output="avail,pcent" / | sed 1d | awk '{printf "%s left (%s used)\n", $1, $2}'
 interval=1
 
 [time]
