@@ -15,13 +15,6 @@ mouse_warping output
 workspace_layout default
 workspace_auto_back_and_forth no
 
-client.focused #4c7899 #285577 #ffffff #2e9ef4 #285577
-client.focused_inactive #333333 #5f676a #ffffff #484e50 #5f676a
-client.unfocused #333333 #222222 #888888 #292d2e #222222
-client.urgent #2f343a #900000 #ffffff #900000 #900000
-client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
-client.background #000000
-
 bindsym Mod4+1 workspace "1"
 bindsym Mod4+2 workspace "2"
 bindsym Mod4+3 workspace "3"
@@ -46,7 +39,6 @@ bindsym Mod4+Shift+l move right
 
 bindsym Mod4+Delete exec --no-startup-id systemctl suspend
 bindsym Mod4+Return exec alacritty
-bindsym Mod4+c exec --no-startup-id qalculate-gtk
 bindsym Mod4+d exec --no-startup-id "bemenu-run -c -W 0.2 -l20 -s -C -T -i -B 2 -M 20 --counter always -p 'open' --cw 1 --fn 'Liberation Mono 11'"
 bindsym Mod4+f fullscreen toggle
 bindsym Mod4+r exec --no-startup-id "i3-msg restart"
@@ -54,14 +46,38 @@ bindsym Mod4+s exec --no-startup-id "scrot"
 bindsym Mod4+space floating toggle
 bindsym Mod4+w kill
 
+#class                  border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #000000
+
 bar {
-  font pango:Liberation Mono 10
-  position top
-  status_command i3blocks
-  i3bar_command i3bar
-  workspace_buttons yes
-  strip_workspace_numbers no
-  separator_symbol "-"
+    font pango:Liberation Mono 10
+    position top
+    status_command i3blocks
+    i3bar_command i3bar
+    workspace_buttons yes
+    strip_workspace_numbers no
+    separator_symbol " "
+
+    bindsym button1 nop
+    bindsym button4 nop
+    bindsym button5 nop
+
+    colors {
+        background #000000
+        statusline #ffffff
+        separator #666666
+
+        focused_workspace  #4c7899 #285577 #ffffff
+        active_workspace   #333333 #5f676a #ffffff
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+        binding_mode       #2f343a #900000 #ffffff
+    }
 }
 
 exec nm-applet
