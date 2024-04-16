@@ -39,7 +39,12 @@ vim.opt.conceallevel = 0
 vim.opt.wrap = false
 
 vim.opt.list = true
-vim.opt.listchars = { nbsp = "¬", tab = "→·", trail = "-", extends = ">" }
+vim.opt.listchars = {
+    nbsp = "¬",
+    tab = "→·",
+    trail = "-",
+    extends = ">"
+}
 
 vim.opt.laststatus = 3
 vim.opt.winbar = "%n %F %m"
@@ -48,7 +53,7 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.cmdheight = 1
 
-vim.opt.guicursor = ""
+vim.opt.guicursor = "a:block"
 
 vim.opt.cursorline = true
 
