@@ -5,7 +5,7 @@ import sys
 import mimetypes as mime
 from prettytable import PrettyTable, PLAIN_COLUMNS, NONE, SINGLE_BORDER
 
-def humanize_units(units):
+def humanize_units(units, colour=True):
     unit_combo = 0
     si_units = ["B", "KB", "MB", "GB", "TB"]
 
@@ -13,7 +13,23 @@ def humanize_units(units):
         units /= 1024
         unit_combo += 1
 
-    return f"{units:.1f} {si_units[unit_combo]}"
+    if not colour:
+        return f"{units:.0f} {si_units[unit_combo]}"
+
+    match unit_combo:
+        case 4:
+            return f"\x1b[38;5;124m{units:.0f} {si_units[unit_combo]}\x1b[0m"
+        case 3:
+            if units > 5:
+                return f"\x1b[38;5;124m{units:.0f} {si_units[unit_combo]}\x1b[0m"
+
+            return f"\x1b[1m{units:.0f} {si_units[unit_combo]}\x1b[0m"
+        case 2:
+            return f"\x1b[38;5;246m{units:.0f} {si_units[unit_combo]}\x1b[0m"
+        case 1:
+            return f"\x1b[38;5;240m{units:.0f} {si_units[unit_combo]}\x1b[0m"
+        case 0:
+            return f"\x1b[38;5;235m{units:.0f} {si_units[unit_combo]}\x1b[0m"
 
 cat_count = {}
 mime_count = {}
@@ -68,6 +84,6 @@ for n, v in enumerate(cat_count.items()):
     t.add_row([cat, amount, size], divider=True)
 
 if not len(cat_count.items()) == 1:
-    t.add_row(["Total", total_count, humanize_units(total_filesize)])
+    t.add_row(["Total", total_count, humanize_units(total_filesize, colour=False)])
 
 print(t)
