@@ -82,7 +82,8 @@ local plugins = {
         config = function()
             require("oil").setup()
             vim.keymap.set("n", "<leader>o", function() require("oil").open() end)
-        end
+        end,
+        dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     {
         'lewis6991/gitsigns.nvim',
@@ -97,16 +98,6 @@ local plugins = {
         version = "*",
         event = "VeryLazy",
         config = true
-    },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        config = function()
-            require("ibl").setup({
-                indent = { char = "▏" },
-                exclude = { filetypes = { 'glowpreview' } }
-            })
-            vim.api.nvim_set_hl(0, "IblIndent", { fg = "#222222" })
-        end
     },
     {
         'numToStr/Comment.nvim',
