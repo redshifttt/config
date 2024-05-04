@@ -28,7 +28,7 @@ background = "0x0a0e14"
 foreground = "0xB3B1AD"
 
 [cursor]
-thickness = 0.10
+thickness = 1
 
 [cursor.style]
 blinking = "Off"
@@ -41,20 +41,20 @@ print_events = false
 render_timer = false
 
 [font]
-size = 9.0
+size = 10.0
 
 [font.normal]
-family = "Terminess Nerd Font"
+family = "FantasqueSansM Nerd Font"
 
 [font.italic]
-family = "Terminess Nerd Font"
+family = "FantasqueSansM Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "Terminess Nerd Font"
+family = "FantasqueSansM Nerd Font"
 
 [font.bold_italic]
-family = "Terminess Nerd Font"
+family = "FantasqueSansM Nerd Font"
 style = "Bold"
 
 [font.glyph_offset]
