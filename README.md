@@ -1,3 +1,3 @@
-# Nix/NixOS Configuration
+# stow
 
-This is my Nix/NixOS configuration.
+This is my GNU stow configuration.
