@@ -8,9 +8,9 @@
         offset = "20x40";
         padding = 10;
         horizontal_padding = 10;
-        frame_width = 2;
+        frame_width = 1;
         gap_size = 4;
-        corner_radius = 5;
+        corner_radius = 2;
         min_icon_size = 64;
 
         font = "Cantarell 12";

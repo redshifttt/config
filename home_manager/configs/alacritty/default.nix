@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   programs.alacritty = {
     enable = true;
@@ -21,13 +22,13 @@
       };
 
       font = rec {
-        normal = { family = "Terminus"; style = "Bold"; };
+        normal = { family = "Fantasque Sans Mono"; style = "Regular"; };
         italic = { inherit (normal) family style; };
 
         bold = { inherit (normal) family; style = "Bold"; };
         bold_italic = { inherit (bold) family style; };
 
-        size = 10.5;
+        size = 10;
 
         offset = {
           y = 4;
@@ -82,34 +83,6 @@
         log_level = "Error";
         print_events = false;
       };
-
-      colors = {
-        primary = {
-          background = "0x000000";
-          foreground = "0xB3B1AD";
-        };
-        normal = {
-          black = "0x000000";
-          red = "0xEA6C73";
-          green = "0x91B362";
-          yellow = "0xF9AF4F";
-          blue = "0x53BDFA";
-          magenta = "0xcb9ff8";
-          cyan = "0x90E1C6";
-          white = "0xC7C7C7";
-        };
-        bright = {
-          black = "0x000000";
-          red = "0xF07178";
-          green = "0xC2D94C";
-          yellow = "0xFFB454";
-          blue = "0x59C2FF";
-          magenta = "0xcb9ff8";
-          cyan = "0x95E6CB";
-          white = "0xFFFFFF";
-        };
-        draw_bold_text_with_bright_colors = false;
-      };
-    };
+    } // (lib.trivial.importTOML ./moonfly-alacritty.toml);
   };
 }

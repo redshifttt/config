@@ -27,7 +27,7 @@
       user-agent = "Mozilla/5.0";
       hls-bitrate = "max";
 
-      sub-font = "Source Sans Pro";
+      sub-font = "Cantarell";
       sub-font-size = 36;
       sub-color = "1.0/1.0/1.0/1.0";
       sub-back-color = "0.0/0.0/0.0/0.50";

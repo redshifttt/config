@@ -1,4 +1,4 @@
-{ inputs, nixpkgs, system, nixos-hardware }:
+{ inputs, nixpkgs, system, nixos-hardware, home-manager }:
 let
   buildnixosSystem = modules:
     nixpkgs.lib.nixosSystem {

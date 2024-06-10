@@ -22,6 +22,14 @@
 
     initExtra = ''
       PS1="%B%F{#ffffff}%n%f%b@%F{magenta}%m%f %B%F{blue}%c%f%b %# "
+
+      function fcd() {
+        cd "$(bfs $HOME -type d -nocolor 2>/dev/null | fzf)"
+      }
+
+      bindkey "^[[A" up-line-or-search
+      bindkey "^[[B" down-line-or-search
+
       bindkey '^I' complete-word
       bindkey '^A' beginning-of-line
       bindkey '^E' end-of-line
@@ -59,7 +67,7 @@
       ytmp3 = "yt-dlp -x --extract-audio --audio-format mp3";
 
       # HACK: Call on script
-      fts = "${inputs.self.packages.x86_64-linux.local-scripts.fts}/bin/fts";
+      fts = "${customPackage.local-scripts.fts}/bin/fts";
 
       sudo = "doas";
     };

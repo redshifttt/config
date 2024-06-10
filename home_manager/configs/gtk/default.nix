@@ -2,7 +2,7 @@
   gtk = {
     enable = true;
     font = {
-      name = "Open Sans";
+      name = "Cantarell";
       size = 11;
     };
     theme.name = "Adwaita-dark";

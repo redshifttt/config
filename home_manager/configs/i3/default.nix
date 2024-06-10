@@ -47,9 +47,8 @@ in {
         "${modifierKey}+r" = "exec --no-startup-id \"${pkgs.i3}/bin/i3-msg restart\"";
         "${modifierKey}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
         "${modifierKey}+w" = "kill";
-        "${modifierKey}+d" = "exec --no-startup-id \"${pkgs.bemenu}/bin/bemenu-run -c -W 0.2 -l20 -s -CT -p 'run' -i -B 2 -M 20 --counter always --fn 'Liberation Mono'\"";
+        "${modifierKey}+d" = "exec --no-startup-id \"${pkgs.bemenu}/bin/bemenu-run -c -W 0.2 -l20 -s -C -T -i -B 2 -M 20 --counter always -p 'open' --cw 1 --fn 'Liberation Mono 11'\"";
         "${modifierKey}+s" = "exec --no-startup-id \"${inputs.self.packages.x86_64-linux.local-scripts.scrot}/bin/scrot\"";
-        "${modifierKey}+c" = "exec --no-startup-id qalculate-gtk";
         "${modifierKey}+Delete" = "exec --no-startup-id systemctl suspend";
 
         "${modifierKey}+h" = "focus left";
@@ -83,7 +82,7 @@ in {
         {
           fonts = {
             names = ["Liberation Mono"];
-            size = 10.0;
+            size = 11.0;
           };
           statusCommand = "${pkgs.i3blocks}/bin/i3blocks";
           command = "${pkgs.i3}/bin/i3bar";

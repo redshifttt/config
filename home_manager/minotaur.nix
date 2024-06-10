@@ -4,7 +4,6 @@
 
   imports = [
     ./common.nix
-    ./../packages/ksp
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "spotify" ];

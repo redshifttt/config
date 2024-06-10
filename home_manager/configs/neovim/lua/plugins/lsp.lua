@@ -27,18 +27,3 @@ lsp_zero.set_sign_icons({
 })
 
 lsp_zero.setup()
-
-local cmp = require('cmp')
-
--- lsp-zero already sets up mappings and
--- other stuff for cmp; this is just additional
--- sources.
-cmp.setup({
-    sources = {
-        { name = 'nvim_lsp' },
-        { name = 'nvim_lua' },
-        { name = 'buffer' },
-        { name = 'path' },
-        { name = 'rg' },
-    },
-})

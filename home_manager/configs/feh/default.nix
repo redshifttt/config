@@ -8,7 +8,7 @@
     keybindings = {
       next_img = "n";
       prev_img = "p";
-      delete = "d";
+      # delete = "d";
     };
   };
 }

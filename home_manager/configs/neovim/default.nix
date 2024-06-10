@@ -1,11 +1,15 @@
 { pkgs, ... }:
 
 {
-  programs.neovim = {
+  programs.neovim = rec {
     enable = true;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+
+    withRuby = false;
+    withPython3 = false;
+    withNodeJs = false;
 
     plugins = with pkgs.vimPlugins; [
       nvim-cmp
@@ -13,9 +17,14 @@
       cmp-nvim-lsp
       cmp-buffer
       cmp-path
-      cmp-rg
-      cmp_luasnip
+      cmp-cmdline
+
       luasnip
+      cmp_luasnip
+
+      nvim-lspconfig
+      fidget-nvim
+      lsp-zero-nvim
 
       (nvim-treesitter.withPlugins (p: with p; [
         tree-sitter-lua
@@ -29,51 +38,38 @@
         tree-sitter-markdown
         tree-sitter-go
       ]))
-      nvim-treesitter-context
-
-      nvim-lspconfig
-      fidget-nvim
-      lsp-zero-nvim
 
       mini-nvim
       nvim-notify
       gitsigns-nvim
-      neovim-ayu
       vim-fugitive
       oil-nvim
-      vim-be-good
-      indent-blankline-nvim
       nvim-surround
       telescope-nvim
       comment-nvim
+
+      (pkgs.vimUtils.buildVimPlugin {
+        pname = "vim-moonfly-colors";
+        version = "master";
+        src = pkgs.fetchFromGitHub {
+          owner = "bluz71";
+          repo = "vim-moonfly-colors";
+          rev = "master";
+          hash = "sha256-3ercmJ7QnBerZlHuqFx0iAw7UASxneDOgPlvKLrWL/Y=";
+        };
+      })
+
+      (pkgs.vimUtils.buildVimPlugin {
+        pname = "nvim-config";
+        version = "#";
+        src = ./.;
+      })
     ];
 
     extraPackages = with pkgs; [
-      # I cannot be arsed doing it per-project
-      # TODO: make templates for the languages
       lua-language-server
       python311Packages.python-lsp-server
       gopls
     ];
-
-    extraLuaConfig =
-      let
-        filesToLoad = [
-          ./lua/set.lua
-          ./lua/keys.lua
-          ./lua/autocmd.lua
-
-          ./lua/plugins/lsp.lua
-          ./lua/plugins/telescope.lua
-          ./lua/plugins/treesitter.lua
-          ./lua/plugins/mini.lua
-
-          ./lua/extra_config.lua
-        ];
-
-        configRequire = builtins.concatStringsSep "\n" (map (f: builtins.readFile f) filesToLoad);
-      in ''
-        ${configRequire}
-      '';
   };
 }

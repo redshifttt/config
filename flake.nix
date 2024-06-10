@@ -22,14 +22,9 @@
     pkgs = nixpkgs.legacyPackages.${system};
     system = "x86_64-linux";
   in {
-    nixosConfigurations = import ./nixos { inherit inputs nixpkgs system nixos-hardware; };
+    nixosConfigurations = import ./nixos { inherit inputs nixpkgs system nixos-hardware home-manager; };
     homeConfigurations = import ./home_manager { inherit inputs pkgs home-manager; };
 
     packages.${system} = import ./packages { inherit pkgs; };
-
-    templates.python-devshell = {
-      path = ./templates/python-devshell;
-      description = "A basic Python devshell";
-    };
   };
 }
