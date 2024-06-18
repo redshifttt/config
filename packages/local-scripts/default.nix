@@ -1,20 +1,20 @@
-{
-  writeScriptBin,
-  writeShellScriptBin,
-  writeShellApplication,
-  pkgs
-}:
+{ pkgs }:
+let
+  inherit (pkgs) writeShellApplication;
+in
 {
   scrot = writeShellApplication {
-    name = "scrot";
+    name = "scrot"; # SCReenshOT
 
-    runtimeInputs = [ pkgs.slop pkgs.shotgun pkgs.xclip ];
+    runtimeInputs = [
+      pkgs.slop pkgs.shotgun pkgs.xclip
+    ];
 
     text = builtins.readFile ./scrot;
   };
 
   fcd = writeShellApplication {
-    name = "fcd";
+    name = "fcd"; # fzf cd
 
     runtimeInputs = [ pkgs.bfs pkgs.fzf ];
 
@@ -23,9 +23,18 @@
     '';
   };
 
-  fts = writeScriptBin "fts" ''
-  #!${pkgs.python311}/bin/python
+  fts = writeShellApplication {
+    name = "fts"; # FileTypeS
 
-  ${builtins.readFile ./fts.py}
-  '';
+    runtimeInputs = [
+      pkgs.python311
+      pkgs.python311Packages.prettytable
+    ];
+
+    text = ''
+      #!${pkgs.python311}/bin/python
+
+      ${builtins.readFile ./fts.py}
+    '';
+  };
 }
