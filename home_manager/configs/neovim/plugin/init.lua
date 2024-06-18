@@ -9,6 +9,9 @@ require("plugins.oil")
 require("plugins.mini")
 require("plugins.notify")
 
+require('nvim-highlight-colors').setup()
+require('gitsigns').setup()
+
 vim.loader.enable()
 
 vim.g.moonflyWinSeparator = 2
