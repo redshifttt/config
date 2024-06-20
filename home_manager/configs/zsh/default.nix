@@ -5,7 +5,7 @@
   in {
     enable = true;
 
-    enableAutosuggestions = true; # temp change
+    autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     enableVteIntegration = true;
@@ -39,6 +39,10 @@
       # Saner defaults
       BEMENU_OPTS='--fn "Liberation Mono 12" --hb "#005577" --hf "#eeeeee" --tb "#005577" --tf "#eeeeee" --hp 10'
 
+      function fcd() {
+        cd "$(bfs "$HOME" -type d -nocolor 2>/dev/null | fzf --height=40% --reverse)"
+      }
+
       source ${customPackage.LS_COLORS}/share/lscolors.sh
       '';
 
@@ -66,8 +70,7 @@
       ytmp3 = "yt-dlp -x --extract-audio --audio-format mp3";
 
       # HACK: Call on script. Hacky but seems to work.
-      fts = "${customPackage.local-scripts.fts}/bin/fts";
-      fcd = "${customPackage.local-scripts.fcd}/bin/fcd";
+      # fts = "${customPackage.local-scripts.fts}/bin/fts.py";
 
       sudo = "doas";
     };
