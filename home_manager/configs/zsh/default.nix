@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, lib, ... }:
 {
   programs.zsh = let
     customPackage = inputs.self.packages.${pkgs.system};
@@ -23,10 +23,6 @@
     initExtra = ''
       PS1="%B%F{#ffffff}%n%f%b@%F{magenta}%m%f %B%F{blue}%c%f%b %# "
 
-      function fcd() {
-        cd "$(bfs $HOME -type d -nocolor 2>/dev/null | fzf)"
-      }
-
       bindkey "^[[A" up-line-or-search
       bindkey "^[[B" down-line-or-search
 
@@ -39,6 +35,9 @@
 
       ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#111111,bold,underline,bg=#000000"
       FZF_DEFAULT_OPTS="--height=20 --layout=reverse"
+
+      # Saner defaults
+      BEMENU_OPTS='--fn "Liberation Mono 12" --hb "#005577" --hf "#eeeeee" --tb "#005577" --tf "#eeeeee" --hp 10'
 
       source ${customPackage.LS_COLORS}/share/lscolors.sh
       '';
@@ -66,8 +65,9 @@
       ytba = "yt-dlp -f bestaudio";
       ytmp3 = "yt-dlp -x --extract-audio --audio-format mp3";
 
-      # HACK: Call on script
+      # HACK: Call on script. Hacky but seems to work.
       fts = "${customPackage.local-scripts.fts}/bin/fts";
+      fcd = "${customPackage.local-scripts.fcd}/bin/fcd";
 
       sudo = "doas";
     };
