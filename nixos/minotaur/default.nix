@@ -66,11 +66,12 @@
   virtualisation.libvirtd.enable = true;
 
   nix = {
+    package = pkgs.nixVersions.latest;
     settings = {
       trusted-users = [ "root" "@wheel" ];
       auto-optimise-store = true;
     };
-    extraOptions = "experimental-features = nix-command flakes repl-flake";
+    extraOptions = "experimental-features = nix-command flakes";
     gc = {
       automatic = true;
       dates = "weekly";
