@@ -9,8 +9,8 @@ telescope.setup({
                 ["<esc>"] = actions.close,
                 -- For some reason I have these memorised now despite them
                 -- being annoying but it also kinda makes sense so whatever.
-                ["<C-w>s"] = actions.file_split,
-                ["<C-w>v"] = actions.file_vsplit,
+                ["<C-B>"] = actions.file_split, -- bottom
+                ["<C-S>"] = actions.file_vsplit, -- side
             },
         },
         layout_strategy = "center",
@@ -39,10 +39,10 @@ vim.keymap.set("n", "<leader>ff",
         })
     end
 )
+
 vim.keymap.set("n", "<leader>fg", function() builtin.git_files() end)
 vim.keymap.set("n", "<leader>fh", function() builtin.help_tags() end)
 vim.keymap.set("n", "<leader>fH", function() builtin.highlights() end)
 vim.keymap.set("n", "<leader>fc", function() builtin.commands() end)
 vim.keymap.set("n", "<leader>fb", function() builtin.buffers() end)
 vim.keymap.set("n", "<leader>ft", function() builtin.live_grep() end)
-vim.keymap.set("n", "<leader>/", function() builtin.current_buffer_fuzzy_find() end)
