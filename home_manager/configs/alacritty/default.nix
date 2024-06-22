@@ -22,7 +22,7 @@
       };
 
       font = rec {
-        normal = { family = "Fantasque Sans Mono"; style = "Regular"; };
+        normal = { family = "FantasqueSansM Nerd Font"; style = "Regular"; };
         italic = { inherit (normal) family style; };
 
         bold = { inherit (normal) family; style = "Bold"; };
