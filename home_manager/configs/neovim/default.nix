@@ -1,7 +1,11 @@
 { pkgs, ... }:
 
+let
+  inherit (pkgs.vimUtils) buildVimPlugin;
+  inherit (pkgs) fetchFromGitHub;
+in
 {
-  programs.neovim = rec {
+  programs.neovim = {
     enable = true;
     defaultEditor = true;
     viAlias = true;
@@ -46,12 +50,15 @@
       oil-nvim
       nvim-surround
       telescope-nvim
-      comment-nvim
+      neoformat
+      nvim-highlight-colors
+      noice-nvim
+      nui-nvim
 
-      (pkgs.vimUtils.buildVimPlugin {
+      (buildVimPlugin {
         pname = "vim-moonfly-colors";
         version = "master";
-        src = pkgs.fetchFromGitHub {
+        src = fetchFromGitHub {
           owner = "bluz71";
           repo = "vim-moonfly-colors";
           rev = "master";
@@ -59,7 +66,7 @@
         };
       })
 
-      (pkgs.vimUtils.buildVimPlugin {
+      (buildVimPlugin {
         pname = "nvim-config";
         version = "#";
         src = ./.;

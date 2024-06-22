@@ -12,6 +12,8 @@ require("plugins.notify")
 require('nvim-highlight-colors').setup()
 require('gitsigns').setup()
 
+require("noice").setup()
+
 vim.loader.enable()
 
 vim.g.moonflyWinSeparator = 2
