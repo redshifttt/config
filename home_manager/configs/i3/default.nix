@@ -81,11 +81,11 @@ in {
       bars = [
         {
           fonts = {
-            names = ["Liberation Mono"];
-            size = 11.0;
+            names = ["Cantarell Bold"];
+            size = 12.0;
           };
-          statusCommand = "${pkgs.i3blocks}/bin/i3blocks";
-          command = "${pkgs.i3}/bin/i3bar";
+          # statusCommand = "";
+          command = "${pkgs.polybar}/bin/polybar";
           position = "top";
           workspaceButtons = true;
           workspaceNumbers = true;
