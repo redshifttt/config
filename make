@@ -5,7 +5,7 @@ hmswitch(){
 }
 
 nixrebuild(){
-    doas nixos-rebuild switch --flake .
+    nixos-rebuild switch --flake . --use-remote-sudo
 }
 
 fullswitch(){
