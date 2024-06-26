@@ -47,7 +47,8 @@ in
           unzip
           nvd
           wget
-          nix-search-cli;
+          nix-search-cli
+          ffmpeg;
       };
       guiPrograms = attrValues {
         inherit (pkgs)
@@ -105,7 +106,7 @@ in
         padding-left = 1;
         padding-right = 1;
 
-        module-margin = 4;
+        module-margin = 2;
 
         separator = "";
 
@@ -153,7 +154,7 @@ in
 
       "module/dateandtime" = {
         type = "custom/script";
-        exec = "date +'%F (%a) %T %Z'";
+        exec = "date +'%F (%a) %H:%M %Z'";
         interval = 1;
       };
 
