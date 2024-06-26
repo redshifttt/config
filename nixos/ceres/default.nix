@@ -35,13 +35,7 @@
 
   security = {
     rtkit.enable = true; # For pipewire usually
-    sudo.enable = false;
-    doas = {
-      enable = true;
-      extraRules = [
-        { groups = [ "wheel" ]; persist = true; }
-      ];
-    };
+    sudo.enable = true;
   };
 
   programs = {
@@ -89,9 +83,7 @@
     openssh.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    git # Needed for doas to be able to use git via root when using nixos-rebuild
-  ];
+  environment.systemPackages = with pkgs; [ git ];
 
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "23.05";

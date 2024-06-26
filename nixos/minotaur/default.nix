@@ -40,16 +40,8 @@
     useXkbConfig = true;
   };
 
-  security = {
-    rtkit.enable = true; # For pipewire usually
-    sudo.enable = false;
-    doas = {
-      enable = true;
-      extraRules = [
-        { groups = [ "wheel" ]; persist = true; }
-      ];
-    };
-  };
+  security.rtkit.enable = true; # For pipewire usually
+  security.sudo.enable = true; # For pipewire usually
 
   programs = {
     mtr.enable = true;
@@ -66,7 +58,7 @@
   virtualisation.libvirtd.enable = true;
 
   nix = {
-    package = pkgs.nixVersions.latest;
+    # package = pkgs.nixVersions.latest;
     settings = {
       trusted-users = [ "root" "@wheel" ];
       auto-optimise-store = true;
