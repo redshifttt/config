@@ -11,8 +11,8 @@ require("plugins.notify")
 
 require('nvim-highlight-colors').setup()
 require('gitsigns').setup()
-
 require("noice").setup()
+require("nvim-surround").setup()
 
 vim.loader.enable()
 
