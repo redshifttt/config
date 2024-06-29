@@ -1,14 +1,10 @@
 require('mini.indentscope').setup({
     draw = { delay = 5 },
-    options = {
-        try_as_border = true
-    },
-    symbol = "│"
+    options = { try_as_border = true },
+    symbol = "┃"
 })
 
--- require('mini.ai').setup()
 require('mini.splitjoin').setup()
-require('mini.align').setup()
 require('mini.pairs').setup()
 require('mini.cursorword').setup()
 
