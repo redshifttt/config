@@ -2,19 +2,17 @@
 
 let
   home = config.home.homeDirectory;
+  miscDir = "${home}/files/misc";
 in
 {
-  # A tidy home is a happy mind -- something like that.
-  xdg.userDirs = rec {
+  xdg.userDirs = {
     enable = true;
 
     createDirectories = true;
-    extraConfig = {
-      XDG_MISC_DIR = "${home}/files/misc";
-    };
-    publicShare = extraConfig.XDG_MISC_DIR;
-    templates = extraConfig.XDG_MISC_DIR;
-    desktop = extraConfig.XDG_MISC_DIR;
+    extraConfig.XDG_MISC_DIR = miscDir;
+    publicShare = miscDir;
+    templates = miscDir;
+    desktop = miscDir;
 
     documents = "${home}/files/docs";
     download = "${home}/files/download";
