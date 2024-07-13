@@ -47,7 +47,6 @@ in
           unzip
           nvd
           wget
-          nix-search-cli
           ffmpeg;
       };
       guiPrograms = attrValues {
@@ -63,7 +62,8 @@ in
           libqalculate
           bitwarden
           gparted
-          librewolf;
+          librewolf
+          mullvad-vpn;
       };
       fontPackages = attrValues {
         inherit (pkgs)
