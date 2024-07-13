@@ -1,5 +1,9 @@
 #!/bin/sh
 
+diffsystem(){
+    nvd diff /run/booted-system /run/current-system
+}
+
 hmswitch(){
     home-manager switch --flake .
 }
@@ -11,12 +15,12 @@ nixrebuild(){
 fullswitch(){
     hmswitch
     nixrebuild
+    diffsystem
 }
 
 update(){
     nix flake update --commit-lock-file
     fullswitch
-    nvd diff /run/booted-system /run/current-system
 }
 
 case "$1" in
