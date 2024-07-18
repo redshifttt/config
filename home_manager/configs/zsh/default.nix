@@ -33,7 +33,6 @@
       bindkey -r "^F"
       bindkey -s '^F' "fcd"
 
-      ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#111111,bold,underline,bg=#000000"
       FZF_DEFAULT_OPTS="--height=20 --layout=reverse"
 
       # Saner defaults
