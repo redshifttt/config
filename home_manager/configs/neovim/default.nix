@@ -54,6 +54,8 @@ in
       nvim-highlight-colors
       noice-nvim
       nui-nvim
+      friendly-snippets
+      lspkind-nvim
 
       (buildVimPlugin {
         pname = "vim-moonfly-colors";

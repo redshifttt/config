@@ -7,6 +7,7 @@ require('mini.indentscope').setup({
 require('mini.splitjoin').setup()
 require('mini.pairs').setup()
 require('mini.cursorword').setup()
+-- require('mini.icons').setup()
 
 -- TODO: set background colour to existing HL group
 -- vim.api.nvim_set_hl(0, "MiniHipatternsFixme", { reverse = true })
