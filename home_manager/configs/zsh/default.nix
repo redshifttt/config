@@ -69,7 +69,7 @@
       ytmp3 = "yt-dlp -x --extract-audio --audio-format mp3";
 
       # HACK: Call on script. Hacky but seems to work.
-      # fts = "${customPackage.local-scripts.fts}/bin/fts.py";
+      fts = "${customPackage.local-scripts.fts}/bin/fts";
     };
   };
 }
