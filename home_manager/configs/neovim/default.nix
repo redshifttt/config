@@ -56,6 +56,7 @@ in
       nui-nvim
       friendly-snippets
       lspkind-nvim
+      nvim-web-devicons
 
       (buildVimPlugin {
         pname = "vim-moonfly-colors";
@@ -64,7 +65,7 @@ in
           owner = "bluz71";
           repo = "vim-moonfly-colors";
           rev = "master";
-          hash = "sha256-x7Vqfcnf01PMxHG566RfvQ8Q8CekT0bnPpVUh9ndd5Y=";
+          hash = "sha256-F2U8QgkMoUyQVifUFKmAO1TT8chAIh0GWkHgCsSqU4A=";
         };
       })
 
