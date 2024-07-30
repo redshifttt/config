@@ -1,6 +1,6 @@
-{ pkgs }:
+{ pkgs, lib, stdenv }:
 let
-  inherit (pkgs) writeShellApplication;
+  inherit (pkgs) writeShellApplication writeTextFile;
 in
 {
   scrot = writeShellApplication {
@@ -13,28 +13,17 @@ in
     text = builtins.readFile ./scrot;
   };
 
-  fcd = writeShellApplication {
-    name = "fcd"; # fzf cd
-
-    runtimeInputs = [ pkgs.bfs pkgs.fzf ];
-
-    text = ''
-      cd "$(bfs $HOME -type d -nocolor 2>/dev/null | fzf --height=40% --reverse)"
-    '';
-  };
-
-  fts = writeShellApplication {
+  fts = writeTextFile {
     name = "fts"; # FileTypeS
-
-    runtimeInputs = [
-      pkgs.python311
-      pkgs.python311Packages.prettytable
-    ];
-
     text = ''
-      #!${pkgs.python311}/bin/python
+      #!/usr/bin/env nix-shell
+      #!nix-shell -i python -p "python311.withPackages (ps: [ ps.prettytable ])"
+      #!nix-shell -I nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixpkgs/
 
       ${builtins.readFile ./fts.py}
     '';
+
+    destination = "/bin/fts";
+    executable = true;
   };
 }
