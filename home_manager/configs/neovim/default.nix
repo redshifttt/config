@@ -18,7 +18,7 @@ in
     withNodeJs = false;
 
     plugins = attrValues {
-      inherit (pkgs)
+      inherit (pkgs.vimPlugins)
       nvim-cmp
       cmp-nvim-lua
       cmp-nvim-lsp
@@ -49,7 +49,7 @@ in
       nvim-web-devicons
       ;
 
-      treesitter = pkgs.nvim-treesitter.withPlugins (p: with p; [
+      treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: with p; [
         tree-sitter-lua
         tree-sitter-python
         tree-sitter-bash
