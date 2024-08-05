@@ -5,6 +5,8 @@ let
   inherit (pkgs) fetchFromGitHub;
 
   inherit (builtins) attrValues;
+
+  inherit (pkgs.vimPlugins) nvim-treesitter;
 in
 {
   programs.neovim = {
@@ -49,7 +51,7 @@ in
       nvim-web-devicons
       ;
 
-      treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: with p; [
+      treesitter = nvim-treesitter.withPlugins (p: with p; [
         tree-sitter-lua
         tree-sitter-python
         tree-sitter-bash
