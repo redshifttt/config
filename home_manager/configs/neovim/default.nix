@@ -3,6 +3,8 @@
 let
   inherit (pkgs.vimUtils) buildVimPlugin;
   inherit (pkgs) fetchFromGitHub;
+
+  inherit (builtins) attrValues;
 in
 {
   programs.neovim = {
@@ -15,7 +17,8 @@ in
     withPython3 = false;
     withNodeJs = false;
 
-    plugins = with pkgs.vimPlugins; [
+    plugins = attrValues {
+      inherit (pkgs)
       nvim-cmp
       cmp-nvim-lua
       cmp-nvim-lsp
@@ -29,19 +32,6 @@ in
       nvim-lspconfig
       fidget-nvim
       lsp-zero-nvim
-
-      (nvim-treesitter.withPlugins (p: with p; [
-        tree-sitter-lua
-        tree-sitter-python
-        tree-sitter-bash
-        tree-sitter-vim
-        tree-sitter-vimdoc
-        tree-sitter-css
-        tree-sitter-html
-        tree-sitter-nix
-        tree-sitter-markdown
-        tree-sitter-go
-      ]))
 
       mini-nvim
       nvim-notify
@@ -57,8 +47,22 @@ in
       friendly-snippets
       lspkind-nvim
       nvim-web-devicons
+      ;
 
-      (buildVimPlugin {
+      treesitter = pkgs.nvim-treesitter.withPlugins (p: with p; [
+        tree-sitter-lua
+        tree-sitter-python
+        tree-sitter-bash
+        tree-sitter-vim
+        tree-sitter-vimdoc
+        tree-sitter-css
+        tree-sitter-html
+        tree-sitter-nix
+        tree-sitter-markdown
+        tree-sitter-go
+      ]);
+
+      vim-moonfly-colors = buildVimPlugin {
         pname = "vim-moonfly-colors";
         version = "master";
         src = fetchFromGitHub {
@@ -67,14 +71,14 @@ in
           rev = "master";
           hash = "sha256-F2U8QgkMoUyQVifUFKmAO1TT8chAIh0GWkHgCsSqU4A=";
         };
-      })
+      };
 
-      (buildVimPlugin {
+      config = buildVimPlugin {
         pname = "nvim-config";
         version = "#";
         src = ./.;
-      })
-    ];
+      };
+    };
 
     extraPackages = with pkgs; [
       lua-language-server
