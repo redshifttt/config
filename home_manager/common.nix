@@ -68,10 +68,10 @@ in
       fontPackages = attrValues {
         inherit (pkgs)
           cantarell-fonts
+          public-sans
           liberation_ttf
           terminus_font
-          dejavu_fonts
-          open-sans;
+          dejavu_fonts;
       };
       customPackages = attrValues {
         inherit (inputs.self.packages.x86_64-linux)
@@ -110,8 +110,8 @@ in
 
         separator = "";
 
-        font-0 = "Cantarell:size=12.0;2";
-        font-1 = "Cantarell:weight=bold:size=12.0;2";
+        font-0 = "Public Sans:size=12.0;2";
+        font-1 = "Public Sans:weight=bold:size=12.0;2";
 
         modules-left = "xworkspaces";
         modules-center = "dateandtime";
@@ -132,7 +132,7 @@ in
 
         label-active = "%name%";
         label-active-font = 2;
-        label-active-background = "#111111";
+        label-active-background = "#000000";
         label-active-foreground = "#eeeeee";
         label-active-padding = 2;
         label-active-margin-right = 4;
@@ -154,7 +154,7 @@ in
 
       "module/dateandtime" = {
         type = "custom/script";
-        exec = "date +'%F (%a) %H:%M %Z'";
+        exec = "date +'%F (%A) %H:%M'";
         interval = 1;
       };
 
