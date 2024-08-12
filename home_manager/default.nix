@@ -1,7 +1,7 @@
-{ inputs, pkgs, home-manager, ... }:
+{ inputs, pkgs }:
 let
   buildHomeManagerConfig = { modules ? [ ] }:
-    home-manager.lib.homeManagerConfiguration {
+    inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       inherit modules;
       extraSpecialArgs = { inherit inputs; };
