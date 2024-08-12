@@ -57,7 +57,7 @@
     shellAliases = {
       grep = "grep --color=auto";
       lsblk = "lsblk -o \"NAME,FSTYPE,FSAVAIL,FSUSE%,SIZE,TYPE,MOUNTPOINT\" -p";
-      ls = "lsd -lhF --group-dirs first --date relative --icon never";
+      ls = "lsd -lhF --group-dirs first --date relative";
       cat = "bat --pager=never";
       mkdir = "mkdir -pv";
       cp = "cp -iv";
