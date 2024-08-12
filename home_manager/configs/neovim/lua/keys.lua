@@ -18,6 +18,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.keymap.set("n", "<leader>gs", "<cmd>Git<cr>")
+vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<cr>")
 
 vim.keymap.set("n", "<esc>", "<cmd>nohl<cr>")
 
