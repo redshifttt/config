@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, ... }:
+{ inputs, pkgs, ... }:
 {
   programs.zsh = let
     customPackage = inputs.self.packages.${pkgs.system};
@@ -20,8 +20,10 @@
       }
     ];
 
+    # https://unix.stackexchange.com/a/71258
+
     initExtra = ''
-      PS1="%B%F{#ffffff}%n%f%b@%F{magenta}%m%f %B%F{blue}%c%f%b %# "
+      export PS1="%B%F{#ffffff}%n%f%b@%F{magenta}%m%f %B%F{blue}%c%f%b %# "
 
       bindkey "^[[A" up-line-or-search
       bindkey "^[[B" down-line-or-search
@@ -33,10 +35,10 @@
       bindkey -r "^F"
       bindkey -s '^F' "fcd"
 
-      FZF_DEFAULT_OPTS="--height=20 --layout=reverse"
+      export FZF_DEFAULT_OPTS="--height=20 --layout=reverse"
 
       # Saner defaults
-      BEMENU_OPTS='--fn "Liberation Mono 12" --hb "#005577" --hf "#eeeeee" --tb "#005577" --tf "#eeeeee" --hp 10'
+      export BEMENU_OPTS='--fn "Liberation Mono 12" --hb "#005577" --hf "#eeeeee" --tb "#005577" --tf "#eeeeee" --hp 10'
 
       function fcd() {
         cd "$(bfs "$HOME" -type d -nocolor 2>/dev/null | fzf --height=40% --reverse)"
@@ -61,12 +63,6 @@
       cp = "cp -iv";
       mv = "mv -iv";
       rm = "rm -Iv";
-
-      soda = "ssh -p 52222 num@soda.privatevoid.net";
-      ncdu = "ncdu --color off";
-      ytdl = "yt-dlp";
-      ytba = "yt-dlp -f bestaudio";
-      ytmp3 = "yt-dlp -x --extract-audio --audio-format mp3";
 
       # HACK: Call on script. Hacky but seems to work.
       fts = "${customPackage.local-scripts.fts}/bin/fts";
