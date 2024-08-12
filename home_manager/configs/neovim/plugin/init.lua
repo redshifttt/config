@@ -11,7 +11,13 @@ require("plugins.notify")
 
 require('nvim-highlight-colors').setup()
 require('gitsigns').setup()
-require("noice").setup()
+require("noice").setup({
+    cmdline = {
+        format = {
+            lua = false
+        }
+    }
+})
 require("nvim-surround").setup()
 
 vim.loader.enable()
