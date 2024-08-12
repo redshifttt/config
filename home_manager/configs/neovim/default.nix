@@ -49,6 +49,7 @@ in
       friendly-snippets
       lspkind-nvim
       nvim-web-devicons
+      undotree
       ;
 
       treesitter = nvim-treesitter.withPlugins (p: with p; [
