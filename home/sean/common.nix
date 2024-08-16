@@ -7,29 +7,11 @@ let
   homeDirectory = "/home/${username}";
 in
 {
-  imports = [
-    ./configs/neovim
-    ./configs/i3
-    ./configs/zsh
-    ./configs/alacritty
-    ./configs/xdg
-    ./configs/gtk
-    ./configs/zathura
-    ./configs/mpv
-    ./configs/picom
-    ./configs/dunst
-    ./configs/git
-    ./configs/newsboat
-    ./configs/x11
-    ./configs/mpd
-    ./configs/tmux
-    ./configs/feh
-  ];
-
   home = {
     inherit username homeDirectory;
     stateVersion = "23.11";
 
+    # TODO: break all of this up into modules
     packages = let
       cliPrograms = attrValues {
         inherit (pkgs)
@@ -37,7 +19,6 @@ in
           lsd
           ripgrep
           bfs
-          nil
           htop
           yt-dlp
           pet
@@ -48,6 +29,7 @@ in
           nvd
           wget
           ffmpeg;
+        inherit (inputs.nil.packages.x86_64-linux) nil;
       };
       guiPrograms = attrValues {
         inherit (pkgs)
@@ -56,12 +38,8 @@ in
           audacity
           pavucontrol
           thunderbird
-          # mangohud
           prismlauncher
           spotify
-          libqalculate
-          bitwarden
-          gparted
           librewolf
           mullvad-vpn;
       };
@@ -74,8 +52,7 @@ in
           dejavu_fonts;
       };
       customPackages = attrValues {
-        inherit (inputs.self.packages.x86_64-linux)
-          fantasque-sans-mono;
+        inherit (inputs.self.packages.x86_64-linux) fantasque-sans-mono;
       };
     in []
       ++ cliPrograms

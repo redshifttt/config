@@ -21,10 +21,43 @@
   let
     pkgs = nixpkgs.legacyPackages.${system};
     system = "x86_64-linux";
-  in {
-    nixosConfigurations = import ./nixos { inherit inputs system; };
-    homeConfigurations = import ./home_manager { inherit inputs pkgs; };
+  in
+    {
+      nixosConfigurations = {
+        minotaur = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/minotaur
+            inputs.nixos-hardware.nixosModules.common-cpu-amd
+            inputs.nixos-hardware.nixosModules.common-gpu-amd
+          ];
+          specialArgs = { inherit inputs; };
+        };
 
-    packages.${system} = import ./packages { inherit pkgs; };
+        ceres = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/ceres
+            inputs.nixos-hardware.nixosModules.common-cpu-amd
+            inputs.nixos-hardware.nixosModules.common-gpu-amd
+          ];
+          specialArgs = { inherit inputs; };
+        };
+      };
+
+      homeConfigurations = {
+        "sean@minotaur" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./home/sean/minotaur.nix ./home/sean/profiles/cli ./home/sean/profiles/gui ./home/sean/profiles/xdg ];
+          extraSpecialArgs = { inherit inputs; };
+        };
+        "sean@ceres" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./home/sean/ceres.nix ./home/sean/profiles/cli ./home/sean/profiles/gui ./home/sean/profiles/xdg ];
+          extraSpecialArgs = { inherit inputs; };
+        };
+      };
+
+      packages.${system} = import ./packages { inherit pkgs; };
   };
 }
