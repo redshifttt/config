@@ -35,8 +35,6 @@
       bindkey -r "^F"
       bindkey -s '^F' "fcd"
 
-      export FZF_DEFAULT_OPTS="--height=20 --layout=reverse"
-
       # Saner defaults
       export BEMENU_OPTS='--fn "Liberation Mono 12" --hb "#005577" --hf "#eeeeee" --tb "#005577" --tf "#eeeeee" --hp 10'
 

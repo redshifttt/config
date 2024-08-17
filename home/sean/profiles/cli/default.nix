@@ -4,6 +4,7 @@
     ./neovim
 
     ./feh.nix
+    ./fzf.nix
     ./git.nix
     ./mpd.nix
     ./mpv.nix

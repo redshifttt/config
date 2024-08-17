@@ -14,10 +14,6 @@
     nix-direnv.enable = true;
   };
 
-  programs.fzf = {
-    enable = true;
-  };
-
   # ceres overrides of programs/*
   programs.alacritty = {
     settings.font.size = lib.mkForce 10;

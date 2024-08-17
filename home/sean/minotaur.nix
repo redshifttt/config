@@ -14,7 +14,5 @@
     nix-direnv.enable = true;
   };
 
-  programs.fzf.enable = true;
-
   programs.firefox.enable = true;
 }
