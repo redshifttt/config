@@ -4,9 +4,13 @@
 
   imports = [
     ./common.nix
-  ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "spotify" ];
+    ./modules/cli
+    ./modules/gui
+    ./modules/fonts.nix
+    ./modules/vpn.nix
+    ./modules/xdg.nix
+  ];
 
   programs.direnv = {
     enable = true;

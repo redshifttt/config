@@ -55,7 +55,7 @@
     shellAliases = {
       grep = "grep --color=auto";
       lsblk = "lsblk -o \"NAME,FSTYPE,FSAVAIL,FSUSE%,SIZE,TYPE,MOUNTPOINT\" -p";
-      ls = "lsd -lhF --group-dirs first --date relative";
+      ls = "lsd -lh"; # apparently these 2 options cannot be added to the config file
       cat = "bat --pager=never";
       mkdir = "mkdir -pv";
       cp = "cp -iv";

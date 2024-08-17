@@ -5,7 +5,6 @@
     xserver = {
       enable = true;
       xkb.layout = "gb";
-      displayManager.defaultSession = "none+i3";
       desktopManager.xterm.enable = false;
       windowManager.i3 = {
         enable = true;
@@ -16,11 +15,11 @@
           picom
           networkmanagerapplet
           xwallpaper
-          volctl
         ];
       };
       videoDrivers = [ "amdgpu" ];
     };
+    displayManager.defaultSession = "none+i3";
 
     pipewire = {
       enable = true;

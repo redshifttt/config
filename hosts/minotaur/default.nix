@@ -4,7 +4,7 @@
     ./hardware.nix
     ./services.nix
     ./../common.nix
-    ./../../users/sean
+    ./../../home/sean/user.nix
   ];
 
   boot = {

@@ -3,7 +3,7 @@
 {
   imports = [
     ./hardware.nix
-    ./../../users/sean
+    ./../../home/sean/user.nix
   ];
 
   boot = {
@@ -54,7 +54,6 @@
     xserver = {
       enable = true;
       layout = "gb";
-      displayManager.defaultSession = "none+i3";
       desktopManager.xterm.enable = false;
       windowManager.i3 = {
         enable = true;
@@ -68,6 +67,7 @@
       };
       videoDrivers = [ "amdgpu" ];
     };
+    displayManager.defaultSession = "none+i3";
 
     pipewire = {
       enable = true;

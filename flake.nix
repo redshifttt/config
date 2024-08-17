@@ -13,23 +13,26 @@
       url = "github:oxalica/nil";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, ... } @ inputs:
-  let
-    pkgs = nixpkgs.legacyPackages.${system};
-    system = "x86_64-linux";
-  in
+    let
+      pkgs = nixpkgs.legacyPackages.${system};
+      system = "x86_64-linux";
+    in
     {
       nixosConfigurations = {
         minotaur = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             ./hosts/minotaur
-            inputs.nixos-hardware.nixosModules.common-cpu-amd
-            inputs.nixos-hardware.nixosModules.common-gpu-amd
+
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.sean = import ./home/sean/minotaur.nix;
+            }
           ];
           specialArgs = { inherit inputs; };
         };
@@ -38,26 +41,18 @@
           inherit system;
           modules = [
             ./hosts/ceres
-            inputs.nixos-hardware.nixosModules.common-cpu-amd
-            inputs.nixos-hardware.nixosModules.common-gpu-amd
+
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.sean = import ./home/sean/ceres.nix;
+            }
           ];
           specialArgs = { inherit inputs; };
         };
       };
 
-      homeConfigurations = {
-        "sean@minotaur" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./home/sean/minotaur.nix ./home/sean/profiles/cli ./home/sean/profiles/gui ./home/sean/profiles/xdg ];
-          extraSpecialArgs = { inherit inputs; };
-        };
-        "sean@ceres" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./home/sean/ceres.nix ./home/sean/profiles/cli ./home/sean/profiles/gui ./home/sean/profiles/xdg ];
-          extraSpecialArgs = { inherit inputs; };
-        };
-      };
-
       packages.${system} = import ./packages { inherit pkgs; };
-  };
+    };
 }
