@@ -2,21 +2,14 @@
 
 # Literally the best name for the function
 st_nd_rd_th(){
-    day=$(date +"%-d")
-    end_of_day=$(echo "${day}" | grep -o "[0-9]$")
-
-    case "$end_of_day" in
-        1) echo "st" ;;
-        2) echo "nd" ;;
-        3) echo "rd" ;;
-        *) echo "th" ;;
-    esac
-
     case "$day" in
-        11) echo "th" ;;
-        12) echo "th" ;;
-        13) echo "th" ;;
+        1|[2-3]1) echo "st" ;;
+        2|22) echo "nd" ;;
+        3|23) echo "rd" ;;
+        *) echo "th" ;;
     esac
 }
 
-date +"%d$(st_nd_rd_th) %b %Y (%A) %H:%M"
+day=$(date +"%-d")
+
+date +"$i$(st_nd_rd_th) %b %Y (%A) %H:%M"
