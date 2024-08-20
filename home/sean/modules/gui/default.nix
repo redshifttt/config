@@ -5,7 +5,7 @@
     ./dunst.nix
     ./gtk.nix
     ./picom.nix
-    ./polybar.nix
+    ./polybar
     ./x11.nix
     ./zathura.nix
   ];

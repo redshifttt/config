@@ -8,8 +8,6 @@ let
   workspace4 = "4";
   workspace5 = "5";
 in {
-  imports = [ ./i3blocks.nix ];
-
   xsession.windowManager.i3 = {
     enable = true;
 

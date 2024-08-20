@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   services.polybar = {
     enable = true;
@@ -27,8 +28,8 @@
 
         separator = "";
 
-        font-0 = "Public Sans:size=12.0;2";
-        font-1 = "Public Sans:weight=bold:size=12.0;2";
+        font-0 = "Rubik:size=12.0;2";
+        font-1 = "Rubik:weight=bold:size=12.0;2";
 
         modules-left = "xworkspaces";
         modules-center = "dateandtime";
@@ -71,7 +72,7 @@
 
       "module/dateandtime" = {
         type = "custom/script";
-        exec = "date +'%F (%A) %H:%M'";
+        exec = builtins.toString ./dateandtime;
         interval = 1;
       };
 
@@ -96,4 +97,6 @@
       polybar main &
     '';
   };
+
+  home.packages = [ pkgs.rubik ];
 }
