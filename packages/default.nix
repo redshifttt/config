@@ -4,6 +4,8 @@
 
   local-scripts = pkgs.callPackage ./local-scripts {};
 
+  fts = pkgs.callPackage ./go-fts {};
+
   fantasque-sans-mono = pkgs.fantasque-sans-mono.overrideAttrs (final: prev: {
     pname = prev.pname + "-ss01";
     src = pkgs.fetchzip {

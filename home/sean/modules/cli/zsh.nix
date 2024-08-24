@@ -63,7 +63,7 @@
       rm = "rm -Iv";
 
       # HACK: Call on script. Hacky but seems to work.
-      fts = "${customPackage.local-scripts.fts}/bin/fts";
+      fts = "${customPackage.fts}/bin/fts";
     };
   };
 }
