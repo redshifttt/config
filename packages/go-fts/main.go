@@ -75,14 +75,6 @@ func main() {
 
         fileSize := fileInfo.Size()
 
-        if len(fileTypes) == 0 {
-            fileTypes = append(fileTypes, FileType{
-                Extension:  foundFileType,
-                Count:      1,
-                BytesCount: fileSize,
-            })
-        }
-
         isFound := false
         for n, v := range fileTypes {
             if foundFileType == v.Extension {
