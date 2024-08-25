@@ -6,7 +6,7 @@
 
     ./modules/cli
     ./modules/gui
-    ./modules/audio.nix
+    ./modules/audio
     ./modules/fonts.nix
     ./modules/gaming.nix
     ./modules/browsers.nix
