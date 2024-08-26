@@ -13,16 +13,18 @@
 
       "bar/main" = {
         width = "100%";
-        height = "24";
+        height = "32";
         radius = 0;
 
         inherit background foreground;
 
-        border-size = "5px";
-        border-color = background;
+        border-bottom-size = "1px";
+        border-bottom-color = "#aaaaaa";
 
-        padding-left = 1;
-        padding-right = 1;
+        # padding-left = 1;
+        # padding-right = 1;
+
+        padding = 2;
 
         module-margin = 2;
 
