@@ -11,10 +11,6 @@ in {
   xsession.windowManager.i3 = {
     enable = true;
 
-    extraConfig = ''
-      for_window [class="[Qq]alculate-gtk"] floating enable
-    '';
-
     config = {
       modifier = modifierKey;
       defaultWorkspace = "workspace \"${workspace1}\"";
@@ -37,12 +33,20 @@ in {
         size = 11.0;
       };
 
+      gaps = {
+        left = 10;
+        right = 10;
+        top = 4;
+        bottom = 4;
+        inner = 4;
+      };
+
       keybindings = {
         # "XF86AudioMute" = "";
         # "XF86AudioRaiseVolume" = "";
         # "XF86AudioLowerVolume" = "";
 
-        "${modifierKey}+r" = "exec --no-startup-id \"${pkgs.i3}/bin/i3-msg restart\"";
+        "${modifierKey}+r" = "exec --no-startup-id \"${pkgs.i3}/bin/i3-msg restart && ${pkgs.polybar}/bin/polybar-msg cmd restart\"";
         "${modifierKey}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
         "${modifierKey}+w" = "kill";
         "${modifierKey}+d" = "exec --no-startup-id \"${pkgs.bemenu}/bin/bemenu-run -c -W 0.2 -l20 -s -C -T -i -B 2 -M 20 --counter always -p 'open' --cw 1 --fn 'Liberation Mono 11'\"";
@@ -82,7 +86,6 @@ in {
             names = ["Cantarell Bold"];
             size = 12.0;
           };
-          # statusCommand = "";
           command = "${pkgs.polybar}/bin/polybar";
           position = "top";
           workspaceButtons = true;
@@ -93,8 +96,7 @@ in {
       startup = [
         { command = "${pkgs.networkmanagerapplet}/bin/nm-applet"; }
         { command = "${pkgs.dunst}/bin/dunst"; }
-        { command = "${pkgs.volctl}/bin/volctl"; }
-        { command = "${pkgs.xwallpaper}/bin/xwallpaper --zoom ./painting1.jpg"; }
+        { command = "${pkgs.xwallpaper}/bin/xwallpaper --zoom " + ./painting1.jpg; }
       ];
     };
   };
