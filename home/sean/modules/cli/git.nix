@@ -23,14 +23,7 @@
           insteadOf = "otherhost";
         };
       };
-    };
-    aliases = {
-      st = "status";
-      l = "log";
-      ll = "log --oneline";
-      ps = "push";
-      pl = "pull";
-      c = "commit";
+      init.defaultBranch = "master"; # shut the fuck up
     };
   };
 }

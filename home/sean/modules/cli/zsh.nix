@@ -1,7 +1,8 @@
 { inputs, pkgs, ... }:
 {
   programs.zsh = let
-    customPackage = inputs.self.packages.${pkgs.system};
+    LS_COLORS = inputs.self.packages.x86_64-linux.LS_COLORS;
+    fts = inputs.self.packages.x86_64-linux.fts;
   in {
     enable = true;
 
@@ -42,11 +43,11 @@
         cd "$(bfs "$HOME" -type d -nocolor 2>/dev/null | fzf --height=40% --reverse)"
       }
 
-      source ${customPackage.LS_COLORS}/share/lscolors.sh
+      source ${LS_COLORS}/share/lscolors.sh
       '';
 
     sessionVariables = {
-      BROWSER = "firefox";
+      BROWSER = "librewolf";
       TERMINAL = "alacritty";
       MANPAGER = "nvim +Man!";
       MANWIDTH = 80;
@@ -56,14 +57,20 @@
       grep = "grep --color=auto";
       lsblk = "lsblk -o \"NAME,FSTYPE,FSAVAIL,FSUSE%,SIZE,TYPE,MOUNTPOINT\" -p";
       ls = "lsd -lh"; # apparently these 2 options cannot be added to the config file
-      cat = "bat --pager=never";
+      cat = "bat --pager=never --style \"header,numbers\"";
       mkdir = "mkdir -pv";
       cp = "cp -iv";
       mv = "mv -iv";
       rm = "rm -Iv";
 
-      # HACK: Call on script. Hacky but seems to work.
-      fts = "${customPackage.fts}/bin/fts";
+      # don't like using git's own alias system
+      gs = "git status";
+      gp = "git push";
+      gP = "git pull";
+      gl = "git log";
+      gc = "git commit";
+
+      fts = "${fts}/bin/fts";
     };
   };
 }
