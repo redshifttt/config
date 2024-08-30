@@ -17,7 +17,6 @@ let
     wget
     ffmpeg
     thunderbird;
-    inherit (inputs.nil.packages.x86_64-linux) nil;
   };
 in
 {

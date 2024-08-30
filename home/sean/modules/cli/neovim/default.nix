@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 let
   inherit (pkgs.vimUtils) buildVimPlugin;
@@ -83,10 +83,10 @@ in
       };
     };
 
-    extraPackages = with pkgs; [
-      lua-language-server
-      python311Packages.python-lsp-server
-      gopls
-    ];
+    extraPackages = attrValues {
+      inherit (pkgs) lua-language-server gopls;
+      inherit (pkgs.python311Packages) python-lsp-server;
+      inherit (inputs.nil.packages.x86_64-linux) nil;
+    };
   };
 }
