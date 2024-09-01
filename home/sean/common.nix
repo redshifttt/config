@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 let
   inherit (builtins) attrValues;
@@ -13,10 +13,14 @@ let
     jq
     file
     unzip
-    nvd
     wget
     ffmpeg
-    thunderbird;
+    thunderbird
+    transmission_3-gtk
+    mediainfo
+    fastfetch
+    tokei;
+    inherit (pkgs.xorg) xkill;
   };
 in
 {
