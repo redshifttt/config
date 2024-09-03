@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, ... }:
 
 let
   modKey = "Mod4";
@@ -55,7 +55,30 @@ in {
         inner = 4;
       };
 
-      keybindings = {
+      keybindings = let
+        inherit (lib) splitString;
+        inherit (builtins) toString;
+
+        # Turn string to list via "\n" then join with spaces using toString
+        toSingleLine = s: toString (splitString "\n" s);
+
+        programLauncher = toSingleLine ''
+          exec --no-startup-id ${pkgs.bemenu}/bin/bemenu-run
+          --center
+          --width-factor 0.2
+          --list 20
+          --no-spacing
+          --no-cursor
+          --no-touch
+          --ignorecase
+          --border 2
+          --margin 20
+          --counter always
+          --prompt 'open'
+          --cw 1
+          --fn 'Liberation Mono 12'
+          '';
+      in {
         # "XF86AudioMute" = "";
         # "XF86AudioRaiseVolume" = "";
         # "XF86AudioLowerVolume" = "";
@@ -63,7 +86,7 @@ in {
         "${modKey}+r" = "exec --no-startup-id \"${pkgs.i3}/bin/i3-msg restart && ${pkgs.polybar}/bin/polybar-msg cmd restart\"";
         "${modKey}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
         "${modKey}+w" = "kill";
-        "${modKey}+d" = "exec --no-startup-id \"${pkgs.bemenu}/bin/bemenu-run -c -W 0.2 -l20 -s -C -T -i -B 2 -M 20 --counter always -p 'open' --cw 1 --fn 'Liberation Mono 11'\"";
+        "${modKey}+d" = programLauncher;
         "${modKey}+s" = "exec --no-startup-id \"${inputs.self.packages.x86_64-linux.local-scripts.scrot}/bin/scrot\"";
         "${modKey}+Delete" = "exec --no-startup-id systemctl suspend";
 

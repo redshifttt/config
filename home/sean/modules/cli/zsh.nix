@@ -36,9 +36,6 @@
       bindkey -r "^F"
       bindkey -s '^F' "fcd"
 
-      # Saner defaults
-      export BEMENU_OPTS='--fn "Liberation Mono 12" --hb "#005577" --hf "#eeeeee" --tb "#005577" --tf "#eeeeee" --hp 10'
-
       function fcd() {
         cd "$(bfs "$HOME" -type d -nocolor 2>/dev/null | fzf --height=40% --reverse)"
       }
