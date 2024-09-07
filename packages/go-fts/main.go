@@ -7,8 +7,6 @@ import (
     "sort"
     "strconv"
     "strings"
-
-    "github.com/rodaine/table"
 )
 
 type FileType struct {
@@ -30,7 +28,7 @@ func humanizeUnits(units int64) string {
         }
     }
 
-    return strconv.FormatInt(int64(units), 10) + " " + siUnits[unitCombo]
+    return fmt.Sprintf("%d %s", units, siUnits[unitCombo])
 }
 
 func main() {
@@ -40,24 +38,23 @@ func main() {
         log.Fatalln("error: ", err)
     }
 
-    entriesCount := len(entries)
-    fmt.Printf("Found %d files", entriesCount)
-
     fileTypes := make([]FileType, 0)
 
-    dirsCount := 0
-    hiddenCount := 0
+    var fileCount int
+    // var dirsCount int
+    // var hiddenCount int
+    var allBytesCount int64
 
     for _, f := range entries {
         if f.IsDir() {
-            dirsCount += 1
+            // dirsCount += 1
             continue
         }
 
         filename := f.Name()
 
         if strings.HasPrefix(filename, ".") {
-            hiddenCount += 1
+            // hiddenCount += 1
             continue
         }
 
@@ -66,6 +63,7 @@ func main() {
             continue
         }
 
+        fileCount += 1
         foundFileType := splitFileName[len(splitFileName)-1]
 
         fileInfo, err := f.Info()
@@ -74,6 +72,7 @@ func main() {
         }
 
         fileSize := fileInfo.Size()
+        allBytesCount += fileSize
 
         isFound := false
         for n, v := range fileTypes {
@@ -97,29 +96,51 @@ func main() {
         return fileTypes[i].Count > fileTypes[j].Count
     })
 
-    totalCount := func(fts []FileType) int {
-        count := 0
+    fmt.Printf("Total: %d", fileCount)
+    fmt.Printf(" (%s)\n", humanizeUnits(allBytesCount))
 
-        for _, v := range fts {
-            count += v.Count
-        }
-        return count
-    }
-
-    fmt.Printf(", of which %d have filetypes\n", totalCount(fileTypes))
-
-    tbl := table.New("File type", "Count", "Total culminative size")
+    tblHeader := []string{"File type", "Count", "Total culminative size"}
+    maxPadding := []int{0, 0, 0}
 
     for _, v := range fileTypes {
-        tbl.AddRow(v.Extension, v.Count, humanizeUnits(v.BytesCount))
+        if len(v.Extension) >= maxPadding[0] {
+            maxPadding[0] = len(v.Extension)
+        }
+        if len(strconv.Itoa(v.Count)) >= maxPadding[1] {
+            maxPadding[1] = len(strconv.Itoa(v.Count))
+        }
     }
 
-    if hiddenCount >= 1 {
-        tbl.AddRow("hidden files", hiddenCount, "---")
+    if maxPadding[0] <= len(tblHeader[0]) {
+        maxPadding[0] = len(tblHeader[0])
     }
-    if dirsCount >= 1 {
-        tbl.AddRow("directories", dirsCount, "---")
+    if maxPadding[1] <= len(tblHeader[1]) {
+        maxPadding[1] = len(tblHeader[1])
     }
 
-    tbl.Print()
+    for _, v := range tblHeader {
+        fmt.Printf("\x1b[1m%s ", v)
+    }
+    fmt.Printf("\x1b[0m\n")
+
+    // I guess this mess works?
+    for _, v := range fileTypes {
+        formattedLine := ""
+        formattedLine += "%-"
+        formattedLine += strconv.Itoa(maxPadding[0])
+        formattedLine += "s"
+
+        formattedLine += " "
+
+        formattedLine += "%-"
+        formattedLine += strconv.Itoa(maxPadding[1])
+        formattedLine += "d"
+
+        formattedLine += " "
+
+        formattedLine += "%s"
+        formattedLine += "\n"
+
+        fmt.Printf(formattedLine, v.Extension, v.Count, humanizeUnits(v.BytesCount))
+    }
 }
