@@ -59,6 +59,8 @@ in {
         inherit (lib) splitString;
         inherit (builtins) toString;
 
+        scrot = inputs.self.packages.x86_64-linux.local-scripts.scrot;
+
         # Turn string to list via "\n" then join with spaces using toString
         toSingleLine = s: toString (splitString "\n" s);
 
@@ -83,11 +85,11 @@ in {
         # "XF86AudioRaiseVolume" = "";
         # "XF86AudioLowerVolume" = "";
 
-        "${modKey}+r" = "exec --no-startup-id \"${pkgs.i3}/bin/i3-msg restart && ${pkgs.polybar}/bin/polybar-msg cmd restart\"";
+        "${modKey}+r" = "exec --no-startup-id ${pkgs.i3}/bin/i3-msg restart && ${pkgs.polybar}/bin/polybar-msg cmd restart";
         "${modKey}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
         "${modKey}+w" = "kill";
         "${modKey}+d" = programLauncher;
-        "${modKey}+s" = "exec --no-startup-id \"${inputs.self.packages.x86_64-linux.local-scripts.scrot}/bin/scrot\"";
+        "${modKey}+s" = "exec --no-startup-id ${scrot}/bin/scrot";
         "${modKey}+Delete" = "exec --no-startup-id systemctl suspend";
 
         "${modKey}+h" = "focus left";
@@ -127,10 +129,10 @@ in {
       ];
 
       startup = [
-        { command = "${pkgs.polybar}/bin/polybar"; }
-        { command = "${pkgs.networkmanagerapplet}/bin/nm-applet"; }
         { command = "${pkgs.dunst}/bin/dunst"; }
         { command = "${pkgs.xwallpaper}/bin/xwallpaper --zoom " + ./painting1.jpg; }
+        { command = "${pkgs.polybar}/bin/polybar"; }
+        { command = "${pkgs.networkmanagerapplet}/bin/nm-applet"; }
       ];
     };
   };
