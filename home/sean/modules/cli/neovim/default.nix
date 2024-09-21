@@ -21,6 +21,7 @@ in
 
     plugins = attrValues {
       inherit (pkgs.vimPlugins)
+      # Completion
       nvim-cmp
       cmp-nvim-lua
       cmp-nvim-lsp
@@ -28,12 +29,16 @@ in
       cmp-path
       cmp-cmdline
 
+      # Snippets
       luasnip
       cmp_luasnip
+      friendly-snippets
 
+      # LSP
       nvim-lspconfig
-      fidget-nvim
       lsp-zero-nvim
+      lspkind-nvim
+      nvim-web-devicons
 
       mini-nvim
       nvim-notify
@@ -46,9 +51,6 @@ in
       nvim-highlight-colors
       noice-nvim
       nui-nvim
-      friendly-snippets
-      lspkind-nvim
-      nvim-web-devicons
       undotree
       ;
 
