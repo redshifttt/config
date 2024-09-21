@@ -26,6 +26,11 @@
     initExtra = ''
       export PS1="%B%F{#ffffff}%n%f%b@%F{magenta}%m%f %B%F{blue}%c%f%b %# "
 
+      export BROWSER=librewolf
+      export TERMINAL=alacritty;
+      export MANPAGER="nvim +Man!"
+      export MANWIDTH=80
+
       bindkey "^[[A" up-line-or-search
       bindkey "^[[B" down-line-or-search
 
@@ -42,13 +47,6 @@
 
       source ${LS_COLORS}/share/lscolors.sh
       '';
-
-    sessionVariables = {
-      BROWSER = "librewolf";
-      TERMINAL = "alacritty";
-      MANPAGER = "nvim +Man!";
-      MANWIDTH = 80;
-    };
 
     shellAliases = {
       grep = "grep --color=auto";

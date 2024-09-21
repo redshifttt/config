@@ -3,7 +3,6 @@
   programs.newsboat = {
     enable = true;
     autoReload = true;
-    browser = config.programs.zsh.sessionVariables.BROWSER;
     reloadThreads = 4; # good measure
     urls = [
       # Blogs and misc feeds
