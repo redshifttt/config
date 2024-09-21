@@ -19,7 +19,8 @@ let
     transmission_3-gtk
     mediainfo
     fastfetch
-    tokei;
+    tokei
+    moar;
     inherit (pkgs.xorg) xkill;
   };
 in
