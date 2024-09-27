@@ -62,7 +62,7 @@
       gs = "git status";
       gp = "git push";
       gP = "git pull";
-      gl = "git log";
+      gl = "git log --relative-date";
       gc = "git commit";
 
       fts = "${fts}/bin/fts";
