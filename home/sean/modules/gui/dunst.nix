@@ -1,7 +1,14 @@
 {
   services.dunst = {
     enable = true;
-    settings = rec {
+    settings = let
+      urgency_low = {
+        background = "#000000";
+        foreground = "#ffffff";
+        frame_color = "#111111";
+        timeout = 5;
+      };
+    in {
       global = {
         width = "(0, 500)";
         height = 800;
@@ -13,11 +20,11 @@
         corner_radius = 2;
         min_icon_size = 64;
 
-        font = "Cantarell 12";
+        font = "Rubik 12";
         markup = "full";
         line_height = 4;
         ellipsize = "end";
-        format = "<span fgcolor='#666'><b>%s</b></span>\\n%b";
+        format = "<span fgcolor='#aaa'><b>%s</b></span>\\n%b";
 
         hide_duplicate_count = true;
         show_indicators = "no";
@@ -26,17 +33,14 @@
         mouse_middle_click = "close_current";
         mouse_right_click = "context";
       };
-      urgency_low = {
-        background = "#000000";
-        foreground = "#ffffff";
-        frame_color = "#444444";
-        timeout = 5;
-      };
+
+      inherit urgency_low;
       urgency_normal = urgency_low;
-      urgency_critical = rec {
+
+      urgency_critical = {
         background = "#ff0000";
         foreground = "#ffffff";
-        frame_color = foreground;
+        frame_color = "#ff0000";
         timeout = 0;
       };
     };

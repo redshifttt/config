@@ -2,8 +2,8 @@
   gtk = {
     enable = true;
     font = {
-      name = "Cantarell";
-      size = 11;
+      name = "Noto Sans";
+      size = 10;
     };
     theme.name = "Adwaita-dark";
     cursorTheme.name = "Adwaita";

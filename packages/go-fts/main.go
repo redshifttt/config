@@ -12,6 +12,7 @@ import (
 )
 
 var entries []fs.DirEntry
+var cwd string
 
 type FileType struct {
     Extension  string
@@ -35,7 +36,14 @@ func humanizeUnits(units int64) string {
     return fmt.Sprintf("%d %s", units, siUnits[unitCombo])
 }
 
-func grabFilepathBasename(path string, entry fs.DirEntry, err error) error {
+// TODO: somehow I fixed not collecting files in hidden directories but now it
+// does again?
+func collectEntry(path string, entry fs.DirEntry, err error) error {
+    relativePath := strings.Replace(path, cwd + "/", "", 1)
+    if strings.HasPrefix(relativePath, ".") {
+        return nil
+    }
+
     entries = append(entries, entry)
     return nil
 }
@@ -51,7 +59,7 @@ func main() {
 
     if len(os.Args) > 1 {
         if os.Args[1:][0] == "-r" {
-            err = filepath.WalkDir(cwd, grabFilepathBasename)
+            err = filepath.WalkDir(cwd, collectEntry)
             if err != nil {
                 log.Fatalln("error: ", err)
             }
@@ -66,8 +74,6 @@ func main() {
     fileTypes := make([]FileType, 0)
 
     var fileCount int
-    // var dirsCount int
-    // var hiddenCount int
     var allBytesCount int64
 
     for _, f := range entries {
@@ -128,7 +134,6 @@ func main() {
 
     fmt.Fprintf(w, "%s\t%s\t%s\n", "File type", "Count", "Total culminative size")
 
-    // I guess this mess works?
     for _, v := range fileTypes {
         fmt.Fprintf(w, "%s\t%d\t%s\n", v.Extension, v.Count, humanizeUnits(v.BytesCount))
     }

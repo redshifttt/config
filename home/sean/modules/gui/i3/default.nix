@@ -78,7 +78,7 @@ in {
           --counter always
           --prompt 'open'
           --cw 1
-          --fn 'Liberation Mono 12'
+          --fn 'Liberation Mono 11'
           '';
       in {
         # "XF86AudioMute" = "";

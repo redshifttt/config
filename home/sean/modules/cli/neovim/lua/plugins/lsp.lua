@@ -15,8 +15,8 @@ lspconfig.lua_ls.setup(
 
 lsp_zero.setup_servers({
     'pylsp',
-    'nil_ls',
-    'gopls'
+    'gopls',
+    'nil_ls'
 })
 
 lsp_zero.set_sign_icons({

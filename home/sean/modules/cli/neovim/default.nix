@@ -78,6 +78,17 @@ in
         };
       };
 
+      # kerboscript-vim = buildVimPlugin {
+      #   pname = "kerboscript-vim";
+      #   version = "master";
+      #   src = fetchFromGitHub {
+      #     owner = "KSP-KOS";
+      #     repo = "EditorTools";
+      #     rev = "develop";
+      #     hash = "sha256-F2U8QgkMoUyQVifUFKmAO1TT8chAIh0GWkHgCsSqU4A=";
+      #   };
+      # };
+
       config = buildVimPlugin {
         pname = "nvim-config";
         version = "#";
