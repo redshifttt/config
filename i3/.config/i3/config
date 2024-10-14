@@ -1,20 +1,48 @@
-font pango:Cantarell 11
-
 floating_modifier Mod4
 
-default_border pixel 2
-default_floating_border normal 2
-
-hide_edge_borders none
-
-focus_wrapping yes
 focus_follows_mouse no
-focus_on_window_activation focus
+focus_wrapping force
 
-mouse_warping output
-workspace_layout default
-workspace_auto_back_and_forth no
+default_border pixel 2
+default_floating_border pixel 2
 
+# https://github.com/bluz71/vim-moonfly-colors/blob/4f7d18cb471ede7407dd966c7563868cae7f4f99/lua/moonfly/init.lua#L38
+client.focused #80a0ff #000000 #ffffff #80a0ff #80a0ff 
+
+# You barely, if at all, see this
+font pango:monospace 8
+
+gaps left 10
+gaps right 10
+gaps top 4
+gaps bottom 4
+gaps inner 4
+  
+# "XF86AudioMute" = ""
+# "XF86AudioRaiseVolume" = ""
+# "XF86AudioLowerVolume" = ""
+
+bindsym Mod4+r "exec i3-msg restart && polybar-msg cmd restart"
+bindsym Mod4+Return exec alacritty
+bindsym Mod4+w kill
+bindsym Mod4+d exec bemenu-run --center --width-factor 0.2 --list 20 --no-spacing --ignorecase --border 2 --margin 20 --prompt 'open' --cw 1 --fn 'Liberation Mono 11'
+bindsym Mod4+s exec ~/.local/bin/scrot
+bindsym Mod4+Delete exec systemctl suspend
+
+bindsym Mod4+h focus left
+bindsym Mod4+Shift+h move left
+
+bindsym Mod4+j focus down
+bindsym Mod4+Shift+j move down
+
+bindsym Mod4+k focus up
+bindsym Mod4+Shift+k move up
+
+bindsym Mod4+l focus right
+bindsym Mod4+Shift+l move right
+
+bindsym Mod4+f fullscreen toggle
+bindsym Mod4+space floating toggle
 bindsym Mod4+1 workspace "1"
 bindsym Mod4+2 workspace "2"
 bindsym Mod4+3 workspace "3"
@@ -27,59 +55,9 @@ bindsym Mod4+Shift+3 move container to workspace number "3"; workspace "3"
 bindsym Mod4+Shift+4 move container to workspace number "4"; workspace "4"
 bindsym Mod4+Shift+5 move container to workspace number "5"; workspace "5"
 
-bindsym Mod4+h focus left
-bindsym Mod4+j focus down
-bindsym Mod4+k focus up
-bindsym Mod4+l focus right
-
-bindsym Mod4+Shift+h move left
-bindsym Mod4+Shift+j move down
-bindsym Mod4+Shift+k move up
-bindsym Mod4+Shift+l move right
-
-bindsym Mod4+Delete exec --no-startup-id systemctl suspend
-bindsym Mod4+Return exec alacritty
-bindsym Mod4+d exec --no-startup-id "bemenu-run -c -W 0.2 -l20 -s -C -T -i -B 2 -M 20 --counter always -p 'open' --cw 1 --fn 'Liberation Mono 11'"
-bindsym Mod4+f fullscreen toggle
-bindsym Mod4+r exec --no-startup-id "i3-msg restart"
-bindsym Mod4+s exec --no-startup-id "scrot"
-bindsym Mod4+space floating toggle
-bindsym Mod4+w kill
-
-#class                  border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-client.background       #000000
-
 bar {
-    font pango:Liberation Mono 11
-    position top
-    status_command i3blocks
-    i3bar_command i3bar
-    workspace_buttons yes
-    strip_workspace_numbers no
-    separator_symbol " "
-
-    bindsym button1 nop
-    bindsym button4 nop
-    bindsym button5 nop
-
-    colors {
-        background #000000
-        statusline #cccccc
-        separator #666666
-
-        focused_workspace  #4c7899 #285577 #ffffff
-        active_workspace   #333333 #5f676a #ffffff
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   #2f343a #900000 #ffffff
-        binding_mode       #2f343a #900000 #ffffff
-    }
+	i3bar_command polybar
+	position top
+	workspace_buttons yes
+	strip_workspace_numbers yes
 }
-
-exec nm-applet
-exec dunst
-exec picom
