@@ -50,20 +50,20 @@ print_events = false
 render_timer = false
 
 [font]
-size = 9.0
+size = 10.0
 
 [font.normal]
-family = "Terminess Nerd Font"
+family = "Terminus"
 
 [font.italic]
-family = "Terminess Nerd Font"
+family = "Terminus"
 style = "Regular"
 
 [font.bold]
-family = "Terminess Nerd Font"
+family = "Terminus"
 
 [font.bold_italic]
-family = "Terminess Nerd Font"
+family = "Terminus"
 style = "Bold"
 
 [font.glyph_offset]
