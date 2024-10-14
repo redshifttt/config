@@ -19,17 +19,24 @@ return {
             lsp_zero.nvim_lua_ls()
         )
 
+        lspconfig.pylsp.setup({
+            settings = {
+                pylsp = {
+                    ruff = { enabled = true }
+                }
+            }
+        })
+
         lsp_zero.setup_servers({
             'pylsp',
-            'nil_ls',
-            'gopls'
+            'gopls',
         })
 
         lsp_zero.set_sign_icons({
-            error = '✘',
-            warn = '!',
-            hint = '⚑',
-            info = 'ⓘ'
+            error = '',
+            warn = '',
+            hint = '',
+            info = ''
         })
 
         lsp_zero.setup()

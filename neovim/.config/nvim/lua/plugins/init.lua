@@ -1,13 +1,6 @@
 return {
     {
-        'L3MON4D3/LuaSnip'
-    },
-    {
         'lewis6991/gitsigns.nvim',
-        config = true
-    },
-    {
-        "j-hui/fidget.nvim",
         config = true
     },
     {
@@ -36,11 +29,7 @@ return {
         end
     },
     {
-        "NeogitOrg/neogit",
-        dependencies = {
-            "nvim-lua/plenary.nvim",         -- required
-            -- "sindrets/diffview.nvim",        -- optional - Diff integration
-        },
+        "brenoprata10/nvim-highlight-colors",
         config = true
-    }
+    },
 }
