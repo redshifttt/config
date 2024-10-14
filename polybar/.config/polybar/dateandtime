@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Literally the best name for the function
+st_nd_rd_th(){
+    case "$day" in
+        1|[2-3]1) echo "st" ;;
+        2|22) echo "nd" ;;
+        3|23) echo "rd" ;;
+        *) echo "th" ;;
+    esac
+}
+
+day=$(date +"%-d")
+
+date +"%-d$(st_nd_rd_th) %b %Y (%A) %H:%M"
