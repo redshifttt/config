@@ -25,13 +25,13 @@
         minotaur = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./hosts/minotaur
+            ./nixos/minotaur
 
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.sean = import ./home/sean/minotaur.nix;
+              home-manager.users.sean = import ./home-manager/minotaur.nix;
             }
           ];
           specialArgs = { inherit inputs; };
@@ -40,13 +40,13 @@
         ceres = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./hosts/ceres
+            ./nixos/ceres
 
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.sean = import ./home/sean/ceres.nix;
+              home-manager.users.sean = import ./home-manager/ceres.nix;
             }
           ];
           specialArgs = { inherit inputs; };
